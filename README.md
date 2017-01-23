@@ -1,2 +1,2 @@
-# shoe-Plaza
+# Shoe Plaza
 Proyecto de Bases de Datos
