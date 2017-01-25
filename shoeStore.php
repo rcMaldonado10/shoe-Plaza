@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>G.R.Y.K Store Plaza</title>
+    <title>Shoe Plaza</title>
 
     <meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -19,11 +19,11 @@
         
                 <div class="fixedwith">
                     
-                    <div id="logodiv"> <img src="storeLogo.jpg" />
+                    <div id="logodiv"> <img src="images/storeLogo.jpg" />
                     </div>
                 
                     <div id="signindiv">
-                        <img src="singnin.png"/>Sign in
+                        <img src="images/singnin.png"/>Sign in
                     </div>
                        
                     </div>
@@ -80,7 +80,7 @@
                             <h1>Hi!</h1>
                             
                             <div id="shoe">
-                            <img src="happyShoe.jpg" />
+                            <img src="images/happyShoe.jpg" />
                             </div>
                             </div>
                     
