@@ -85,6 +85,7 @@
                             </div>
                     
                         <h1>As you can see, this is a shoe</h1>
+                        <p>Hola Gabriel</p>
                 
                             
                         </div>
