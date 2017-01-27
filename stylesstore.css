@@ -142,3 +142,12 @@
             height: 300px;
             width: 400px;    
         }
+        .tablestyle{
+        height: 150px;
+        width: 200px; 
+        margin: 0 auto 0 auto
+        }
+        .imgsize{
+         height: 160px;
+         width: 200px;
+        }

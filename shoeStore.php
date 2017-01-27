@@ -32,12 +32,7 @@
                 
                     <li>Woman</li>
                     <li>Men</li>
-                    <li>Boys</li>
-                    <li>Girls</li>
-                    <li>Kids</li>
-                    <li>Brand</li>
-                    <li>More...</li>
-                
+                    <li>About us</li>               
                 
                 </ul>
                     
@@ -77,16 +72,39 @@
                         <div class ="fixedwith">
                         
                             <p>January 23, 2016</p>
-                            <h1>Hi!</h1>
+                            <h1>Work in progress</h1>
                             
-                            <div id="shoe">
-                            <img src="images/happyShoe.jpg" />
-                            </div>
-                            </div>
+                                    <!-- This is the table -->
+                                <table border ="1" class="tablestyle">
+                                
+                                    <tr>
+                                    
+                                        <th>Nike <img class="imgsize" src="Images/nike-roshe-one-mens.jpeg" /></th>
+                                         <th>rebook <img class="imgsize" src="Images/reebook-shoes.jpg" /></th>
+                                        <th>rebook <img class="imgsize" src="Images/skechers-shoes.jpeg" /></th>
+                                        
+                                    </tr>
+                                    
+                                    <tr>
+                                    
+                                        <td>Nike Air Max 95 Sneakerboots - Men's</td>
+                                        <td>Reebok Classic</td>
+                                         <td>Men's Skech-Air Varsity</td>
+                                    </tr>
+                                    <tr>
+                                    
+                                        <td>$99.99</td>
+                                        <td>$99.99</td>
+                                        <td>$99.99</td>
+                                    </tr>
+                                
+                                </table>
+                                
+                            
+                      </div>
                     
-                        <h1>As you can see, this is a shoe</h1>
-                        <p>Hola Gabriel</p>
-                        <p>pepe la var</p>
+                        <h4>As you can see, these shoes are expensive</h4>
+                        
                             
                         </div>
                     
