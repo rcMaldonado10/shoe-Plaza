@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Shoe Plaza</title>
+    <title>G.R.Y.K Store Plaza</title>
 
     <meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -19,20 +19,21 @@
         
                 <div class="fixedwith">
                     
-                    <div id="logodiv"> <img src="images/storeLogo.jpg" />
+                    <div id="logodiv"> <img src="storeLogo.jpg" />
                     </div>
                 
                     <div id="signindiv">
-                        <img src="images/singnin.png"/>Sign in
+                        <img src="singnin.png"/>Sign in
                     </div>
                        
                     </div>
             <div id="topmenudiv">
                     <ul>
                 
-                    <li class="default"><a href= "secondpage.php">Woman </a></li>
-                    <li class = "current_page-item"><a href="shoeStore.php">Men</a></li>
-                    <li class="defaut"><a href="about.php">About us</a></li>                       
+                    <li class="defaut"><a href= "secondpage.php">Woman </a></li>
+                    <li class="defaut"><a href="shoeStore.php">Men</a></li>
+                    <li  class ="current_page-item"><a href="about.php">About us</a></li>               
+                
                 
                 </ul>
                     
@@ -71,35 +72,17 @@
             <div id="content">
                         <div class ="fixedwith">
                         
-                            <p>January 23, 2016</p>
-                            <h1>Work in progress</h1>
+                            <p>January 27, 2016</p>
+                            <h1>This is a the About</h1>
                             
-                                    <!-- This is the table -->
-                                <table border ="1" class="tablestyle">
-                                
-                                     <tr>
-                                    
-                                        <th>Nike <img class="imgsize" src="Images/nike-roshe-one-mens.jpeg" /> <br/>Nike Air Max 95 Sneakerboots - Men's</th>
-                                         <th>rebook <img class="imgsize" src="Images/reebook-shoes.jpg" /><br/>Reebok Classic</th>
-                                        <th>rebook <img class="imgsize" src="Images/skechers-shoes.jpeg" /><br/>Men's Skech-Air Varsity</th>
-                                        
-                                    </tr>
-                                    
-                                    
-                                    <tr>
-                                    
-                                        <td>$99.99</td>
-                                        <td>$99.99</td>
-                                        <td>$99.99</td>
-                                    </tr>
-                                
-                                </table>
+                            
+                              
                                 
                             
                       </div>
                     
-                        <h4>As you can see, these shoes are expensive</h4>
-                        
+                        <h3>I'm a boss making Websites!!! </h3>
+                
                             
                         </div>
                     

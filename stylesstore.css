@@ -12,7 +12,7 @@
         
         .fixedwith{
             width: 1000px;
-            margin: 0;
+            margin: 2;
            
         }
         
@@ -54,7 +54,7 @@
         #topmenudiv li{
             list-style: none;
             font-weight: bold;
-            font-size: 0.9em;
+            font-size: 20px;
              padding: 0 20px 0 20px;
            border-right: 1px solid white;
              float:left;
@@ -139,8 +139,8 @@
             
         }
         #shoe img{
-            height: 300px;
-            width: 400px;    
+          height: 150px;
+            width: 200px;    
         }
         .tablestyle{
         height: 150px;
@@ -150,4 +150,10 @@
         .imgsize{
          height: 160px;
          width: 200px;
+        }
+        .current_page-item a {
+        color: #39c;
+        }
+        .default a {
+        color: white;
         }
