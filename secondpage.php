@@ -19,7 +19,7 @@
         
                 <div class="fixedwith">
                     
-                    <div id="logodiv"> <img src="images/mages/storeLogo.jpg" />
+                    <div id="logodiv"> <img src="images/storeLogo.jpg" />
                     </div>
                 
                     <div id="signindiv">
