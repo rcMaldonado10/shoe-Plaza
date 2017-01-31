@@ -19,11 +19,11 @@
         
                 <div class="fixedwith">
                     
-                    <div id="logodiv"> <img src="storeLogo.jpg" />
+                    <div id="logodiv"> <img src="images/storeLogo.jpg" />
                     </div>
                 
                     <div id="signindiv">
-                        <img src="singnin.png"/>Sign in
+                        <img src="images/singnin.png"/>Sign in
                     </div>
                        
                     </div>
