@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+
+
+
+<div class="form">
+=======
 <!DOCTYPE html>
 <html >
 <head>
@@ -15,6 +21,7 @@
 <body>
   <div class="form">
 
+>>>>>>> origin/master
       <ul class="tab-group">
         <li class="tab active"><a href="#signup">Sign Up</a></li>
         <li class="tab"><a href="#login">Log In</a></li>
@@ -111,9 +118,18 @@ echo "Good Query";
       </div><!-- tab-content -->
 
 </div> <!-- /form -->
+<<<<<<< HEAD
+
+  
+          
+
+
+
+
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script src="chuleria.js"></script>
 
 </body>
 </html>
+>>>>>>> origin/master
