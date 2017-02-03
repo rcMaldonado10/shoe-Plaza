@@ -1,4 +1,20 @@
-<link rel="stylesheet" type="text/css" href="creditCardStyle.css"/>
+
+<!doctype html>
+<html>
+<head>
+    <title>Sing up to Shoe Plaza </title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" type="text/css" href="creditCardStyle.css"/>
+    
+    
+    </head>
+<body>
+
+
 <div class="form">
       <ul class="tab-group">
         <li class="tab active"><a href="#signup">Sign Up</a></li>
@@ -76,3 +92,11 @@
       </div><!-- tab-content -->
 
 </div> <!-- /form -->
+
+  
+                
+</body>
+</html>
+
+
+

@@ -6,6 +6,13 @@ body {
   margin: 0 auto;
   width: 600px;
 }
+#logodiv{
+   width="620" height="440"
+            padding-top: 5px;
+            float:left;
+            border-right:1px solid #FFFFFF;
+            padding-right: 10px;
+}
 .body-text {
   padding: 0 20px 30px 20px;
   font-family: "Roboto";

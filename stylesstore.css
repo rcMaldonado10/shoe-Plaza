@@ -33,7 +33,7 @@
             border-right: 1px solid #FFFFFF;
             height:100%;
             padding: 10px 20px 12px 20px;
-            float:left:
+            float:left;
             
         }
         
@@ -156,4 +156,5 @@
         }
         .default a {
         color: white;
+        text-decoration: none;
         }

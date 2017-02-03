@@ -22,18 +22,18 @@
                     <div id="logodiv"> <img src="images/storeLogo.jpg" />
                     </div>
                 
-                    <div id="signindiv">
-                        <img src="images/singnin.png"/>Sign in
+                     <div id="signindiv">
+                        <img src="images/singnin.png"/><h class="default"><a class="default" href="singUpPage.php">Sign In</a></h>
                     </div>
                        
                     </div>
             <div id="topmenudiv">
                     <ul>
                 
-                    <li class = "current_page-item"><a href= "secondpage.php">Woman </a></li>
-                    <li class="defaut"><a href="shoeStore.php">Men</a></li>
-                    <li class="defaut"><a href="about.php">About us</a></li>                 
-                
+                    <li class="current_page-item"><a href= "secondpage.php">Woman </a></li>
+                    <li class="default"><a href="shoeStore.php">Men</a></li>
+                    <li class="default"><a href="about.php">About us</a></li>                 
+                    <li class="default"><a href="creditCardInfo.php">Credit Card Info</a></li> 
                 
                 </ul>
                     
