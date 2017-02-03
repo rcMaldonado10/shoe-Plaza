@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 <head>
@@ -9,9 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     <link rel="stylesheet" type="text/css" href="stylesstore.css"/>
-    
-    
-    </head>
+</head>
 <body>
 
     <div id="container">
@@ -36,39 +33,26 @@
                     <li class="default"><a href="creditCardInfo.php">Credit Card Info</a></li> 
                     
                 </ul>
-                    
-                    
+      
             </div>
                     
             <div id="searchdiv">  
                     <input type="text" placeholder="Search"/>
-                    
-                    
-             </div>
-                    
-                    
-                <div class="break" ></div>    
-                    
-                    
+           </div>
+               <div class="break" ></div>    
+                 
                     <div id="newsbar">
                         <div class ="fixedwith">
                         
                             <p id="newsheader">Shoe Store Plaza<span id="pr">PR</span> </p>
-                        
-                               
-                                
+
                              <div class="break" ></div>
-                            
-                            
-                            
-                            
+
                         </div>
-                    
-                    
-                    
+  
                  </div>
             
-             <div class="break" ></div>
+            <div class="break" ></div>
             <div id="content">
                         <div class ="fixedwith">
                         
@@ -80,32 +64,33 @@
                                 
                                      <tr>
                                     
-                                        <th>Nike <img class="imgsize" src="Images/nike-roshe-one-mens.jpeg" /> <br/>Nike Air Max 95 Sneakerboots - Men's</th>
-                                         <th>rebook <img class="imgsize" src="Images/reebook-shoes.jpg" /><br/>Reebok Classic</th>
-                                        <th>rebook <img class="imgsize" src="Images/skechers-shoes.jpeg" /><br/>Men's Skech-Air Varsity</th>
+                                        <th>Nike <img class="imgsize" src="Images/nike-roshe-one-mens.jpeg" /> 
+                                        <br/>Nike Air Max 95 Sneakerboots - Men's<br/>$99.99</th>
+                                        <th>rebook <img class="imgsize" src="Images/reebook-shoes.jpg" />
+                                        <br/>Reebok Classic<br/>$99.99</th>
+                                        <th>rebook <img class="imgsize" src="Images/skechers-shoes.jpeg" />
+                                        <br/>Men's Skech-Air Varsity<br/>$99.99</th>
                                         
                                     </tr>
-                                    
-                                    
+              
                                     <tr>
                                     
-                                        <td>$99.99</td>
-                                        <td>$99.99</td>
-                                        <td>$99.99</td>
+                                        <th>Nike <img class="imgsize" src="Images/nike-roshe-one-mens.jpeg" /> 
+                                        <br/>Nike Air Max 95 Sneakerboots - Men's<br/>$99.99</th>
+                                        <th>rebook <img class="imgsize" src="Images/reebook-shoes.jpg" />
+                                        <br/>Reebok Classic<br/>$99.99</th>
+                                        <th>rebook <img class="imgsize" src="Images/skechers-shoes.jpeg" />
+                                        <br/>Men's Skech-Air Varsity<br/>$99.99</th>
                                     </tr>
                                 
                                 </table>
-                                
-                            
+ 
                       </div>
                     
                         <h4>As you can see, these shoes are expensive</h4>
-                        
                             
                         </div>
-                    
-                    
-                    
+
                  </div>
                    
         </div>

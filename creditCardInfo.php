@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html>
 <head>
@@ -17,6 +18,10 @@
 
                     
 <div class="body-text">Try to write your name in the name fields. Also try to write your card number. This plugin identifies your card and shows the right graphics. By clicking CCV field card will turn.</div>
+=======
+<link rel="stylesheet" type="text/css" href="creditCardStyle.css"/>
+<div class="body-text">Please enter your credit card information</div>
+>>>>>>> origin/master
   <form>
     <div class="form-container">
       <div class="personal-information">
