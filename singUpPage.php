@@ -38,14 +38,14 @@
               <label>
                 First Name<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" name="firstName" />
+              <input type="text" required autocomplete="off" />
             </div>
 
             <div class="field-wrap">
               <label>
                 Last Name<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off" name="lastName"/>
+              <input type="text"required autocomplete="off"/>
             </div>
           </div>
 
@@ -53,37 +53,18 @@
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off" name="email"/>
+            <input type="email"required autocomplete="off"/>
           </div>
 
           <div class="field-wrap">
             <label>
               Set A Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off" name="password"/>
+            <input type="password"required autocomplete="off"/>
           </div>
-            <INPUT TYPE = "Submit" Name = "Submit1" VALUE = "Login">          <!--<button onclick="myChange()">Copy Text</button> -->
-          <!--<button type="submit" class="button button-block"/>Get Started</button> -->
 
-<?php
-function myChange(){
-$servername = "localhost";
-$username = "Yatio";
-$password = "mayo1996";
-$Table = "testdb1";
+          <button type="submit" class="button button-block"/>Get Started</button>
 
-$dateBase = new mysqli($servername,$username,$password,$Table) or die("Unable to connect");
-
-$firstName = $_POST['firstName'];
-echo firstName;
-
-$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Hola','idk','16')";
-$result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
-echo "Good Query";
-}
-
-
- ?>
           </form>
 
         </div>
