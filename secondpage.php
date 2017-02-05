@@ -42,8 +42,6 @@
                     
             <div id="searchdiv">  
                     <input type="text" placeholder="Search"/>
-                    
-                    
              </div>
                     
                     
