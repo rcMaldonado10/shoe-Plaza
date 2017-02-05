@@ -8,8 +8,31 @@
 
 
       <link rel="stylesheet" href="signUpStyle.css">
+      <?PHP
+
+      if (isset($_POST['SingUP']))
+      {
+            session_start();
+            $_SESSION['firstName'] = $_POST['firstName'];
+            $_SESSION['lastName']  = $_POST['lastName'];
+            $number = '16';
+
+            $serverName = "localhost";
+            $userName = "Yatio";
+            $password = "mayo1996";
+            $Table = "testdb1";
+
+            // $dateBase = new mysqli($serverName,$userName,$password,$Table) or die("Unable to connect");
+            //
+            // $sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('$firstName','$lastName','$number')";
+            // //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
+            // $result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
+            // echo "Good Query";
+      }
 
 
+
+      ?>
 </head>
 
 <body>
@@ -24,7 +47,7 @@
         <div id="signup">
           <h1>Sign Up for Free</h1>
 
-          <form action="/" method="post">
+          <form action="idk.php" method="post">
 
           <div class="top-row">
             <div class="field-wrap">
@@ -56,9 +79,9 @@
 
             <input type="password"required autocomplete="off" name="password"/>
            </div>
-            <button type="submit" class="button button-block"/>Get Started</button>>
+            <INPUT type="submit" class="button button-block" VALUE = "Login" Name = "SingUP" >
 
-<?php
+<!-- <?php
 function myChange(){
 $servername = "localhost";
 $username = "Yatio";
@@ -77,7 +100,7 @@ echo "Good Query";
 
 
 
- ?>
+ ?> -->
            </form>
 
          </div>
