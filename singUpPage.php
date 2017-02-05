@@ -79,7 +79,7 @@
 
             <input type="password"required autocomplete="off" name="password"/>
            </div>
-            <INPUT type="submit" class="button button-block" VALUE = "Login" Name = "SingUP" >
+            <INPUT type="submit" class="button button-block" VALUE = "Get Started" Name = "SingUP" >
 
 <!-- <?php
 function myChange(){
