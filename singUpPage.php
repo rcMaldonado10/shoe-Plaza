@@ -56,8 +56,7 @@
 
             <input type="password"required autocomplete="off" name="password"/>
            </div>
-            <INPUT TYPE = "Submit" Name = "Submit1" VALUE = "Login">          <!--<button onclick="myChange()">Copy Text</button> -->
-          <!--<button type="submit" class="button button-block"/>Get Started</button> -->
+            <button type="submit" class="button button-block"/>Get Started</button>>
 
 <?php
 function myChange(){

@@ -2,16 +2,9 @@
 
 body {
   padding: 60px 0px;
-  background-color: #B2D1E5;
+  background-color: #c1bdba;
   margin: 0 auto;
   width: 600px;
-}
-#logodiv{
-   width="620" height="440"
-            padding-top: 5px;
-            float:left;
-            border-right:1px solid #FFFFFF;
-            padding-right: 10px;
 }
 .body-text {
   padding: 0 20px 30px 20px;
@@ -29,7 +22,7 @@ body {
   width: 100%;
 }
 .personal-information {
-  background-color: #3C8DC5;
+  background-color: #00BFFF;
   color: #fff;
   padding: 1px 0px;
   text-align: center;
@@ -59,7 +52,7 @@ input[type="submit"]{
   height: 60px;
   width: 100%;
   border: none;
-  background-color: #3C8DC5;
+  background-color: #00BFFF;
   color: #fff;
   margin-top: 2px;
   curson: pointer;
