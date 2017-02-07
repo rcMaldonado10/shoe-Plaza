@@ -15,14 +15,16 @@
             session_start();
             $_SESSION['firstName'] = $_POST['firstName'];
             $_SESSION['lastName']  = $_POST['lastName'];
+            $_SESSION['email']  = $_POST['email'];
+            $_SESSION['password']  = $_POST['password'];
             $number = '16';
 
             $serverName = "localhost";
-            $userName = "Yatio";
-            $password = "mayo1996";
-            $Table = "testdb1";
+            $userName = "root";
+            $password = "";
+            $Table = "testdb2";
 
-            // $dateBase = new mysqli($serverName,$userName,$password,$Table) or die("Unable to connect");
+            $dateBase = new mysqli($serverName,$userName,$password,$Table) or die("Unable to connect");
             //
             // $sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('$firstName','$lastName','$number')";
             // //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
