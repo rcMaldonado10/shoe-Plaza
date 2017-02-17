@@ -52,7 +52,7 @@
                     <div id="newsbar">
                         <div class ="fixedwith">
                         
-                            <p id="newsheader">Shoe Store Plaza<span id="pr">PR</span> </p>
+                            <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p>
                         
                                
                                 
@@ -70,17 +70,34 @@
             <div class="break" ></div>
 
             <div id="content">
+                        
+
+                            
+                            <h1>Select our best shoes in Stock for men</h1>
+  <div class="boxCheck">  <!-- These are the checkbox division -->
+  <h3>Brand</h3>
+  <input type="checkbox" name="brand1" value="Nike">Nike<br>
+  <input type="checkbox" name="brand2" value="Nike">Nike<br>
+  <input type="checkbox" name="brabd3" value="Fila">Fila 
+  <h3>Color</h3>
+  <input type="checkbox" name="color1" value="Black">Black<br>
+  <input type="checkbox" name="color2" value="Brown">Brown<br>
+  <input type="checkbox" name="color3" value="Gray">Gray<br>
+  <input type="checkbox" name="color4" value="White">White 
+  <h3>Price</h3>
+  <input type="checkbox" name="price1" value="25">$25.00 and Under<br>
+  <input type="checkbox" name="price2" value="35">$35.00 and Under<br>
+  <input type="checkbox" name="price3" value="45">$45.00 and Under<br>
+  <input type="checkbox" name="price4" value="55">$55.00 and Under<br>
+  <input type="checkbox" name="price5" value="65">$65.00 and Under<br>
+  <input type="checkbox" name="price6" value="75">$75.00 and Under<br>
+  <input type="checkbox" name="price7" value="85">$85.00 and Under<br>
+  <input type="checkbox" name="color8" value="95">$95.00 and Under  </div>  <!-- End checkbox division -->
+
                         <div class ="fixedwith">
-
-                            <p>January 23, 2016</p>
-                            <h1>Work in progress</h1>
-
                                     <!-- This is the table -->
                                 <table border ="1" class="tablestyle">
 
-
-
-
                                     <tr>
 
                                         <th>Nike <img class="imgsize" src="Images/nike-roshe-one-mens.jpeg" />
@@ -103,11 +120,12 @@
 
                                     </tr>
 
-                                </table>
+                                </table> <!--Table ends -->
 
                       </div>
+  
+     
 
-                        <h4>As you can see, these shoes are expensive</h4>
 
                         </div>
 
@@ -116,9 +134,11 @@
                         </div>
                  </div>
 
+
         </div>
 
     </div>
+
 
 </body>
 </html>

@@ -53,7 +53,7 @@
                     <div id="newsbar">
                         <div class ="fixedwith">
                         
-                            <p id="newsheader">Shoe Store Plaza<span id="pr">PR</span> </p>
+                            <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p>
                         
                                
                                 
@@ -72,20 +72,12 @@
             <div id="content">
                         <div class ="fixedwith">
                         
-                            <p>January 27, 2016</p>
-                            <h1>This is a the About</h1>
                             
+                            <h1>This is a the About</h1>                    
                             
-                              
-                                
-                            
-                      </div>
-                    
-                        <h3>I'm a boss making Websites!!! </h3>
-                
-                            
-                        </div>
-                    
+                            <h1>This eComercial Website was made posible by Gabriel, Rafael, Yadiel and Kenneth.</h1>
+
+
                     
                     
                  </div>
