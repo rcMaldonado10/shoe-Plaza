@@ -73,10 +73,10 @@
                         <div class ="fixedwith">
                         
                             
-                            <h1>This is a the About</h1>                    
+                                             
                             
                             <h1>This eComercial Website was made posible by Gabriel, Rafael, Yadiel and Kenneth.</h1>
-
+                            <h2>Need no add a better description on this page.</h2>
 
                     
                     
