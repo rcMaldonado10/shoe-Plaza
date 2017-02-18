@@ -44,7 +44,7 @@
                     <div id="newsbar">
                         <div class ="fixedwith">
                         
-                            <p id="titleheader">Women</p>
+                           <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p>
                         
                                
                                 
@@ -60,15 +60,13 @@
                  </div>
             
              <div class="break" ></div>
-            <div id="content">
-                        
-                        
-                          
-                            <h1>Women</h1>
+
+             <h1 style="text-align: center;">Women</h1>
+            <div id="content">                
 <div class="boxCheck">  <!-- These are the checkbox division -->
   <h3>Brand</h3>
      <input type="checkbox" name="brand1" value="Nike">Nike<br>
-    <input type="checkbox" name="brand2" value="Nike">Nike<br>
+    <input type="checkbox" name="brand2" value="Rebook">Rebook<br>
     <input type="checkbox" name="brabd3" value="Fila">Fila 
   <h3>Color</h3>
     <input type="checkbox" name="color1" value="Black">Black<br>
