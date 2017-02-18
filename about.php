@@ -29,9 +29,9 @@
                     </div>
             <div id="topmenudiv">
                     <ul>
-                
-                    <li class="default"><a href= "secondpage.php">Woman </a></li>
-                    <li class="default"><a href="shoeStore.php">Men</a></li>
+                    <li class="default"><a href="home.php">Home</a></li>
+                    <li class="default"><a href= "women.php">Women </a></li>
+                    <li class="default"><a href="men.php">Men</a></li>
                     <li class="current_page-item"><a href="about.php">About us</a></li>                       
                     <li class="default"><a href="creditCardInfo.php">Credit Card Info</a></li> 
                     
@@ -39,13 +39,6 @@
                     
                     
             </div>
-                    
-            <div id="searchdiv">  
-                    <input type="text" placeholder="Search"/>
-                    
-                    
-             </div>
-                    
                     
                 <div class="break" ></div>    
                     
@@ -71,19 +64,12 @@
              <div class="break" ></div>
             <div id="content">
                         <div class ="fixedwith">
-                        
-                            
-                                             
-                            
-                            <h1>This eComercial Website was made posible by Gabriel, Rafael, Yadiel and Kenneth.</h1>
-                            <h2>Need no add a better description on this page.</h2>
 
-                    
-                    
-                 </div>
-                   
+                            <h1>The Place Your Feet Always Wanted!</h1>
+                            <p>With variety for men and women, the best brands and pricing</br>
+                            that no one can compare. </p>
+                 </div>           
         </div>
-    
     </div>
                 
 </body>
