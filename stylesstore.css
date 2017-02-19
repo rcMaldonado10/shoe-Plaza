@@ -1,18 +1,19 @@
  body{
             font-family: sans-serif;
             margin:0;
+            background-color: #F1F1F1;
         }
         
         #topbar{
             background-color: #3B5998;
             width: 100%;
-            height: 100px;
+            height: 60px;
             color: white;
         }
         
         .fixedwith{
-           
-            width: 1000px;
+           background-color:none;
+            width: 100%;
             margin: 2;
            
         }
@@ -82,13 +83,13 @@
         }
         
         
-        #newsbar{
+        #titlebar{
             background-color: #F1F1F1;
             width:100%;
-            height: 90px;
+            height: 80px;
             color: white;
         }
-        #newsbar p{
+        #titlebar p{
             margin:0;
             padding:0;
             padding-top: 10px;
@@ -105,14 +106,6 @@
             font-size: 0.7em;
             padding-left: 10px;
         }
-        
-        #topicmenu ul{
-            background-color: #3E0C0D;
-            padding: 5px 0 0 5xp;
-            margin:0;
-            height: 20px
-            
-        }
 
         .selected{
             background-color: aliceblue;
@@ -125,8 +118,9 @@
         }
         
         #content{
+            background-color: none;
             height: 500px;
-            width:500px;
+            width:100%;
             
             color: #5A5A5A;
             font-size: 0.75em;
@@ -144,7 +138,8 @@
         .tablestyle{
         height: 150px;
         width: 200px; 
-        margin: 0 auto 0 auto
+        text-align: center;
+        font-size: 16px;
         
         }
         .imgsize{

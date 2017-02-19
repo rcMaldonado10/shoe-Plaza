@@ -10,7 +10,12 @@
     <link rel="stylesheet" type="text/css" href="stylesstore.css"/>
 </head>
 <body>
-
+<div id="titlebar">
+    <div class ="fixedwith">                 
+      <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p> 
+    <div class="break" ></div>
+</div>
+ </div>
     <div id="container">
         <div id="topbar">
 
@@ -32,21 +37,8 @@
                     <li class="default"><a href="about.php">About us</a></li>
 
                 </ul>
-
-
             </div>
-                <div class="break" ></div>
-
-                    <div id="newsbar">
-                        <div class ="fixedwith">
-
-                            <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p>
-
-                             <div class="break" ></div>
-
-                        </div>
-
-                 </div>
+               
 
             <div class="break" ></div>
 

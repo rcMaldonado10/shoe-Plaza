@@ -10,7 +10,13 @@
     <link rel="stylesheet" type="text/css" href="stylesstore.css"/>
 </head>
 <body>
+<div id="titlebar">
+    <div class ="fixedwith">                 
+      <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p> 
+    <div class="break" ></div>
+</div>
 
+ </div>
     <div id="container">
         <div id="topbar">
 
@@ -32,22 +38,9 @@
                     <li class="default"><a href="men.php">Men</a></li>
                     <li class="default"><a href="about.php">About us</a></li>                  
                 </ul>
-
-
             </div>
-                <div class="break" ></div>
-
-                    <div id="newsbar">
-                        <div class ="fixedwith">
-
-                            <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p>
-
-                             <div class="break" ></div>
-
-                        </div>
-
-                 </div>
-
+                    
+          
             <div class="break" ></div>
 
              <h1 style="text-align: center;">Home</h1>
@@ -75,7 +68,7 @@
                         <div class ="fixedwith">
                                     <!-- This is the table -->
                                 <table border ="1" class="tablestyle">
-
+                                    
                                     <tr>
 
                                         <th><a href="checkout.php">Nike <img class="imgsize" src="Images/nike-roshe-one-mens.jpeg" />
@@ -84,7 +77,7 @@
                                         <br/>Reebok Classic<br/>$45.00</th>
                                         <th>Skechers <img class="imgsize" src="Images/skechers-shoes.jpeg" />
                                         <br/>Men's Skech-Air Varsity<br/>$55.00</th>
-
+                                        
                                     </tr>
 
                                     <tr>
@@ -97,7 +90,7 @@
                                         <br/>Xtreme Runner V<br/>$25.00</th>
 
                                     </tr>
-
+                                  
                                 </table> <!--Table ends -->
 
                       </div>

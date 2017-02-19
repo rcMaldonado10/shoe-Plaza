@@ -13,7 +13,12 @@
 
     </head>
 <body>
-
+<div id="titlebar">
+    <div class ="fixedwith">                 
+      <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p> 
+    <div class="break" ></div>
+</div>
+ </div>
     <div id="container">
         <div id="topbar">
 
@@ -39,27 +44,7 @@
 
             </div>
 
-                <div class="break" ></div>
-
-
-                    <div id="newsbar">
-                        <div class ="fixedwith">
-
-                            <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p>
-
-
-
-                             <div class="break" ></div>
-
-
-
-
-                        </div>
-
-
-
-                 </div>
-
+             
              <div class="break" ></div>
             <div id="content">
                         <div class ="fixedwith">
