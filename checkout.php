@@ -30,25 +30,24 @@
                     <li class="default"><a href= "women.php">Women </a></li>
                     <li class = "default"><a href="men.php">Men</a></li>
                     <li class="default"><a href="about.php">About us</a></li>
-                    <li class="default"><a href="creditCardInfo.php">Credit Card Info</a></li>
 
                 </ul>
 
 
-            </div>  
-                <div class="break" ></div>    
-          
+            </div>
+                <div class="break" ></div>
+
                     <div id="newsbar">
                         <div class ="fixedwith">
-                        
+
                             <p id="titleheader">Checkout</p>
-        
+
                              <div class="break" ></div>
 
                         </div>
 
                  </div>
-            
+
             <div class="break" ></div>
 
             <form action="">

@@ -30,25 +30,24 @@
                     <li class="default"><a href= "women.php">Women </a></li>
                     <li class = "current_page-item"><a href="men.php">Men</a></li>
                     <li class="default"><a href="about.php">About us</a></li>
-                    <li class="default"><a href="creditCardInfo.php">Credit Card Info</a></li>
 
                 </ul>
 
 
-            </div>  
-                <div class="break" ></div>    
-          
+            </div>
+                <div class="break" ></div>
+
                     <div id="newsbar">
                         <div class ="fixedwith">
-                        
+
                             <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p>
-        
+
                              <div class="break" ></div>
 
                         </div>
 
                  </div>
-            
+
             <div class="break" ></div>
 
              <h1 style="text-align: center;">Men</h1>
@@ -57,12 +56,12 @@
   <h3>Brand</h3>
     <input type="checkbox" name="brand1" value="Nike">Nike<br>
     <input type="checkbox" name="brand2" value="Nike">Rebook<br>
-    <input type="checkbox" name="brabd3" value="Fila">Fila 
+    <input type="checkbox" name="brabd3" value="Fila">Fila
   <h3>Color</h3>
     <input type="checkbox" name="color1" value="Black">Black<br>
     <input type="checkbox" name="color2" value="Brown">Brown<br>
     <input type="checkbox" name="color3" value="Gray">Gray<br>
-    <input type="checkbox" name="color4" value="White">White 
+    <input type="checkbox" name="color4" value="White">White
   <h3>Price</h3>
     <input type="checkbox" name="price1" value="25">$25.00<br>
     <input type="checkbox" name="price2" value="35">$35.00<br>
@@ -88,8 +87,8 @@
                                 </table> <!--Table ends -->
 
                       </div>
-  
-     
+
+
 
 
                         </div>

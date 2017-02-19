@@ -48,8 +48,7 @@
       <div class="tab-content">
         <div id="signup">
           <h1>Sign Up for Free</h1>
-
-          <form action="idk.php" method="post">
+          <form action="creditCardInfo.php" method="post">
 
           <div class="top-row">
             <div class="field-wrap">

@@ -8,18 +8,18 @@ html {
 
 body {
   background-image: url("images/Shoes-WallpaperHD.jpg");
-  
+
   font-family: 'Titillium Web', sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: #1ab188;
+  color: #00BFFF;
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
 a:hover {
-  color: #179b77;
+  color: #00BFFF;
 }
 
 .form {
@@ -89,7 +89,7 @@ label {
 }
 label .req {
   margin: 2px;
-  color: #1ab188;
+  color: #00BFFF;//////////
 }
 
 label.active {
@@ -122,7 +122,7 @@ input, textarea {
 }
 input:focus, textarea:focus {
   outline: 0;
-  border-color: #1ab188;
+  border-color: #00BFFF;
 }
 
 textarea {
