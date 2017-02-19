@@ -13,19 +13,14 @@
 
     </head>
 <body>
-<div id="titlebar">
-    <div class ="fixedwith">                 
-      <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p> 
-    <div class="break" ></div>
-</div>
+
  </div>
     <div id="container">
         <div id="topbar">
 
                 <div class="fixedwith">
 
-                    <div id="logodiv"> <img src="images/storeLogo.jpg" />
-                    </div>
+                     <div id="logodiv">  <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p></div>
 
                      <div id="signindiv">
                         <img src="images/singnin.png"/><h class="default"><a class="default" href="singUpPage.php">Sign In</a></h>
