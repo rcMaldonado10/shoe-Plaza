@@ -10,15 +10,15 @@
     <link rel="stylesheet" type="text/css" href="stylesstore.css"/>
 </head>
 <body>
-    <div id="container">
+
+   <div id="container">
         <div id="topbar">
 
                 <div class="fixedwith">
 
-                    <div id="logodiv"> <img src="images/storeLogo.jpg" />
-                    </div>
+                     <div id="logodiv">  <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p></div>
 
-                    <div id="signindiv">
+                     <div id="signindiv">
                         <img src="images/singnin.png"/><h class="default"><a class="default" href="singUpPage.php">Sign In</a></h>
                     </div>
 
@@ -39,7 +39,7 @@
                     <div id="newsbar">
                         <div class ="fixedwith">
 
-                            <p id="titleheader">Checkout</p>
+                            <p id="titleheader" style="color: black;">Checkout</p>
 
                              <div class="break" ></div>
 
@@ -58,7 +58,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
+  
         </button>
       </p>
         <a href="#" class="btn btn-info btn-lg">
@@ -66,7 +66,7 @@
         </a>
       </p>
     </div>
-  </body>
+  
                 </fieldset>
             </form>
 

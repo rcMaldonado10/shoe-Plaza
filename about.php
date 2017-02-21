@@ -14,7 +14,6 @@
     </head>
 <body>
 
- </div>
     <div id="container">
         <div id="topbar">
 
@@ -35,11 +34,8 @@
                     <li class="current_page-item"><a href="about.php">About us</a></li> 
 
                 </ul>
-
-
             </div>
-
-             
+            
              <div class="break" ></div>
             <div id="content">
                         <div class ="fixedwith">

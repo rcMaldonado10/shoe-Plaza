@@ -24,7 +24,7 @@
 
                     </div>
             <div id="topmenudiv">
-                    <ul>
+                <ul>
                     <li class="default"><a href="home.php">Home</a></li>
                     <li class="default"><a href= "women.php">Women </a></li>
                     <li class = "current_page-item"><a href="men.php">Men</a></li>
