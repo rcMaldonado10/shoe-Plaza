@@ -48,6 +48,7 @@
       <div class="tab-content">
         <div id="signup">
           <h1>Sign Up for Free</h1>
+          <h2>And Receive Special Offers!</h2>
           <form action="creditCardInfo.php" method="post">
 
           <div class="top-row">

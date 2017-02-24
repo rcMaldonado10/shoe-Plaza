@@ -1,7 +1,8 @@
 # Shoe Plaza
-Proyecto de Bases de Datos
-Nadie lee esto verdad?-yatio
-Nope
-well nice I guess
-Si estas leyendo este mensaje eres un NOOB!
-READ PEOPLE READ!!!!!
+Proyecto de Bases de Datos<br>
+
+Integrantes del grupo:<br>
+* Rafael E. Colón Maldonado
+* Gabriel Gozález Torres
+* Yadiel Nieves Cardona
+* Kenneth Vélez Rosario
