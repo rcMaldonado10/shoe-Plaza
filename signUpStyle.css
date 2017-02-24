@@ -172,7 +172,15 @@ textarea {
   display: block;
   width: 100%;
 }
-
+#column-left {
+  width: 46.8%;
+  float: left;
+  margin-bottom: 2px;
+}
+#column-right {
+  width: 46.8%;
+  float: right;
+}
 .forgot {
   margin-top: -20px;
   text-align: right;
