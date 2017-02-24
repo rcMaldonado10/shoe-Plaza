@@ -6,7 +6,7 @@
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
-
+<link rel="stylesheet" href="creditCardStyle.css">
       <link rel="stylesheet" href="signUpStyle.css">
       <?PHP
 
@@ -49,7 +49,7 @@
         <div id="signup">
           <h1>Sign Up for Free</h1>
           <h2>And Receive Special Offers!</h2>
-          <form action="creditCardInfo.php" method="post">
+          <form action="home.php" method="post">
 
           <div class="top-row">
             <div class="field-wrap">
@@ -81,7 +81,31 @@
 
             <input type="password"required autocomplete="off" name="password"/>
            </div>
-            <INPUT type="submit" class="button button-block" VALUE = "Get Started" Name = "SingUP" >
+           
+            <div class="body-text">Please enter credit card information</div>
+  <form>
+    <div class="form-container">
+      <div class="personal-information">
+        <h2>Payment Information</h2>
+      </div> <!-- end of personal-information -->
+
+      <input id="input-field" type="text" name="streetaddress" required="required" autocomplete="on" maxlength="45" placeholder="Street Address"/>
+      <input id="column-left" type="text" name="city" required="required" autocomplete="on" maxlength="20" placeholder="City"/>
+      <input id="column-right" type="text" name="zipcode" required="required" autocomplete="on" pattern="[0-9]*" maxlength="5" placeholder="ZIP code"/>
+      <input id="input-field" type="text" name="full-name" required="required" autocomplete="on" maxlength="40" placeholder="Full name as it appears on the card"/>
+
+        <div class="card-wrapper"></div>
+          <input id="input-field" type="text" name="number" placeholder="Card Number"/>
+          <input id="column-left" type="text" name="expiry" placeholder="MM / YY"/>
+          <input id="column-right" type="text" name="cvc" placeholder="CCV"/>
+          <input id="input-button" type="submit" value="Submit"/>
+  </form>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/121761/card.js'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/121761/jquery.card.js'></script>
+
+    <script src="ChuleriaCC.js"></script>
 
 <!-- <?php
 function myChange(){
