@@ -74,6 +74,5 @@
   <div class="copyright">
  <p>*Your email address will be subject to the terms and conditions of our Privacy Policy.
 <p>© 2017 Shoe-Plaza.com, Inc. or its affiliates. Shoe-Plaza.com is operated by XAMPP.</p>
-<p>For luxury and designer styles, visit <a href="http://www.6pm.com">6pm.com.</a></p></div> 
 </body>
 </html>
