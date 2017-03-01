@@ -33,25 +33,22 @@
                 </ul>
             </div>
                 <div class="break" ></div>
-                    
+
                         <div class ="fixedwith">
 
                             <p id="titleheader" style="color: black;font-size: 50px;">Checkout</p>
 
                  </div>
                  <div class="break" ></div>
-                 
+
                  <form action="">
                 <fieldset style="color: black;">
-                    Name: Rafael E. Colon Maldonado</br>
-                    Shipping Address: Barceloneta, Puerto Rico 00617</br>
-                    Credit Card: XXXX-XXXX-XXXX-1234</br>
 
                     <meta name="viewport" content="width=device-width, initial-scale=1">
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                        
+
                         <img src="images/nike-roshe-one-mens.jpeg" width="400" height="400"/>
                         <p>Brand: Nike</p><br>
                         <p>Model: Nike Air Max 95 Sneakerboots</p><br>
