@@ -90,7 +90,7 @@
       <input id="input-field" type="text" name="streetaddress" required="required" autocomplete="off" maxlength="45" placeholder="Street Address"/><br>
       <input id="column-left" type="text" name="city" required="required" autocomplete="off" maxlength="20" placeholder="City"/>
       <input id="column-right" type="text" name="zipcode" required="required" autocomplete="off" pattern="[0-9]*" maxlength="5" placeholder="ZIP code"/><br><br><br>
-      <input id="input-field" type="text" name="full-name" required="required" autocomplete="off" maxlength="40" placeholder="Full name as it appears on the card"/>
+      <input id="input-field" type="text" name="first-name" required="required" autocomplete="off" maxlength="40" placeholder="Full name as it appears on the card"/>
 
         <div class="card-wrapper"></div>
           <input id="input-field" type="text" name="number" placeholder="Card Number"/><br>
