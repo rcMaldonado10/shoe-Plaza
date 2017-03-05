@@ -65,11 +65,11 @@
                                 <!-- This is the table -->
                                 <table border ="1" class="tablestyle">
                                  <tr>
-                                   <th>Nike <img class="imgsize" src="Images/nike-girl.jpg" />
+                                   <th>Nike <img class="imgsize" src="Images/woman1.jpg" />
                                         <br/>Nike Air Max 95 Sneakerboots - Women<br/>$95.00</th>
-                                        <th>Rebook <img class="imgsize" src="Images/reebok-kamikaze-girls.jpg" />
+                                        <th>Rebook <img class="imgsize" src="Images/woman2.jpg" />
                                         <br/>Reebok Fit<br/>$75.00</th>
-                                        <th>Rebook <img class="imgsize" src="Images/reebook-girl2.jpg" />
+                                        <th>Rebook <img class="imgsize" src="Images/woman3.jpg" />
                                         <br/>Xtreme Runner V<br/>$25.00
                                     </th>
                                  </tr>
@@ -77,13 +77,7 @@
 
                       </div>
 
-                        </div>
-
-                 </div>
-
-        </div>
-
-    </div>
+                  
  <div class="break" ></div>
   <div class="copyright">
  <p>*Your email address will be subject to the terms and conditions of our Privacy Policy.

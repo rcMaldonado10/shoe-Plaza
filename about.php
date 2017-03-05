@@ -46,9 +46,12 @@
                      <div class="imgaboutsize"><img src="Images/Men-section-Wallpaper.jpg" /></div>
       
                  </div><!--end fixedwith-->
+
+
+<!--Google Maps-->
  <div id="mapdiv"> 
     <h3>Our headquarters at University of Puerto Rico in Arecibo</h3>
- <div id="map"></div><!--Google Maps-->
+ <div id="map"></div>
     
     <script>
       function initMap() {

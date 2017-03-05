@@ -49,25 +49,29 @@
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-                        <img src="images/nike-roshe-one-mens.jpeg" width="400" height="400"/>
+                        <img src="images/men1.jpg" width="400" height="400"/>
                         <p>Brand: Nike</p><br>
                         <p>Model: Nike Air Max 95 Sneakerboots</p><br>
-                        <p>Size:</p>
-                        <select name="size" size="5">
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>12</option>
-                        </select><br>
-                        <p>Quantity:</p>
-                        <select name="size" size="5">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select><br>
+                       <div class="form-group">
+                            <label for="size">Size: <label>
+                            <select name="size" id="size" class="form-control">
+                                 <option value="7">7</option>
+                                 <option value="8">8</option>
+                                 <option value="9">9</option>
+                                 <option value="10">10</option>
+                                 <option value="12">12</option>
+                            </select>
+                     </div>
+                        <div class="form-group">
+                            <label for="size">Quantity: <label>
+                            <select name="size" id="size" class="form-control">
+                                 <option value="1">1</option>
+                                 <option value="2">2</option>
+                                 <option value="3">3</option>
+                                 <option value="4">4</option>
+                                 <option value="5">5</option>
+                            </select>
+                     </div>
                         <p style="font-size: 20px;"><b>$95.00</b></p>
                 </fieldset>
             </form>
