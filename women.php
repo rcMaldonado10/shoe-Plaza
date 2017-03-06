@@ -1,5 +1,5 @@
 <?php
-include 'includes/topbar.php'
+include 'includes/topbar.php';
 
  ?>
             <div id="topmenudiv">
@@ -18,7 +18,7 @@ include 'includes/topbar.php'
              <h1 style="text-align: center;">Women</h1>
             <div id="content">
 <?php
-include 'includes/checkbox.php'
+include 'includes/checkbox.php';
 
  ?>
 

@@ -1,5 +1,5 @@
 <?php
-include 'includes/topbar.php'
+include 'includes/topbar.php';
 ?>
 
 
@@ -46,7 +46,7 @@ include 'includes/checkbox.php'
 
 
  <?php
-include 'includes/detailsmodal.php'
+include 'includes/detailsmodal.php';
 
  ?>
     
