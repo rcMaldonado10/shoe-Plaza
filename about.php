@@ -70,9 +70,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxh13VatPGZhppQfC1g92fPrBj0oK-w_M&callback=initMap">
     </script>
  </div> <!--end mapdiv-->
-        </div><!--end content-->
-        
-    </div><!--end container-->
+       
   <div class="break" ></div>
   <div class="copyright">
  <p>*Your email address will be subject to the terms and conditions of our Privacy Policy.
