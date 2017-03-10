@@ -150,8 +150,13 @@
          height: 160px;
          width: 200px;
         }
+        .cartlogo{
+        height:35px;
+        width: 40px;
+        }
         .current_page-item a {
         color: #39c;
+        text-decoration: none;
         }
         .default a {
         color: white;
@@ -182,6 +187,10 @@
        .imgaboutsize{
         
         float:left;
+       }
+       .btn{
+           width: 100px;
+           height: 50px;
        }
         .copyright{
 	width: 100%;
@@ -259,7 +268,7 @@
 .modal-body {padding: 2px 16px;}
 
 .modal-footer {
-    padding: 2px 16px;
+    padding: 20px 16px;
     background-color: #3B5998;
     color: white;
 }

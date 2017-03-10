@@ -9,7 +9,7 @@ include 'includes/topbar.php';
                     <li class="default"><a href= "women.php">Women </a></li>
                     <li class = "current_page-item"><a href="men.php">Men</a></li>
                     <li class="default"><a href="about.php">About us</a></li>
-
+                    <li><a href="viewCart.php" class="cart-link"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></li> 
                 </ul>
             </div>
                
@@ -25,19 +25,24 @@ include 'includes/checkbox.php'
 
                         <div class ="fixedwith">
                                     <!-- This is the table -->
-                                <table border ="1" class="tablestyle">
+                                <table border ="1" class="tablestyle" cellpadding="10" cellspacing="1">
                                     <tr>
-                                        <th><a href="checkout.php">Nike <img class="imgsize" src="Images/men1.jpg" />
+                                        <th text-decoration="none"><a  href="checkout.php">Nike <img class="imgsize" src="Images/men1.jpg" />
                                         <br/>Nike Air Max 95 Sneakerboots - Men<br/>$95.00</a>
                                         <br/><!-- Trigger/Open The Modal -->
                                         <button id="myBtn">Details</button></th>
 
                                         <th>Rebook <img class="imgsize" src="Images/men2.jpg" />
-                                        <br/>Reebok Classic<br/>$45.00<br/>
+                                        <br/>Reebok Classic<br/>$45.00
+                                         <br/><!-- Trigger/Open The Modal -->
+                                        <button id="myBtn2">Details</button>
                                         </th>
 
                                         <th>Skechers <img class="imgsize" src="Images/men3.jpg" />
-                                        <br/>Men's Skech-Air Varsity<br/>$55.00</th>
+                                        <br/>Men's Skech-Air Varsity<br/>$55.00
+                                         <br/><!-- Trigger/Open The Modal -->
+                                        <button id="myBtn3">Details</button>
+                                        </th>
 
                                     </tr>
                                 </table> <!--Table ends -->

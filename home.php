@@ -8,7 +8,8 @@ include 'includes/topbar.php';
                     <li class="current_page-item"><a href="home.php">Home</a></li>
                     <li class="default"><a href= "women.php">Women </a></li>
                     <li class="default"><a href="men.php">Men</a></li>
-                    <li class="default"><a href="about.php">About us</a></li>                  
+                    <li class="default"><a href="about.php">About us</a></li> 
+                                    
                 </ul>
             </div>
                     
@@ -23,7 +24,7 @@ include 'includes/checkbox.php';
 
                         <div class ="fixedwith">
                                     <!-- This is the table -->
-                                <table border ="1" class="tablestyle">
+                                <table border ="1" class="tablestyle" cellpadding="10" cellspacing="1" >
                                     
                                     <tr>
 

@@ -9,7 +9,7 @@ include 'includes/topbar.php';
                     <li class="current_page-item"><a href= "women.php">Women </a></li>
                     <li class="default"><a href="men.php">Men</a></li>
                     <li class="default"><a href="about.php">About us</a></li>
-
+                    <li><a href="viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></li> 
                 </ul>
             </div>
             
@@ -24,7 +24,7 @@ include 'includes/checkbox.php';
 
                             <div class ="fixedwith">
                                 <!-- This is the table -->
-                                <table border ="1" class="tablestyle">
+                                <table border ="1" class="tablestyle" cellpadding="10" cellspacing="1">
                                  <tr>
                                    <th>Nike <img class="imgsize" src="Images/woman1.jpg" />
                                         <br/>Nike Air Max 95 Sneakerboots - Women<br/>$95.00</th>

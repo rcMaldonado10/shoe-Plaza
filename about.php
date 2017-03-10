@@ -32,7 +32,7 @@
                     <li class="default"><a href= "women.php">Women </a></li>
                     <li class="default"><a href="men.php">Men</a></li>
                     <li class="current_page-item"><a href="about.php">About us</a></li> 
-
+                    <li><a href="viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></li> 
                 </ul>
             </div>
             
