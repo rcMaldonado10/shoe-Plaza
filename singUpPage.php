@@ -12,18 +12,19 @@
       if (isset($_POST['SingUP']))
       {
             session_start();
-            $_SESSION['firstName'] = $_POST['firstName'];
-            $_SESSION['lastName']  = $_POST['lastName'];
-            $_SESSION['email']  = $_POST['email'];
-            $_SESSION['password']  = $_POST['password'];
+            $_SESSION['firstName'] = $_POST['firstNameS'];
+            $_SESSION['lastName']  = $_POST['lastNameS'];
+            $_SESSION['email']  = $_POST['emailS'];
+            $_SESSION['password']  = $_POST['passwordS'];
+            $_SESSION['']  = $_POST['']
             $number = '16';
 
             $serverName = "localhost";
             $userName = "root";
-            $password = "";
+            $pass = "";
             $Table = "testdb2";
 
-            $dateBase = new mysqli($serverName,$userName,$password,$Table) or die("Unable to connect");
+            $dateBase = new mysqli($serverName,$userName,$pass,$Table) or die("Unable to connect");
             //
             // $sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('$firstName','$lastName','$number')";
             // //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
@@ -104,26 +105,6 @@
 
     <script src="ChuleriaCC.js"></script>
 
-<!-- <?php
-function myChange(){
-$servername = "localhost";
-$username = "Yatio";
-$password = "mayo1996";
-$Table = "testdb1";
-
-$dateBase = new mysqli($servername,$username,$password,$Table) or die("Unable to connect");
-
-$firstName = $_POST['firstName'];
-echo firstName;
-
-$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Hola','idk','16')";
-$result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
-echo "Good Query";
-}
-
-
-
- ?> -->
            </form>
 
          </div>
