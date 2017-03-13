@@ -55,14 +55,14 @@
                <label>
                  First Name<span class="req">*</span>
                </label>
-              <input type="text" required autocomplete="off" name="firstName" />
+              <input type="text" required autocomplete="off" name="firstNameSignUp" />
              </div>
 
              <div class="field-wrap">
                <label>
                  Last Name<span class="req">*</span>
                </label>
-             <input type="text"required autocomplete="off" name="lastName"/>
+             <input type="text"required autocomplete="off" name="lastNameSignUp"/>
              </div>
            </div>
 
