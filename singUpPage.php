@@ -16,7 +16,7 @@
             $_SESSION['lastName']  = $_POST['lastNameS'];
             $_SESSION['email']  = $_POST['emailS'];
             $_SESSION['password']  = $_POST['passwordS'];
-            // $_SESSION['']  = $_POST['']
+            $_SESSION['']  = $_POST[''];
             $number = '16';
 
             $serverName = "localhost";
