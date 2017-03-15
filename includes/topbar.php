@@ -16,11 +16,10 @@
 
                 <div class="fixedwith">
 
-                    <div id="logodiv">  <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p></div>
+                    <div id="logodiv">  <p id="titleheader">Shoe Plaza<span id="pr">PR</span> </p></div>
 
                     <div id="signindiv">
                         <img src="images/singnin.png"/><h class="default"><a class="default" href="singUpPage.php">Sign In</a></h>
                     </div>
 
       </div>
-           

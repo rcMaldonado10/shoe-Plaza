@@ -19,7 +19,7 @@
             $_SESSION['']  = $_POST[''];
             $number = '16';
 
-              
+
             $serverName = "localhost";
             $userName = "root";
             $pass = "";
@@ -88,15 +88,66 @@
         <h1>Payment Information</h1>
       </div> <!-- end of personal-information -->
 
-      <input id="input-field" type="text" name="streetaddress" required="required" autocomplete="off" maxlength="45" placeholder="Street Address*"/><br>
-      <input id="column-left" type="text" name="city" required="required" autocomplete="off" maxlength="20" placeholder="City*"/>
-      <input id="column-right" type="text" name="zipcode" required="required" autocomplete="off" pattern="[0-9]*" maxlength="5" placeholder="ZIP code*"/><br><br><br>
-      <input id="input-field" type="text" name="first-name" required="required" autocomplete="off" maxlength="40" placeholder="Full name as it appears on the card*"/>
+      <div class="field-wrap">
+         <label>
+           State<span class="req">*</span>
+         </label>
+        <input type="text" name="state" required="required" autocomplete="off" maxlength="30"/>
+       </div>
+        <div class="top-row">
+          <div class="field-wrap">
+             <label>
+               City<span class="req">*</span>
+             </label>
+            <input type="text" name="city" required="required" autocomplete="off" maxlength="20"/>
+           </div>
 
-        <div class="card-wrapper"></div>
-          <input id="input-field" type="text" name="number" placeholder="Card Number*"/><br>
-          <input id="column-left" type="text" name="expiry" placeholder="MM / YY *"/>
-          <input id="column-right" type="text" name="cvc" placeholder="CCV*"/><br><br><br><br>
+           <div class="field-wrap">
+             <label>
+               Zip Code<span class="req">*</span>
+             </label>
+             <input type="text" name="zipcode" required="required" autocomplete="off" pattern="[0-9]*" maxlength="5"/>
+           </div>
+         </div>
+
+         <div class="field-wrap">
+            <label>
+              Street Address<span class="req">*</span>
+            </label>
+           <input type="text" name="streetaddress" required="required" autocomplete="off" maxlength="45"/>
+          </div>
+
+        <div class="field-wrap">
+           <label>
+             Full name as it appears on card<span class="req">*</span>
+           </label>
+          <input type="text" name="first-name" required="required" autocomplete="off" maxlength="40"/>
+         </div>
+
+        <div class="card-wrapper"></div><br>
+
+          <div class="field-wrap">
+             <label>
+               Card Number<span class="req">*</span>
+             </label>
+            <input type="text" required="required" name="number"/>
+           </div>
+
+           <div class="top-row">
+             <div class="field-wrap">
+                <label>
+                  MM / YY<span class="req">*</span>
+                </label>
+                 <input type="text" required="required" name="expiry"/>
+              </div>
+
+              <div class="field-wrap">
+                <label>
+                  CVC<span class="req">*</span>
+                </label>
+                <input type="text" required="required" name="cvc"/>
+              </div>
+            </div>
           <input type="submit" class="button button-block" VALUE = "Submit" Name = "SingUP" >
   </form>
 </div>
