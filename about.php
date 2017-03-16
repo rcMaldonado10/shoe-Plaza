@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 <head>
@@ -25,7 +24,7 @@
                 <img src="images/singnin.png"/><h class="default"><a class="default" href="singUpPage.php">Sign In</a></h>
              </div><!--end signindiv-->
 
-        </div><!--end topbar-->
+        </div><!--end fixedwith-->
             <div id="topmenudiv">
                     <ul>
                     <li class="default"><a href="home.php">Home</a></li>
@@ -70,10 +69,13 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxh13VatPGZhppQfC1g92fPrBj0oK-w_M&callback=initMap">
     </script>
  </div> <!--end mapdiv-->
-       
+    
+</div>  
+    
+</div>   
   <div class="break" ></div>
   <div class="copyright">
  <p>*Your email address will be subject to the terms and conditions of our Privacy Policy.
-<p>© 2017 Shoe-Plaza.com, Inc. or its affiliates. Shoe-Plaza.com is operated by XAMPP.</p>
+<p>© 2017 Shoe-Plaza.com, Inc. or its affiliates. Shoe-Plaza.com is operated by XAMPP.</p></div>
 </body>
 </html>
