@@ -2,50 +2,42 @@
 include 'includes/topbar.php';
 
  ?>
- 
-          
+
+
             <div class="break" ></div>
  <h1 style="text-align: center;">Home</h1>
-           
+
  <?php
 include 'includes/checkbox.php';
 
  ?>
+ <main class="main">
+     <div class="product">Nike<img src="Images/men1.jpg" width="230" height="230" alt="Nike"/>
+         <br>Nike Air Max 95 Sneakerboots</br>
+         <br>Price: $95.00</br>
+         <br/><!-- Trigger/Open The Modal -->
+         <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-1">Details</button>
+     </div>
 
-                        <div class ="fixedwith">
-                                    <!-- This is the table -->
-                                <table border ="1" class="tablestyle" cellpadding="10" cellspacing="1" >
-                                    
-                                    <tr>
+     <div class="product">Rebook<img src="Images/men2.jpg" width="230" height="230" alt="Rebook"/>
+         <br>Reebok Classic</br>
+         <br>Price: $95.00</br>
+         <br/><!-- Trigger/Open The Modal -->
+          <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-1">Details</button>
+     </div>
 
-                                        <th><a href="checkout.php">Nike <img class="imgsize" src="Images/men1.jpg" />
-                                        <br/>Nike Air Max 95 Sneakerboots - Men<br/>$95.00</a></th>
-                                        <th>Rebook <img class="imgsize" src="Images/men2.jpg" />
-                                        <br/>Reebok Classic<br/>$45.00</th>
-                                        <th>Skechers <img class="imgsize" src="Images/men3.jpg" />
-                                        <br/>Men's Skech-Air Varsity<br/>$55.00</th>
-                                        
-                                    </tr>
+     <div class="product">Rebook<img src="Images/woman3.jpg" width="230" height="230" alt="Rebook"/>
+         <br>Xtreme Runner V</br>
+         <br>Price: $95.00</br>
+         <br/><!-- Trigger/Open The Modal -->
+         <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-1">Details</button>
+     </div>
+ </main>
 
-                                    <tr>
+ <?php
+include 'includes/detailsmodal.php';
 
-                                        <th>Nike <img class="imgsize" src="Images/woman1.jpg" />
-                                        <br/>Nike Air Max 95 Sneakerboots - Women<br/>$95.00</th>
-                                        <th>Rebook <img class="imgsize" src="Images/woman2.jpg" />
-                                        <br/>Reebok Fit<br/>$75.00</th>
-                                        <th>Rebook <img class="imgsize" src="Images/woman3.jpg" />
-                                        <br/>Xtreme Runner V<br/>$25.00</th>
-
-                                    </tr>
-                                  
-                                </table> <!--Table ends -->
-
-                      </div>
-
-
-
-
-
+ ?>
 
 <div class="break" ></div>
   <div class="copyright">

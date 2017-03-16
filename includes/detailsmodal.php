@@ -29,7 +29,7 @@
                                     <label for="quantity">Quantity:</label>
                                     <input type="text" class="form-control" id="quantity" name="quantity">
                                 </div>
-                                <p>Available: 3</p>     
+                                <p>Available: 3</p>
                             </div>
                             <div class="form-group">
                                 <label for="size">Size: <label>
@@ -48,7 +48,7 @@
         </div>
         <div class="modal-footer">
             <buttom class="btn btn-default" data-dismiss="modal">Close</buttom>
-            <buttom class="btn btn-warning" type="submit"><span class= glyphicon glyphicon-shopping-cart></span>Add to bag</buttom>
+            <buttom class="btn btn-warning" type="submit"><span class= glyphicon glyphicon-shopping-cart></span>Add to cart</buttom>
         </div>
     </div>
 </div>
