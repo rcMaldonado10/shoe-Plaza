@@ -47,8 +47,8 @@
 
         </div>
         <div class="modal-footer">
-            <buttom class="btn btn-default" data-dismiss="modal">Close</buttom>
-            <buttom class="btn btn-warning" type="submit"><span class= glyphicon glyphicon-shopping-cart></span>Add to cart</buttom>
+            <button class="btn btn-default" data-dismiss="modal">Close</buttom>
+            <button class="btn btn-warning" type="submit"><span class= glyphicon glyphicon-shopping-cart></span>Add to cart</button>
         </div>
     </div>
 </div>
