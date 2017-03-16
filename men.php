@@ -1,53 +1,38 @@
 <?php
 include 'includes/topbar.php';
+
+?>
+  <div class="break" ></div>
+ <h1 style="text-align: center;">Men</h1>
+
+<?php
+include 'includes/checkbox.php';
 ?>
 
+<main class="main">
+    <div class="product">Nike<img src="Images/men1.jpg" width="230" height="230" alt="Nike"/>
+        <br>Nike Air Max 95 Sneakerboots</br>
+        <br>Price: $95.00</br> 
+        <br/><!-- Trigger/Open The Modal -->
+        <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-1">Details</button>
+    </div>
 
-            <div id="topmenudiv">
-                <ul>
-                    <li class="default"><a href="home.php">Home</a></li>
-                    <li class="default"><a href= "women.php">Women </a></li>
-                    <li class = "current_page-item"><a href="men.php">Men</a></li>
-                    <li class="default"><a href="about.php">About us</a></li>
-                    <li><a href="viewCart.php" class="cart-link"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></li> 
-                </ul>
-            </div>
-               
+    <div class="product">Rebook<img src="Images/men2.jpg" width="230" height="230" alt="Rebook"/>
+        <br>Reebok Classic</br>
+        <br>Price: $95.00</br> 
+        <br/><!-- Trigger/Open The Modal -->
+         <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-1">Details</button>
+    </div>
 
-            <div class="break" ></div>
-
-             <h1 style="text-align: center;">Men</h1>
-            <div id="content">
-  <?php
-include 'includes/checkbox.php'
-
- ?>
-
-                        <div class ="fixedwith">
-                                    <!-- This is the table -->
-                                <table border ="1" class="tablestyle" cellpadding="10" cellspacing="1">
-                                    <tr>
-                                        <th text-decoration="none"><a  href="checkout.php">Nike <img class="imgsize" src="Images/men1.jpg" />
-                                        <br/>Nike Air Max 95 Sneakerboots - Men<br/>$95.00</a>
-                                        <br/><!-- Trigger/Open The Modal -->
-                                        <button id="myBtn">Details</button></th>
-
-                                        <th>Rebook <img class="imgsize" src="Images/men2.jpg" />
-                                        <br/>Reebok Classic<br/>$45.00
-                                         <br/><!-- Trigger/Open The Modal -->
-                                        <button id="myBtn2">Details</button>
-                                        </th>
-
-                                        <th>Skechers <img class="imgsize" src="Images/men3.jpg" />
-                                        <br/>Men's Skech-Air Varsity<br/>$55.00
-                                         <br/><!-- Trigger/Open The Modal -->
-                                        <button id="myBtn3">Details</button>
-                                        </th>
-
-                                    </tr>
-                                </table> <!--Table ends -->
-
-                      </div>
+    <div class="product">Skechers<img src="Images/men3.jpg" width="230" height="230" alt="Skechers "/>
+        <br>Men's Skech-Air Varsity</br>
+        <br>Price: $95.00</br> 
+        <br/><!-- Trigger/Open The Modal -->
+        <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-1">Details</button>
+    </div>
+    
+    
+</main>
 
 
  <?php
@@ -57,6 +42,7 @@ include 'includes/detailsmodal.php';
     
     <br/>
 <div class="break" ></div>
+
   <div class="copyright">
  <p>*Your email address will be subject to the terms and conditions of our Privacy Policy.
 <p>© 2017 Shoe-Plaza.com, Inc. or its affiliates. Shoe-Plaza.com is operated by XAMPP.</p> 

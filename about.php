@@ -1,50 +1,50 @@
 <!doctype html>
 <html>
 <head>
-    <title>About Shoe Plaza</title>
+    <title>Shoe Plaza</title>
 
     <meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="stylesstore.css"/>
-
-
     </head>
 <body>
 
 <div id="container">
-     <div id="topbar">
+     
+<header class="header">
+<div id="logo"> <img src="images/headerlogo.png" width="401" height="110"/></div><!--end logodiv-->
+</header>
 
-        <div class="fixedwith">
-
-          <div id="logodiv"><p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p></div><!--end logodiv-->
-
-            <div id="signindiv">
-                <img src="images/singnin.png"/><h class="default"><a class="default" href="singUpPage.php">Sign In</a></h>
-             </div><!--end signindiv-->
-
-        </div><!--end fixedwith-->
-            <div id="topmenudiv">
-                    <ul>
-                    <li class="default"><a href="home.php">Home</a></li>
-                    <li class="default"><a href= "women.php">Women </a></li>
-                    <li class="default"><a href="men.php">Men</a></li>
-                    <li class="current_page-item"><a href="about.php">About us</a></li> 
-                    <li><a href="viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></li> 
-                </ul>
-            </div>
+        
+<!--Navigation Bar-->
+<nav class="nav">
+<span id="menu"><a href="home.php" class="menunav">Home</a></span>
+<span id="menu"><a href="woman.php" class="menunav">Woman</a></span>
+<span id="menu"><a href="men.php" class="menunav">Men</a></span>
+<span id="menu"><a href="about.php" class="menunav">About</a></span>
+<span id="menu"><a href="singUpPage.php" class="menunav">Sign In</a></span>
+<span id="menu"><a href="viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></span>
+</nav>
             
-             <div class="break" ></div>
-            <div id="content">
-                        <div class ="fixedwith">
+<div class="break" ></div>
 
-                            <h1>The Place Your Feet Always Wanted!</h1>
-                            <h2>With variety for men and women, the best brands and pricing</br>
-                            that no one can compare. </h2>
-                     <div class="imgaboutsize"><img src="Images/Men-section-Wallpaper.jpg" /></div>
-      
-                 </div><!--end fixedwith-->
+<div id="content">
+   <div class ="fixedwith">
+     <h1>The Place Your Feet Always Wanted!</h1>
+     <h2>With variety for men and women, the best brands and pricing</br>
+         that no one can compare. </h2>
+           <div class="imgaboutsize"><img src="Images/Men-section-Wallpaper.jpg" /></div>
+   </div><!--end fixedwith-->
 
 
 <!--Google Maps-->

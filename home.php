@@ -2,21 +2,11 @@
 include 'includes/topbar.php';
 
  ?>
- <div id="topmenudiv">
-                    <ul>
-
-                    <li class="current_page-item"><a href="home.php">Home</a></li>
-                    <li class="default"><a href= "women.php">Women </a></li>
-                    <li class="default"><a href="men.php">Men</a></li>
-                    <li class="default"><a href="about.php">About us</a></li> 
-                    <li><a href="viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></li>               
-                </ul>
-            </div>
-                    
+ 
           
             <div class="break" ></div>
  <h1 style="text-align: center;">Home</h1>
-            <div id="content">
+           
  <?php
 include 'includes/checkbox.php';
 
