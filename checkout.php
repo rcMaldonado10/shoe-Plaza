@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" type="text/css" href="stylesstore.css"/>
+    <style>
+        p {
+            font-size: 22px;
+        }
+    </style>
 </head>
 <body>
 
@@ -48,6 +53,7 @@
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<<<<<<< Updated upstream
 
                         <img src="images/men1.jpg" width="400" height="400"/>
                         <p>Brand: Nike</p><br>
@@ -72,16 +78,22 @@
                                  <option value="5">5</option>
                             </select>
                      </div>
+=======
+                        
+                        <img src="images/nike-roshe-one-mens.jpeg" width="400" height="400"/>
+                        <p>Brand: Nike</p>
+                        <p>Model: Nike Air Max 95 Sneakerboots</p>
+                        <p>Size:<input type="number"></p>
+                        <p>Quantity:<input type="number"></p>
+>>>>>>> Stashed changes
                         <p style="font-size: 20px;"><b>$95.00</b></p>
                 </fieldset>
             </form>
 
 
             <br>
-            <a href="#" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
-            </a>
-            </p>
-            </div>
+            <a href="#" class="btn btn-info btn-lg">Add to Cart</a>
+            <a href="#" class="btn btn-info btn-lg">Buy</a>
+
 </body>
 </html>
