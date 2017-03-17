@@ -19,7 +19,6 @@
     </head>
 <body>
 
-<div id="container">
 
 <header class="header">
 <div id="logo"> <img src="images/headerlogo.png" width="401" height="110"/></div><!--end logodiv-->

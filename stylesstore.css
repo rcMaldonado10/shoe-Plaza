@@ -5,14 +5,6 @@
             background-color: #F1F1F1;
         }
 
-        #topbar{
-            background: -webkit-linear-gradient(bottom, #3B5998, #136);
-            width: 100%;
-            height: 80px;
-            color: white;
-        }
-
-
         .fixedwith{
            background-color:none;
             width: 100%;
@@ -20,97 +12,10 @@
 
         }
 
-        #logodiv{
-           width:300px;
-            height:75px;
-            padding-top: 5px;
-            float:left;
-            border-right:1px solid #FFFFFF;
-            padding-right: 10px;
-        }
-        #singnindiv{
-            font-weight: bold;
-            padding: 6px 0px 0px 30px;
-            font-size: 0.9em;
-            padding-left: 50px;
-            float:left;
-            border-right: 1px solid #FFFFFF;
-            height:100%;
-            padding: 10px 20px 12px 20px;
-            float:left;
-
-        }
-
-        #signindiv img{
-            position:relative;
-            top:3px;
-        }
-
-        #topmenudiv {
-             float:left;
-        }
-
-        #topmenudiv ul{
-            margin: 0px;
-            padding:0;
-            padding-top: 20px;
-
-        }
-        #topmenudiv li{
-            list-style: none;
-            font-weight: bold;
-            font-size: 20px;
-             padding: 0 20px 0 20px;
-           border-right: 1px solid white;
-             float:left;
-             background-color: none;
-        }
-
-        #searchdiv{
-            float:right;
-            padding: 5px 0 0 10px;
-        }
-        #searchdiv input{
-            height: 25px;
-            border: none;
-            font-size: 1em;
-            padding-left:10px;
-            background-image: url('Images/magnify.png');
-            background-repeat: no-repeat;
-            background-position: center;
-
-        }
-
+        
         .break{
 
             clear:both;
-        }
-
-
-        #titlebar{
-            background-color: #F1F1F1;
-            width:100%;
-            height: 80px;
-            color: white;
-        }
-        #titlebar p{
-            margin:0;
-            padding:0;
-            padding-top: 10px;
-            float:left;
-
-        }
-
-        #titleheader {
-            font-size: 1.8em;
-            color: #F1F1F1;
-            padding-left: 20px;
-
-
-        }
-        #pr{
-            font-size: 0.7em;
-            padding-left: 10px;
         }
 
         .selected{
@@ -127,43 +32,21 @@
             background-color: none;
             height: 500px;
             width:100%;
-
             color: #5A5A5A;
-            font-size: 0.75em;
+            font-size: 16px;
         }
 
         h1{
             color: cadetblue;
 
         }
-        #shoe img{
-          height: 150px;
-            width: 200px;
-        }
+        
 
-        .tablestyle{
-        height: 150px;
-        width: 200px;
-        text-align: center;
-        font-size: 16px;
-
-        }
-        .imgsize{
-         height: 160px;
-         width: 200px;
-        }
         .cartlogo{
         height:35px;
         width: 40px;
         }
-        .current_page-item a {
-        color: #39c;
-        text-decoration: none;
-        }
-        .default a {
-        color: white;
-        text-decoration: none;
-        }
+        
 
         .boxCheck{
             background-color:none;
@@ -176,7 +59,7 @@
         }
 
        #mapdiv{
-        margin-right: 30px;
+        margin-right: 20px;
         position: relative;
         float: right;
         text-align: center;
@@ -187,7 +70,7 @@
 
        }
        .imgaboutsize{
-
+        margin-left: 20px;
         float:left;
        }
 
@@ -209,7 +92,7 @@
 	height: 80px;
 	Color: #FFFFFF;
 	background-color: #adb8d2;
-	background: -webkit-linear-gradient(bottom, #7d8eb4, #136);
+	background: -webkit-linear-gradient(bottom, #3B5998, #136);
 	font-size: 10px;
 	padding-top:5px;
 	padding-bottom:5px;
