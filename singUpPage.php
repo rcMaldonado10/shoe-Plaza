@@ -6,7 +6,7 @@
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
-      <link rel="stylesheet" href="signUpStyle.css">
+      <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
       <?PHP
 
       if (isset($_POST['SingUP']))
@@ -38,7 +38,7 @@
       ?>
 </head>
 
-<body background="images/Shoes-WallpaperHD.jpg">
+<body background-image="images/Shoes-WallpaperHD.jpg">
   <div class="form">
 
       <ul class="tab-group">
@@ -155,7 +155,7 @@
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/121761/card.js'></script>
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/121761/jquery.card.js'></script>
 
-    <script src="ChuleriaCC.js"></script>
+    <script src="includes/ChuleriaCC.js"></script>
 
            </form>
 
@@ -183,7 +183,7 @@
           <p class="forgot"><a href="#">Forgot Password?</a></p>
 
           <button class="button button-block"/>Log In</button>
-
+ 
           </form>
 
         </div>
@@ -193,7 +193,7 @@
 </div> <!-- /form -->
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-    <script src="chuleria.js"></script>
+    <script src="includes/chuleria.js"></script>
 
 </body>
 </html>
