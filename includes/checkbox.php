@@ -1,8 +1,8 @@
  <div class="boxCheck">  <!-- These are the checkbox division -->
   <h3>Brand</h3>
     <input type="checkbox" name="brand1" value="Nike">Nike<br>
-    <input type="checkbox" name="brand2" value="Nike">Rebook<br>
-    <input type="checkbox" name="brabd3" value="Fila">Fila
+    <input type="checkbox" name="brand2" value="Rebook">Rebook<br>
+
   <h3>Color</h3>
     <input type="checkbox" name="color1" value="Black">Black<br>
     <input type="checkbox" name="color2" value="Brown">Brown<br>
