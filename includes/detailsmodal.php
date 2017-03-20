@@ -27,10 +27,16 @@
                         <form action="add_cart.php" method="post">
                             <div class="form-group">
                                 <div class="col-xs-3">
-                                    <label for="quantity">Quantity:</label>
-                                    <input type="text" class="form-control" id="quantity" name="quantity">
+                                  <label for="quantity">Quantity: <label>
+                                  <select name="quantity" id="quantity" class="form-control">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                  </select>
                                 </div>
-                                <p>Available: 3</p>
+
                             </div>
                             <div class="form-group">
                                 <label for="size">Size: <label>
@@ -83,10 +89,16 @@
                         <form action="add_cart.php" method="post">
                             <div class="form-group">
                                 <div class="col-xs-3">
-                                    <label for="quantity">Quantity:</label>
-                                    <input type="text" class="form-control" id="quantity" name="quantity">
+                                  <label for="quantity">Quantity: <label>
+                                  <select name="quantity" id="quantity" class="form-control">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                  </select>
                                 </div>
-                                <p>Available: 3</p>
+
                             </div>
                             <div class="form-group">
                                 <label for="size">Size: <label>
@@ -139,10 +151,16 @@
                         <form action="add_cart.php" method="post">
                             <div class="form-group">
                                 <div class="col-xs-3">
-                                    <label for="quantity">Quantity:</label>
-                                    <input type="text" class="form-control" id="quantity" name="quantity">
+                                  <label for="quantity">Quantity: <label>
+                                  <select name="quantity" id="quantity" class="form-control">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                  </select>
                                 </div>
-                                <p>Available: 3</p>
+
                             </div>
                             <div class="form-group">
                                 <label for="size">Size: <label>
@@ -196,10 +214,16 @@
                         <form action="add_cart.php" method="post">
                             <div class="form-group">
                                 <div class="col-xs-3">
-                                    <label for="quantity">Quantity:</label>
-                                    <input type="text" class="form-control" id="quantity" name="quantity">
+                                  <label for="quantity">Quantity: <label>
+                                  <select name="quantity" id="quantity" class="form-control">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                  </select>
                                 </div>
-                                <p>Available: 3</p>
+
                             </div>
                             <div class="form-group">
                                 <label for="size">Size: <label>
@@ -252,10 +276,16 @@
                         <form action="add_cart.php" method="post">
                             <div class="form-group">
                                 <div class="col-xs-3">
-                                    <label for="quantity">Quantity:</label>
-                                    <input type="text" class="form-control" id="quantity" name="quantity">
+                                  <label for="quantity">Quantity: <label>
+                                  <select name="quantity" id="quantity" class="form-control">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                  </select>
                                 </div>
-                                <p>Available: 3</p>
+
                             </div>
                             <div class="form-group">
                                 <label for="size">Size: <label>
@@ -308,10 +338,16 @@
                         <form action="add_cart.php" method="post">
                             <div class="form-group">
                                 <div class="col-xs-3">
-                                    <label for="quantity">Quantity:</label>
-                                    <input type="text" class="form-control" id="quantity" name="quantity">
+                                  <label for="quantity">Quantity: <label>
+                                  <select name="quantity" id="quantity" class="form-control">
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                  </select>
                                 </div>
-                                <p>Available: 3</p>
+                                
                             </div>
                             <div class="form-group">
                                 <label for="size">Size: <label>
