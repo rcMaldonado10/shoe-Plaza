@@ -23,14 +23,14 @@ include 'includes/checkbox.php';
          <br>Reebok Classic</br>
          <br>Price: $95.00</br>
          <br/><!-- Trigger/Open The Modal -->
-          <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-1">Details</button>
+          <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-2">Details</button>
      </div>
 
      <div class="product">Rebook<img src="Images/woman3.jpg" width="230" height="230" alt="Rebook"/>
          <br>Xtreme Runner V</br>
          <br>Price: $95.00</br>
          <br/><!-- Trigger/Open The Modal -->
-         <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-1">Details</button>
+         <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-6">Details</button>
      </div>
  </main>
 
