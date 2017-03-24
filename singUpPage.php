@@ -49,7 +49,7 @@
       <div class="tab-content">
         <div id="signup">
           <h1>Sign Up for Free</h1>
-          <form action="home.php" method="post">
+          <form action="verDatosIngresados.php" method="get">
 
           <div class="top-row">
             <div class="field-wrap">
@@ -183,7 +183,7 @@
           <p class="forgot"><a href="#">Forgot Password?</a></p>
 
           <button class="button button-block"/>Log In</button>
- 
+
           </form>
 
         </div>

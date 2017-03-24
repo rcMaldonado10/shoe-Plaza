@@ -31,7 +31,7 @@
 <span id="menu"><a href="women.php" class="menunav">Woman</a></span>
 <span id="menu"><a href="men.php" class="menunav">Men</a></span>
 <span id="menu"><a href="about.php" class="menunav">About</a></span>
-<span id="menu"><a href="singUpPage.php" class="menunav">Sign In</a></span>
+<span id="menu"><a href="singUpPage.php" class="menunav">Sign Up/Sign In</a></span>
 <span id="menu"><a href="viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></span>
 <input type="text" placeholder="Search..." required><input type="button" value="Search">
 
