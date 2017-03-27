@@ -37,8 +37,7 @@
 
       ?>
 </head>
-
-<body background-image="images/Shoes-WallpaperHD.jpg">
+<body>
   <div class="form">
 
       <ul class="tab-group">
