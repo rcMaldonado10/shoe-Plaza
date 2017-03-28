@@ -43,6 +43,6 @@ include 'includes/detailsmodal.php';
  <div class="break" ></div>
   <div class="copyright">
  <p>*Your email address will be subject to the terms and conditions of our Privacy Policy.
-<p>© 2017 Shoe-Plaza.com, Inc. or its affiliates. Shoe-Plaza.com is operated by XAMPP.</p>
+<p>© 2017 Shoe-Plaza.com, Inc. or its affiliates. Shoe-Plaza.com is operated by XAMPP.</p></div>
 </body>
 </html>

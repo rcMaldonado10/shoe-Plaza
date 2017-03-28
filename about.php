@@ -4,7 +4,7 @@ include 'includes/topbar.php';
 ?>
   <div class="break" ></div>
  <h1 style="text-align: center;">About</h1>
-            
+
 <div class="break" ></div>
 
 <div id="content">
@@ -17,15 +17,15 @@ include 'includes/topbar.php';
 
 
 <!--Google Maps-->
- <div id="mapdiv"> 
+ <div id="mapdiv">
     <h3>Our headquarters at University of Puerto Rico in Arecibo</h3>
  <div id="map"></div>
-    
+
     <script>
       function initMap() {
         var uluru = {lat: 18.468226, lng:-66.740657,}; // UPRA location
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 16, 
+          zoom: 16,
           center: uluru
         });
         var marker = new google.maps.Marker({
@@ -38,10 +38,10 @@ include 'includes/topbar.php';
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxh13VatPGZhppQfC1g92fPrBj0oK-w_M&callback=initMap">
     </script>
  </div> <!--end mapdiv-->
-    
-</div>  
-    
- 
+
+</div>
+
+
   <div class="break" ></div>
   <div class="copyright">
  <p>*Your email address will be subject to the terms and conditions of our Privacy Policy.
