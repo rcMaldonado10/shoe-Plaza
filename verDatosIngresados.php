@@ -1,15 +1,17 @@
 <html>
- <body>
+ <body
+ style="color:white;x">
+
    <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
    <div class="form">
      <h1>Thank You for Joining Us</h1>
+     <form action="home.php">
           <div class="field-wrap">
             Hello <?php echo $_GET["firstNameSignUp"]; ?> <?php echo $_GET["lastNameSignUp"]; ?>
           </div>
 
           <div class="field-wrap">
-            Your email is <?php echo $_GET["email"]; ?><br>
-            With password: <?php echo $_GET["password"]; ?>
+            Your email is <?php echo $_GET["email"]; ?>
           </div>
 
           <div class="field-wrap">
@@ -27,7 +29,9 @@
           <div class="field-wrap">
             Expires at <?php echo $_GET["expiry"]; ?> and security code is <?php echo $_GET["cvc"]; ?>
           </div>
-        </div>
 
+          <button class="button button-block"/>Start Shopping</button>
+        </form>
+        </div>
  </body>
  </html>
