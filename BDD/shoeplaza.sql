@@ -1,21 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Apr 02, 2017 at 02:07 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `shoeplaza`
 --
@@ -27,7 +9,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `customer` (
-  `CustomerID` int(10) NOT NULL,
+  `CustomerID` int(11) NOT NULL,
   `Email` varchar(30) COLLATE utf16_unicode_520_ci NOT NULL,
   `FirstName` varchar(25) COLLATE utf16_unicode_520_ci NOT NULL,
   `LastName` varchar(25) COLLATE utf16_unicode_520_ci NOT NULL,
@@ -90,7 +72,6 @@ CREATE TABLE `has_a` (
 
 CREATE TABLE `is_in` (
   `OrderID` int(10) NOT NULL,
-  `CustomerID` int(10) NOT NULL,
   `ProductID` int(10) NOT NULL,
   `Price` float(5,2) NOT NULL,
   `Quantity` int(2) NOT NULL
@@ -104,7 +85,7 @@ CREATE TABLE `is_in` (
 
 CREATE TABLE `makes` (
   `CompanyID` int(10) NOT NULL,
-  `CustomerID` int(10) NOT NULL
+  `CustomerID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
 -- --------------------------------------------------------
@@ -193,7 +174,31 @@ ALTER TABLE `customer`
 -- Indexes for table `customer_credit_card`
 --
 ALTER TABLE `customer_credit_card`
+  ADD PRIMARY KEY (`Credit_Card_ID`);
+
+--
+-- Indexes for table `has`
+--
+ALTER TABLE `has`
+  ADD PRIMARY KEY (`CustomerID`,`OrderID`);
+
+--
+-- Indexes for table `has_a`
+--
+ALTER TABLE `has_a`
   ADD PRIMARY KEY (`CustomerID`,`Credit_Card_ID`);
+
+--
+-- Indexes for table `is_in`
+--
+ALTER TABLE `is_in`
+  ADD PRIMARY KEY (`OrderID`,`ProductID`);
+
+--
+-- Indexes for table `makes`
+--
+ALTER TABLE `makes`
+  ADD PRIMARY KEY (`CompanyID`,`CustomerID`);
 
 --
 -- Indexes for table `order_`
@@ -210,7 +215,17 @@ ALTER TABLE `order_`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `customer_credit_card`
+--
+ALTER TABLE `customer_credit_card`
+  MODIFY `Credit_Card_ID` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `order_`
+--
+ALTER TABLE `order_`
+  MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
