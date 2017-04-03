@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 01, 2017 at 08:37 PM
+-- Generation Time: Apr 02, 2017 at 06:35 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -23,42 +23,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `Users`
 --
 
-CREATE TABLE `user` (
-  `id` int(5) NOT NULL,
-  `password` varchar(35) NOT NULL,
-  `username` varchar(35) NOT NULL,
-  `email` varchar(1024) NOT NULL
+CREATE TABLE `Users` (
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `username` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `Users`
 --
 
-INSERT INTO `user` (`id`, `password`, `username`, `email`) VALUES
-(1, '123', 'admin', 'admin@test.com');
+INSERT INTO `Users` (`email`, `password`, `username`) VALUES
+('admin@test.com', '123', 'Admin');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `user`
+-- Indexes for table `Users`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `Users`
+  ADD PRIMARY KEY (`email`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -28,7 +28,7 @@ if( "" !== $password || "" !==$email){
         header("location:index.php");
     } else {
       $_SESSION['message'] = "email/password combination incorrect";
-eader("location:login.php");
+header("location:login.php");
       }
   }
 }
