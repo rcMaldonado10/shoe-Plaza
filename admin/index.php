@@ -1,3 +1,9 @@
+<?php
+
+
+
+
+?>
 <!DOCTYPE php>
 <html>
 <head>
@@ -271,19 +277,12 @@
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
-                <?php  session_start();
-                if(empty($_SESSION['email']))
-                {
-                  header("location:index.php");
-                }
-
-                ?>
-
-                WELCOME :<?php echo $_SESSION['name']; ?>
-
-<a href="logout.php">Logout</a>
+                WELCOME :Alexander
+                <?php if(isset($_SESSION['message'])){
+                  
+                } ?>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -412,8 +411,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="pages/examples/invoice.php"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/login.php"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.php"><i class="fa fa-circle-o"></i> Register</a></li>
             <li><a href="pages/examples/lockscreen.php"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
             <li><a href="pages/examples/404.php"><i class="fa fa-circle-o"></i> 404 Error</a></li>
             <li><a href="pages/examples/500.php"><i class="fa fa-circle-o"></i> 500 Error</a></li>
