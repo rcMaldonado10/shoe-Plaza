@@ -2,7 +2,7 @@
 <?php
 
 
-$db= mysqli_connect("localhost", "root", "", "Admin") OR die("Fail to query database ".mysql_error());;
+$db= mysqli_connect("localhost", "root", "", "Shoe_Plaza") OR die("Fail to query database ".mysql_error());;
 
 
 if(isset($_POST['sign_in']) && isset($_POST['mail']) && isset($_POST['password'])){
@@ -16,7 +16,7 @@ if(isset($_POST['sign_in']) && isset($_POST['mail']) && isset($_POST['password']
 if( "" !== $password || "" !==$email){
   //$password=md5($password);
 
-  $sql="SELECT * FROM Users WHERE (email = '".$email."' AND password = '".$password."')";
+  $sql="SELECT * FROM admin WHERE (email = '".$email."' AND password = '".$password."')";
   $result= mysqli_query($db, $sql);
 
   if ($result == 1){

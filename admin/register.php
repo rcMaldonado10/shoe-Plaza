@@ -1,6 +1,6 @@
 <?php
 
-$db= mysqli_connect("localhost", "root", "", "Admin");
+$db= mysqli_connect("localhost", "root", "", "Shoe_Plaza");
 
 if(isset($_POST['register_btn'])){
   session_start();
@@ -13,7 +13,7 @@ if(isset($_POST['register_btn'])){
   if($password == $password2 && ("" !== $username || "" !== $password || "" !==$email)){
     //create user
   //  $password=md5($password); // hash password before storing for secuity purpose
-    $sql ="INSERT INTO Users(password, username, email) VALUES ('".$password."', '".$username."', '".$email."')";
+    $sql ="INSERT INTO admin(password, username, email) VALUES ('".$password."', '".$username."', '".$email."')";
     mysqli_query($db,$sql);
     $_SESSION['message']= "The you are now logged in";
     $_SESSION['admin_name']= $username;
