@@ -4,25 +4,34 @@ $db= mysqli_connect("localhost", "root", "", "Shoe_Plaza");
 
 if(isset($_POST['sub_product'])){
   session_start();
+  $productID=mysql_real_escape_string($_POST['product_id']);
   $brand=mysql_real_escape_string($_POST['brand']);
-  $modal=mysql_real_escape_string($_POST['modal']);
+  $model=mysql_real_escape_string($_POST['model']);
   $gender=mysql_real_escape_string($_POST['gender']);
   $size=mysql_real_escape_string($_POST['size']);
+  $quantity_stock=mysql_real_escape_string($_POST['quantity_stock']);
+  $price=mysql_real_escape_string($_POST['price']);
   $image_source=mysql_real_escape_string($_POST['image_source']);
   $details=mysql_real_escape_string($_POST['details']);
 
+//vefify that fileds are not in blank
+  if(("" !== $productID ||"" !== $brand || "" !== $model || "" !== $gender || "" !==$size ||"" !== $quantity_stock ||"" !== $price || "" !==$image_source|| "" !==$details)){
 
-  if(("" !== $brand || "" !== $password || "" !==$email)){
-    //create user
+    
+    if(mysql_num_rows())
+
+    //add product
+
   //  $password=md5($password); // hash password before storing for secuity purpose
-    $sql ="INSERT INTO shoe(Brand, Model, Gender, Size, Quantity_Stock, Price,image-source ) VALUES ('".$brand."', '".$modal."', '".$gender."', '".$size."','".$image_source."', '".$details."')";
+    $sql ="INSERT INTO shoe(ProductID, Brand, Model, Gender, Size, Quantity_Stock, Price, Image, Details) VALUES ('".$productID."','".$brand."', '".$model."', '".$gender."', '".$size."' , '".$quantity_stock."',  '".$price."','".$image_source."', '".$details."')";
     mysqli_query($db,$sql);
     $_SESSION['message']= "The you are now logged in";
-    $_SESSION['admin_name']= $brand;
-    header("location:index.php");
+    $_SESSION['brand']= $brand;
+    echo "Products have been added";
 
   }else{
     //failed
+      echo "fail to add cauuse of blank field or there is already a a product added";
     $_SESSION['message']= "The two password do not match";
   }
 
@@ -64,6 +73,11 @@ include 'recycle/topbar.php';
             <form action="general.php" method="post">
               <div class="box-body">
                 <div class="form-group">
+                  <label for="InputproductID">Product ID</label>
+                  <input type="text" name="product_id" class="form-control" id="Inputproduct_id" placeholder="1-10">
+                </div>
+
+                <div class="form-group">
                   <label for="Inputbrand">Brand</label>
                   <input type="text" name="brand" class="form-control" id="InputBrand" placeholder="Reebook or Nike">
                 </div>
@@ -80,6 +94,14 @@ include 'recycle/topbar.php';
                   <input type="text" name="size" class="form-control" id="InputSize" placeholder="6-10">
                 </div>
                 <div class="form-group">
+                  <label for="Inputquantity">Quantity Stock</label>
+                  <input type="text" name="quantity_stock" class="form-control" id="InputquantityStock" placeholder="6-10">
+                </div>
+                <div class="form-group">
+                  <label for="Inputprice">price</label>
+                  <input type="text" name="price" class="form-control" id="Inputprice" placeholder="$95.00">
+                </div>
+                <div class="form-group">
                   <label for="InputImage_source">Image-source</label>
                   <input type="text" name="image_source" class="form-control" id="InputImage_source" placeholder="/image/woman.jpg">
                 </div>
@@ -93,10 +115,12 @@ include 'recycle/topbar.php';
 
                   <p class="help-block">Example block-level help text here.</p>
                 </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Check me out
-                  </label>
+                <?php if(($productID== $row['ProductID'])){
+                  echo "This Product Already Exist";
+                }else{
+                  echo "Product Has been added";
+                }
+                ?>
                 </div>
               </div>
               <!-- /.box-body -->
