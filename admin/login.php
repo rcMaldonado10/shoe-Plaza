@@ -2,7 +2,7 @@
 <?php
 
 
-$db= mysqli_connect("localhost", "root", "", "Shoe_Plaza") OR die("Fail to query database ".mysql_error());;
+$db= mysqli_connect("localhost", "root", "", "shoeplaza") OR die("Fail to query database ".mysql_error());;
 
 
 if(isset($_POST['sign_in']) && isset($_POST['mail']) && isset($_POST['password'])){
@@ -16,20 +16,36 @@ if(isset($_POST['sign_in']) && isset($_POST['mail']) && isset($_POST['password']
 if( "" !== $password || "" !==$email){
   //$password=md5($password);
 
-  $sql="SELECT * FROM admin WHERE (email = '".$email."' AND password = '".$password."')";
-  $result= mysqli_query($db, $sql);
-
-  if ($result == 1){
+  $sql="SELECT * FROM `admin` WHERE email = $email and password = $password;";
+  //echo $sql;
+  print $email;
+  echo "  ";
+  print $password;
+  //$sql="SELECT * FROM admin WHERE (email = $email AND password = $password)";
+  $result = mysqli_query($db, $sql);
+  echo $result;
+  //if (mysqli_num_rows($result) > 1)
+  if (mysqli_num_rows($result) > 0)
+    //if (mysqli_num_rows($result) > 0)
+  {
 
       $_SESSION['message'] = "You are now logged in";
+      $message="You are now logged in";
       $_SESSION['mail'] = $email;
 
 
         header("location:index.php");
     } else {
       $_SESSION['message'] = "email/password combination incorrect";
-header("location:login.php");
+      $message= "email/password combination incorrect";
+//header("location:login.php");
+echo "     <---1     2--->     ";
+print $email;
+echo "  ";
+print $password;
       }
+echo "--------      ";
+echo $message;
   }
 }
 
