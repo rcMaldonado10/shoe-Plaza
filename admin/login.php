@@ -2,40 +2,58 @@
 <?php
 
 
-$db= mysqli_connect("localhost", "root", "", "shoeplaza") OR die("Fail to query database ".mysql_error());;
+$con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");;
 
-
-if(isset($_POST['sign_in']) && isset($_POST['mail']) && isset($_POST['password'])){
+if(isset($_POST['sign_in']))
+{
   session_start();
-
-  $email=mysql_real_escape_string($_POST['mail']);
-  $password=mysql_real_escape_string($_POST['password']);
-
-
+  $email=($_POST['email']);
+  $password=($_POST['password']);
 
 if( "" !== $password || "" !==$email){
   //$password=md5($password);
 
-  $sql="SELECT * FROM `admin` WHERE email = $email and password = $password;";
+  //INSERT INTO table1 (Nombre,Apellido,numero) VALUES('$firstName','$lastName','$number')
+  //$sql="SELECT * FROM admin WHERE (email = $email and password = $password)";
+  $sql = "SELECT email,password FROM admin";
   //echo $sql;
+  //$sql="SELECT * FROM `admin` WHERE email = $email;";
   print $email;
-  echo "  ";
+  echo "----";
   print $password;
+  echo "----";
+  echo $sql;
+  echo "----";
   //$sql="SELECT * FROM admin WHERE (email = $email AND password = $password)";
-  $result = mysqli_query($db, $sql);
-  echo $result;
+  $result = mysqli_query($con, $sql) or die("Bad query: $sql");
+  //echo $sql;
+
+  //$row =mysqli_fetch_assoc($result);
+  //$active = $row['active'];
+  //$count = mysqli_num_rows($result);
+  //echo $row['email'];
+  //echo "________";
+  //echo $row['password'];
   //if (mysqli_num_rows($result) > 1)
+  //if ($row['email']==$email )
   if (mysqli_num_rows($result) > 0)
-    //if (mysqli_num_rows($result) > 0)
   {
-
-      $_SESSION['message'] = "You are now logged in";
-      $message="You are now logged in";
-      $_SESSION['mail'] = $email;
-
-
+    while($row = mysqli_fetch_assoc($result))
+    {
+      $cheqEmail= $row["email"];
+      $cheqPass=  $row["password"];
+      echo  "email: " . $cheqEmail. " " . $cheqPass. "<br>";
+      if ($email==$cheqEmail AND $password == $cheqPass)
+      {
+        echo " esto se ve bien :D";
+        $_SESSION['message'] = "You are now logged in";
+        $message="You are now logged in";
+        $_SESSION['email'] = $email;
         header("location:index.php");
-    } else {
+      }
+
+     else
+     {
       $_SESSION['message'] = "email/password combination incorrect";
       $message= "email/password combination incorrect";
 //header("location:login.php");
@@ -44,12 +62,13 @@ print $email;
 echo "  ";
 print $password;
       }
+    }
 echo "--------      ";
 echo $message;
   }
 }
-
- ?>
+}
+?>
 
 
 
@@ -89,7 +108,7 @@ echo $message;
 
     <form action="login.php" method="post" enctype="multipart/form-data">
       <div class="form-group has-feedback">
-        <input  type="text" name="mail" class="form-control" placeholder="Email">
+        <input  type="text" name="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
