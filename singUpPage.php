@@ -12,12 +12,15 @@
       if (isset($_POST['SingUP']))
       {
             session_start();
-            $_SESSION['firstName'] = $_POST['firstNameS'];
-            $_SESSION['lastName']  = $_POST['lastNameS'];
-            $_SESSION['email']  = $_POST['emailS'];
-            $_SESSION['password']  = $_POST['passwordS'];
-            $_SESSION['']  = $_POST[''];
-            $number = '16';
+            $_SESSION['firstNameSignUp'] = $_POST['CosFirstName'];
+            $_SESSION['lastNameSignUp']  = $_POST['CosLastName'];
+            $_SESSION['email']  = $_POST['CosEmail'];
+            $_SESSION['password']  = $_POST['CosPassword'];
+
+            $_SESSION['first-name']  = $_POST['CreName'];
+            $_SESSION['number']  = $_POST['CreNumber'];
+            $_SESSION['cvc']  = $_POST['CosCvc'];
+            $_SESSION['expiry']  = $_POST['CreExpiry'];
 
 
             $serverName = "localhost";
@@ -31,6 +34,8 @@
             // //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
             // $result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
             // echo "Good Query";
+
+            header("location:signUp2nd.php");
       }
 
 

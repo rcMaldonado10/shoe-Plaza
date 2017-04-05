@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html >
 <head>
   <meta charset="UTF-8">
@@ -7,6 +8,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
       <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
+  <?php
+  if (isset($_POST['SingUP']))
+  {
+      $serverName = "localhost";
+      $userName = "root";
+      $password = "";
+      $Table = "shoeplaza";
+
+      $firstNameCos = $_REQUEST['CosFirstName'];
+      $lastNameCos = $_REQUEST['CosLastName'];
+      $emailCos = $_REQUEST['CosEmail'];
+      $passwordsCos = $_REQUEST['CosPassword'];
+
+      $nameCre = $_REQUEST['CreName'];
+      $numberCre = $_REQUEST['CreNumber'];
+      $cvcCre = $_REQUEST['CosCvc'];
+      $expCre = $_REQUEST['CreExpiry'];
+
+      //$number = '16';
+      echo "$firstName";
+      $dateBase = new mysqli($serverName,$userName,$password,$Table) or die("Unable to connect");
+
+      //          $firstName = $_POST['firstName'];
+      //          $lastName = 'Snow';
+      //$_POST['lastName'];
+
+      $sql = "INSERT INTO testuser (firstName,lastName,email,password) VALUES('$firstName','$lastName','$email','$passwords')";
+      //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
+      $result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
+      //echo "Good Query";
+  }
+
+  ?>
+
 </head>
 <body>
   <div class="form">
