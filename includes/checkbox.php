@@ -3,11 +3,11 @@
     <input type="checkbox" name="brand1" value="Nike">Nike<br>
     <input type="checkbox" name="brand2" value="Rebook">Rebook<br>
 
-  <h3>Color</h3>
-    <input type="checkbox" name="color1" value="Black">Black<br>
-    <input type="checkbox" name="color2" value="Brown">Brown<br>
-    <input type="checkbox" name="color3" value="Gray">Gray<br>
-    <input type="checkbox" name="color4" value="White">White
+  <h3>Categories</h3>
+    <input type="checkbox" name="Sport" value="Sport">Sport</br>
+    <input type="checkbox" name="Heels" value="Heels">Heels</br>
+    
+
   <h3>Price</h3>
     <input type="checkbox" name="price1" value="25">$25.00<br>
     <input type="checkbox" name="price2" value="35">$35.00<br>
