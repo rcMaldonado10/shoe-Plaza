@@ -48,7 +48,7 @@
       <div class="tab-content">
         <div id="signup">
           <h1>Sign Up for Free</h1>
-          <form action="verDatosIngresados.php" method="get">
+          <form action="signUp2nd.php" method="get">
 
           <div class="top-row">
             <div class="field-wrap">
@@ -87,35 +87,6 @@
         <h1>Payment Information</h1>
       </div> <!-- end of personal-information -->
 
-      <div class="field-wrap">
-         <label>
-           State<span class="req">*</span>
-         </label>
-        <input type="text" name="state" required="required" autocomplete="off" maxlength="30"/>
-       </div>
-        <div class="top-row">
-          <div class="field-wrap">
-             <label>
-               City<span class="req">*</span>
-             </label>
-            <input type="text" name="city" required="required" autocomplete="off" maxlength="20"/>
-           </div>
-
-           <div class="field-wrap">
-             <label>
-               Zip Code<span class="req">*</span>
-             </label>
-             <input type="text" name="zipcode" required="required" autocomplete="off" pattern="[0-9]*" maxlength="5"/>
-           </div>
-         </div>
-
-         <div class="field-wrap">
-            <label>
-              Street Address<span class="req">*</span>
-            </label>
-           <input type="text" name="streetaddress" required="required" autocomplete="off" maxlength="45"/>
-          </div>
-
         <div class="field-wrap">
            <label>
              Full name as it appears on card<span class="req">*</span>
@@ -147,7 +118,7 @@
                 <input type="text" required="required" name="cvc"/>
               </div>
             </div>
-          <input type="submit" class="button button-block" VALUE = "Submit" Name = "SingUP" >
+          <input type="submit" class="button button-block" VALUE = "Continue" Name = "SingUP" >
   </form>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
