@@ -4,7 +4,7 @@
 
 $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");;
 
-if(isset($_POST['sign_in']))
+if(isset($_POST['sign_in']))//escribir lo q ya estaba lol
 {
   session_start();
   $email=($_POST['email']);

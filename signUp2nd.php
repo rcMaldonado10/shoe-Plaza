@@ -28,15 +28,24 @@
 
       //$number = '16';
       echo "$firstName";
-      $dateBase = new mysqli($serverName,$userName,$password,$Table) or die("Unable to connect");
+      echo "$lastNameCos";
+      echo "$emailCos";
+      echo "$passwordsCos";
+
+      echo "$nameCre";
+      echo "$numberCre";
+      echo "$cvcCre";
+      echo "$expCre";
+
+      //$dateBase = new mysqli($serverName,$userName,$password,$Table) or die("Unable to connect");
 
       //          $firstName = $_POST['firstName'];
       //          $lastName = 'Snow';
       //$_POST['lastName'];
 
-      $sql = "INSERT INTO testuser (firstName,lastName,email,password) VALUES('$firstName','$lastName','$email','$passwords')";
+      //$sql = "INSERT INTO testuser (firstName,lastName,email,password) VALUES('$firstName','$lastName','$email','$passwords')";
       //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
-      $result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
+      //$result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
       //echo "Good Query";
   }
 
@@ -46,6 +55,7 @@
 <body>
   <div class="form">
           <h1>One more Step!</h1>
+          <h2 style="color:#FFFFFF">Costumer Shipping Address</h2>
           <form action="home.php" method="get">
 
           <div class="top-row">
@@ -53,14 +63,14 @@
                <label>
                  State<span class="req">*</span>
                </label>
-              <input type="text" required autocomplete="off" name="state" />
+              <input type="text" required autocomplete="off" name="shipState" />
              </div>
 
              <div class="field-wrap">
                <label>
                  Zipcode<span class="req">*</span>
                </label>
-             <input type="text" pattern="[0-9]" required autocomplete="off" name="zipcode"maxlength="6"/>
+             <input type="text" pattern="[0-9]" required autocomplete="off" name="shipZipcode"maxlength="6"/>
              </div>
            </div>
 
@@ -68,25 +78,69 @@
              <label>
                City<span class="req">*</span>
              </label>
-            <input type="text"required autocomplete="off" name="city"/>
+            <input type="text"required autocomplete="off" name="shipCity"/>
            </div>
 
            <div class="field-wrap">
              <label>
-               Billing Address<span class="req">*</span>
+               Street Address<span class="req">*</span>
              </label>
 
-            <input type="text"required autocomplete="off" name="billingaddress"/>
+            <input type="text"required autocomplete="off" name="shipStreetAddr"/>
            </div>
 
            <div class="field-wrap">
              <label>
-               Shipping Address<span class="req">*</span>
+               Postal Address<span class="req">*</span>
              </label>
 
-            <input type="text"required autocomplete="off" name="billingaddress"/>
+            <input type="text"required autocomplete="off" name="shipPostalAddress"/>
            </div>
-          <input type="submit" class="button button-block" VALUE = "Submit" Name = "SingUP" >
+
+
+           <h2 style="color:#FFFFFF">Costumer Billing Address</h2>
+           <form action="home.php" method="get">
+
+           <div class="top-row">
+             <div class="field-wrap">
+                <label>
+                  State<span class="req">*</span>
+                </label>
+               <input type="text" required autocomplete="off" name="billState" />
+              </div>
+
+              <div class="field-wrap">
+                <label>
+                  Zipcode<span class="req">*</span>
+                </label>
+              <input type="text" pattern="[0-9]" required autocomplete="off" name="billZipcode"maxlength="6"/>
+              </div>
+            </div>
+
+            <div class="field-wrap">
+              <label>
+                City<span class="req">*</span>
+              </label>
+             <input type="text"required autocomplete="off" name="billCity"/>
+            </div>
+
+            <div class="field-wrap">
+              <label>
+                Street Address<span class="req">*</span>
+              </label>
+
+             <input type="text"required autocomplete="off" name="billStreet"/>
+            </div>
+
+            <div class="field-wrap">
+              <label>
+                 Postal Address<span class="req">*</span>
+              </label>
+
+             <input type="text"required autocomplete="off" name="billPostalAddress "/>
+            </div>
+        <input type="submit" class="button button-block" VALUE = "Continue" Name = "SingUP" >
+
   </form>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
