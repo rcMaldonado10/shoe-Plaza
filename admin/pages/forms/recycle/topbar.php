@@ -378,12 +378,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../UI/general.php"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="../UI/icons.php"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="../UI/buttons.php"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="../UI/sliders.php"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="../UI/timeline.php"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="../UI/modals.php"><i class="fa fa-circle-o"></i> Modals</a></li>
+            <li><a href="../UI/general.php"><i class="fa fa-circle-o"></i> Update Product</a></li>
+
           </ul>
         </li>
         <li class="treeview active">
@@ -394,9 +390,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="general.php"><i class="fa fa-circle-o"></i>Add Product</a></li>
-            <li><a href="advanced.php"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="editors.php"><i class="fa fa-circle-o"></i> Editors</a></li>
+            <li class="active"><a href="general.php"><i class="fa fa-circle-o"></i>Update Product</a></li>
+            
           </ul>
         </li>
         <li class="treeview">

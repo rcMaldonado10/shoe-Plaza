@@ -369,15 +369,14 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Add products</span>
+            <i class="fa fa-edit"></i> <span>Update products</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/forms/general.php"><i class="fa fa-circle-o"></i> Add Product</a></li>
-            <li><a href="pages/forms/advanced.php"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.php"><i class="fa fa-circle-o"></i> Editors</a></li>
+            <li><a href="pages/forms/general.php"><i class="fa fa-circle-o"></i> Update Product</a></li>
+            
           </ul>
         </li>
         <li class="treeview">

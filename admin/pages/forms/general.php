@@ -1,32 +1,17 @@
 
 <?php
 $db= mysqli_connect("localhost", "root", "", "shoeplaza");
-if(isset($_POST['register_btn'])){
-  session_start();
-  $productID=mysql_real_escape_string($_POST['product_id']);
-  $brand=mysql_real_escape_string($_POST['brand']);
-  $model=mysql_real_escape_string($_POST['model']);
-  $gender=mysql_real_escape_string($_POST['gender']);
-  $size=mysql_real_escape_string($_POST['size']);
-  $quantity_stock=mysql_real_escape_string($_POST['quantity_stock']);
-  $price=mysql_real_escape_string($_POST['price']);
-  $image_source=mysql_real_escape_string($_POST['image_source']);
-  $details=mysql_real_escape_string($_POST['details']);
-//vefify that fileds are not in blank
-  if(("" !== $productID ||"" !== $brand || "" !== $model || "" !== $gender || "" !==$size ||"" !== $quantity_stock ||"" !== $price || "" !==$image_source|| "" !==$details)){
-    //add product
-  //  $password=md5($password); // hash password before storing for secuity purpose
-    $sql ="INSERT INTO shoe(ProductID, Brand, Model, Gender, Size, Quantity_Stock, Price, img-source, Details) VALUES ('".$productID."','".$brand."', '".$model."', '".$gender."', '".$size."' , '".$quantity_stock."',  '".$price."','".$image_source."', '".$details."')";
-    mysqli_query($db,$sql);
 
-    $_SESSION['brand']= $brand;
-    echo "Products have been added";
-  }else{
-    //failed
-      echo "fail to add cauuse of blank field or there is already a a product added";
+  if(isset($_POST['submit_data'])){
 
-  }
-}
+    $sql ="INSERT INTO shoe VALUES ('','$_POST[brand]','$_POST[model]','$_POST[category]','$_POST[gender]','$_POST[size]','$_POST[stock]', '$_POST[price]','$_POST[imgsource]','$_POST[details]')";
+    mysqli_query($db,$sql);}
+
+    if(isset($_POST['delete_data'])){
+
+      $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
+      mysqli_query($db,$sql);}
+
 ?>
 
 <?php
@@ -37,7 +22,7 @@ include 'recycle/topbar.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Add Products to data Base
+        Manage Products Connectet To Data Base
         <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
@@ -51,7 +36,7 @@ include 'recycle/topbar.php';
     <section class="content">
       <div class="row">
         <!-- left column -->
-        <div class="col-md-6">
+        <div class="col-md-12">
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
@@ -62,17 +47,16 @@ include 'recycle/topbar.php';
             <form action="general.php" method="post">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="InputproductID">Product ID</label>
-                  <input type="text" name="product_id" class="form-control" id="Inputproduct_id" placeholder="1-10">
-                </div>
-
-                <div class="form-group">
                   <label for="Inputbrand">Brand</label>
                   <input type="text" name="brand" class="form-control" id="InputBrand" placeholder="Reebook or Nike">
                 </div>
                 <div class="form-group">
                   <label for="InputModel">Model</label>
                   <input type="text" name="model" class="form-control" id="InputModel" placeholder="Model">
+                </div>
+                <div class="form-group">
+                  <label for="InputCategory">Category</label>
+                  <input type="text" name="category" class="form-control" id="InputCategory" placeholder="Sport, Casual, Heels">
                 </div>
                 <div class="form-group">
                   <label for="InputGender">Gender</label>
@@ -84,7 +68,7 @@ include 'recycle/topbar.php';
                 </div>
                 <div class="form-group">
                   <label for="Inputquantity">Quantity Stock</label>
-                  <input type="text" name="quantity_stock" class="form-control" id="InputquantityStock" placeholder="6-10">
+                  <input type="text" name="stock" class="form-control" id="InputquantityStock" placeholder="6-10">
                 </div>
                 <div class="form-group">
                   <label for="Inputprice">price</label>
@@ -92,7 +76,7 @@ include 'recycle/topbar.php';
                 </div>
                 <div class="form-group">
                   <label for="InputImage_source">Image-source</label>
-                  <input type="text" name="image_source" class="form-control" id="InputImage_source" placeholder="Images/woman1.jpg (example)">
+                  <input type="text" name="imgsource" class="form-control" id="InputImage_source" placeholder="Images/woman1.jpg (example)">
                 </div>
                 <div class="form-group">
                   <label for="InputDetails">Details</label>
@@ -112,360 +96,83 @@ include 'recycle/topbar.php';
                                 */?>
               </div>
               <!-- /.box-body -->
-
               <div class="box-footer">
-                <button type="submit" name ="register_btn" class="btn btn-primary">Submit</button>
+                <button type="submit" name ="submit_data" class="btn btn-primary">Add Product</button>
               </div>
-            </form>
+
           </div>
           <!-- /.box -->
 
           <!-- Form Element sizes -->
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Different Height</h3>
+              <h3 class="box-title">Delete Product by ID</h3>
             </div>
             <div class="box-body">
-              <input class="form-control input-lg" type="text" placeholder=".input-lg">
-              <br>
-              <input class="form-control" type="text" placeholder="Default input">
-              <br>
-              <input class="form-control input-sm" type="text" placeholder=".input-sm">
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          <div class="box box-danger">
-            <div class="box-header with-border">
-              <h3 class="box-title">Different Width</h3>
-            </div>
-            <div class="box-body">
-              <div class="row">
-                <div class="col-xs-3">
-                  <input type="text" class="form-control" placeholder=".col-xs-3">
-                </div>
-                <div class="col-xs-4">
-                  <input type="text" class="form-control" placeholder=".col-xs-4">
-                </div>
-                <div class="col-xs-5">
-                  <input type="text" class="form-control" placeholder=".col-xs-5">
-                </div>
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          <!-- Input addon -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Input Addon</h3>
-            </div>
-            <div class="box-body">
-              <div class="input-group">
-                <span class="input-group-addon">@</span>
-                <input type="text" class="form-control" placeholder="Username">
-              </div>
-              <br>
-
-              <div class="input-group">
-                <input type="text" class="form-control">
-                <span class="input-group-addon">.00</span>
-              </div>
-              <br>
-
-              <div class="input-group">
-                <span class="input-group-addon">$</span>
-                <input type="text" class="form-control">
-                <span class="input-group-addon">.00</span>
+              <div class="form-group">
+                <label for="InputproductID">Type the Product ID</label>
+                <input type="text" name="id" class="form-control" id="Inputproduct_id" placeholder="1-10">
               </div>
 
-              <h4>With icons</h4>
-
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                <input type="email" class="form-control" placeholder="Email">
-              </div>
-              <br>
-
-              <div class="input-group">
-                <input type="text" class="form-control">
-                <span class="input-group-addon"><i class="fa fa-check"></i></span>
-              </div>
-              <br>
-
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                <input type="text" class="form-control">
-                <span class="input-group-addon"><i class="fa fa-ambulance"></i></span>
-              </div>
-
-              <h4>With checkbox and radio inputs</h4>
-
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="input-group">
-                        <span class="input-group-addon">
-                          <input type="checkbox">
-                        </span>
-                    <input type="text" class="form-control">
-                  </div>
-                  <!-- /input-group -->
-                </div>
-                <!-- /.col-lg-6 -->
-                <div class="col-lg-6">
-                  <div class="input-group">
-                        <span class="input-group-addon">
-                          <input type="radio">
-                        </span>
-                    <input type="text" class="form-control">
-                  </div>
-                  <!-- /input-group -->
-                </div>
-                <!-- /.col-lg-6 -->
-              </div>
-              <!-- /.row -->
-
-              <h4>With buttons</h4>
-
-              <p class="margin">Large: <code>.input-group.input-group-lg</code></p>
-
-              <div class="input-group input-group-lg">
-                <div class="input-group-btn">
-                  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Action
-                    <span class="fa fa-caret-down"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </div>
-                <!-- /btn-group -->
-                <input type="text" class="form-control">
-              </div>
-              <!-- /input-group -->
-              <p class="margin">Normal</p>
-
-              <div class="input-group">
-                <div class="input-group-btn">
-                  <button type="button" class="btn btn-danger">Action</button>
-                </div>
-                <!-- /btn-group -->
-                <input type="text" class="form-control">
-              </div>
-              <!-- /input-group -->
-              <p class="margin">Small <code>.input-group.input-group-sm</code></p>
-
-              <div class="input-group input-group-sm">
-                <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                      <button type="button" class="btn btn-info btn-flat">Go!</button>
-                    </span>
-              </div>
-              <!-- /input-group -->
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-        </div>
-        <!--/.col (left) -->
-        <!-- right column -->
-        <div class="col-md-6">
-          <!-- Horizontal Form -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Horizontal Form</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"> Remember me
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Sign in</button>
+                <button type="submit" name ="delete_data" class="btn btn-primary">Delete Product</button>
               </div>
-              <!-- /.box-footer -->
-            </form>
-          </div>
-          <!-- /.box -->
-          <!-- general form elements disabled -->
-          <div class="box box-warning">
-            <div class="box-header with-border">
-              <h3 class="box-title">General Elements</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <form role="form">
-                <!-- text input -->
-                <div class="form-group">
-                  <label>Text</label>
-                  <input type="text" class="form-control" placeholder="Enter ...">
-                </div>
-                <div class="form-group">
-                  <label>Text Disabled</label>
-                  <input type="text" class="form-control" placeholder="Enter ..." disabled>
-                </div>
-
-                <!-- textarea -->
-                <div class="form-group">
-                  <label>Textarea</label>
-                  <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                </div>
-                <div class="form-group">
-                  <label>Textarea Disabled</label>
-                  <textarea class="form-control" rows="3" placeholder="Enter ..." disabled></textarea>
-                </div>
-
-                <!-- input states -->
-                <div class="form-group has-success">
-                  <label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Input with success</label>
-                  <input type="text" class="form-control" id="inputSuccess" placeholder="Enter ...">
-                  <span class="help-block">Help block with success</span>
-                </div>
-                <div class="form-group has-warning">
-                  <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Input with
-                    warning</label>
-                  <input type="text" class="form-control" id="inputWarning" placeholder="Enter ...">
-                  <span class="help-block">Help block with warning</span>
-                </div>
-                <div class="form-group has-error">
-                  <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Input with
-                    error</label>
-                  <input type="text" class="form-control" id="inputError" placeholder="Enter ...">
-                  <span class="help-block">Help block with error</span>
-                </div>
-
-                <!-- checkbox -->
-                <div class="form-group">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Checkbox 1
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Checkbox 2
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" disabled>
-                      Checkbox disabled
-                    </label>
-                  </div>
-                </div>
-
-                <!-- radio -->
-                <div class="form-group">
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                      Option one is this and that&mdash;be sure to include why it's great
-                    </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                      Option two can be something else and selecting it will deselect option one
-                    </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-                      Option three is disabled
-                    </label>
-                  </div>
-                </div>
-
-                <!-- select -->
-                <div class="form-group">
-                  <label>Select</label>
-                  <select class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Select Disabled</label>
-                  <select class="form-control" disabled>
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
-                </div>
-
-                <!-- Select multiple-->
-                <div class="form-group">
-                  <label>Select Multiple</label>
-                  <select multiple class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Select Multiple Disabled</label>
-                  <select multiple class="form-control" disabled>
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
-                </div>
-
-              </form>
             </div>
             <!-- /.box-body -->
           </div>
+        </form>
           <!-- /.box -->
-        </div>
-        <!--/.col (right) -->
-      </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
-  </div>
+          <!--.box -->
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Data Table Of Products</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                  <?php
+                  $sql ="SELECT * FROM shoe";
+                  $result=mysqli_query($db,$sql);
+            echo '<table class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                  <th>ProductID</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Category</th>
+                  <th>Gender</th>
+                  <th>Size</th>
+                  <th>Quantity Stock</th>
+                  <th>Price</th>
+                  <th>img-source</th>
+                  <th>Details</th>
+                  </tr>
+                  </thead>
+                  <tbody>';
+
+
+                  while ($row =mysqli_fetch_array($result)) {
+
+                    echo "<tr>";
+                    echo "<td>"; echo $row["ProductID"]; echo "</td>";
+                    echo "<td>"; echo $row["Brand"]; echo "</td>";
+                    echo "<td>"; echo $row["Model"]; echo "</td>";
+                    echo "<td>"; echo $row["Category"]; echo "</td>";
+                    echo "<td>"; echo $row["Gender"]; echo "</td>";
+                    echo "<td>"; echo $row["Size"]; echo "</td>";
+                    echo "<td>"; echo $row["Quantity_Stock"]; echo "</td>";
+                    echo "<td>"; echo $row["Price"]; echo "</td>";
+                    echo "<td>"; echo $row["img-source"]; echo "</td>";
+                    echo "<td>"; echo $row["Details"]; echo "</td>";
+                    echo "</tr>";
+                  }
+                  echo "</table>";
+                  echo "</tbody>";
+
+
+                   ?>
+            </div>
+            <!-- /.box-body -->
+          </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -665,6 +372,7 @@ include 'recycle/topbar.php';
     </div>
   </aside>
   <!-- /.control-sidebar -->
+
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
