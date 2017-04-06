@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2017 at 12:09 AM
+-- Generation Time: Apr 07, 2017 at 12:15 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -300,6 +300,11 @@ ALTER TABLE `customer_credit_card`
 --
 ALTER TABLE `order_`
   MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `shoe`
+--
+ALTER TABLE `shoe`
+  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
