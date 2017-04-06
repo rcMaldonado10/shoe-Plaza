@@ -67,12 +67,15 @@
       echo $_POST['shipState'];
       echo $shippAddress;
       echo $billAddress;
+        $sql = "INSERT INTO `customer`(`Email`, `FirstName`, `LastName`, `Password`, `Shipping_Address`, `Billing_Address`, `Status`) VALUES ($emailCos  ,$firstNameCos  ,$lastNameCos  ,$passwordsCos  ,$shippAddress  ,$billAddress,  '1')";
+//asi me lo dio mysqladmin o como se llame xD^^^^^^^
+        //$sql = "INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ($emailCos  ,$firstNameCos  ,$lastNameCos  ,$passwordsCos  ,$shippAddress  ,$billAddress,  1)";
+      //$sql = "INSERT INTO customer (email,firstName,lastName,password,Shipping_Address,Billing_Address,status) VALUES('$emailCos','$firstNameCos','$lastNameCos','$passwordsCos','$shippAddress','$billAddress','1')";
 
-      $sql = "INSERT INTO customer (email,firstName,lastName,password,Shipping_Address,Billing_Address,status) VALUES('$emailCos','$firstNameCos','$lastNameCos','$passwordsCos','$shippAddress','$billAddress','1')";
       //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
       $result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
       //echo "Good Query";
-      header("location:signUp2nd.php");
+      //header("location:signUp2nd.php");
   }
 
   ?>
@@ -82,7 +85,7 @@
   <div class="form">
           <h1>One more Step!</h1>
           <h2 style="color:#FFFFFF">Costumer Shipping Address</h2>
-          <!--<form action="home.php" method="get">-->
+          <form action="home.php" method="get">
 
           <div class="top-row">
             <div class="field-wrap">
@@ -96,7 +99,7 @@
                <label>
                  Zipcode<span class="req">*</span>
                </label>
-             <input type="text" pattern="[0-9]" required autocomplete="off" name="shipZipcode"maxlength="6"/>
+             <input type="text" required autocomplete="off" name="shipZipcode"maxlength="6"/>
              </div>
            </div>
 
@@ -139,7 +142,7 @@
                 <label>
                   Zipcode<span class="req">*</span>
                 </label>
-              <input type="text" pattern="[0-9]" required autocomplete="off" name="billZipcode"maxlength="6"/>
+              <input type="text"  required autocomplete="off" name="billZipcode"maxlength="6"/>
               </div>
             </div>
 
