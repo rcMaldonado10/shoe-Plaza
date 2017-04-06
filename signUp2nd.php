@@ -3,7 +3,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Adrress</title>
+  <title>Address</title>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
@@ -43,10 +43,15 @@
       //          $lastName = 'Snow';
       //$_POST['lastName'];
 
+<<<<<<< Updated upstream
       //$sql = "INSERT INTO testuser (firstName,lastName,email,password) VALUES('$firstName','$lastName','$email','$passwords')";
+=======
+      $sql = "INSERT INTO customer (firstName,lastName,email,password) VALUES('$firstName','$lastName','$email','$passwords')";
+>>>>>>> Stashed changes
       //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
       //$result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
       //echo "Good Query";
+      header ("location:home.php");
   }
 
   ?>
@@ -55,8 +60,12 @@
 <body>
   <div class="form">
           <h1>One more Step!</h1>
+<<<<<<< Updated upstream
           <h2 style="color:#FFFFFF">Costumer Shipping Address</h2>
           <form action="home.php" method="get">
+=======
+          <form action="signUp2nd.php" method="get">
+>>>>>>> Stashed changes
 
           <div class="top-row">
             <div class="field-wrap">

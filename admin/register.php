@@ -1,6 +1,6 @@
 <?php
 
-$db= mysqli_connect("localhost", "root", "", "Shoe_Plaza");
+$db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
 if(isset($_POST['register_btn'])){
   session_start();
@@ -8,7 +8,6 @@ if(isset($_POST['register_btn'])){
   $email=mysql_real_escape_string($_POST['mail']);
   $password=mysql_real_escape_string($_POST['password']);
   $password2=mysql_real_escape_string($_POST['password2']);
-
 
   if($password == $password2 && ("" !== $username || "" !== $password || "" !==$email)){
     //create user

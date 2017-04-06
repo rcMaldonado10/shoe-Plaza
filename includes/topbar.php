@@ -28,11 +28,32 @@
 <!--Navigation Bar-->
 <nav class="nav">
 <span id="menu"><a href="home.php" class="menunav">Home</a></span>
-<span id="menu"><a href="women.php" class="menunav">Woman</a></span>
-<span id="menu"><a href="men.php" class="menunav">Men</a></span>
+<span id="menu">  <li class="dropdown">
+    <a href="javascript:void(0)"  class="menunav">Categories</a>
+    <div class="dropdown-content">
+      <a href="#"><b>Woman</b></a>
+      <a href="women.php">Sport</a>
+      <a href="#"><b>Men</b></a>
+      <a href="men.php">Sport</a>
+    </div>
+  </li></span>
+
 <span id="menu"><a href="about.php" class="menunav">About</a></span>
-<span id="menu"><a href="singUpPage.php" class="menunav">Sign Up/Sign In</a></span>
-<span id="menu"><a href="viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></span>
+<?php if(isset($_POST['SingUP'])){
+  echo '<span id="menu"><a href="javascript:void(0)"  class="menunav">Hello:'.$row['firstNameCos'].'</a>
+  <div class="dropdown-content">
+    <a href="accout.php"><b>accout</b></a>
+    <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
+  </div>
+</li></span>';
+}else {
+echo '<span id="menu"><a href="singUpPage.php" class="menunav">Sign Up/Sign In</a></span>';
+
+
+
+}
+ ?>
+<span id="menu"><a href="shopping_bag/viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></span>
 <input type="text" placeholder="Search..." required><input type="button" value="Search">
 
 </nav>

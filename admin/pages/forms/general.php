@@ -1,8 +1,7 @@
+
 <?php
-
-$db= mysqli_connect("localhost", "root", "", "Shoe_Plaza");
-
-if(isset($_POST['sub_product'])){
+$db= mysqli_connect("localhost", "root", "", "shoeplaza");
+if(isset($_POST['register_btn'])){
   session_start();
   $productID=mysql_real_escape_string($_POST['product_id']);
   $brand=mysql_real_escape_string($_POST['brand']);
@@ -13,43 +12,33 @@ if(isset($_POST['sub_product'])){
   $price=mysql_real_escape_string($_POST['price']);
   $image_source=mysql_real_escape_string($_POST['image_source']);
   $details=mysql_real_escape_string($_POST['details']);
-
 //vefify that fileds are not in blank
   if(("" !== $productID ||"" !== $brand || "" !== $model || "" !== $gender || "" !==$size ||"" !== $quantity_stock ||"" !== $price || "" !==$image_source|| "" !==$details)){
-
-    
-    if(mysql_num_rows())
-
     //add product
-
   //  $password=md5($password); // hash password before storing for secuity purpose
-    $sql ="INSERT INTO shoe(ProductID, Brand, Model, Gender, Size, Quantity_Stock, Price, Image, Details) VALUES ('".$productID."','".$brand."', '".$model."', '".$gender."', '".$size."' , '".$quantity_stock."',  '".$price."','".$image_source."', '".$details."')";
+    $sql ="INSERT INTO shoe(ProductID, Brand, Model, Gender, Size, Quantity_Stock, Price, img-source, Details) VALUES ('".$productID."','".$brand."', '".$model."', '".$gender."', '".$size."' , '".$quantity_stock."',  '".$price."','".$image_source."', '".$details."')";
     mysqli_query($db,$sql);
-    $_SESSION['message']= "The you are now logged in";
+
     $_SESSION['brand']= $brand;
     echo "Products have been added";
-
   }else{
     //failed
       echo "fail to add cauuse of blank field or there is already a a product added";
-    $_SESSION['message']= "The two password do not match";
+
   }
-
-
 }
-
 ?>
 
 <?php
 include 'recycle/topbar.php';
-
 ?>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Add to Data Base<small>Preview</small>
+      <h1>
+        Add Products to data Base
+        <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -66,7 +55,7 @@ include 'recycle/topbar.php';
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Add new Product</h3>
+              <h3 class="box-title">Add a new product</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -99,34 +88,33 @@ include 'recycle/topbar.php';
                 </div>
                 <div class="form-group">
                   <label for="Inputprice">price</label>
-                  <input type="text" name="price" class="form-control" id="Inputprice" placeholder="$95.00">
+                  <input type="text" name="price" class="form-control" id="Inputprice" placeholder="$95.00 (Don't include de '$' simbol)">
                 </div>
                 <div class="form-group">
                   <label for="InputImage_source">Image-source</label>
-                  <input type="text" name="image_source" class="form-control" id="InputImage_source" placeholder="/image/woman.jpg">
+                  <input type="text" name="image_source" class="form-control" id="InputImage_source" placeholder="Images/woman1.jpg (example)">
                 </div>
                 <div class="form-group">
                   <label for="InputDetails">Details</label>
                   <input type="text" name="details" class="form-control" id="InputImage_source" placeholder="This Shoe is great!">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputFile">File input image</label>
+                  <label for="exampleInputFile">File input</label>
                   <input type="file" id="exampleInputFile">
 
-                  <p class="help-block">Example block-level help text here.</p>
+
                 </div>
-                <?php if(($productID== $row['ProductID'])){
-                  echo "This Product Already Exist";
-                }else{
-                  echo "Product Has been added";
-                }
-                ?>
-                </div>
+                <?php /*if($productID== $row['ProductID']){
+                                  echo "This Product Already Exist";
+                                }else{
+                                  echo "Product Has been added";
+                                }
+                                */?>
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" name="sub_product" class="btn btn-primary">Submit</button>
+                <button type="submit" name ="register_btn" class="btn btn-primary">Submit</button>
               </div>
             </form>
           </div>
