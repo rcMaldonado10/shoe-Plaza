@@ -9,33 +9,53 @@
 
       <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
   <?php
+  session_start();
+  $firstNameCos = $_REQUEST['firstNameSignUp'];
+  $lastNameCos = $_REQUEST['lastNameSignUp'];
+  $emailCos = $_REQUEST['email'];
+  $passwordsCos = $_REQUEST['password'];
+
+  $nameCre = $_REQUEST['first-name'];
+  $numberCre = $_REQUEST['number'];
+  $cvcCre = $_REQUEST['cvc'];
+  $expCre = $_REQUEST['expiry'];
+
+  echo "name = ".$firstNameCos;
+  echo "<br> last = ".$lastNameCos;
+  echo "<br> email = ".$emailCos;
+  echo "<br> pass = ".$passwordsCos;
+
+  echo "<br> nameCre = ".$nameCre;
+  echo "<br> num = ".$numberCre;
+  echo "<br> cvc = ".$cvcCre;
+  echo "<br> exp = ".$expCre;
+
+
+
   if (isset($_POST['SingUP']))
   {
       $serverName = "localhost";
       $userName = "root";
       $password = "";
       $Table = "shoeplaza";
-
-      $firstNameCos = $_REQUEST['CosFirstName'];
-      $lastNameCos = $_REQUEST['CosLastName'];
-      $emailCos = $_REQUEST['CosEmail'];
-      $passwordsCos = $_REQUEST['CosPassword'];
-
-      $nameCre = $_REQUEST['CreName'];
-      $numberCre = $_REQUEST['CreNumber'];
-      $cvcCre = $_REQUEST['CosCvc'];
-      $expCre = $_REQUEST['CreExpiry'];
+//asi es como lo tenias antes quisas lo necesites despues
+      // $firstNameCos = $_REQUEST['CosFirstName'];
+      // $lastNameCos = $_REQUEST['CosLastName'];
+      // $emailCos = $_REQUEST['CosEmail'];
+      // $passwordsCos = $_REQUEST['CosPassword'];
+      //
+      // $nameCre = $_REQUEST['CreName'];
+      // $numberCre = $_REQUEST['CreNumber'];
+      // $cvcCre = $_REQUEST['CosCvc'];
+      // $expCre = $_REQUEST['CreExpiry'];
 
       //$number = '16';
-      echo $firstName;
-      echo $lastNameCos;
-      echo $emailCos;
-      echo $passwordsCos;
+      // // remove all session variables
+      // session_unset();
+      //
+      // // destroy the session
+      // session_destroy();
 
-      echo $nameCre;
-      echo $numberCre;
-      echo $cvcCre;
-      echo $expCre;
 
       $dateBase = new mysqli($serverName,$userName,$password,$Table) or die("Unable to connect");
 
@@ -44,7 +64,7 @@
       //$_POST['lastName'];
       $shippAddress = $_POST['shipState'] . ' | ' . $_POST['shipZipcode'] . ' | ' . $_POST['shipCity'] . ' | ' . $_POST['shipStreetAddr'] . ' | ' . $_POST['shipPostalAddress'];
       $billAddress = $_POST['billState'] . ' | ' . $_POST['billZipcode'] . ' | ' . $_POST['billCity'] . ' | ' . $_POST['billStreetAddr'] . ' | ' . $_POST['billPostalAddress'];
-
+      echo $_POST['shipState'];
       echo $shippAddress;
       echo $billAddress;
 

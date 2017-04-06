@@ -9,34 +9,37 @@
       <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
       <?PHP
 
-      if (isset($_POST['SingUP']))
-      {
+      // if (isset($_POST['SingUP']))
+      // {
+
+            //session_unset();
+            @session_destroy();
             session_start();
-            $_SESSION['firstNameSignUp'] = $_POST['CosFirstName'];
-            $_SESSION['lastNameSignUp']  = $_POST['CosLastName'];
-            $_SESSION['email']  = $_POST['CosEmail'];
-            $_SESSION['password']  = $_POST['CosPassword'];
+            $_SESSION['CosFirstName'] = $_POST['firstNameSignUp'];
+            $_SESSION['CosLastName']  = $_POST['lastNameSignUp'];
+            $_SESSION['CosEmail']  = $_POST['email'];
+            $_SESSION['CosPassword']  = $_POST['password'];
 
-            $_SESSION['first-name']  = $_POST['CreName'];
-            $_SESSION['number']  = $_POST['CreNumber'];
-            $_SESSION['cvc']  = $_POST['CosCvc'];
-            $_SESSION['expiry']  = $_POST['CreExpiry'];
+            $_SESSION['CreName']  = $_POST['first-name'];
+            $_SESSION['CreNumber']  = $_POST['number'];
+            $_SESSION['CosCvc']  = $_POST['cvc'];
+            $_SESSION['CreExpiry']  = $_POST['expiry'];
 
 
-            $serverName = "localhost";
-            $userName = "root";
-            $pass = "";
-            $Table = "testdb2";
+            // $serverName = "localhost";
+            // $userName = "root";
+            // $pass = "";
+            // $Table = "testdb2";
 
-            $dateBase = new mysqli($serverName,$userName,$pass,$Table) or die("Unable to connect");
+            //$dateBase = new mysqli($serverName,$userName,$pass,$Table) or die("Unable to connect");
             //
             // $sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('$firstName','$lastName','$number')";
             // //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
             // $result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
             // echo "Good Query";
 
-            header("location:signUp2nd.php");
-      }
+            //header("location:signUp2nd.php");
+      //
 
 
 
