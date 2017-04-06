@@ -2,10 +2,11 @@
 <?php
 
 
-$con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");;
+$con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
 
 if(isset($_POST['sign_in']))//escribir lo q ya estaba lol
 {
+  @session_destroy();
   session_start();
   $email=($_POST['email']);
   $password=($_POST['password']);

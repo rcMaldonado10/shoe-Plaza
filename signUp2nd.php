@@ -9,6 +9,7 @@
 
       <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
   <?php
+
   session_start();
   $firstNameCos = $_REQUEST['firstNameSignUp'];
   $lastNameCos = $_REQUEST['lastNameSignUp'];
@@ -67,13 +68,12 @@
       echo $_POST['shipState'];
       echo $shippAddress;
       echo $billAddress;
-        $sql = "INSERT INTO `customer`(`Email`, `FirstName`, `LastName`, `Password`, `Shipping_Address`, `Billing_Address`, `Status`) VALUES ($emailCos  ,$firstNameCos  ,$lastNameCos  ,$passwordsCos  ,$shippAddress  ,$billAddress,  '1')";
-//asi me lo dio mysqladmin o como se llame xD^^^^^^^
+        $sql = "INSERT INTO customer(`Email`, `FirstName`, `LastName`, `Password`, `Shipping_Address`, `Billing_Address`, `Status`) VALUES (\'yatio@test.com\',\'yatio\',\'snow\',\'123456789\',\'idc\',\'idk\',\'1\')";
         //$sql = "INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ($emailCos  ,$firstNameCos  ,$lastNameCos  ,$passwordsCos  ,$shippAddress  ,$billAddress,  1)";
       //$sql = "INSERT INTO customer (email,firstName,lastName,password,Shipping_Address,Billing_Address,status) VALUES('$emailCos','$firstNameCos','$lastNameCos','$passwordsCos','$shippAddress','$billAddress','1')";
 
       //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
-      $result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
+      mysqli_query($dateBase, $sql) or die("Bad query: $sql");
       //echo "Good Query";
       //header("location:signUp2nd.php");
   }

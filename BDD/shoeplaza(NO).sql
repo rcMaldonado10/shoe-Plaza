@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2017 at 12:09 AM
+-- Generation Time: Apr 06, 2017 at 09:58 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -27,18 +27,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `username` varchar(35) NOT NULL
+  `id` int(5) NOT NULL,
+  `password` varchar(35) NOT NULL,
+  `username` varchar(35) NOT NULL,
+  `email` varchar(1024) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`email`, `password`, `username`) VALUES
-('admin@test.com', '123', 'Admin'),
-('g@gmail.com', 'no', 'Gabriel');
+INSERT INTO `admin` (`id`, `password`, `username`, `email`) VALUES
+(1, '123', 'admin', 'admin@test.com'),
+(2, '456', 'yatioo', 'Yatio@test.com'),
+(3, 'hola123', 'pepe', 'pepe');
 
 -- --------------------------------------------------------
 
@@ -179,20 +181,12 @@ CREATE TABLE `shoe` (
   `Model` char(255) COLLATE utf16_unicode_520_ci NOT NULL,
   `Category` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
   `Gender` char(1) COLLATE utf16_unicode_520_ci NOT NULL,
-  `Size` int(10) NOT NULL,
+  `Size` int(1) NOT NULL,
   `Quantity_Stock` int(255) NOT NULL,
   `Price` float(5,2) NOT NULL,
   `img-source` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
   `Details` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
-
---
--- Dumping data for table `shoe`
---
-
-INSERT INTO `shoe` (`ProductID`, `Brand`, `Model`, `Category`, `Gender`, `Size`, `Quantity_Stock`, `Price`, `img-source`, `Details`) VALUES
-(1, 'Rebook', 'classic', '0', 'M', 9, 10, 95.00, 'Images/men1.jpg', 'This is Great'),
-(2, 'Rebook', 'Sport Edition', '0', 'M', 8, 10, 95.00, 'Images/men2.jpg', 'This i Great');
 
 --
 -- Indexes for dumped tables
@@ -202,7 +196,7 @@ INSERT INTO `shoe` (`ProductID`, `Brand`, `Model`, `Category`, `Gender`, `Size`,
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `customer`
@@ -211,7 +205,7 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`CustomerID`),
   ADD UNIQUE KEY `Email` (`Email`),
   ADD UNIQUE KEY `CustomerID_2` (`CustomerID`,`Email`),
-  ADD KEY `CustomerID` (`CustomerID`),
+  ADD UNIQUE KEY `Email_2` (`Email`),
   ADD KEY `CustomerID_3` (`CustomerID`);
 
 --
@@ -286,10 +280,15 @@ ALTER TABLE `shoe`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `customer_credit_card`
 --
@@ -301,43 +300,53 @@ ALTER TABLE `customer_credit_card`
 ALTER TABLE `order_`
   MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `shoe`
+--
+ALTER TABLE `shoe`
+  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT;
+--
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `has`
+-- Constraints for table `customer`
 --
-ALTER TABLE `has`
-  ADD CONSTRAINT `has_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`) ON DELETE CASCADE,
-  ADD CONSTRAINT `has_ibfk_2` FOREIGN KEY (`OrderID`) REFERENCES `order_` (`OrderID`) ON DELETE CASCADE;
+ALTER TABLE `customer`
+  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `has` (`CustomerID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`CustomerID`) REFERENCES `has_a` (`CustomerID`) ON DELETE CASCADE;
 
 --
--- Constraints for table `has_a`
+-- Constraints for table `customer_credit_card`
 --
-ALTER TABLE `has_a`
-  ADD CONSTRAINT `has_a_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`) ON DELETE CASCADE,
-  ADD CONSTRAINT `has_a_ibfk_2` FOREIGN KEY (`Credit_Card_ID`) REFERENCES `customer_credit_card` (`Credit_Card_ID`) ON DELETE CASCADE;
+ALTER TABLE `customer_credit_card`
+  ADD CONSTRAINT `customer_credit_card_ibfk_1` FOREIGN KEY (`Credit_Card_ID`) REFERENCES `has_a` (`Credit_Card_ID`);
 
 --
--- Constraints for table `is_in`
+-- Constraints for table `order_`
 --
-ALTER TABLE `is_in`
-  ADD CONSTRAINT `is_in_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `order_` (`OrderID`) ON DELETE CASCADE,
-  ADD CONSTRAINT `is_in_ibfk_2` FOREIGN KEY (`ProductID`) REFERENCES `shoe` (`ProductID`) ON DELETE CASCADE;
+ALTER TABLE `order_`
+  ADD CONSTRAINT `order__ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `is_in` (`OrderID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `order__ibfk_2` FOREIGN KEY (`OrderID`) REFERENCES `shipped_by` (`OrderID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `order__ibfk_3` FOREIGN KEY (`OrderID`) REFERENCES `has` (`OrderID`) ON DELETE CASCADE;
 
 --
--- Constraints for table `makes`
+-- Constraints for table `shipper`
 --
-ALTER TABLE `makes`
-  ADD CONSTRAINT `makes_ibfk_1` FOREIGN KEY (`CompanyID`) REFERENCES `shipper` (`CompanyID`) ON DELETE CASCADE,
-  ADD CONSTRAINT `makes_ibfk_2` FOREIGN KEY (`Tracking_Number`) REFERENCES `shipping` (`Tracking_Number`) ON DELETE CASCADE;
+ALTER TABLE `shipper`
+  ADD CONSTRAINT `shipper_ibfk_1` FOREIGN KEY (`CompanyID`) REFERENCES `makes` (`CompanyID`),
+  ADD CONSTRAINT `shipper_ibfk_2` FOREIGN KEY (`CompanyID`) REFERENCES `shipped_by` (`CompanyID`);
 
 --
--- Constraints for table `shipped_by`
+-- Constraints for table `shipping`
 --
-ALTER TABLE `shipped_by`
-  ADD CONSTRAINT `shipped_by_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `order_` (`OrderID`) ON DELETE CASCADE,
-  ADD CONSTRAINT `shipped_by_ibfk_2` FOREIGN KEY (`CompanyID`) REFERENCES `shipper` (`CompanyID`) ON DELETE CASCADE;
+ALTER TABLE `shipping`
+  ADD CONSTRAINT `shipping_ibfk_1` FOREIGN KEY (`Tracking_Number`) REFERENCES `makes` (`Tracking_Number`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `shoe`
+--
+ALTER TABLE `shoe`
+  ADD CONSTRAINT `shoe_ibfk_1` FOREIGN KEY (`ProductID`) REFERENCES `is_in` (`ProductID`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

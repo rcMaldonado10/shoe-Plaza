@@ -1,44 +1,6 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Apr 07, 2017 at 12:09 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `shoeplaza`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `username` varchar(35) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`email`, `password`, `username`) VALUES
-('admin@test.com', '123', 'Admin'),
-('g@gmail.com', 'no', 'Gabriel');
 
 -- --------------------------------------------------------
 
@@ -177,9 +139,8 @@ CREATE TABLE `shoe` (
   `ProductID` int(10) NOT NULL,
   `Brand` char(255) COLLATE utf16_unicode_520_ci NOT NULL,
   `Model` char(255) COLLATE utf16_unicode_520_ci NOT NULL,
-  `Category` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
   `Gender` char(1) COLLATE utf16_unicode_520_ci NOT NULL,
-  `Size` int(10) NOT NULL,
+  `Size` int(1) NOT NULL,
   `Quantity_Stock` int(255) NOT NULL,
   `Price` float(5,2) NOT NULL,
   `img-source` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
@@ -187,22 +148,8 @@ CREATE TABLE `shoe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
 --
--- Dumping data for table `shoe`
---
-
-INSERT INTO `shoe` (`ProductID`, `Brand`, `Model`, `Category`, `Gender`, `Size`, `Quantity_Stock`, `Price`, `img-source`, `Details`) VALUES
-(1, 'Rebook', 'classic', '0', 'M', 9, 10, 95.00, 'Images/men1.jpg', 'This is Great'),
-(2, 'Rebook', 'Sport Edition', '0', 'M', 8, 10, 95.00, 'Images/men2.jpg', 'This i Great');
-
---
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`email`);
 
 --
 -- Indexes for table `customer`

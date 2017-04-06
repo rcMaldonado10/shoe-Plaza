@@ -9,8 +9,8 @@
       <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
       <?PHP
 
-      // if (isset($_POST['SingUP']))
-      // {
+      if (isset($_POST['SingUP']))
+      {
 
             //session_unset();
             @session_destroy();
@@ -39,7 +39,7 @@
             // echo "Good Query";
 
             //header("location:signUp2nd.php");
-      //
+      }
 
 
 
