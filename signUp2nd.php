@@ -3,7 +3,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Address</title>
+  <title>Adrress</title>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
@@ -27,31 +27,32 @@
       $expCre = $_REQUEST['CreExpiry'];
 
       //$number = '16';
-      echo "$firstName";
-      echo "$lastNameCos";
-      echo "$emailCos";
-      echo "$passwordsCos";
+      echo $firstName;
+      echo $lastNameCos;
+      echo $emailCos;
+      echo $passwordsCos;
 
-      echo "$nameCre";
-      echo "$numberCre";
-      echo "$cvcCre";
-      echo "$expCre";
+      echo $nameCre;
+      echo $numberCre;
+      echo $cvcCre;
+      echo $expCre;
 
-      //$dateBase = new mysqli($serverName,$userName,$password,$Table) or die("Unable to connect");
+      $dateBase = new mysqli($serverName,$userName,$password,$Table) or die("Unable to connect");
 
       //          $firstName = $_POST['firstName'];
       //          $lastName = 'Snow';
       //$_POST['lastName'];
+      $shippAddress = $_POST['shipState'] . ' | ' . $_POST['shipZipcode'] . ' | ' . $_POST['shipCity'] . ' | ' . $_POST['shipStreetAddr'] . ' | ' . $_POST['shipPostalAddress'];
+      $billAddress = $_POST['billState'] . ' | ' . $_POST['billZipcode'] . ' | ' . $_POST['billCity'] . ' | ' . $_POST['billStreetAddr'] . ' | ' . $_POST['billPostalAddress'];
 
-<<<<<<< Updated upstream
-      //$sql = "INSERT INTO testuser (firstName,lastName,email,password) VALUES('$firstName','$lastName','$email','$passwords')";
-=======
-      $sql = "INSERT INTO customer (firstName,lastName,email,password) VALUES('$firstName','$lastName','$email','$passwords')";
->>>>>>> Stashed changes
+      echo $shippAddress;
+      echo $billAddress;
+
+      $sql = "INSERT INTO customer (email,firstName,lastName,password,Shipping_Address,Billing_Address,status) VALUES('$emailCos','$firstNameCos','$lastNameCos','$passwordsCos','$shippAddress','$billAddress','1')";
       //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
-      //$result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
+      $result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
       //echo "Good Query";
-      header ("location:home.php");
+      header("location:signUp2nd.php");
   }
 
   ?>
@@ -60,12 +61,8 @@
 <body>
   <div class="form">
           <h1>One more Step!</h1>
-<<<<<<< Updated upstream
           <h2 style="color:#FFFFFF">Costumer Shipping Address</h2>
-          <form action="home.php" method="get">
-=======
-          <form action="signUp2nd.php" method="get">
->>>>>>> Stashed changes
+          <!--<form action="home.php" method="get">-->
 
           <div class="top-row">
             <div class="field-wrap">
@@ -108,7 +105,7 @@
 
 
            <h2 style="color:#FFFFFF">Costumer Billing Address</h2>
-           <form action="home.php" method="get">
+
 
            <div class="top-row">
              <div class="field-wrap">
