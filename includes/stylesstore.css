@@ -50,11 +50,11 @@
 
         .boxCheck{
             background-color:none;
-            width:150px;
+            width:180px;
             height: 100%;
             float: left;
             font-size: 16px;
-            padding-left: 50px;
+            padding-left: 30px;
         }
 
        #mapdiv{

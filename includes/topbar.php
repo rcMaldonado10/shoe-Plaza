@@ -17,6 +17,25 @@
 
     <link href="includes/stylesstore.css" rel="stylesheet" type="text/css">
     </head>
+
+<?php
+if(isset($_POST['Search'])){
+
+  $valueToSearch = $_POST['ValueToSearch'];
+  $query = "SELECT * FROM `shoe` WHERE CONCAT(Brand,Model,Categories) LIKE '%".$valueToSearch."%'";
+  $search_result = filterShoe($query);
+
+} else {
+  $query = "SELECT * FROM shoe";
+  $search_result = filterShoe($query);
+}
+
+function filterShoe($query){
+  $connect = mysqli_connect("localhost", "root", "", "shoeplaza");
+  $filter_Result = mysqli_query($connect, $query);
+  return $filter_Result;
+}
+?>
 <body>
 
 
@@ -48,12 +67,8 @@
 </li></span>';
 }else {
 echo '<span id="menu"><a href="singUpPage.php" class="menunav">Sign Up/Sign In</a></span>';
-
-
-
 }
  ?>
 <span id="menu"><a href="shopping_bag/viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></span>
-<input type="text" placeholder="Search..." required><input type="button" value="Search">
-
+<form action="Results.php" method="post"><input type="text" name="ValueToSearch" placeholder="Search..." required><input type="submit" name="Search" value="Search"></form>
 </nav>

@@ -7,18 +7,7 @@ $db = 'shoeplaza';
 
 
 $con = mysqli_connect('localhost', $user, $pass, $db);
-/*if($con){
-    echo("Nicely Done Bruh");
-} else {
-    die("Error Bruh");
-}
-
-if($db){
-    echo("Connected to shoe plaza");
-} else {
-    echo("se chavo esto");
-}*/
- ?>
+?>
 
 
 <div class="break" ></div>
