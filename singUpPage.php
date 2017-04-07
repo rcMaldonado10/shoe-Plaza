@@ -8,22 +8,31 @@
 
       <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
       <?PHP
-
         if (isset($_POST['SingUP']))
       {
 
             // //session_unset();
             // @session_destroy();
-            // session_start();
-            // $_SESSION['CosFirstName'] = $_POST['firstNameSignUp'];
-            // $_SESSION['CosLastName']  = $_POST['lastNameSignUp'];
-            // $_SESSION['CosEmail']  = $_POST['email'];
-            // $_SESSION['CosPassword']  = $_POST['password'];
-            //
-            // $_SESSION['CreName']  = $_POST['first-name'];
-            // $_SESSION['CreNumber']  = $_POST['number'];
-            // $_SESSION['CosCvc']  = $_POST['cvc'];
-            // $_SESSION['CreExpiry']  = $_POST['expiry'];
+            session_destroy();
+            session_start();
+            $_SESSION["CosFirstName"] = $_POST['firstNameSignUp'];
+            $_SESSION["favanimal"] = "cat";
+            echo $_SESSION["favcolor"];
+            echo "Session variables are set.";
+            //$_SESSION['CosFirstName'] = $_POST['firstNameSignUp'];
+            //$_SESSION['CosFirstName'] = "NOSE";
+              if(isset($_SESSION['CosFirstName']))
+                {
+                echo $_SESSION['CosFirstName'];
+                }
+            $_SESSION['CosLastName']  = $_POST['lastNameSignUp'];
+            $_SESSION['CosEmail']  = $_POST['email'];
+            $_SESSION['CosPassword']  = $_POST['password'];
+
+            $_SESSION['CreName']  = $_POST['first-name'];
+            $_SESSION['CreNumber']  = $_POST['number'];
+            $_SESSION['CosCvc']  = $_POST['cvc'];
+            $_SESSION['CreExpiry']  = $_POST['expiry'];
 
 
             // $serverName = "localhost";
