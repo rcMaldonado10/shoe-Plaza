@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2017 at 12:15 AM
+-- Generation Time: Apr 07, 2017 at 04:02 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -54,8 +54,15 @@ CREATE TABLE `customer` (
   `Password` varchar(25) COLLATE utf16_unicode_520_ci NOT NULL,
   `Shipping_Address` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
   `Billing_Address` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
-  `Status` tinyint(1) NOT NULL
+  `Status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`CustomerID`, `Email`, `FirstName`, `LastName`, `Password`, `Shipping_Address`, `Billing_Address`, `Status`) VALUES
+(33, 'snow@dona.com', 'yatio', 'pepe', 'idkidc', 'lares | 0669 | lares | lares | lares', 'lares | 00659 | lares | lares | lares', 1);
 
 -- --------------------------------------------------------
 
@@ -191,8 +198,8 @@ CREATE TABLE `shoe` (
 --
 
 INSERT INTO `shoe` (`ProductID`, `Brand`, `Model`, `Category`, `Gender`, `Size`, `Quantity_Stock`, `Price`, `img-source`, `Details`) VALUES
-(1, 'Rebook', 'classic', '0', 'M', 9, 10, 95.00, 'Images/men1.jpg', 'This is Great'),
-(2, 'Rebook', 'Sport Edition', '0', 'M', 8, 10, 95.00, 'Images/men2.jpg', 'This i Great');
+(1, 'Rebook', 'classic', 'Deportivo', 'M', 9, 10, 95.00, 'Images/men1.jpg', 'This is Great'),
+(2, 'Rebook', 'Sport Edition', 'Deportivo', 'M', 8, 10, 95.00, 'Images/men2.jpg', 'This i Great');
 
 --
 -- Indexes for dumped tables
@@ -289,7 +296,7 @@ ALTER TABLE `shoe`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `customer_credit_card`
 --

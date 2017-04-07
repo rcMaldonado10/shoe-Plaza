@@ -22,7 +22,7 @@
 if(isset($_POST['Search'])){
 
   $valueToSearch = $_POST['ValueToSearch'];
-  $query = "SELECT * FROM `shoe` WHERE CONCAT(Brand,Model,Categories) LIKE '%".$valueToSearch."%'";
+  $query = "SELECT * FROM `shoe` WHERE CONCAT(Brand,Model,Category) LIKE '%".$valueToSearch."%'";
   $search_result = filterShoe($query);
 
 } else {
