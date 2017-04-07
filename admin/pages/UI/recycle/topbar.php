@@ -251,7 +251,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="../../dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                 <p>
                   Alexander Pierce - Web Developer
@@ -299,7 +299,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="../../dist/img/avatar5.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -389,15 +389,14 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
+            <i class="fa fa-edit"></i> <span>Update</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../forms/general.php"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="../forms/advanced.php"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="../forms/editors.php"><i class="fa fa-circle-o"></i> Editors</a></li>
+            <li><a href="../forms/general.php"><i class="fa fa-circle-o"></i> Update Product</a></li>
+          <li><a href="../forms/general2.php"><i class="fa fa-circle-o"></i> Update User and Admin</a></li>
           </ul>
         </li>
         <li class="treeview">

@@ -224,7 +224,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="../../index.php"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="../../index2.php"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+
           </ul>
         </li>
         <li class="treeview">
@@ -274,17 +274,13 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../UI/general.php"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="../UI/icons.php"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="../UI/buttons.php"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="../UI/sliders.php"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="../UI/timeline.php"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="../UI/modals.php"><i class="fa fa-circle-o"></i> Modals</a></li>
+            <li><a href="../UI/general.php"><i class="fa fa-circle-o"></i>Update Product</a></li>
+            <li><a href="../UI/general2.php"><i class="fa fa-circle-o"></i> Update User and Admin</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
+            <i class="fa fa-edit"></i> <span>Update</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

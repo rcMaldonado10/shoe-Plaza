@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | 404 Page not found</title>
+  <title>AdminLTE| 404 Page not found</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -250,7 +250,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="../../dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                 <p>
                   Alexander Pierce - Web Developer
@@ -377,20 +377,20 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../UI/general.php"><i class="fa fa-circle-o"></i>Update Product</a></li>
+            <li><a href="../UI/general.php"><i class="fa fa-circle-o"></i>Update</a></li>
 
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
+            <i class="fa fa-edit"></i> <span>Update</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="../forms/general.php"><i class="fa fa-circle-o"></i>Update Product</a></li>
-
+            <li><a href="../forms/general2.php"><i class="fa fa-circle-o"></i> Update User and Admin</a></li>
           </ul>
         </li>
         <li class="treeview">
