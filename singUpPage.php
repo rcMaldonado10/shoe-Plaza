@@ -8,29 +8,72 @@
 
       <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
       <?PHP
-      if(isset($_POST['SingUP']))
-        {
-          @session_destroy();
-          session_start();
-          $_SESSION['cosFirstName'] = $_POST['firstNameSignUp'];
+        if(isset($_POST['SingUP']))
+          {
+            @session_destroy();
+            session_start();
+
+            $_SESSION['cosFirstName'] = $_POST['firstNameSignUp'];
             //echo $_SESSION['cosFirstName'];
-          $_SESSION['cosLastName'] = $_POST['lastNameSignUp'];
+            $_SESSION['cosLastName'] = $_POST['lastNameSignUp'];
             //echo $_SESSION['cosLastName'];
-          $_SESSION['cosEmail'] = $_POST['email'];
+            $_SESSION['cosEmail'] = $_POST['email'];
             //echo $_SESSION['cosEmail'];
-          $_SESSION['cosPassword'] = $_POST['password'];
+            $_SESSION['cosPassword'] = $_POST['password'];
             //echo $_SESSION['cosPassword'];
 
-          $_SESSION['creName'] = $_POST['first-name'];
+            $_SESSION['creName'] = $_POST['first-name'];
             //echo $_SESSION['creName'];
-          $_SESSION['creNumber'] = $_POST['number'];
+            $_SESSION['creNumber'] = $_POST['number'];
             //echo $_SESSION['creNumber'];
-          $_SESSION['creCVC'] = $_POST['cvc'];
+            $_SESSION['creCVC'] = $_POST['cvc'];
             //echo $_SESSION['creCVC'];
-          $_SESSION['creExpiry'] = $_POST['expiry'];
+            $_SESSION['creExpiry'] = $_POST['expiry'];
             //echo $_SESSION['creExpiry'];
             header("location:signUp2nd.php");
-        }
+          }
+
+        if(isset($_POST['LogIn']))
+          {
+            @session_destroy();
+            session_start();
+            $emailLog = ($_POST['logEmail']);
+            $passLog = ($_POST['logPass']);
+            if( "" !== $emailLog || "" !==$passLog)
+            {
+                    $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
+                $sql = "SELECT email,password FROM customer";
+                $result = mysqli_query($con, $sql) or die("Bad query: $sql");
+
+                if (mysqli_num_rows($result) > 0)
+                  {
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                      $cheqEmail= $row["email"];
+                      $cheqPass=  $row["password"];
+                      echo  "email: " . $cheqEmail. " " . $cheqPass. "<br>";
+                      if ($emailLog==$cheqEmail AND $passLog == $cheqPass)
+                        {
+                          echo " esto se ve bien :D";
+                          $_SESSION['message'] = "You are now logged in";
+                          $message="You are now logged in";
+                          $_SESSION['email'] = $emailLog;
+                          header("location:home.php");
+                        }
+
+                     else
+                        {
+
+                      $message= "email/password combination incorrect";
+                      echo $message;
+
+                //header("location:login.php");
+                        }
+                    }
+
+                  }
+            }
+          }
 
         ?>
 </head>
@@ -131,25 +174,25 @@
         <div id="login">
           <h1>Welcome Back!</h1>
 
-          <form action="/" method="post">
+          <form action="singUpPage.php" method="post"> //en action tenia un / why?
 
             <div class="field-wrap">
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input type="email"required autocomplete="off" name=logEmail />
           </div>
 
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input type="password"required autocomplete="off" name=logPass />
           </div>
 
           <p class="forgot"><a href="#">Forgot Password?</a></p>
 
-          <button class="button button-block"/>Log In</button>
+          <button class="button button-block" name="LogIn" />Log In</button>
 
           </form>
 
