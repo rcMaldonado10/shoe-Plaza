@@ -1,7 +1,7 @@
 <?php
 include 'includes/topbar.php';
 
-  while($row = mysqli_fetch_array($search_result)){
+  while($row = mysqli_fetch_assoc($search_result)){
     echo '<main class="main"><div class="product">'.$row['Brand'].'<img src="'.$row['img-source'].'" width="230" height="230" alt="Nike"/>
             <br>'.$row['Model'].'</br>
             <br>Price: $'.$row['Price'].'</br>
