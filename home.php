@@ -1,12 +1,6 @@
 <?php
+require_once 'Core/init.php';
 include 'includes/topbar.php';
-
-$user = 'root';
-$pass = '';
-$db = 'shoeplaza';
-
-
-$con = mysqli_connect('localhost', $user, $pass, $db);
 ?>
 
 
@@ -30,7 +24,7 @@ include 'includes/checkbox.php';
             <br>'.$row['Model'].'</br>
             <br>Price: $'.$row['Price'].'</br>
             <br/><!-- Trigger/Open The Modal -->
-            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-1">Details</button></br></div>';
+            <button type="button" class="btn btn-sm btn-success" onclick="detailsmodal('.$row['ProductID'].')">Details</button></br></div>';
          }
    }
 ?>
@@ -52,11 +46,8 @@ include 'includes/checkbox.php';
 
  <?php
 include 'includes/detailsmodal.php';
+include 'includes/footer.php';
  ?>
 
-<div class="break" ></div>
-  <div class="copyright">
- <p>*Your email address will be subject to the terms and conditions of our Privacy Policy.
-<p>© 2017 Shoe-Plaza.com, Inc. or its affiliates. Shoe-Plaza.com is operated by XAMPP.</p></div>
 </body>
 </html>

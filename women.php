@@ -1,4 +1,5 @@
 <?php
+require_once 'Core/init.php';
 include 'includes/topbar.php';
  ?>
       <div class="break" ></div>
@@ -36,13 +37,9 @@ include 'includes/checkbox.php';
 
  <?php
 include 'includes/detailsmodal.php';
-
+include 'includes/footer.php';
  ?>
 
 
- <div class="break" ></div>
-  <div class="copyright">
- <p>*Your email address will be subject to the terms and conditions of our Privacy Policy.
-<p>© 2017 Shoe-Plaza.com, Inc. or its affiliates. Shoe-Plaza.com is operated by XAMPP.</p></div>
 </body>
 </html>
