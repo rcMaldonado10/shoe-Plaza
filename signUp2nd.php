@@ -6,119 +6,46 @@
   <title>Adrress</title>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
 
-      <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
   <?php
-
-  //$CosFirstName2 = $_SESSION['CosFirstName'];
-  // $lastNameCos = $_SESSION['CosLastName'];
-  // $emailCos = $_SESSION['CosEmail'];
-  // $passwordsCos = $_SESSION['CosPassword'];
-  //
-  // $nameCre = $_REQUEST['CreName'];
-  // $numberCre = $_REQUEST['CreNumber'];
-  // $cvcCre = $_REQUEST['CosCvc'];
-  // $expCre = $_REQUEST['CreExpiry'];
-  // //
-  // echo "name = ".$firstNameCos;
-  // echo "<br> last = ".$lastNameCos;
-  // echo "<br> email = ".$emailCos;
-  // echo "<br> pass = ".$passwordsCos;
-  //
-  // echo "<br> nameCre = ".$nameCre;
-  // echo "<br> num = ".$numberCre;
-  // echo "<br> cvc = ".$cvcCre;
-  // echo "<br> exp = ".$expCre;
-
-  // echo $shippAddress=$_REQUEST['shipState'];
-  // echo $billAddress= $_REQUEST['billState'];
-  // $firstNameCos = mysql_real_escape_string($_REQUEST['firstNameSignUp']);
-  // $lastNameCos = mysql_real_escape_string($_REQUEST['lastNameSignUp']);
-  // $emailCos = mysql_real_escape_string($_REQUEST['email']);
-  // $passwordsCos = mysql_real_escape_string($_REQUEST['password']);
-  //
-  // $nameCre = $_REQUEST['first-name'];
-  // $numberCre = $_REQUEST['number'];
-  // $cvcCre = $_REQUEST['cvc'];
-  // $expCre = $_REQUEST['expiry'];
-  if (isset($_POST['SingUP']))
+  if(isset($_POST['SingUP']))
   {
-    if(isset($_SESSION['lastNameSignUp']))
+      session_start();
+      $firstNameCos = $_SESSION['cosFirstName'];
+        //echo $firstNameCos;
+      $lastNameCos = $_SESSION['cosLastName'];
+        //echo $lastNameCos;
+      $emailCos = $_SESSION['cosEmail'];
+        //echo $emailCos;
+      $passwordCos = $_SESSION['cosPassword'];
+        //echo $passwordCos;
+
+      $nameCre = $_SESSION['creName'];
+        //echo $nameCre;
+      $numberCre = $_SESSION['creNumber'];
+        //echo $numberCre;
+      $CVCCre = $_SESSION['creCVC'];
+        //echo $CVCCre;
+      $expiryCre = $_SESSION['creExpiry'];
+        //echo $expiryCre;
+
+      $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
+      $shippingAdd = $_POST['shipState'] . ' | ' . $_POST['shipZipcode'] . ' | ' . $_POST['shipCity'] . ' | ' . $_POST['shipStreetAddr'] . ' | ' . $_POST['shipPostalAddress'];
+        echo $shippingAdd;
+      $billingAdd = $_POST['billState'] . ' | ' . $_POST['billZipcode'] . ' | ' . $_POST['billCity'] . ' | ' . $_POST['billStreet'] . ' | ' . $_POST['billPostalAddress'];
+        echo $billingAdd;
+      $sql = "INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ('$emailCos','$firstNameCos','$lastNameCos','$passwordCos','$shippingAdd','$billingAdd','1')";
+      $result = mysqli_query($con,$sql) or die("Bad query: $sql");
+      if ($result >= 0)
       {
-      echo $_SESSION['lastNameSignUp'];
-      }
-      else {
-        echo "no los esta coginedo";
-      }
-    session_start();
-    echo "Favorite color is " . $_SESSION["favcolor"] . ".<br>";
-    $idk = $_SESSION["favcolor"];
-    echo " thsi stuff again". $idk. $idk;
-    //session_start();
-    $firstNameCos = $_SESSION["CosFirstName"];
-    echo $firstNameCos;
-    echo $_SESSION['CosFirstName'];
-    $lastNameCos = mysql_real_escape_string($_REQUEST['lastNameSignUp']);
-    $emailCos = mysql_real_escape_string($_REQUEST['email']);
-    $passwordsCos = mysql_real_escape_string($_REQUEST['password']);
-
-    $nameCre = $_REQUEST['first-name'];
-    $numberCre = $_REQUEST['number'];
-    $cvcCre = $_REQUEST['cvc'];
-    $expCre = $_REQUEST['expiry'];
-
-
-    // header("location:home.php");
-      $serverName = "localhost";
-      $userName = "root";
-      $password = "";
-      $Table = "shoeplaza";
-      $dateBase = mysqli_connect($serverName,$userName,$password,$Table) or die("Unable to connect");
-//asi es como lo tenias antes quisas lo necesites despues
-      // $firstNameCos = $_REQUEST['$firstNameCos'];
-      // $lastNameCos = $_REQUEST['CosLastName'];
-      // $emailCos = $_REQUEST['CosEmail'];
-      // $passwordsCos = $_REQUEST['CosPassword'];
-      //
-      // $nameCre = $_REQUEST['CreName'];
-      // $numberCre = $_REQUEST['CreNumber'];
-      // $cvcCre = $_REQUEST['CosCvc'];
-      // $expCre = $_REQUEST['CreExpiry'];
-
-      //$number = '16';
-      // // remove all session variables
-      // session_unset();
-      //
-      // // destroy the session
-      // session_destroy();
-      //          $firstName = $_POST['firstName'];
-      //          $lastName = 'Snow';
-      //$_POST['lastName'];
-
-      $shippAddress = $_POST['shipState'] . ' | ' . $_POST['shipZipcode'] . ' | ' . $_POST['shipCity'] . ' | ' . $_POST['shipStreetAddr'] . ' | ' . $_POST['shipPostalAddress'];
-      $billAddress = $_POST['billState'] . ' | ' . $_POST['billZipcode'] . ' | ' . $_POST['billCity'] . ' | ' . $_POST['billStreet'] . ' | ' . $_POST['billPostalAddress'];
-      $sql="INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ('.$emailCos.','.$firstNameCos.','.$lastNameCos.','.$passwordsCos.','.$shippAddress.','.$billAddress.','1')";
-      //$sql = "INSERT INTO `table1`(`Nombre`, `Apellido`, `numero`) VALUES (\'snow\',\'pepe\',\'167\')";
-      //$sql = "INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ($emailCos  ,$firstNameCos  ,$lastNameCos  ,$passwordsCos  ,$shippAddress  ,$billAddress,  1)";
-      //$sql = "INSERT INTO customer (email,firstName,lastName,password,Shipping_Address,Billing_Address,status) VALUES('$emailCos','$firstNameCos','$lastNameCos','$passwordsCos','$shippAddress','','1')";
-
-      //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
-      mysqli_query($dateBase, $sql) or die("Bad query: $sql");
-      $result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
-      if(!$result)
-      {
-        echo "ES{ERP QBREg/UE!!!}";
+        //echo "me salio";
         header("location:home.php");
       }
-      else
-      {
-        echo"QUes es esto?{no sirve}";
-      }
-
-      //echo "Good Query";
-      //header("location:home.php");
 
   }
+
+
 
   ?>
 

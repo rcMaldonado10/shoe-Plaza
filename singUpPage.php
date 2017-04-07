@@ -8,51 +8,31 @@
 
       <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
       <?PHP
-        if (isset($_POST['SingUP']))
-      {
+      if(isset($_POST['SingUP']))
+        {
+          @session_destroy();
+          session_start();
+          $_SESSION['cosFirstName'] = $_POST['firstNameSignUp'];
+            //echo $_SESSION['cosFirstName'];
+          $_SESSION['cosLastName'] = $_POST['lastNameSignUp'];
+            //echo $_SESSION['cosLastName'];
+          $_SESSION['cosEmail'] = $_POST['email'];
+            //echo $_SESSION['cosEmail'];
+          $_SESSION['cosPassword'] = $_POST['password'];
+            //echo $_SESSION['cosPassword'];
 
-            // //session_unset();
-            // @session_destroy();
-            session_destroy();
-            session_start();
-            $_SESSION["CosFirstName"] = $_POST['firstNameSignUp'];
-            $_SESSION["favanimal"] = "cat";
-            echo $_SESSION["favcolor"];
-            echo "Session variables are set.";
-            //$_SESSION['CosFirstName'] = $_POST['firstNameSignUp'];
-            //$_SESSION['CosFirstName'] = "NOSE";
-              if(isset($_SESSION['CosFirstName']))
-                {
-                echo $_SESSION['CosFirstName'];
-                }
-            $_SESSION['CosLastName']  = $_POST['lastNameSignUp'];
-            $_SESSION['CosEmail']  = $_POST['email'];
-            $_SESSION['CosPassword']  = $_POST['password'];
-
-            $_SESSION['CreName']  = $_POST['first-name'];
-            $_SESSION['CreNumber']  = $_POST['number'];
-            $_SESSION['CosCvc']  = $_POST['cvc'];
-            $_SESSION['CreExpiry']  = $_POST['expiry'];
-
-
-            // $serverName = "localhost";
-            // $userName = "root";
-            // $pass = "";
-            // $Table = "testdb2";
-
-            //$dateBase = new mysqli($serverName,$userName,$pass,$Table) or die("Unable to connect");
-            //
-            // $sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('$firstName','$lastName','$number')";
-            // //$sql = "INSERT INTO table1 (Nombre,Apellido,numero) VALUES('Yatio','Snow','46')";
-            // $result = mysqli_query($dateBase, $sql) or die("Bad query: $sql");
-            // echo "Good Query";
-
+          $_SESSION['creName'] = $_POST['first-name'];
+            //echo $_SESSION['creName'];
+          $_SESSION['creNumber'] = $_POST['number'];
+            //echo $_SESSION['creNumber'];
+          $_SESSION['creCVC'] = $_POST['cvc'];
+            //echo $_SESSION['creCVC'];
+          $_SESSION['creExpiry'] = $_POST['expiry'];
+            //echo $_SESSION['creExpiry'];
             header("location:signUp2nd.php");
-      }
+        }
 
-
-
-      ?>
+        ?>
 </head>
 <body>
   <div class="form">
@@ -65,7 +45,7 @@
       <div class="tab-content">
         <div id="signup">
           <h1>Sign Up for Free</h1>
-          <form action="signUp2nd.php" method="get">
+          <form action="singUpPage.php" method="post">
 
           <div class="top-row">
             <div class="field-wrap">
@@ -135,7 +115,7 @@
                 <input type="text" required="required" name="cvc"/>
               </div>
             </div>
-          <input type="submit" class="button button-block" VALUE = "Continue" Name = "SingUP" >
+          <input type="submit" class="button button-block" VALUE="Continue" Name="SingUP" >
   </form>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
