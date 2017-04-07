@@ -62,10 +62,15 @@
 
           <div class="top-row">
             <div class="field-wrap">
-               <label>
-                 State<span class="req">*</span>
-               </label>
-              <input type="text" required autocomplete="off" name="shipState" />
+              <select name=shipState class="req" required autocomplete="off">
+                <option value="">State</option>
+                <option value="Puerto Rico">Puerto Rico</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Florida">Florida</option>
+                <option value="Massachusets">Massachusets</option>
+                <option value="New York">New York</option>
+                <option value="Texas">Texas</option>
+              </select>
              </div>
 
              <div class="field-wrap">
@@ -99,17 +104,20 @@
             <input type="text"required autocomplete="off" name="shipPostalAddress"/>
            </div>
 
-
            <h2 style="color:#FFFFFF">Costumer Billing Address</h2>
-
 
            <div class="top-row">
              <div class="field-wrap">
-                <label>
-                  State<span class="req">*</span>
-                </label>
-               <input type="text" required autocomplete="off" name="billState" />
-              </div>
+                <select name=billState class="req" required autocomplete="off">
+                  <option value="">State</option>
+                  <option value="Puerto Rico">Puerto Rico</option>
+                  <option value="Chicago">Chicago</option>
+                  <option value="Florida">Florida</option>
+                  <option value="Massachusets">Massachusets</option>
+                  <option value="New York">New York</option>
+                  <option value="Texas">Texas</option>
+                </select>
+            </div>
 
               <div class="field-wrap">
                 <label>
