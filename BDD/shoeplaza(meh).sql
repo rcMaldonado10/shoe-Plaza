@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 07-04-2017 a las 19:24:19
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Host: 127.0.0.1
+-- Generation Time: Apr 07, 2017 at 04:02 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `shoeplaza`
+-- Database: `shoeplaza`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -33,7 +33,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`email`, `password`, `username`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `admin` (`email`, `password`, `username`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `customer`
+-- Table structure for table `customer`
 --
 
 CREATE TABLE `customer` (
@@ -54,48 +54,34 @@ CREATE TABLE `customer` (
   `Password` varchar(25) COLLATE utf16_unicode_520_ci NOT NULL,
   `Shipping_Address` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
   `Billing_Address` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
-  `Status` tinyint(1) NOT NULL
+  `Status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
 --
--- Volcado de datos para la tabla `customer`
+-- Dumping data for table `customer`
 --
 
 INSERT INTO `customer` (`CustomerID`, `Email`, `FirstName`, `LastName`, `Password`, `Shipping_Address`, `Billing_Address`, `Status`) VALUES
-(1, '7878@test.com', '7878', '87878', '555555', '78787', '7878', 1),
-(6, 'megatron690@hotmail.com', 'Kenneth', 'Velez', 'thisiscool', 'Puerto Rico | 00659 | Bayaney | En mi casa | En mi buzon', 'New York | 014523 | Long Island | En el carajo | En mi carajo', 1),
-(7, 'fnkdskn@NJin', 'Mama', 'Papa', 'nknon', 'Florida | 156165 | bhbhub | uhjbnj | bhjb', 'Massachusets | 45645 | 4bhghu | guhjih | hjihj', 1),
-(8, 'bjkb@Jkbj', 'fnkjnjkn', 'jnjj', 'kbjkbj', 'Texas | 5656 | jhihj | hjn | jkj', 'Massachusets | 1216 | 1bj | bhjbb | jb', 1),
-(9, 'njknkj@njk', 'neklfnkeqn', 'njkn', 'mlml', 'Chicago | 4564 | bh | gbhjg | hjg', 'Florida | 456 | njhj | ghjg | hjg', 1);
+(33, 'snow@dona.com', 'yatio', 'pepe', 'idkidc', 'lares | 0669 | lares | lares | lares', 'lares | 00659 | lares | lares | lares', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `customer_credit_card`
+-- Table structure for table `customer_credit_card`
 --
 
 CREATE TABLE `customer_credit_card` (
   `Credit_Card_ID` int(10) NOT NULL,
-  `Number` varchar(25) COLLATE utf16_unicode_520_ci NOT NULL,
-  `Name` varchar(75) COLLATE utf16_unicode_520_ci NOT NULL,
-  `Exp_Date` varchar(25) COLLATE utf16_unicode_520_ci NOT NULL,
+  `Number` int(25) NOT NULL,
+  `Name` int(75) NOT NULL,
+  `Exp_Date` date NOT NULL,
   `CVC` char(250) COLLATE utf16_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
-
---
--- Volcado de datos para la tabla `customer_credit_card`
---
-
-INSERT INTO `customer_credit_card` (`Credit_Card_ID`, `Number`, `Name`, `Exp_Date`, `CVC`) VALUES
-(1, '4891', '0', '0000-00-00', '3254'),
-(2, '4894', 'Mami Papi Me ', '0000-00-00', '1456'),
-(3, '1234', 'What the fuck', '03 / 19', '1234'),
-(4, '1234 5678 9101 1121', 'Mi mama me mima', '03 / 19', '1234');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `has`
+-- Table structure for table `has`
 --
 
 CREATE TABLE `has` (
@@ -108,7 +94,7 @@ CREATE TABLE `has` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `has_a`
+-- Table structure for table `has_a`
 --
 
 CREATE TABLE `has_a` (
@@ -119,7 +105,7 @@ CREATE TABLE `has_a` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `is_in`
+-- Table structure for table `is_in`
 --
 
 CREATE TABLE `is_in` (
@@ -132,7 +118,7 @@ CREATE TABLE `is_in` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `makes`
+-- Table structure for table `makes`
 --
 
 CREATE TABLE `makes` (
@@ -143,7 +129,7 @@ CREATE TABLE `makes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `order_`
+-- Table structure for table `order_`
 --
 
 CREATE TABLE `order_` (
@@ -156,7 +142,7 @@ CREATE TABLE `order_` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `shipped_by`
+-- Table structure for table `shipped_by`
 --
 
 CREATE TABLE `shipped_by` (
@@ -168,7 +154,7 @@ CREATE TABLE `shipped_by` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `shipper`
+-- Table structure for table `shipper`
 --
 
 CREATE TABLE `shipper` (
@@ -180,7 +166,7 @@ CREATE TABLE `shipper` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `shipping`
+-- Table structure for table `shipping`
 --
 
 CREATE TABLE `shipping` (
@@ -191,7 +177,7 @@ CREATE TABLE `shipping` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `shoe`
+-- Table structure for table `shoe`
 --
 
 CREATE TABLE `shoe` (
@@ -208,25 +194,25 @@ CREATE TABLE `shoe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
 --
--- Volcado de datos para la tabla `shoe`
+-- Dumping data for table `shoe`
 --
 
 INSERT INTO `shoe` (`ProductID`, `Brand`, `Model`, `Category`, `Gender`, `Size`, `Quantity_Stock`, `Price`, `img-source`, `Details`) VALUES
-(1, 'Rebook', 'classic', '0', 'M', 9, 10, 95.00, 'Images/men1.jpg', 'This is Great'),
-(2, 'Rebook', 'Sport Edition', '0', 'M', 8, 10, 95.00, 'Images/men2.jpg', 'This i Great');
+(1, 'Rebook', 'classic', 'Deportivo', 'M', 9, 10, 95.00, 'Images/men1.jpg', 'This is Great'),
+(2, 'Rebook', 'Sport Edition', 'Deportivo', 'M', 8, 10, 95.00, 'Images/men2.jpg', 'This i Great');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`email`);
 
 --
--- Indices de la tabla `customer`
+-- Indexes for table `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`CustomerID`),
@@ -236,41 +222,41 @@ ALTER TABLE `customer`
   ADD KEY `CustomerID_3` (`CustomerID`);
 
 --
--- Indices de la tabla `customer_credit_card`
+-- Indexes for table `customer_credit_card`
 --
 ALTER TABLE `customer_credit_card`
   ADD PRIMARY KEY (`Credit_Card_ID`);
 
 --
--- Indices de la tabla `has`
+-- Indexes for table `has`
 --
 ALTER TABLE `has`
   ADD PRIMARY KEY (`CustomerID`,`OrderID`),
   ADD KEY `OrderID` (`OrderID`);
 
 --
--- Indices de la tabla `has_a`
+-- Indexes for table `has_a`
 --
 ALTER TABLE `has_a`
   ADD PRIMARY KEY (`CustomerID`,`Credit_Card_ID`),
   ADD KEY `Credit_Card_ID` (`Credit_Card_ID`);
 
 --
--- Indices de la tabla `is_in`
+-- Indexes for table `is_in`
 --
 ALTER TABLE `is_in`
   ADD PRIMARY KEY (`OrderID`,`ProductID`),
   ADD KEY `ProductID` (`ProductID`);
 
 --
--- Indices de la tabla `makes`
+-- Indexes for table `makes`
 --
 ALTER TABLE `makes`
   ADD PRIMARY KEY (`CompanyID`,`Tracking_Number`),
   ADD KEY `Tracking_Number` (`Tracking_Number`);
 
 --
--- Indices de la tabla `order_`
+-- Indexes for table `order_`
 --
 ALTER TABLE `order_`
   ADD PRIMARY KEY (`OrderID`,`CustomerID`,`ProductID`),
@@ -278,88 +264,88 @@ ALTER TABLE `order_`
   ADD KEY `ProductID` (`ProductID`);
 
 --
--- Indices de la tabla `shipped_by`
+-- Indexes for table `shipped_by`
 --
 ALTER TABLE `shipped_by`
   ADD PRIMARY KEY (`OrderID`,`CompanyID`),
   ADD KEY `CompanyID` (`CompanyID`);
 
 --
--- Indices de la tabla `shipper`
+-- Indexes for table `shipper`
 --
 ALTER TABLE `shipper`
   ADD PRIMARY KEY (`CompanyID`);
 
 --
--- Indices de la tabla `shipping`
+-- Indexes for table `shipping`
 --
 ALTER TABLE `shipping`
   ADD PRIMARY KEY (`Tracking_Number`);
 
 --
--- Indices de la tabla `shoe`
+-- Indexes for table `shoe`
 --
 ALTER TABLE `shoe`
   ADD PRIMARY KEY (`ProductID`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `customer`
+-- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
--- AUTO_INCREMENT de la tabla `customer_credit_card`
+-- AUTO_INCREMENT for table `customer_credit_card`
 --
 ALTER TABLE `customer_credit_card`
-  MODIFY `Credit_Card_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Credit_Card_ID` int(10) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `order_`
+-- AUTO_INCREMENT for table `order_`
 --
 ALTER TABLE `order_`
   MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `shoe`
+-- AUTO_INCREMENT for table `shoe`
 --
 ALTER TABLE `shoe`
-  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `has`
+-- Constraints for table `has`
 --
 ALTER TABLE `has`
   ADD CONSTRAINT `has_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`) ON DELETE CASCADE,
   ADD CONSTRAINT `has_ibfk_2` FOREIGN KEY (`OrderID`) REFERENCES `order_` (`OrderID`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `has_a`
+-- Constraints for table `has_a`
 --
 ALTER TABLE `has_a`
   ADD CONSTRAINT `has_a_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`) ON DELETE CASCADE,
   ADD CONSTRAINT `has_a_ibfk_2` FOREIGN KEY (`Credit_Card_ID`) REFERENCES `customer_credit_card` (`Credit_Card_ID`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `is_in`
+-- Constraints for table `is_in`
 --
 ALTER TABLE `is_in`
   ADD CONSTRAINT `is_in_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `order_` (`OrderID`) ON DELETE CASCADE,
   ADD CONSTRAINT `is_in_ibfk_2` FOREIGN KEY (`ProductID`) REFERENCES `shoe` (`ProductID`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `makes`
+-- Constraints for table `makes`
 --
 ALTER TABLE `makes`
   ADD CONSTRAINT `makes_ibfk_1` FOREIGN KEY (`CompanyID`) REFERENCES `shipper` (`CompanyID`) ON DELETE CASCADE,
   ADD CONSTRAINT `makes_ibfk_2` FOREIGN KEY (`Tracking_Number`) REFERENCES `shipping` (`Tracking_Number`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `shipped_by`
+-- Constraints for table `shipped_by`
 --
 ALTER TABLE `shipped_by`
   ADD CONSTRAINT `shipped_by_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `order_` (`OrderID`) ON DELETE CASCADE,
