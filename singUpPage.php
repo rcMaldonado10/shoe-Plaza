@@ -12,7 +12,6 @@
           {
             @session_destroy();
             session_start();
-
             $_SESSION['cosFirstName'] = $_POST['firstNameSignUp'];
             //echo $_SESSION['cosFirstName'];
             $_SESSION['cosLastName'] = $_POST['lastNameSignUp'];
@@ -21,7 +20,6 @@
             //echo $_SESSION['cosEmail'];
             $_SESSION['cosPassword'] = $_POST['password'];
             //echo $_SESSION['cosPassword'];
-
             $_SESSION['creName'] = $_POST['first-name'];
             //echo $_SESSION['creName'];
             $_SESSION['creNumber'] = $_POST['number'];
@@ -32,7 +30,6 @@
             //echo $_SESSION['creExpiry'];
             header("location:signUp2nd.php");
           }
-
         if(isset($_POST['LogIn']))
           {
             @session_destroy();
@@ -44,7 +41,6 @@
                     $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
                 $sql = "SELECT FirstName, LastName, Email, Billing_Address, Shipping_Address, Password FROM customer";
                 $result = mysqli_query($con, $sql) or die("Bad query: $sql");
-
                 if (mysqli_num_rows($result) > 0)
                   {
                     while($row = mysqli_fetch_assoc($result))
@@ -55,7 +51,6 @@
                       if ($emailLog==$cheqEmail AND $passLog == $cheqPass)
                         {
                           echo " esto se ve bien :D";
-
                           $_SESSION['message'] = "You are now logged in";
                           $message="You are now logged in";
                           $_SESSION['cosFirstName'] = $row['FirstName'];
@@ -64,24 +59,18 @@
                           $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
                           $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
                           $_SESSION['cosPassword'] = $row['Password'];
-
                           header("location:home.php");
                         }
-
                      else
                         {
-
                       $message= "email/password combination incorrect";
                       echo $message;
-
                 //header("location:login.php");
                         }
                     }
-
                   }
             }
           }
-
         ?>
 </head>
 <body>
