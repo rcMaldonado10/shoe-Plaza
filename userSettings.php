@@ -9,39 +9,25 @@
   <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
 
   <?php
+  session_start();
   if(isset($_POST['Save']))
   {
       $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
-      session_start();
-
-      $emailForEdit = $_SESSION['Email'];
+      $aaaaa =mysqli_real_escape_string($con,'asassasssas');
+      $emailForEdit = mysqli_real_escape_string( $con,$_SESSION['cosEmail']);
       echo $_POST['firstNameEdit'];
-      if($_POST['firstNameEdit'] != $_SESSION['cosFirstName'])
-      $sql = "UPDATE customer SET FirstName = '$_POST['firstNameEdit']' WHERE Email = $emailForEdit";
+      $sql = "UPDATE customer SET FirstName= '$_POST[firstNameEdit]',LastName='$_POST[lastNameEdit]',Password='$_POST[passwordEdit]' WHERE Email='$emailForEdit'";
+      $_SESSION['cosFirstName'] = $_POST['firstNameEdit'];
+      $_SESSION['cosLastName'] = $_POST['lastNameEdit'];
+      $_SESSION['cosPassword'] = $_POST['passwordEdit'];
 
-      if($_POST['lastNameEdit'] != $_SESSION['cosLastName'])
-      $sql = "UPDATE customer SET LastName=$_POST['lastNameEdit'] WHERE Email= $emailForEdit";
-
-      if($_POST['passwordEdit'] != $_SESSION['cosPassword'])
-      echo "waka waka eh eh";
-      //$sql = "UPDATE customer SET LastName=$_POST['lastNameEdit'] WHERE Email=emailForEdit";
-
-      // if()
-      // $sql = "UPDATE customer SET Shipping_Address='' WHERE Email=emailForEdit";
-      // $sql = "UPDATE customer SET Billing_Address='lastNameSignUp' WHERE Email=emailForEdit";
-      //
-      //
-
-      if ($result == 0)
+      $result = mysqli_query($con,$sql) or die("Bad query: $sql");
+      if ($result >= 0)
       {
-        $result = mysqli_query($con,$sql) or die("Bad query: $sql");
-        $result2 = mysqli_query($con,$sql2) or die("Bad query: $sql2");
         header("location:home.php");
       }
   }
   ?>
-
-
 
 </head>
 <body>
@@ -50,7 +36,7 @@
           <form action="userSettings.php" method="post">
             <div class="top-row">
               <div class="field-wrap">
-                <input type="text" value=<?php session_start(); echo $_SESSION['cosFirstName']; ?> name="firstNameEdit" />
+                <input type="text" value=<?php  echo $_SESSION['cosFirstName']; ?> name="firstNameEdit" />
                </div>
 
                <div class="field-wrap">
