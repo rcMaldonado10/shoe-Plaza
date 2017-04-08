@@ -149,13 +149,11 @@
 
              <input type="text"required autocomplete="off" name="billPostalAddress"/>
             </div>
-        <input type="submit" class="button button-block" VALUE="Continue" Name="SingUP" >
+        <input type="submit" class="button button-block" VALUE="Submit" Name="SingUP" >
 
   </form>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/121761/card.js'></script>
-  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/121761/jquery.card.js'></script>
   <script src="includes/ChuleriaCC.js"></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="includes/chuleria.js"></script>

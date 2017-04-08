@@ -42,22 +42,29 @@
             if( "" !== $emailLog || "" !==$passLog)
             {
                     $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
-                $sql = "SELECT email,password FROM customer";
+                $sql = "SELECT FirstName, LastName, Email, Billing_Address, Shipping_Address, Password FROM customer";
                 $result = mysqli_query($con, $sql) or die("Bad query: $sql");
 
                 if (mysqli_num_rows($result) > 0)
                   {
                     while($row = mysqli_fetch_assoc($result))
                     {
-                      $cheqEmail= $row["email"];
-                      $cheqPass=  $row["password"];
+                      $cheqEmail= $row["Email"];
+                      $cheqPass=  $row["Password"];
                       echo  "email: " . $cheqEmail. " " . $cheqPass. "<br>";
                       if ($emailLog==$cheqEmail AND $passLog == $cheqPass)
                         {
                           echo " esto se ve bien :D";
+
                           $_SESSION['message'] = "You are now logged in";
                           $message="You are now logged in";
-                          $_SESSION['email'] = $emailLog;
+                          $_SESSION['cosFirstName'] = $row['FirstName'];
+                          $_SESSION['cosLastName'] = $row['LastName'];
+                          $_SESSION['cosEmail'] = $row['Email'];
+                          $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
+                          $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
+                          $_SESSION['cosPassword'] = $row['Password'];
+
                           header("location:home.php");
                         }
 
