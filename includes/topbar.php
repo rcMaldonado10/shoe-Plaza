@@ -75,11 +75,13 @@ echo '<span id="menu"><a href="singUpPage.php" class="menunav">Sign Up/Sign In</
 <span id="menu"><a href="shopping_bag/viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></span>
 <span <div class="dropdown">
   <button type="button" class="glyphicon glyphicon-user"  data-toggle="dropdown" ></button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+  <ul class="dropdown-menu">
     <li><a href="userSettings.php">Account Settings</a></li>
     <li><a href="logout.php">Logout</a></li>
   </ul>
   </div>
 </span>
+<span
 <form action="Results.php" method="post"><input type="text" name="ValueToSearch" placeholder="Search..." required><input type="submit" name="Search" value="Search"></form>
+</span>
 </nav>
