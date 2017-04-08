@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Shoe Plaza</title>
-
     <meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,6 +16,7 @@
 
     <link href="includes/stylesstore.css" rel="stylesheet" type="text/css">
     </head>
+
 
 <?php
 if(isset($_POST['Search'])){
@@ -48,6 +48,7 @@ function filterShoe($query){
 <nav class="nav">
 <span id="menu"><a href="home.php" class="menunav">Home</a></span>
 <span id="menu">  <li class="dropdown">
+
     <a href="javascript:void(0)"  class="menunav">Categories</a>
     <div class="dropdown-content">
       <a href="#"><b>Woman</b></a>
@@ -55,8 +56,8 @@ function filterShoe($query){
       <a href="#"><b>Men</b></a>
       <a href="men.php">Sport</a>
     </div>
-  </li></span>
 
+  </li></span>
 <span id="menu"><a href="about.php" class="menunav">About</a></span>
 <?php if(isset($_POST['SingUP'])){
   echo '<span id="menu"><a href="javascript:void(0)"  class="menunav">Hello:'.$row['firstNameCos'].'</a>
@@ -65,10 +66,20 @@ function filterShoe($query){
     <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
   </div>
 </li></span>';
+
 }else {
 echo '<span id="menu"><a href="singUpPage.php" class="menunav">Sign Up/Sign In</a></span>';
 }
+
  ?>
 <span id="menu"><a href="shopping_bag/viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></span>
+<span <div class="dropdown">
+  <button type="button" class="glyphicon glyphicon-user"  data-toggle="dropdown" ></button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="userSettings.php">Account Settings</a></li>
+    <li><a href="logout.php">Logout</a></li>
+  </ul>
+  </div>
+</span>
 <form action="Results.php" method="post"><input type="text" name="ValueToSearch" placeholder="Search..." required><input type="submit" name="Search" value="Search"></form>
 </nav>
