@@ -244,7 +244,7 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="../../dist/img/avatar5.png" class="user-image" alt="User Image">
               <span class="hidden-xs">Alexander Pierce</span>
             </a>
             <ul class="dropdown-menu">
@@ -278,7 +278,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -395,14 +395,15 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
+            <i class="fa fa-table"></i> <span>Report</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../tables/simple.php"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="../tables/data.php"><i class="fa fa-circle-o"></i> Data tables</a></li>
+            <li><a href="../tables/data.php"><i class="fa fa-circle-o"></i>Report total sales</a></li>
+            <li class="active"><a href="../tables/data2.php"><i class="fa fa-circle-o"></i>Report returns </a></li>
+            <li class="active"><a href="../tables/data3.php"><i class="fa fa-circle-o"></i>Report revenue </a></li>
           </ul>
         </li>
         <li>

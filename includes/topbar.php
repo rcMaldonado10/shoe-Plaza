@@ -59,8 +59,9 @@ function filterShoe($query){
 
   </li></span>
 <span id="menu"><a href="about.php" class="menunav">About</a></span>
-<?php if(isset($_POST['SingUP'])){
-  echo '<span id="menu"><a href="javascript:void(0)"  class="menunav">Hello:'.$row['firstNameCos'].'</a>
+<?php if(isset($_POST['SingUP']) || isset($_POST[isset($_POST['LogIn'])]) ){
+  $row = mysqli_fetch_assoc($result);
+  echo '<span id="menu"><a href="javascript:void(0)"  class="menunav">Hello: '.$cheqEmail.'</a>
   <div class="dropdown-content">
     <a href="accout.php"><b>accout</b></a>
     <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>

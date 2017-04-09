@@ -32,7 +32,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.php" class="logo">
+    <a href="../../index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -392,14 +392,15 @@
         </li>
         <li class="treeview active">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
+            <i class="fa fa-table"></i> <span>Report</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="simple.php"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li class="active"><a href="data.php"><i class="fa fa-circle-o"></i> Data tables</a></li>
+            <li class="active"><a href="data.php"><i class="fa fa-circle-o"></i>Report total sales </a></li>
+            <li class="active"><a href="data2.php"><i class="fa fa-circle-o"></i>Report returns </a></li>
+            <li class="active"><a href="data3.php"><i class="fa fa-circle-o"></i>Report Revenue </a></li>
           </ul>
         </li>
         <li>

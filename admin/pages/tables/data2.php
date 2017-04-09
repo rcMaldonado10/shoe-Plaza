@@ -8,13 +8,13 @@ include 'recycle/topbar.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Report Sales
+        Report Returns
         <small>by day, week and month</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active"> Report Sales</li>
+        <li class="active"> Report Returns</li>
       </ol>
     </section>
 
@@ -24,7 +24,7 @@ include 'recycle/topbar.php';
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Report Sales by day</h3>
+              <h3 class="box-title">Report Returns by day</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -185,7 +185,7 @@ include 'recycle/topbar.php';
           <!--WEEK -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Report Sales by week</h3>
+              <h3 class="box-title">Report Return by week</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -262,7 +262,7 @@ include 'recycle/topbar.php';
           <!--Month -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Report Sales by Month</h3>
+              <h3 class="box-title">Report Returns by Month</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

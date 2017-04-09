@@ -109,15 +109,15 @@ include 'recycle/topbar.php';
             <div class="box-body">
               <div class="form-group">
                 <label for="InputproductID">Email</label>
-                <input type="text" name="email_admin" class="form-control" id="Inputproduct_id" placeholder="1-10">
+                <input type="text" name="email_admin" class="form-control" id="Inputproduct_id" placeholder="user@example">
               </div>
               <div class="form-group">
                 <label for="InputproductID">Password</label>
-                <input type="text" name="password_admin" class="form-control" id="Inputproduct_id" placeholder="1-10">
+                <input type="text" name="password_admin" class="form-control" id="Inputproduct_id" placeholder="password">
               </div>
               <div class="form-group">
                 <label for="InputproductID">Username</label>
-                <input type="text" name="user_admin" class="form-control" id="Inputproduct_id" placeholder="1-10">
+                <input type="text" name="user_admin" class="form-control" id="Inputproduct_id" placeholder="username">
               </div>
               <div class="box-footer">
                 <button type="submit" name ="delete_customer" class="btn btn-primary">Delete Product</button>
