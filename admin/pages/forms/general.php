@@ -1,16 +1,44 @@
 
 <?php
+// ADD PRODUCTS PAGE
 $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
   if(isset($_POST['submit_data'])){
+    //image properties
+//$image= $_FILES["fileToUpload"]["name"]; // name
+//$sourcePath = $_FILES['fileToUpload']['tmp_name']; // Storing source path of the file in a variable
 
-    $sql ="INSERT INTO shoe VALUES ('','$_POST[brand]','$_POST[model]','$_POST[category]','$_POST[gender]','$_POST[size]','$_POST[stock]', '$_POST[price]','$_POST[imgsource]','$_POST[details]')";
-    mysqli_query($db,$sql);}
+$uploads_dir = '/../../../images';
 
+
+        $tmp_name = $_FILES["fileToUpload"]["tmp_name"];
+        // basename() puede evitar ataques de denegación de sistema de ficheros;
+        // podría ser apropiada más validación/saneamiento del nombre del fichero
+        $name = basename($_FILES["fileToUpload"]["name"]);
+      if(move_uploaded_file("$uploads_dir/$name" , $tmp_name )){
+
+        echo "The file ". basename($image). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+      }
+
+  /*  if (move_uploaded_file($target_file, $sourcePath)) { // move file to folder
+        echo "The file ". basename($image). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }*/
+
+/////////////
+// insert products
+    $sql ="INSERT INTO shoe VALUES ('','$_POST[brand]','$_POST[model]','$_POST[category]','$_POST[gender]','$_POST[size]','$_POST[stock]', '$_POST[price]','Images/$name','$_POST[details]')";
+    mysqli_query($db,$sql);
+  }
+// delete a product by Product ID
     if(isset($_POST['delete_data'])){
 
       $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
-      mysqli_query($db,$sql);}
+      mysqli_query($db,$sql);
+    }
 
 ?>
 
@@ -44,7 +72,7 @@ include 'recycle/topbar.php';
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="general.php" method="post">
+            <form action="general.php" method="post" enctype="multipart/form-data">
               <div class="box-body">
                 <div class="form-group">
                   <label for="Inputbrand">Brand</label>
@@ -74,17 +102,17 @@ include 'recycle/topbar.php';
                   <label for="Inputprice">price</label>
                   <input type="text" name="price" class="form-control" id="Inputprice" placeholder="$95.00 (Don't include de '$' simbol)">
                 </div>
-                <div class="form-group">
+              <!--  <div class="form-group">
                   <label for="InputImage_source">Image-source</label>
                   <input type="text" name="imgsource" class="form-control" id="InputImage_source" placeholder="Images/woman1.jpg (example)">
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label for="InputDetails">Details</label>
                   <input type="text" name="details" class="form-control" id="InputImage_source" placeholder="This Shoe is great!">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
-                  <input type="file" id="exampleInputFile">
+                  <input type="file" name="fileToUpload" id="fileToUpload">
 
 
                 </div>

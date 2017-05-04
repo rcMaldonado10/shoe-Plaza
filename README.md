@@ -3,6 +3,6 @@ Proyecto de Bases de Datos<br>
 
 Integrantes del grupo:<br>
 * Rafael E. Colón Maldonado
-* Gabriel Gozález Torres
+* Gabriel González Torres
 * Yadiel Nieves Cardona
 * Kenneth Vélez Rosario

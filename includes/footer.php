@@ -10,19 +10,20 @@
 <script>
 //javascript magic
 function detailsmodal(ProductID){
-//alert(ProductID);
+alert(ProductID);
 var data = {"ProductID" : ProductID};
-$.ajax({ //jquery
-  url : <?=BASEURL;?>+'includes/detailsmodal.php',
+JQuery.ajax({ //jquery
+  url :'/shoe-Plaza/includes/detailsmodal.php',
   method : "post",
   data : data,
   success:function(data){
-    $('body').append(data); //apended (add to) to our body of detailsmodal
-    $('#myModal').modal('toggle'); //select details model id to open the modal
+    JQuery('body').append(data); //apended (add to) to our body of detailsmodal
+    JQuery('#details-modal').modal('toggle'); //select details model id to open the modal
   },
     error: function(){
       alert("Something went wrong!");
     }
   });//No need to reload the page for details modal
 }
+
 </script>

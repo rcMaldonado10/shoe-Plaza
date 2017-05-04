@@ -6,5 +6,5 @@ $db = 'shoeplaza';
 
 $con = mysqli_connect('localhost', $user, $pass, $db);
 
-define('BASEURL', '/shoeplaza/');
+define('BASEURL', '/shoe-Plaza/');
 ?>
