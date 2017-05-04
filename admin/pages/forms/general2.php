@@ -1,4 +1,3 @@
-
 <?php
 $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
@@ -10,20 +9,21 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
   if(isset($_POST['submit_admin'])){
 
-    $sql ="INSERT INTO admin VALUES ('','$_POST[email]','$_POST[password_admin]','$_POST[user_admin]'')";
+    $sql ="INSERT INTO admin VALUES ('$_POST[email_admin]','$_POST[password_admin]','$_POST[user_admin]')";
     mysqli_query($db,$sql);
   }
 
-    if(isset($_POST['delete_customer'])){
+  if(isset($_POST['delete_customer'])){
 
       $sql ="DELETE FROM customer WHERE CustomerID='$_POST[customer_id]'";
-      mysqli_query($db,$sql);}
+      mysqli_query($db,$sql);
+  }
 
-      if(isset($_POST['delete_admin'])){
+  if(isset($_POST['delete_admin'])){
 
         $sql ="DELETE FROM admin WHERE username='$_POST[admin_id]'";
-        mysqli_query($db,$sql);}
-
+        mysqli_query($db,$sql);
+  }
 ?>
 
 <?php
@@ -120,7 +120,7 @@ include 'recycle/topbar.php';
                 <input type="text" name="user_admin" class="form-control" id="Inputproduct_id" placeholder="username">
               </div>
               <div class="box-footer">
-                <button type="submit" name ="delete_customer" class="btn btn-primary">Delete Product</button>
+                <button type="submit" name ="submit_admin" class="btn btn-primary">Add Admin</button>
               </div>
             </div>
             <!-- /.box-body -->
@@ -142,29 +142,13 @@ include 'recycle/topbar.php';
             </div>
             <!-- /.box-body -->
           </div>
-          <!-- Form Delete Admin sizes -->
-          <div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Delete Admin by Username</h3>
-            </div>
-            <div class="box-body">
-              <div class="form-group">
-                <label for="InputproductID">Type the Admin Username</label>
-                <input type="text" name="admin_id" class="form-control" id="Inputproduct_id" placeholder="1-10">
-              </div>
 
-              <div class="box-footer">
-                <button type="submit" name ="delete_admin" class="btn btn-primary">Delete Customer</button>
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
         </form>
           <!-- /.box -->
           <!--.box -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table Of Costumer</h3>
+              <h3 class="box-title">Data Table Of Customer</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -211,6 +195,28 @@ include 'recycle/topbar.php';
           </div>
 
           <!--.box -->
+
+          <!-- Form Delete Admin by username -->
+          <form action="general2.php" method="post">
+
+            <div class="box box-success">
+              <div class="box-header with-border">
+                <h3 class="box-title">Delete Admin by Username</h3>
+              </div>
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="InputproductID">Type the Admin Username</label>
+                  <input type="text" name="admin_id" class="form-control" id="Inputproduct_id" placeholder="">
+                </div>
+
+                <div class="box-footer">
+                  <button type="submit" name ="delete_admin" class="btn btn-primary">Delete Customer</button>
+                </div>
+              </div>
+              <!-- /.box-body -->
+            </div>
+
+          </form>
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Table Of Admin</h3>
