@@ -58,7 +58,7 @@
           <form action="userSettings.php" method="post">
             <div class="top-row">
               <div class="field-wrap">
-                <input type="text" value=<?php  echo $_SESSION['cosFirstName']; ?> name="firstNameEdit" />
+                <input type="text" value="<?php  echo $_SESSION['cosFirstName']; ?>" name="firstNameEdit" />
                </div>
 
                <div class="field-wrap">

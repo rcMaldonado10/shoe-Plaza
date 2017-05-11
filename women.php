@@ -7,39 +7,22 @@ include 'includes/topbar.php';
 
  <?php
 include 'includes/checkbox.php';
- ?>
 
- <main class="main">
-    <div class="product">Rebook<img src="Images/woman1.jpg" width="230" height="230" alt="Rebook"/>
-        <br>Reebok Air Max 95 Sneakerboots</br>
-        <br>Price: $95.00</br>
-        <br/><!-- Trigger/Open The Modal -->
-        <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-4">Details</button>
-    </div>
+    $query = "SELECT * FROM shoe WHERE Gender='F'";
+    mysqli_query($con, $query) or die('Error querying database.');
 
-    <div class="product">Rebook<img src="Images/woman2.jpg" width="230" height="230" alt="Rebook"/>
-        <br>Reebok Fit</br>
-        <br>Price: $95.00</br>
-        <br/><!-- Trigger/Open The Modal -->
-         <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-5">Details</button>
-    </div>
-
-    <div class="product">Rebook<img src="Images/woman3.jpg" width="230" height="230" alt="Rebook"/>
-        <br>Reebok Crossfit</br>
-        <br>Price: $95.00</br>
-        <br/><!-- Trigger/Open The Modal -->
-        <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-6">Details</button>
-    </div>
-
-
-</main>
-
-
- <?php
+    $result = mysqli_query($con, $query);
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_assoc($result)) {
+            echo '<main class="main"><div class="product">'.$row['Brand'].'<img src="'.$row['img-source'].'" width="230" height="230" alt="Nike"/>
+            <br>'.$row['Model'].'</br>
+            <br>Price: $'.$row['Price'].'</br>
+            <br/><!-- Trigger/Open The Modal -->
+            <button type="button" class="btn btn-sm btn-success" onclick="detailsmodal('.$row['ProductID'].')">Details</button></br></div></main>';
+         }
+   }
 include 'includes/detailsmodal.php';
 include 'includes/footer.php';
- ?>
-
-
+?>
 </body>
 </html>

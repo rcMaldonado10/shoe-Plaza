@@ -24,24 +24,10 @@ include 'includes/checkbox.php';
             <br>'.$row['Model'].'</br>
             <br>Price: $'.$row['Price'].'</br>
             <br/><!-- Trigger/Open The Modal -->
-            <button type="button" class="btn btn-sm btn-success" onclick="detailsmodal('.$row['ProductID'].')">Details</button></br></div>';
+            <button type="button" class="btn btn-sm btn-success" onclick="about.php"><a href="about.php" style="color:white;">Details</a></button></br></div>';
          }
    }
 ?>
-
- <!--    <div class="product">Rebook<img src="Images/men2.jpg" width="230" height="230" alt="Rebook"/>
-         <br>Reebok Classic</br>
-         <br>Price: $95.00</br>
-         <br/>Trigger/Open The Modal
-          <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-2">Details</button>
-     </div>
-
-     <div class="product">Rebook<img src="Images/men4.jpg" width="230" height="230" alt="Rebook"/>
-         <br>Xtreme Runner V</br>
-         <br>Price: $95.00</br>
-         <br/>Trigger/Open The Modal
-         <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-6">Details</button>
-     </div> -->
  </main>
 
  <?php

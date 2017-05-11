@@ -11,13 +11,13 @@
 //javascript magic
 function detailsmodal(ProductID){
 alert(ProductID);
-var data = {"ProductID" : ProductID};
-JQuery.ajax({ //jquery
+var data = ProductID;
+jQuery.ajax({ //jquery
   url :'/shoe-Plaza/includes/detailsmodal.php',
   method : "post",
   data : data,
   success:function(data){
-    JQuery('body').append(data); //apended (add to) to our body of detailsmodal
+    jQuery('body').append(data); //apended (add to) to our body of detailsmodal
     JQuery('#details-modal').modal('toggle'); //select details model id to open the modal
   },
     error: function(){

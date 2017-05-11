@@ -68,7 +68,7 @@ $row = mysqli_fetch_assoc($result);
 <script>
 
 function close Modal(){
-  JQuery('#details-modal').modal('hide'); //jquery
+  jQuery('#details-modal').modal('hide'); //jquery
   setTimeout(function(){
     JQuery('#details-modal').remove();
     JQuery('.modal-backdrop').remove();

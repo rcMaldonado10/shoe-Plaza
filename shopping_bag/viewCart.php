@@ -30,6 +30,20 @@ $cart = new Cart;
 </head>
 <body>
 <div class="container">
+    <div style="float: left">
+        <h1>Payment Information</h1><br>
+        
+        <label>Credit Card Number (last four digits):</label><br>
+        <label>Credit Card Name:</label><br>
+        <label>Credit Card Expiration Date:</label><br>
+    </div>
+    <div style="float: right">
+    <a>Edit Payment Information</a><br>
+        <img src="../Images/mastercard.png" width="200" height="200"/>
+    </div>
+</div>
+<hr>
+<div class="container">
     <h1>Shopping Cart</h1>
     <table class="table">
     <thead>

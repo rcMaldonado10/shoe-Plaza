@@ -82,7 +82,7 @@ echo '<span id="menu"><a href="singUpPage.php" class="menunav">Sign Up/Sign In</
   </ul>
   </div>
 </span>
-<span
+<span>
 <form action="Results.php" method="post"><input type="text" name="ValueToSearch" placeholder="Search..." required><input type="submit" name="Search" value="Search"></form>
 </span>
 </nav>
