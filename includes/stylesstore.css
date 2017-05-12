@@ -45,20 +45,14 @@
     padding-left: 30px;
   }
 
-       #mapdiv{
-        margin-right: 20px;
-        position: relative;
-        float: right;
-        text-align: center;
-       }
-         #map {
-        height: 400px;
-        width: 400px;
 
-       }
-       .imgaboutsize{
-        margin-left: 20px;
-        float:left;
+   #map {
+    height: 400px;
+    width: 400px;
+  }
+   .imgaboutsize{
+    margin-left: 20px;
+
        }
 
   .copyright{
@@ -115,6 +109,7 @@
     -moz-border-radius: 0;
     border-radius: 0;
 }
+
 
 a {
 	color: #fff;
