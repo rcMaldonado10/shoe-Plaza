@@ -1,99 +1,89 @@
-<!doctype html>
-<html>
+<?php
+// include database configuration file
+include '../Core/init.php';
+
+// initializ shopping cart class
+include 'Cart.php';
+$cart = new Cart;
+
+// redirect to home if cart is empty
+if($cart->total_items() <= 0){
+    header("Location: ../home.php");
+}
+
+// set customer ID in session
+$_SESSION['sessCustomerID'] = 1;
+
+// get customer details by session customer ID
+$query = $db->query("SELECT * FROM customer WHERE id = ".$_SESSION['sessCustomerID']);
+$custRow = $query->fetch_assoc();
+?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Checkout</title>
-
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="stylesheet" type="text/css" href="stylesstore.css"/>
+    <title>Checkout - PHP Shopping Cart Tutorial</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-        p {
-            font-size: 22px;
-        }
+    .container{width: 100%;padding: 50px;}
+    .table{width: 65%;float: left;}
+    .shipAddr{width: 30%;float: left;margin-left: 30px;}
+    .footBtn{width: 95%;float: left;}
+    .orderBtn {float: right;}
     </style>
 </head>
 <body>
-
-<div id="container">
-        <div id="topbar">
-
-                <div class="fixedwith">
-
-                     <div id="logodiv">  <p id="titleheader">Shoe Store Plaza<span id="pr">PR</span> </p></div>
-
-                     <div id="signindiv">
-                        <img src="images/singnin.png"/><h class="default"><a class="default" href="singUpPage.php">Sign In</a></h>
-                    </div>
-
-                    </div>
-            <div id="topmenudiv">
-                <ul>
-                    <li class="default"><a href="home.php">Home</a></li>
-                    <li class="default"><a href="women.php">Women </a></li>
-                    <li class="default"><a href="men.php">Men</a></li>
-                    <li class="default"><a href="about.php">About us</a></li>
-
-                </ul>
-            </div>
-                <div class="break" ></div>
-
-                        <div class ="fixedwith">
-
-                            <p id="titleheader" style="color: black;font-size: 50px;">Checkout</p>
-
-                 </div>
-                 <div class="break" ></div>
-
-                 <form action="">
-                <fieldset style="color: black;">
-
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<<<<<<< Updated upstream
-
-                        <img src="images/men1.jpg" width="400" height="400"/>
-                        <p>Brand: Nike</p><br>
-                        <p>Model: Nike Air Max 95 Sneakerboots</p><br>
-                       <div class="form-group">
-                            <label for="size">Size: <label>
-                            <select name="size" id="size" class="form-control">
-                                 <option value="7">7</option>
-                                 <option value="8">8</option>
-                                 <option value="9">9</option>
-                                 <option value="10">10</option>
-                                 <option value="12">12</option>
-                            </select>
-                     </div>
-                        <div class="form-group">
-                            <label for="size">Quantity: <label>
-                            <select name="size" id="size" class="form-control">
-                                 <option value="1">1</option>
-                                 <option value="2">2</option>
-                                 <option value="3">3</option>
-                                 <option value="4">4</option>
-                                 <option value="5">5</option>
-                            </select>
-                     </div>
-=======
-                        
-                        <img src="images/nike-roshe-one-mens.jpeg" width="400" height="400"/>
-                        <p>Brand: Nike</p>
-                        <p>Model: Nike Air Max 95 Sneakerboots</p>
-                        <p>Size:<input type="number"></p>
-                        <p>Quantity:<input type="number"></p>
->>>>>>> Stashed changes
-                        <p style="font-size: 20px;"><b>$95.00</b></p>
-                </fieldset>
-            </form>
-
-
-            <br>
-            <a href="#" class="btn btn-info btn-lg">Add to Cart</a>
-            <a href="#" class="btn btn-info btn-lg">Buy</a>
-
+<div class="container">
+    <h1>Order Preview</h1>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        if($cart->total_items() > 0){
+            //get cart items from session
+            $cartItems = $cart->contents();
+            foreach($cartItems as $item){
+        ?>
+        <tr>
+            <td><?php echo $item["Brand"]; ?></td>
+            <td><?php echo '$'.$item["Price"].' USD'; ?></td>
+            <td><?php echo $item["qty"]; ?></td>
+            <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
+        </tr>
+        <?php } }else{ ?>
+        <tr><td colspan="4"><p>No items in your cart......</p></td>
+        <?php } ?>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3"></td>
+            <?php if($cart->total_items() > 0){ ?>
+            <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' USD'; ?></strong></td>
+            <?php } ?>
+        </tr>
+    </tfoot>
+    </table>
+    <div class="shipAddr">
+        <h4>Shipping Details</h4>
+        <p><?php echo $custRow['FirstName']; ?></p>
+        <p><?php echo $custRow['LastName']; ?></p>
+        <p><?php echo $custRow['Email']; ?></p>
+        <p><?php echo $custRow['phone']; ?></p>
+        <p><?php echo $custRow['Shipping_Address']; ?></p>
+    </div>
+    <div class="footBtn">
+        <a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a>
+        <a href="cartAction.php?action=placeOrder" class="btn btn-success orderBtn">Place Order <i class="glyphicon glyphicon-menu-right"></i></a>
+    </div>
+</div>
 </body>
 </html>

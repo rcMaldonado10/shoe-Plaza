@@ -1,6 +1,7 @@
 <?php
 // initializ shopping cart class
 include 'Cart.php';
+include '../Core/init.php';
 $cart = new Cart;
 ?>
 <!DOCTYPE html>
@@ -63,8 +64,8 @@ $cart = new Cart;
             foreach($cartItems as $item){
         ?>
         <tr>
-            <td><?php echo $item["name"]; ?></td>
-            <td><?php echo '$'.$item["price"].' USD'; ?></td>
+            <td><?php echo $item["Brand"]; ?></td>
+            <td><?php echo '$'.$item["Price"].' USD'; ?></td>
             <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"></td>
             <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
             <td>

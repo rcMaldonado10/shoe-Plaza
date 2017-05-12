@@ -45,44 +45,57 @@ function filterShoe($query){
 
 
 <!--Navigation Bar-->
-<nav class="nav">
-<span id="menu"><a href="home.php" class="menunav">Home</a></span>
-<span id="menu">  <li class="dropdown">
 
-    <a href="javascript:void(0)"  class="menunav">Categories</a>
-    <div class="dropdown-content">
-      <a href="#"><b>Woman</b></a>
-      <a href="women.php">Sport</a>
-      <a href="#"><b>Men</b></a>
-      <a href="men.php">Sport</a>
+  <nav class="navbar" style="background-color: #243a6a;" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="home.php">Home</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><b>Woman</b></a></li>
+              <li><a href="women.php">Sport</a></li>
+              <li><a href="#"><b>Men</b></a></li>
+              <li><a href="men.php">Sport</a></li>
+            </ul>
+          </li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="singUpPage.php">Sign Up/Sign In</a></li>
+          <li><a href="shopping_bag/viewCart.php" class="glyphicon glyphicon-shopping-cart" title="View Cart"></a></li>
+
+          <li class="dropdown">
+            <a class="glyphicon glyphicon-user" data-toggle="dropdown"></a>
+            <ul class="dropdown-menu">
+              <li><a href="userSettings.php">Account Settings</a></li>
+              <li><a href="logout.php">Logout</a></li>
+            </ul>
+          </li>
+
+          <form class="navbar-form navbar-right" action="Results.php" method="post">
+        <div class="input-group">
+          <input type="text" class="form-control" name="ValueToSearch" placeholder="Search">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit" name="Search" value="Search">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+        </ul>
+
+
+      </div>
     </div>
-
-  </li></span>
-<span id="menu"><a href="about.php" class="menunav">About</a></span>
-<?php if(isset($_POST['SingUP']) || isset($_POST[isset($_POST['LogIn'])]) ){
-  $row = mysqli_fetch_assoc($result);
-  echo '<span id="menu"><a href="javascript:void(0)"  class="menunav">Hello: '.$cheqEmail.'</a>
-  <div class="dropdown-content">
-    <a href="accout.php"><b>accout</b></a>
-    <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
-  </div>
-</li></span>';
-
-}else {
-echo '<span id="menu"><a href="singUpPage.php" class="menunav">Sign Up/Sign In</a></span>';
-}
-
- ?>
-<span id="menu"><a href="shopping_bag/viewCart.php" class="cart-link" title="View Cart"><img class="cartlogo" src="Images/shopping-cart-logo.png" /></a></span>
-<span <div class="dropdown">
-  <button type="button" class="glyphicon glyphicon-user"  data-toggle="dropdown" ></button>
-  <ul class="dropdown-menu">
-    <li><a href="userSettings.php">Account Settings</a></li>
-    <li><a href="logout.php">Logout</a></li>
-  </ul>
-  </div>
-</span>
-<span>
-<form action="Results.php" method="post"><input type="text" name="ValueToSearch" placeholder="Search..." required><input type="submit" name="Search" value="Search"></form>
-</span>
-</nav>
+  </nav>

@@ -1,5 +1,5 @@
 <?php
-require_once 'Core/init.php';
+include 'Core/init.php';
 include 'includes/topbar.php';
 ?>
 
