@@ -7,9 +7,10 @@ include 'includes/topbar.php';
   <?php
  include 'includes/checkbox.php';
  ?>
- <main class="main">
-<?php
 
+ <main class="main">
+
+<?php
   $query = "SELECT * FROM shoe WHERE Gender='M'";
     mysqli_query($con, $query) or die('Error querying database.');
 
@@ -30,7 +31,7 @@ include 'includes/topbar.php';
 
 <?php
 include 'includes/footer.php';
- ?>
+?>
 
 </body>
 </html>
