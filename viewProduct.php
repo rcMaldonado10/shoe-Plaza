@@ -14,30 +14,48 @@ if(mysqli_num_rows($result) > 0){
     echo '<h1 style="text-align:center;">No shoe was selected</h1>';
 }
 ?>
-<div style="float: left;">
-    <h1 style="padding-left: 15px;"><?=$row['Brand']?> - <?=$row['Model']?></h1>
-    <img style="padding-left: 15px;"src="<?=$row['img-source']?>" width="375" height="375"/>
-    <div style="float: right; padding: 30px;">
-        <p style="float: left;"><?=$row['Details']?></p><br><br>
-        <label>Categorie: <?=$row['Category']?></label><br><br>
-        <label>Quantity:</label>
-        <select class="selectpicker">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select><br><br>
-        <label>Size:</label>
-        <select>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-        </select><br><br>
-        <button class="btn btn-warning">Add to Cart</button>
-        <button class="btn btn-success">Buy</button>
-    </div>
-</div>
+
+<!--Left side grid-->
+<div class="col-md-2"></div>
+
+    <!--Main cotent grid-->
+<div class="col-md-8">
+  <div class="row">
+      <h2 class="text-center">Details<h2>
+
+        <div class="col-md-6">
+            <h1 style="padding-left: 15px;"><?=$row['Brand']?> - <?=$row['Model']?></h1>
+            <img style="padding-left: 15px;"src="<?=$row['img-source']?>" width="375" height="375"/>
+        </div><!--col-md-6 end-->
+
+        <div class="col-md-6">
+          <div style="float: ; padding: 0 200px 0 0px;">
+            <h3 style="float:;">Details: <?=$row['Details']?></h3><br>
+            <h3>Categorie: <?=$row['Category']?></h3>
+            <h3>Price: $<?=$row['Price']?></h3>
+            <h3 for="Quantity_Stock">Quantity: </h3>
+            <select name="qty" id="qty" class="form-control">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select><br>
+            <h3 for="size">Size: </h3>
+            <select name="size" id="size" class="form-control">
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+            </select><br>
+            <button class="btn btn-warning"><h4>Add to Cart</h4></button>
+          </div>
+        </div><!--col-md-6 end-->
+
+    </div><!--row end-->
+</div><!--col-md-8 end-->
+
+<!--Right side grid-->
+<div class="col-md-2"></div>
 
 <?php
     include 'includes/footer.php';
