@@ -8,14 +8,11 @@ include 'includes/topbar.php';
               <br>'.$row['Model'].'</br>
               <br>Price: $'.$row['Price'].'</br>
               <br/><!-- Trigger/Open The Modal -->
-              <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#detail-1">Details</button></br></div></main>';
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#detail-1">Details</button></br></div></main>';
     }
   } else{
     echo '<h1 style="text-align: center;">:( Sorry shoe not available at the moment.</h1>';
   }
-
-  $filteredShoes = mysqli_fetch_assoc($result);
-  echo "hola".$filteredShoes["Price"]." dinero";
 ?>
 
  <div class="copyright">

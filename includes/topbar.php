@@ -92,8 +92,6 @@ function filterShoe($query){
         </div>
       </form>
         </ul>
-
-
       </div>
     </div>
   </nav>
