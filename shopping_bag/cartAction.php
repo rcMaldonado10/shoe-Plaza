@@ -21,15 +21,15 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         $insertItem = $cart->insert($itemData);
         $redirectLoc = $insertItem?'viewCart.php':'../home.php';
         header("Location: ".$redirectLoc);
-    }elseif($_REQUEST['action'] == 'updateCartItem' && !empty($_REQUEST['id'])){
+    }elseif($_REQUEST['action'] == 'updateCartItem' && !empty($_REQUEST['ProductID'])){
         $itemData = array(
-            'rowid' => $_REQUEST['id'],
+            'rowid' => $_REQUEST['ProductID'],
             'qty' => $_REQUEST['qty']
         );
         $updateItem = $cart->update($itemData);
         echo $updateItem?'ok':'err';die;
-    }elseif($_REQUEST['action'] == 'removeCartItem' && !empty($_REQUEST['id'])){
-        $deleteItem = $cart->remove($_REQUEST['id']);
+    }elseif($_REQUEST['action'] == 'removeCartItem' && !empty($_REQUEST['ProductID'])){
+        $deleteItem = $cart->remove($_REQUEST['ProductID']);
         header("Location: viewCart.php");
     }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])){
         // insert order details into database
