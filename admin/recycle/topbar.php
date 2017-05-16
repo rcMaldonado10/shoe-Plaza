@@ -344,8 +344,7 @@
           </a>
           <ul class="treeview-menu">
 
-            <li class="active"><a href="pages/tables/data.php"><i class="fa fa-circle-o"></i> Rebort by Day</a></li>
-            <li class="active"><a href="pages/tables/data2.php"><i class="fa fa-circle-o"></i>Report returns </a></li>
+            <li class="active"><a href="pages/tables/data.php"><i class="fa fa-circle-o"></i>Report Total Sales</a></li>
             <li class="active"><a href="pages/tables/data3.php"><i class="fa fa-circle-o"></i>Report Revenue </a></li>
           </ul>
         </li>

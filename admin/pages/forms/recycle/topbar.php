@@ -255,7 +255,7 @@
 
                 <p>
                   Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  
                 </p>
               </li>
               <!-- Menu Body -->
@@ -403,7 +403,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="../tables/data.php"><i class="fa fa-circle-o"></i> Data tables</a></li>
-            <li class="active"><a href="../tables/data2.php"><i class="fa fa-circle-o"></i>Report returns </a></li>
+            <li class="active"><a href="../tables/data.php"><i class="fa fa-circle-o"></i>Report Total Sales </a></li>
             <li class="active"><a href="../tables/data3.php"><i class="fa fa-circle-o"></i>Report Revenue </a></li>
           </ul>
         </li>

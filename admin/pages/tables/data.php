@@ -269,7 +269,7 @@ include 'recycle/topbar.php';
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>January</th>
+                  <th>Month</th>
                   <th>Event</th>
                   <th>Status</th>
                   <th>customer email</th>
@@ -277,7 +277,14 @@ include 'recycle/topbar.php';
                 </tr>
                 </thead>
                 <tbody>
-
+                  <tr>
+                    <td>January</td>
+                    <td>sale
+                    </td>
+                    <td>paid</td>
+                    <td>ex@gmail.com</td>
+                    <td>$65.99</td>
+                  </tr>
                   <tr>
                     <td>February</td>
                     <td>sale

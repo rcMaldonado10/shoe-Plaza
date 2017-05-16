@@ -257,7 +257,7 @@
 
                 <p>
                   Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  
                 </p>
               </li>
               <!-- Menu Body -->
@@ -331,7 +331,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="../../index.php"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="../../index2.php"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -380,7 +379,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
+            <i class="fa fa-edit"></i> <span>Update</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -399,7 +398,6 @@
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="data.php"><i class="fa fa-circle-o"></i>Report total sales </a></li>
-            <li class="active"><a href="data2.php"><i class="fa fa-circle-o"></i>Report returns </a></li>
             <li class="active"><a href="data3.php"><i class="fa fa-circle-o"></i>Report Revenue </a></li>
           </ul>
         </li>
