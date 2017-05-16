@@ -47,7 +47,7 @@ if(mysqli_num_rows($result) > 0){
               <option value="10">10</option>
               <option value="11">11</option>
             </select><br>
-            <button class="btn btn-warning"><h4>Add to Cart</h4></button>
+             <a class="btn btn-warning" href="shopping_bag/cartAction.php?action=addToCart&id=<?php echo $row["ProductID"]; ?>"><h4>Add to Cart</h4></a>
           </div>
         </div><!--col-md-6 end-->
 

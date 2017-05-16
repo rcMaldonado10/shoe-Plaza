@@ -6,7 +6,7 @@ $cart = new Cart;
 // include database configuration file
 include '../Core/init.php';
 if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
-    if($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['id'])){
+    if($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['ProductID'])){
         $productID = $_REQUEST['ProductID'];
         // get product details
         $query = $db->query("SELECT * FROM shoe WHERE ProductID = ".$productID);
@@ -15,7 +15,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
             'id' => $row['ProductID'],
             'name' => $row['Brand'],
             'price' => $row['Price'],
-            'qty' => 1
+            'qty' => $row['Quantity_Stock'],
         );
 
         $insertItem = $cart->insert($itemData);
