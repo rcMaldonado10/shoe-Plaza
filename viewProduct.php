@@ -30,11 +30,12 @@ if(mysqli_num_rows($result) > 0){
 
         <div class="col-md-6">
           <div style="float: ; padding: 0 200px 0 0px;">
+            <form method="post" action="shopping_bag/viewCart.php?action=add&id=<?php echo $row["ProductID"]; ?>">
             <h3 style="float:;">Details: <?=$row['Details']?></h3><br>
             <h3>Categorie: <?=$row['Category']?></h3>
             <h3>Price: $<?=$row['Price']?></h3>
             <h3 for="Quantity_Stock">Quantity: </h3>
-            <select name="qty" id="qty" class="form-control">
+            <select name="quantity" class="form-control">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -47,7 +48,12 @@ if(mysqli_num_rows($result) > 0){
               <option value="10">10</option>
               <option value="11">11</option>
             </select><br>
-             <a class="btn btn-warning" href="shopping_bag/cartAction.php?action=addToCart&id=<?php echo $row["ProductID"]; ?>"><h4>Add to Cart</h4></a>
+            <input type="hidden" name="hidden_name" value="<?php echo $row["Brand"]; ?>" />
+            <input type="hidden" name="hidden_price" value="<?php echo $row["Price"]; ?>" />
+            <input type="hidden" name="hidden_gender" value="<?php echo $row["Gender"]; ?>" />
+              <input type="submit" name="add_to_cart" class="btn btn-warning" value="Add to Cart" />
+
+              </form>
           </div>
         </div><!--col-md-6 end-->
 

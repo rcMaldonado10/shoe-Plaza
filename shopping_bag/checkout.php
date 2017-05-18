@@ -1,89 +1,134 @@
+<!--Step 2 on shopping bag -->
 <?php
-// include database configuration file
-include '../Core/init.php';
+ session_start();
+ $connect = mysqli_connect("localhost", "root", "", "shoeplaza");
+ if(isset($_POST["add_to_cart"]))
+ {
+      if(isset($_SESSION["shopping_cart"]))
+      {
+           $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
 
-// initializ shopping cart class
-include 'Cart.php';
-$cart = new Cart;
-
-// redirect to home if cart is empty
-if($cart->total_items() <= 0){
-    header("Location: ../home.php");
-}
-
-// set customer ID in session
-$_SESSION['sessCustomerID'] = 1;
-
-// get customer details by session customer ID
-$query = $db->query("SELECT * FROM customer WHERE id = ".$_SESSION['sessCustomerID']);
-$custRow = $query->fetch_assoc();
-?>
+           if(!in_array($_GET["id"], $item_array_id))
+           {
+             //save all "name" variables from the viewProduct of html to an array
+                $count = count($_SESSION["shopping_cart"]);
+                $item_array = array(
+                  'item_id'               =>     $_GET["id"],
+                  'item_name'               =>     $_POST["hidden_name"],
+                  'item_price'          =>     $_POST["hidden_price"],
+                  'item_quantity'          =>     $_POST["quantity"]
+                );
+                $_SESSION["shopping_cart"][$count] = $item_array;
+           }
+           else
+           {
+             // alert you if the product arleady Exist
+                echo '<script>alert("Item Already Added")</script>';
+                echo '<script>window.location="viewCart.php"</script>';
+           }
+      }
+      else
+      {
+           $item_array = array(
+                'item_id'               =>     $_GET["id"],
+                'item_name'               =>     $_POST["hidden_name"],
+                'item_price'          =>     $_POST["hidden_price"],
+                'item_quantity'          =>     $_POST["quantity"]
+           );
+           $_SESSION["shopping_cart"][0] = $item_array;
+      }
+ }
+ if(isset($_GET["action"]))
+ {
+      if($_GET["action"] == "delete")
+      {
+           foreach($_SESSION["shopping_cart"] as $keys => $values)
+           {
+                if($values["item_id"] == $_GET["id"])
+                {
+                     unset($_SESSION["shopping_cart"][$keys]);
+                     echo '<script>alert("Item Removed")</script>';
+                     echo '<script>window.location="viewCart.php"</script>';
+                }
+           }
+      }
+ }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Checkout - PHP Shopping Cart Tutorial</title>
+    <title>Shopping Cart</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-    .container{width: 100%;padding: 50px;}
-    .table{width: 65%;float: left;}
-    .shipAddr{width: 30%;float: left;margin-left: 30px;}
-    .footBtn{width: 95%;float: left;}
-    .orderBtn {float: right;}
+    .container{padding: 50px;}
+    input[type="number"]{width: 20%;}
     </style>
+
+</head>
 </head>
 <body>
 <div class="container">
-    <h1>Order Preview</h1>
+    <div style="float: left">
+        <h1>Payment Information</h1><br>
+
+        <label>Credit Card Number (last four digits):</label><br>
+        <label>Credit Card Name:</label><br>
+        <label>Credit Card Expiration Date:</label><br>
+    </div>
+    <div style="float: right">
+    <a>Edit Payment Information</a><br>
+        <img src="../Images/mastercard.png" width="200" height="200"/>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <h1>Shopping Cart</h1>
     <table class="table">
     <thead>
         <tr>
             <th>Product</th>
-            <th>Price</th>
+            <th>Size</th>
             <th>Quantity</th>
-            <th>Subtotal</th>
+            <th>Price</th>
         </tr>
     </thead>
     <tbody>
-        <?php
-        if($cart->total_items() > 0){
-            //get cart items from session
-            $cartItems = $cart->contents();
-            foreach($cartItems as $item){
-        ?>
-        <tr>
-            <td><?php echo $item["Brand"]; ?></td>
-            <td><?php echo '$'.$item["Price"].' USD'; ?></td>
-            <td><?php echo $item["qty"]; ?></td>
-            <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
-        </tr>
-        <?php } }else{ ?>
-        <tr><td colspan="4"><p>No items in your cart......</p></td>
-        <?php } ?>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3"></td>
-            <?php if($cart->total_items() > 0){ ?>
-            <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' USD'; ?></strong></td>
-            <?php } ?>
-        </tr>
-    </tfoot>
-    </table>
-    <div class="shipAddr">
-        <h4>Shipping Details</h4>
-        <p><?php echo $custRow['FirstName']; ?></p>
-        <p><?php echo $custRow['LastName']; ?></p>
-        <p><?php echo $custRow['Email']; ?></p>
-        <p><?php echo $custRow['phone']; ?></p>
-        <p><?php echo $custRow['Shipping_Address']; ?></p>
-    </div>
-    <div class="footBtn">
-        <a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a>
-        <a href="cartAction.php?action=placeOrder" class="btn btn-success orderBtn">Place Order <i class="glyphicon glyphicon-menu-right"></i></a>
-    </div>
-</div>
+      <?php
+           if(!empty($_SESSION["shopping_cart"]))
+           {
+                $total = 0;
+                foreach($_SESSION["shopping_cart"] as $keys => $values)
+                {
+           ?>
+           <tr>
+             <form method="post" action="cartAction.php">
+             <input type="hidden" name="hidden_id" value="<?php echo $values["item_id"]; ?>"></input>
+                <td><?php echo $values["item_name"];?> - <?php echo $values["item_gender"]; ?></td>
+                <td><?php echo $values["item_size"]; ?></td>
+                <td><?php echo $values["item_quantity"]; ?></td>
+                <td>$ <?php echo $values["item_price"]; ?></td>
+                <td>$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2); ?></td>
+
+           </tr>
+           <?php
+                     $total = $total + ($values["item_quantity"] * $values["item_price"]);
+                }
+           ?>
+           <tr>
+                <td colspan="3" align="right">Total $ <?php echo number_format($total, 2); ?></td>
+                <td></td>
+           </tr>
+
+           <?php
+         }
+           ?>
+
+      </table>
+      <button type="submit" name ="placeOrder" class="btn btn-success orderBtn">Place Order <i class="glyphicon glyphicon-menu-right"></i></a>
+        </form>
+ </div>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<!--Step 4 on shopping bag and end -->
 <?php
 if(!isset($_REQUEST['id'])){
     header("Location: ../home.php");
@@ -18,6 +19,7 @@ if(!isset($_REQUEST['id'])){
 <div class="container">
     <h1>Order Status</h1>
     <p>Your order has submitted successfully. Order ID is #<?php echo $_GET['id']; ?></p>
+    <tr><td><a href="../home.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
 </div>
 </body>
 </html>

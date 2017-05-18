@@ -1,13 +1,67 @@
+<!--Step 1 on shopping bag -->
 <?php
-// initializ shopping cart class
-include 'Cart.php';
-include '../Core/init.php';
-$cart = new Cart;
-?>
+session_set_cookie_params(0);
+ session_start();
+ $connect = mysqli_connect("localhost", "root", "", "shoeplaza");
+ if(isset($_POST["add_to_cart"]))
+ {
+      if(isset($_SESSION["shopping_cart"]))
+      {
+           $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
+
+           if(!in_array($_GET["id"], $item_array_id))
+           {
+                $count = count($_SESSION["shopping_cart"]);
+                $item_array = array(
+                  'item_id'               =>     $_GET["id"],
+                  'item_name'               =>     $_POST["hidden_name"],
+                  'item_price'          =>     $_POST["hidden_price"],
+                  'item_gender'          =>     $_POST["hidden_gender"],
+                  'item_quantity'          =>     $_POST["quantity"],
+                  'item_size'          =>     $_POST["size"]
+
+                );
+                $_SESSION["shopping_cart"][$count] = $item_array;
+           }
+           else
+           {
+                echo '<script>alert("Item Already Added")</script>';
+                echo '<script>window.location="viewCart.php"</script>';
+           }
+      }
+      else
+      {
+           $item_array = array(
+                'item_id'               =>     $_GET["id"],
+                'item_name'               =>     $_POST["hidden_name"],
+                'item_price'          =>     $_POST["hidden_price"],
+                'item_gender'          =>     $_POST["hidden_gender"],
+                'item_quantity'          =>     $_POST["quantity"],
+                'item_size'          =>     $_POST["size"]
+           );
+           $_SESSION["shopping_cart"][0] = $item_array;
+      }
+ }
+ if(isset($_GET["action"]))
+ {
+      if($_GET["action"] == "delete")
+      {
+           foreach($_SESSION["shopping_cart"] as $keys => $values)
+           {
+                if($values["item_id"] == $_GET["id"])
+                {
+                     unset($_SESSION["shopping_cart"][$keys]);
+                     echo '<script>alert("Item Removed")</script>';
+                     echo '<script>window.location="viewCart.php"</script>';
+                }
+           }
+      }
+ }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>View Cart - PHP Shopping Cart Tutorial</title>
+    <title>Shopping Cart</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -16,24 +70,14 @@ $cart = new Cart;
     .container{padding: 50px;}
     input[type="number"]{width: 20%;}
     </style>
-    <script>
-    function updateCartItem(obj,id){
-        $.get("cartAction.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
-            if(data == 'ok'){
-                location.reload();
-            }else{
-                alert('Cart update failed, please try again.');
-            }
-        });
-    }
-    </script>
+
 </head>
 </head>
 <body>
 <div class="container">
     <div style="float: left">
         <h1>Payment Information</h1><br>
-        
+
         <label>Credit Card Number (last four digits):</label><br>
         <label>Credit Card Name:</label><br>
         <label>Credit Card Expiration Date:</label><br>
@@ -50,44 +94,53 @@ $cart = new Cart;
     <thead>
         <tr>
             <th>Product</th>
-            <th>Price</th>
+            <th>Size</th>
             <th>Quantity</th>
+            <th>Price</th>
             <th>Subtotal</th>
             <th>&nbsp;</th>
         </tr>
     </thead>
     <tbody>
-        <?php
-        if($cart->total_items() > 0){
-            //get cart items from session
-            $cartItems = $cart->contents();
-            foreach($cartItems as $item){
-        ?>
-        <tr>
-            <td><?php echo $item["Brand"]; ?></td>
-            <td><?php echo '$'.$item["Price"].' USD'; ?></td>
-            <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"></td>
-            <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
-            <td>
-                <!--<a href="cartAction.php?action=updateCartItem&id=" class="btn btn-info"><i class="glyphicon glyphicon-refresh"></i></a>-->
-                <a href="cartAction.php?action=removeCartItem&id=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="glyphicon glyphicon-trash"></i></a>
-            </td>
-        </tr>
-        <?php } }else{ ?>
-        <tr><td colspan="5"><p>Your cart is empty.....</p></td>
-        <?php } ?>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td><a href="../home.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
-            <td colspan="2"></td>
-            <?php if($cart->total_items() > 0){ ?>
-            <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' USD'; ?></strong></td>
+      <?php
+           if(!empty($_SESSION["shopping_cart"]))
+           {
+                $total = 0;
+                foreach($_SESSION["shopping_cart"] as $keys => $values)
+                {
+           ?>
+           <tr>
+              <input type="hidden" name="hidden_id" value="<?php echo $values["item_id"]; ?>"></input>
+              <td><?php echo $values["item_name"];?> - <?php echo $values["item_gender"]; ?></td>
+              <td><?php echo $values["item_size"]; ?></td>
+              <td><?php echo $values["item_quantity"]; ?></td>
+              <td>$ <?php echo $values["item_price"]; ?></td>
+                <td>$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2); ?></td>
+                <td><a href="viewCart.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></span></a></td>
+           </tr>
+           <?php
+                     $total = $total + ($values["item_quantity"] * $values["item_price"]);
+                }
+           ?>
+           <tr>
+             <td colspan="4" align="right">Total</td>
+             <td align="right">$ <?php echo number_format($total, 2); ?></td>
+             <td></td>
+           </tr>
+
+           <?php
+         }else {
+           echo ' <td>Your cart is empty.....</td>';
+           $values["item_quantity"] = 0;
+         }
+           ?>
+
+           <tr><td><a href="../home.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
+           <?php if($values["item_quantity"] > 0){ ?>
+
             <td><a href="checkout.php" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
             <?php } ?>
-        </tr>
-    </tfoot>
-    </table>
-</div>
+      </table>
+ </div>
 </body>
 </html>
