@@ -1,20 +1,4 @@
-<!-- <html>
-<body>
-
-<form method="GET" action=" " >
- <input type="file" name="your_imagename">
- <input type="submit" name="display_image" value="Display">
-</form>
-
-</body>
-</html> -->
-
-
 <?php
-
-// $getname = $_GET[' your_imagename '];
-//
-// echo "< img src = fetch_image.php?name=".$getname." width=200 height=200 >";
 $msg="";
 $serverName = "localhost";
 $userName = "root";
@@ -22,43 +6,61 @@ $password = "";
 $Table = "testdb2";
 
 $db =  new mysqli($serverName,$userName,$password,$Table) or die("Unable to connect");
+
 if(isset($_POST['upload']))
 {
-
-      $target = "images/".basename($_FILES['image']['name']);
-
-
-      $image = $_FILES['image']['name'];
-      $text = $_POST['text'];
-
+  if(isset($_FILES["image"]) && $_FILES['image']['size']>0)
+  {
+    if($_POST['imageName']!="")
+    {
+      if($_POST['text']!="")
+      {
+        $target = "images/".basename($_FILES['image']['name']);
+        $image = $_FILES['image']['name'];
+        $text = $_POST['text'];
         $fileImage = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
 
-      // $image = addslashes(file_get_contents($_FILES['image']['tmp_name'])); //SQL Injection defence!
-      // $image_name = addslashes($_FILES['image']['name']);
-      // $sql = "INSERT INTO testuser (`password`, `images`) VALUES ('{$image_name}','{$image}')";
-      // if (!mysql_query($sql)) { // Error handling
-      //     echo "Something went wrong! :(";
-      // }
-      $temp = explode(".", $image);
-      // echo $temp[0]."1 <br> ";
-      // echo $temp[1]."2 <br>";
-      // echo $temp[2]."3 <br>";
-      // $tempo = explode("images/",$target);// esta no sirve muy bien esta forma
-      // echo $tempo[0]."1 <br> ";
-      // echo $tempo[1]."2 <br>";
-      // echo $tempo[2]."3 <br>";
-      $newfilename = "images/" . $_POST['imageName'] . '.' . end($temp);
-      $sql = "INSERT INTO testuser(image,texts,imageBlob) VALUES('$newfilename','$text','$fileImage')";
-      if(move_uploaded_file($_FILES['image']['tmp_name'], $newfilename))
+        $tempImage = explode(".", $image);//esto hace el texto en un array y es mas facil manejar asi(para ejemplos busca en internet)
+        $newfilename = "images/" . $_POST['imageName'] . '.' . end($tempImage);
+
+        $query = "SELECT * FROM testuser WHERE image = '$newfilename' ";
+
+
+        $resultSelect = mysqli_query($db, $query) or die("Bad query: $query");///////////////////////////////////////////////////////////////////////////////////////////me quede aqui
+
+        if(mysqli_num_rows ( $resultSelect ) < 1 )//hacer que
+        {
+
+                  $msg = "<br> Image Uploaded successfully";
+                  echo $target;
+
+                  $sql = "INSERT INTO testuser(image,texts,imageBlob) VALUES('$newfilename','$text','$fileImage')";
+                  $result = mysqli_query($db, $sql) or die("Bad query: $sql");
+                  move_uploaded_file($_FILES['image']['tmp_name'], $newfilename);
+
+        }
+        else
+        {
+
+              echo "<br> The name ".$_POST['imageName']." is in use";
+        }
+
+      }
+      else
       {
-        $msg = "Image Uploaded successfully";
-        echo $target;
-        $result = mysqli_query($db, $sql) or die("Bad query: $sql");
+          echo "Insert a Description";
       }
-      else {
-        $msg = "There was a problem uploading image";
-      }
+    }
+    else
+    {
+        echo "Insert a Name";
+    }
   }
+  else
+  {
+    echo "Insert a Image";
+  }
+}
 ?>
 <html>
   <body>
