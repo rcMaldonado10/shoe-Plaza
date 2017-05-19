@@ -14,26 +14,29 @@
   $cosShip = explode("|",$_SESSION['cosShipAdd']);
 
   echo $cosShip[0];
-  echo $cosShip[1];
-  echo $cosShip[2];
-  echo $cosShip[3];
-  echo $cosShip[4];
-
-  echo $cosBill[0];
-  echo $cosBill[1];
-  echo $cosBill[2];
-  echo $cosBill[3];
-  echo $cosBill[4];
+  echo "<br>".$cosShip[1];
+  echo "<br>".$cosShip[2];
+  echo "<br>".$cosShip[3];
+  echo "<br>".$cosShip[4];
+  echo "<br>".end($cosShip);
+  echo "<br>";
+  echo "<br>".$cosBill[0];
+  echo "<br>".$cosBill[1];
+  echo "<br>".$cosBill[2];
+  echo "<br>".$cosBill[3];
+  echo "<br>".$prueba=$cosBill[4];
+  echo $prueba ;
+  echo "<br>".end($cosBill);
 
   if(isset($_POST['Save']))
   {
       $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
-      $aaaaa =mysqli_real_escape_string($con,'asassasssas');
+      //$aaaaa =mysqli_real_escape_string($con,'asassasssas');
       $emailForEdit = mysqli_real_escape_string( $con,$_SESSION['cosEmail']);
       echo $_POST['firstNameEdit'];
 
-      $shippingAdd = $_POST['shipStateEdit'] . ' | ' . $_POST['shipZipcodeEdit'] . ' | ' . $_POST['shipCityEdit'] . ' | ' . $_POST['shipStreetAddrEdit'] . ' | ' . $_POST['shipPostalAddressEdit'];
-      $billingAdd = $_POST['billStateEdit'] . ' | ' . $_POST['billZipcodeEdit'] . ' | ' . $_POST['billCityEdit'] . ' | ' . $_POST['billStreetEdit'] . ' | ' . $_POST['billPostalAddressEdit'];
+      $shippingAdd = $_POST['shipStateEdit'] . '|' . $_POST['shipZipcodeEdit'] . '|' . $_POST['shipCityEdit'] . '|' . $_POST['shipStreetAddrEdit'] . '|' . $_POST['shipPostalAddressEdit'];
+      $billingAdd = $_POST['billStateEdit'] . '|' . $_POST['billZipcodeEdit'] . '|' . $_POST['billCityEdit'] . '|' . $_POST['billStreetEdit'] . '|' . $_POST['billPostalAddressEdit'];
 
 
       $sql = "UPDATE customer SET FirstName= '$_POST[firstNameEdit]',LastName='$_POST[lastNameEdit]',Password='$_POST[passwordEdit]',Shipping_Address= '$shippingAdd' ,Billing_Address='$billingAdd'  WHERE Email='$emailForEdit'";
@@ -58,47 +61,54 @@
           <form action="userSettings.php" method="post">
             <div class="top-row">
               <div class="field-wrap">
-                <input type="text" value="<?php  echo $_SESSION['cosFirstName']; ?>" name="firstNameEdit" />
+                <!-- <input type="text" value="<?php  //echo $_SESSION['cosFirstName']; ?>" name="firstNameEdit" /> -->
+                <textarea name="firstNameEdit" ><?php echo $_SESSION['cosFirstName']; ?></textarea>
                </div>
 
                <div class="field-wrap">
-               <input type="text" value=<?php echo $_SESSION['cosLastName']; ?> name="lastNameEdit"/>
+               <!-- <input type="text" value=<?php //echo $_SESSION['cosLastName']; ?> name="lastNameEdit"/> -->
+               <textarea name="lastNameEdit" ><?php echo $_SESSION['cosLastName']; ?></textarea>
                </div>
              </div>
 
              <div class="field-wrap">
-              <input type="password" value=<?php echo $_SESSION['cosPassword'] ?> name="passwordEdit"/>
+              <!-- <input type="password" value=<?php //echo $_SESSION['cosPassword'] ?> name="passwordEdit"/> -->
+              <textarea name="passwordEdit" ><?php echo $_SESSION['cosPassword']; ?></textarea>
              </div>
 
              <h2 style="color:#FFFFFF">Costumer Shipping Address</h2>
           <div class="top-row">
             <div class="field-wrap">
-              <select VALUE=<?php echo $cosShip[0]; ?> name=shipStateEdit>
-                <option value="">State</option>
-                <option value="Puerto Rico">Puerto Rico</option>
-                <option value="Chicago">Chicago</option>
-                <option value="Florida">Florida</option>
-                <option value="Massachusets">Massachusets</option>
-                <option value="New York">New York</option>
-                <option value="Texas">Texas</option>
-              </select>
-             </div>
+               <select VALUE=<?php echo $cosShip[0]; ?> name=shipStateEdit>
+                 <option value="">State</option>
+                 <option value="Puerto Rico">Puerto Rico</option>
+                 <option value="Chicago">Chicago</option>
+                 <option value="Florida">Florida</option>
+                 <option value="Massachusets">Massachusets</option>
+                 <option value="New York">New York</option>
+                 <option value="Texas">Texas</option>
+               </select>
+           </div>
 
              <div class="field-wrap">
-             <input type="text" VALUE=<?php echo $cosShip[1]; ?> name="shipZipcodeEdit"maxlength="6"/>
+             <!-- <input type="text" VALUE=<?php //echo $cosShip[1]; ?> name="shipZipcodeEdit" maxlength="6"/> -->
+             <textarea   name="shipZipcodeEdit" maxlength="6"><?php echo $cosShip[1]; ?></textarea>
              </div>
            </div>
 
            <div class="field-wrap">
-            <input type="text" VALUE=<?php echo $cosShip[2]; ?> name="shipCityEdit"/>
+            <!-- <input type="text" VALUE=<?php //echo $cosShip[2]; ?> name="shipCityEdit"/> -->
+            <textarea   name="shipCityEdit"><?php echo  $cosShip[2]; ?></textarea>
            </div>
 
            <div class="field-wrap">
-            <input type="text" VALUE=<?php echo $cosShip[3]; ?> name="shipStreetAddrEdit"/>
+            <!-- <input type="text" VALUE=<?php //echo $cosShip[3]; ?> name="shipStreetAddrEdit"/> -->
+            <textarea   name="shipStreetAddrEdit"><?php echo $cosShip[3]; ?></textarea>
            </div>
 
            <div class="field-wrap">
-            <input type="text" VALUE=<?php echo $cosShip[4]; ?> name="shipPostalAddressEdit"/>
+            <!-- <input type="text" VALUE=<?php //echo end($cosShip); ?> name="shipPostalAddressEdit"/> -->
+            <textarea   name="shipPostalAddressEdit"><?php echo end($cosShip); ?></textarea>
            </div>
 
            <h2 style="color:#FFFFFF">Costumer Billing Address</h2>
@@ -117,20 +127,24 @@
             </div>
 
               <div class="field-wrap">
-              <input type="text" VALUE=<?php echo $cosBill[1]; ?> name="billZipcodeEdit"maxlength="6"/>
+              <!-- <input type="text" VALUE=<?php //echo $cosBill[1]; ?> name="billZipcodeEdit"maxlength="6"/> -->
+              <textarea   name="billZipcodeEdit" maxlength="6"><?php echo $cosBill[1]; ?></textarea>
               </div>
             </div>
 
             <div class="field-wrap">
-             <input type="text" VALUE=<?php echo $cosBill[2]; ?> name="billCityEdit"/>
+             <!-- <input type="text" VALUE=<?php //echo $cosBill[2]; ?> name="billCityEdit"/> -->
+             <textarea   name="billCityEdit"><?php echo $cosBill[2]; ?></textarea>
             </div>
 
             <div class="field-wrap">
-             <input type="text" VALUE=<?php echo $cosBill[3]; ?> name="billStreetEdit"/>
+             <!-- <input type="text" VALUE=<?php //echo $cosBill[3]; ?> name="billStreetEdit"/> -->
+             <textarea name="billStreetEdit"><?php echo $cosBill[3]; ?></textarea>
             </div>
 
             <div class="field-wrap">
-             <input type="text" VALUE=<?php echo $cosBill[4]; ?> name="billPostalAddressEdit"/>
+             <!-- <input type="text" VALUE=<?php //echo "$prueba" ." ". $prueba; ?> name="billPostalAddressEdit"/> -->
+             <textarea name="billPostalAddressEdit"><?php echo end($cosBill); ?></textarea>
             </div>
         <input type="submit" class="button button-block" VALUE="Save Changes" Name="Save" >
 
