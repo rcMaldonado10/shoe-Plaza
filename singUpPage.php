@@ -170,7 +170,7 @@
         <div id="login">
           <h1>Welcome Back!</h1>
 
-          <form action="singUpPage.php" method="post"> //en action tenia un / why?
+          <form action="singUpPage.php" method="post">
 
             <div class="field-wrap">
             <label>

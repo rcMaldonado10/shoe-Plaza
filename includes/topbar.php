@@ -19,6 +19,7 @@
 
 
 <?php
+session_start();
 if(isset($_POST['Search'])){
 
   $valueToSearch = $_POST['ValueToSearch'];
@@ -57,6 +58,7 @@ function filterShoe($query){
         </button>
 
       </div>
+
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li ><a href="home.php">Home</a></li>
@@ -73,13 +75,18 @@ function filterShoe($query){
           <li><a href="singUpPage.php">Sign Up/Sign In</a></li>
           <li><a href="shopping_bag/viewCart.php" class="glyphicon glyphicon-shopping-cart" title="View Cart"></a></li>
 
-          <li class="dropdown">
-            <a class="glyphicon glyphicon-user" data-toggle="dropdown"></a>
-            <ul class="dropdown-menu">
-              <li><a href="userSettings.php">Account Settings</a></li>
-              <li><a href="logout.php">Logout</a></li>
-            </ul>
-          </li>
+          <?php if($_SESSION["cosFirstName"] != ""){ ?>
+            <li class="dropdown">
+              <a class="glyphicon glyphicon-user" data-toggle="dropdown"></a>
+              <ul class="dropdown-menu">
+                <li><a href="userSettings.php">Account Settings</a></li>
+                <li><a href="logout.php">Logout</a></li>
+              </ul>
+            </li>
+           <?php } ?>
+
+
+
 
           <form class="navbar-form navbar-right" action="Results.php" method="post">
         <div class="input-group">

@@ -3,7 +3,7 @@
   session_destroy();
   unset($_SESSION['firstNameCos']);
   $_SESSION['message']= "you are logged out";
-  header("location:singUpPage.php");
+  header("location:home.php");
 
 
  ?>
