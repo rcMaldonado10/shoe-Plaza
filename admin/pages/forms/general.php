@@ -160,7 +160,8 @@ include 'recycle/topbar.php';
                   <?php
                   $sql ="SELECT * FROM shoe";
                   $result=mysqli_query($db,$sql);
-            echo '<table class="table table-bordered table-striped">
+                  ?>
+            <table class="table table-bordered table-striped">
                   <thead>
                   <tr>
                   <th>ProductID</th>
@@ -173,31 +174,30 @@ include 'recycle/topbar.php';
                   <th>Price</th>
                   <th>img-source</th>
                   <th>Details</th>
+                  <th>Action</th>
                   </tr>
                   </thead>
-                  <tbody>';
+                  <tbody>
 
-
+                 <?php
                   while ($row =mysqli_fetch_array($result)) {
-
-                    echo "<tr>";
-                    echo "<td>"; echo $row["ProductID"]; echo "</td>";
-                    echo "<td>"; echo $row["Brand"]; echo "</td>";
-                    echo "<td>"; echo $row["Model"]; echo "</td>";
-                    echo "<td>"; echo $row["Category"]; echo "</td>";
-                    echo "<td>"; echo $row["Gender"]; echo "</td>";
-                    echo "<td>"; echo $row["Size"]; echo "</td>";
-                    echo "<td>"; echo $row["Quantity_Stock"]; echo "</td>";
-                    echo "<td>"; echo $row["Price"]; echo "</td>";
-                    echo "<td>"; echo $row["img-source"]; echo "</td>";
-                    echo "<td>"; echo $row["Details"]; echo "</td>";
-                    echo "</tr>";
-                  }
-                  echo "</table>";
-                  echo "</tbody>";
-
-
-                   ?>
+                    ?>
+                    <tr>
+                    <td><?php echo $row["ProductID"]; ?></td>
+                    <td><?php echo $row["Brand"]; ?></td>
+                    <td><?php echo $row["Model"]; ?></td>
+                    <td><?php echo $row["Category"]; ?></td>
+                    <td><?php echo $row["Gender"]; ?></td>
+                    <td><?php echo $row["Size"]; ?></td>
+                    <td><?php echo $row["Quantity_Stock"];?></td>
+                    <td><?php echo $row["Price"]; ?></td>
+                    <td><?php echo $row["img-source"]; ?></td>
+                    <td><?php echo $row["Details"]; ?></td>
+                    <td> </td>
+                    </tr>
+              <?php } ?>
+                  </table>
+                  </tbody>
             </div>
             <!-- /.box-body -->
           </div>

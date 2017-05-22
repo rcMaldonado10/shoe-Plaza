@@ -1,9 +1,4 @@
-<?php
 
-
-
-
-?>
 <!DOCTYPE php>
 <html>
 <head>
@@ -335,52 +330,6 @@
           </ul>
         </li>
 
-        <li class="treeview active">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Reports</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-          </a>
-          <ul class="treeview-menu">
-
-            <li class="active"><a href="pages/tables/data.php"><i class="fa fa-circle-o"></i>Report Total Sales</a></li>
-            <li class="active"><a href="pages/tables/data3.php"><i class="fa fa-circle-o"></i>Report Revenue </a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.php"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="pages/layout/boxed.php"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="pages/layout/fixed.php"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.php"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/UI/general.php"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="pages/UI/icons.php"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="pages/UI/buttons.php"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="pages/UI/sliders.php"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="pages/UI/timeline.php"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="pages/UI/modals.php"><i class="fa fa-circle-o"></i> Modals</a></li>
-          </ul>
-        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Update</span>
@@ -395,14 +344,15 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
+            <i class="fa fa-table"></i> <span>Report</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.php"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="pages/tables/data.php"><i class="fa fa-circle-o"></i> Data tables</a></li>
+            <li><a href="pages/tables/data.php"><i class="fa fa-circle-o"></i>Report Total Sales</a></li>
+            <li><a href="pages/tables/data3.php"><i class="fa fa-circle-o"></i>Report Revenue</a></li>
+            <li><a href="pages/tables/data2.php"><i class="fa fa-circle-o"></i>Report Order </a></li>
           </ul>
         </li>
         <li>

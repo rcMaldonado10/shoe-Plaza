@@ -257,7 +257,7 @@
 
                 <p>
                   Alexander Pierce - Web Developer
-                  
+
                 </p>
               </li>
               <!-- Menu Body -->
@@ -335,22 +335,6 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../layout/top-nav.php"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="../layout/boxed.php"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="../layout/fixed.php"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="../layout/collapsed-sidebar.php"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
             <i class="fa fa-pie-chart"></i>
             <span>Charts</span>
                 <span class="pull-right-container">
@@ -364,19 +348,7 @@
             <li><a href="../charts/inline.php"><i class="fa fa-circle-o"></i> Inline charts</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../UI/general.php"><i class="fa fa-circle-o"></i> Update</a></li>
-
-          </ul>
-        </li>
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Update</span>
@@ -399,6 +371,7 @@
           <ul class="treeview-menu">
             <li class="active"><a href="data.php"><i class="fa fa-circle-o"></i>Report total sales </a></li>
             <li class="active"><a href="data3.php"><i class="fa fa-circle-o"></i>Report Revenue </a></li>
+            <li class="active"><a href="data2.php"><i class="fa fa-circle-o"></i>Report Order </a></li>
           </ul>
         </li>
         <li>
@@ -428,39 +401,6 @@
             <li><a href="../examples/500.php"><i class="fa fa-circle-o"></i> 500 Error</a></li>
             <li><a href="../examples/blank.php"><i class="fa fa-circle-o"></i> Blank Page</a></li>
             <li><a href="../examples/pace.php"><i class="fa fa-circle-o"></i> Pace Page</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li>
-              <a href="#"><i class="fa fa-circle-o"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                <li>
-                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
           </ul>
         </li>
 

@@ -332,21 +332,6 @@
             <li><a href="../../index2.php"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../layout/top-nav.php"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="../layout/boxed.php"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="../layout/fixed.php"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="../layout/collapsed-sidebar.php"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-          </ul>
-        </li>
         <li>
           <a href="../widgets.php">
             <i class="fa fa-th"></i> <span>Widgets</span>
@@ -401,14 +386,15 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
+            <i class="fa fa-table"></i> <span>Report</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../tables/simple.php"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="../tables/data.php"><i class="fa fa-circle-o"></i> Data tables</a></li>
+            <li class="active"><a href="../tables/data.php"><i class="fa fa-circle-o"></i>Report Total Sales</a></li>
+            <li class="active"><a href="../tables/data3.php"><i class="fa fa-circle-o"></i>Report Revenue</a></li>
+            <li class="active"><a href="../tables/data2.php"><i class="fa fa-circle-o"></i>Report Order </a></li>
           </ul>
         </li>
         <li>

@@ -255,7 +255,7 @@
 
                 <p>
                   Alexander Pierce - Web Developer
-                  
+
                 </p>
               </li>
               <!-- Menu Body -->
@@ -331,29 +331,7 @@
             <li><a href="../../index.php"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../layout/top-nav.php"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="../layout/boxed.php"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="../layout/fixed.php"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="../layout/collapsed-sidebar.php"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="../widgets.php">
-            <i class="fa fa-th"></i> <span>Widgets</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
-          </a>
-        </li>
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
@@ -370,16 +348,8 @@
           </ul>
         </li>
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
           <ul class="treeview-menu">
             <li><a href="../UI/general.php"><i class="fa fa-circle-o"></i> Update</a></li>
-
           </ul>
         </li>
         <li class="treeview active">
@@ -402,9 +372,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../tables/data.php"><i class="fa fa-circle-o"></i> Data tables</a></li>
             <li class="active"><a href="../tables/data.php"><i class="fa fa-circle-o"></i>Report Total Sales </a></li>
             <li class="active"><a href="../tables/data3.php"><i class="fa fa-circle-o"></i>Report Revenue </a></li>
+            <li class="active"><a href="../tables/data2.php"><i class="fa fa-circle-o"></i>Report Order </a></li>
           </ul>
         </li>
         <li>
@@ -416,16 +386,7 @@
             </span>
           </a>
         </li>
-        <li>
-          <a href="../mailbox/mailbox.php">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
-            </span>
-          </a>
-        </li>
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-folder"></i> <span>Examples</span>
@@ -443,44 +404,8 @@
             <li><a href="../examples/pace.php"><i class="fa fa-circle-o"></i> Pace Page</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li>
-              <a href="#"><i class="fa fa-circle-o"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                <li>
-                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-          </ul>
-        </li>
+
         <li><a href="../../documentation/index.php"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

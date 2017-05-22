@@ -1,155 +1,73 @@
+<!-- Report Order Page -->
 <?php
-// ADD Customer and ADMIN PAGE
-$db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
-  if(isset($_POST['submit_customer'])){
-
-    $sql ="INSERT INTO customer VALUES ('','$_POST[email]','$_POST[first]','$_POST[last]','$_POST[password]','$_POST[shipping]','$_POST[billing]', '$_POST[status]')";
-    mysqli_query($db,$sql);
-  }
-
-  if(isset($_POST['submit_admin'])){
-
-    $sql ="INSERT INTO admin VALUES ('$_POST[email_admin]','$_POST[password_admin]','$_POST[user_admin]')";
-    mysqli_query($db,$sql);
-  }
-
-  if(isset($_POST['delete_customer'])){
-
-      $sql ="DELETE FROM customer WHERE CustomerID='$_POST[customer_id]'";
-      mysqli_query($db,$sql);
-  }
-
-  if(isset($_POST['delete_admin'])){
-
-        $sql ="DELETE FROM admin WHERE username='$_POST[admin_id]'";
-        mysqli_query($db,$sql);
-  }
-?>
-
-<?php
 include 'recycle/topbar.php';
+
+$db= mysqli_connect("localhost", "root", "", "shoeplaza");
 ?>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage User and Admins Connectet To Data Base
-        <small>Preview</small>
+        Report Order
+        <small>by Order ID, Customer ID and Product ID</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Update</a></li>
-        <li class="active">General Elements</li>
+        <li><a href="#">Tables</a></li>
+        <li class="active"> Report Order</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <!-- left column -->
-        <div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Add a new customer</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form action="general2.php" method="post">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="Inputbrand">Email</label>
-                  <input type="text" name="email" class="form-control" id="InputBrand" placeholder="user@example.com">
-                </div>
-                <div class="form-group">
-                  <label for="InputModel">First Name</label>
-                  <input type="text" name="first" class="form-control" id="InputModel" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label for="InputCategory">Last Name</label>
-                  <input type="text" name="last" class="form-control" id="InputCategory" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label for="InputGender">Password</label>
-                  <input type="text" name="password" class="form-control" id="InputModel" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label for="InputSize">Shipping</label>
-                  <input type="text" name="shipping" class="form-control" id="InputSize" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label for="Inputquantity">Billing Address</label>
-                  <input type="text" name="billing" class="form-control" id="InputquantityStock" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label for="Inputprice">Status</label>
-                  <input type="text" name="status" class="form-control" id="Inputprice" placeholder="0 for off or 1 for on">
-                </div>
-
-                <?php /*if($productID== $row['ProductID']){
-                                  echo "This Product Already Exist";
-                                }else{
-                                  echo "Product Has been added";
-                                }
-                                */?>
-              </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <button type="submit" name ="submit_customer" class="btn btn-primary">Add Customer</button>
-              </div>
-
-          </div>
-          <!-- /.box -->
-          <!-- Form Admin sizes -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Add new Admin</h3>
-            </div>
-            <div class="box-body">
-              <div class="form-group">
-                <label for="InputproductID">Email</label>
-                <input type="text" name="email_admin" class="form-control" id="Inputproduct_id" placeholder="user@example">
-              </div>
-              <div class="form-group">
-                <label for="InputproductID">Password</label>
-                <input type="text" name="password_admin" class="form-control" id="Inputproduct_id" placeholder="password">
-              </div>
-              <div class="form-group">
-                <label for="InputproductID">Username</label>
-                <input type="text" name="user_admin" class="form-control" id="Inputproduct_id" placeholder="username">
-              </div>
-              <div class="box-footer">
-                <button type="submit" name ="submit_admin" class="btn btn-primary">Add Admin</button>
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- Form Delete Costumer sizes -->
-          <div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Delete Customer by ID</h3>
-            </div>
-            <div class="box-body">
-              <div class="form-group">
-                <label for="InputproductID">Type the Customer ID</label>
-                <input type="text" name="customer_id" class="form-control" id="Inputproduct_id" placeholder="1-10">
-              </div>
-
-              <div class="box-footer">
-                <button type="submit" name ="delete_customer" class="btn btn-primary">Delete Customer</button>
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-
-        </form>
-          <!-- /.box -->
-          <!--.box -->
+        <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table Of Customer</h3>
+              <h3 class="box-title">Report of Orders of Customer and Product </h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                  <?php
+                  $db= mysqli_connect("localhost", "root", "", "shoeplaza");
+                  $sql ="SELECT * FROM order_";
+                  $result=mysqli_query($db,$sql);
+                  ?>
+            <table class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                  <th>OrderID</th>
+                  <th>CustomerID</th>
+                  <th>ProductID</th>
+                  <th>Status</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                    <?php
+                  while ($row =mysqli_fetch_array($result)) {
+                    ?>
+                    <tr>
+                    <td><?php echo $row["OrderID"]; ?></td>
+                    <td><?php echo $row["CustomerID"]; ?></td>
+                    <td><?php echo $row["ProductID"]; ?></td>
+                    <td><?php echo $row["status"]; ?></td>
+                    </tr>
+                <?php  } ?>
+                  </table>
+                  </tbody>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!--WEEK -->
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Customers</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -164,7 +82,6 @@ include 'recycle/topbar.php';
                   <th>Email</th>
                   <th>First Name</th>
                   <th>Last Name</th>
-                  <th>Password</th>
                   <th>Shipping Address</th>
                   <th>Billing Address</th>
                   <th>Status</th>
@@ -181,7 +98,6 @@ include 'recycle/topbar.php';
                     <td><?php echo $row["Email"]; ?></td>
                     <td><?php echo $row["FirstName"]; ?></td>
                     <td><?php echo $row["LastName"]; ?></td>
-                    <td><?php echo $row["Password"]; ?></td>
                     <td><?php echo $row["Shipping_Address"]; ?></td>
                     <td><?php echo $row["Billing_Address"]; ?></td>
                     <td><?php echo $row["Status"]; ?></td>
@@ -192,69 +108,67 @@ include 'recycle/topbar.php';
             </div>
             <!-- /.box-body -->
           </div>
-
-          <!--.box -->
-
-          <!-- Form Delete Admin by username -->
-          <form action="general2.php" method="post">
-
-            <div class="box box-success">
-              <div class="box-header with-border">
-                <h3 class="box-title">Delete Admin by Username</h3>
-              </div>
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="InputproductID">Type the Admin Username</label>
-                  <input type="text" name="admin_id" class="form-control" id="Inputproduct_id" placeholder="">
-                </div>
-
-                <div class="box-footer">
-                  <button type="submit" name ="delete_admin" class="btn btn-primary">Delete Customer</button>
-                </div>
-              </div>
-              <!-- /.box-body -->
-            </div>
-
-          </form>
+          <!-- /.box -->
+          <!--Month -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table Of Admin</h3>
+              <h3 class="box-title">Product</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                   <?php
-                  $sql ="SELECT * FROM admin";
+                  $sql ="SELECT * FROM shoe";
                   $result=mysqli_query($db,$sql);
-            echo '<table class="table table-bordered table-striped">
+
+                  ?>
+            <table class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                  <th>Email</th>
-                  <th>Password</th>
-                  <th>Username</th>
+                  <th>ProductID</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Category</th>
+                  <th>Gender</th>
+                  <th>Size</th>
+                  <th>Quantity Stock</th>
+                  <th>Price</th>
                   </tr>
                   </thead>
-                  <tbody>';
+                  <tbody>
 
-
+                 <?php
                   while ($row =mysqli_fetch_array($result)) {
-
-                    echo "<tr>";
-                    echo "<td>"; echo $row["email"]; echo "</td>";
-                    echo "<td>"; echo $row["password"]; echo "</td>";
-                    echo "<td>"; echo $row["username"]; echo "</td>";
-
-
-                    echo "</tr>";
-                  }
-                  echo "</table>";
-                  echo "</tbody>";
-
-
-                   ?>
+                    ?>
+                    <tr>
+                    <td><?php echo $row["ProductID"]; ?></td>
+                    <td><?php echo $row["Brand"]; ?></td>
+                    <td><?php echo $row["Model"]; ?></td>
+                    <td><?php echo $row["Category"]; ?></td>
+                    <td><?php echo $row["Gender"]; ?></td>
+                    <td><?php echo $row["Size"]; ?></td>
+                    <td><?php echo $row["Quantity_Stock"];?></td>
+                    <td><?php echo $row["Price"]; ?></td>
+                    <td> </td>
+                    </tr>
+              <?php }  ?>
+                  </table>
+                  </tbody>
             </div>
             <!-- /.box-body -->
           </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col -->
+
+      </div>
+      <!-- /.row -->
+
+    </section>
+    <!-- /.content -->
+  </div>
   <!-- /.content-wrapper -->
+
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.3.12
@@ -453,7 +367,6 @@ include 'recycle/topbar.php';
     </div>
   </aside>
   <!-- /.control-sidebar -->
-
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
@@ -464,11 +377,30 @@ include 'recycle/topbar.php';
 <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="../../plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
 </body>
 </html>
