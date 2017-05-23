@@ -270,98 +270,56 @@ include 'recycle/topbar.php';
                 <thead>
                 <tr>
                   <th>Month</th>
-                  <th>Event</th>
-                  <th>Status</th>
-                  <th>customer email</th>
-                  <th>Amount Earn</th>
+                  <th>2016</th>
                 </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>January</td>
-                    <td>sale
-                    </td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                   <tr>
                     <td>February</td>
-                    <td>sale
-                    </td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                   <tr>
                     <td>March</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                   <tr>
                     <td>April</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                   <tr>
                     <td>May</td>
-                    <td>sale
-                    </td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                   <tr>
                     <td>June</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                   <tr>
                     <td>July</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                   <tr>
                     <td>August</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                   <tr>
                     <td>September</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                   <tr>
                     <td>October</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                   <tr>
                     <td>November</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                   <tr>
                     <td>December</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
                     <td>$65.99</td>
                   </tr>
                 </tfoot>

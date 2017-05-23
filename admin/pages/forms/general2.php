@@ -1,11 +1,15 @@
 <?php
-// ADD Customer and ADMIN PAGE
+// ADD Customer and and Cretidcart, and ADMIN PAGE
 $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
   if(isset($_POST['submit_customer'])){
 
     $sql ="INSERT INTO customer VALUES ('','$_POST[email]','$_POST[first]','$_POST[last]','$_POST[password]','$_POST[shipping]','$_POST[billing]', '$_POST[status]')";
     mysqli_query($db,$sql);
+
+    $sql ="INSERT INTO customer_credit_card VALUES ('','$_POST[cardNumber]','$_POST[cardName]','$_POST[expCardDate]','$_POST[cardCVC]')";
+    mysqli_query($db,$sql);
+
   }
 
   if(isset($_POST['submit_admin'])){
@@ -15,8 +19,11 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
   }
 
   if(isset($_POST['delete_customer'])){
-
-      $sql ="DELETE FROM customer WHERE CustomerID='$_POST[customer_id]'";
+    // delete the customer from data base
+      $sql ="DELETE FROM customer WHERE CustomerID='$_POST[customer_id]'" ;
+      mysqli_query($db,$sql);
+      // delete his credit card info if the id is the same
+      $sql ="DELETE FROM customer_credit_card WHERE Credit_Card_ID ='$_POST[customer_id]'" ;
       mysqli_query($db,$sql);
   }
 
@@ -86,6 +93,25 @@ include 'recycle/topbar.php';
                 <div class="form-group">
                   <label for="Inputprice">Status</label>
                   <input type="text" name="status" class="form-control" id="Inputprice" placeholder="0 for off or 1 for on">
+                </div>
+                <div class="box-header with-border">
+                  <h3 class="box-title">His Credid Card Info</h3>
+                </div>
+                <div class="form-group">
+                  <label for="Inputprice">Number</label>
+                  <input type="text" name="cardNumber" class="form-control" id="Inputprice" placeholder="555-555-555-555">
+                </div>
+                <div class="form-group">
+                  <label for="Inputprice">Name of The Card</label>
+                  <input type="text" name="cardName" class="form-control" id="Inputprice" placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                  <label for="Inputprice">Exp Date</label>
+                  <input type="text" name="expCardDate" class="form-control" id="Inputprice" placeholder="2018-12-30">
+                </div>
+                <div class="form-group">
+                  <label for="Inputprice">CVC</label>
+                  <input type="text" name="cardCVC" class="form-control" id="Inputprice" placeholder="000">
                 </div>
 
                 <?php /*if($productID== $row['ProductID']){
@@ -194,7 +220,48 @@ include 'recycle/topbar.php';
           </div>
 
           <!--.box -->
+          <!--.box -->
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Data Table Of Customer Credit Card</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                  <?php
+                  $sql ="SELECT * FROM customer_credit_card";
+                  $result=mysqli_query($db,$sql);
+                  ?>
+            <table class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                  <th>Credit Card ID</th>
+                  <th>Number</th>
+                  <th>Name</th>
+                  <th>Exp date</th>
+                  <th>CVC</th>
 
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                    <?php
+                  while ($row =mysqli_fetch_array($result)) {
+                    ?>
+
+                    <tr>
+                    <td><?php echo $row["Credit_Card_ID"]; ?></td>
+                    <td><?php echo $row["Number"]; ?></td>
+                    <td><?php echo $row["Name"]; ?></td>
+                    <td><?php echo $row["Exp_Date"]; ?></td>
+                    <td><?php echo $row["CVC"]; ?></td>
+
+                    </tr>
+                <?php  } ?>
+                  </table>
+                  </tbody>
+            </div>
+            <!-- /.box-body -->
+          </div>
           <!-- Form Delete Admin by username -->
           <form action="general2.php" method="post">
 
@@ -225,7 +292,8 @@ include 'recycle/topbar.php';
                   <?php
                   $sql ="SELECT * FROM admin";
                   $result=mysqli_query($db,$sql);
-            echo '<table class="table table-bordered table-striped">
+                  ?>
+            <table class="table table-bordered table-striped">
                   <thead>
                   <tr>
                   <th>Email</th>
@@ -233,24 +301,24 @@ include 'recycle/topbar.php';
                   <th>Username</th>
                   </tr>
                   </thead>
-                  <tbody>';
+                  <tbody>
 
-
+                  <?php
                   while ($row =mysqli_fetch_array($result)) {
-
-                    echo "<tr>";
-                    echo "<td>"; echo $row["email"]; echo "</td>";
-                    echo "<td>"; echo $row["password"]; echo "</td>";
-                    echo "<td>"; echo $row["username"]; echo "</td>";
-
-
-                    echo "</tr>";
-                  }
-                  echo "</table>";
-                  echo "</tbody>";
+                    ?>
+                    <tr>
+                    <td><?php echo $row["email"];  ?></td>
+                    <td><?php echo $row["password"]; ?></td>
+                    <td><?php echo $row["username"]; ?></td>
 
 
-                   ?>
+                    </tr>
+                <?php  } ?>
+                  </table>
+                  </tbody>
+
+
+
             </div>
             <!-- /.box-body -->
           </div>
