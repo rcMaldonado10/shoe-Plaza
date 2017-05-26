@@ -1,9 +1,13 @@
 <!--Step 4 on shopping bag and end -->
 <?php
+
+include 'includes/topbar.php';
 if(!isset($_REQUEST['id'])){
     header("Location: ../home.php");
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

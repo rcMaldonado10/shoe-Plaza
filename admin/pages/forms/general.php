@@ -84,23 +84,44 @@ include 'recycle/topbar.php';
                 </div>
                 <div class="form-group">
                   <label for="InputCategory">Category</label>
-                  <input type="text" name="category" class="form-control" id="InputCategory" placeholder="Sport, Casual, Heels">
+                  <select name="category" class="form-control">
+                    <option value="Sport">Sport</option>
+                    <option value="Casual">Casual</option>
+                    <option value="Fation">Fation</option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="InputGender">Gender</label>
-                  <input type="text" name="gender" class="form-control" id="InputModel" placeholder="Male (M) or Female (F)">
+                  <select name="gender" class="form-control">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="InputSize">Size</label>
-                  <input type="text" name="size" class="form-control" id="InputSize" placeholder="6-10">
+                  <select name="size" class="form-control">
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                  </select><br>
                 </div>
                 <div class="form-group">
                   <label for="Inputquantity">Quantity Stock</label>
                   <input type="text" name="stock" class="form-control" id="InputquantityStock" placeholder="6-10">
                 </div>
                 <div class="form-group">
-                  <label for="Inputprice">price</label>
-                  <input type="text" name="price" class="form-control" id="Inputprice" placeholder="$95.00 (Don't include de '$' simbol)">
+                  <label for="Inputprice">Price ($)</label>                  
+                  <select name="price" id="size" class="form-control">
+                    <option value="39.99">$39.99</option>
+                    <option value="49.99">$49.99</option>
+                    <option value="59.99">$59.99</option>
+                    <option value="69.99">$69.99</option>
+                    <option value="79.99">$79.99</option>
+                    <option value="89.99">$89.99</option>
+                    <option value="99.99">$99.99</option>
+                  </select><br>
                 </div>
               <!--  <div class="form-group">
                   <label for="InputImage_source">Image-source</label>
