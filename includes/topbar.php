@@ -83,7 +83,10 @@ function filterShoe($query){
                 <li><a href="logout.php">Logout</a></li>
               </ul>
             </li>
-           <?php } ?>
+           <?php 
+              $costumerID = $_SESSION["CustomerID"];
+              echo $costumerID;
+           } ?>
 
 
 

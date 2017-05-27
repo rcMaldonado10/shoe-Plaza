@@ -71,16 +71,18 @@
 </head>
 <body>
 <div class="container">
-    <div style="float: left">
-        <h1>Payment Information</h1><br>
+    <div class="col-md-6">
+        <h1>Payment Information</h1><a href="../editPayment.php">Edit Payment Information</a><br><br>
 
-        <label>Credit Card Number (last four digits):</label><br>
+        <label>Credit Card Number (last four digits):<?= ' 9087 6789 4433 7854'?></label><br>
         <label>Credit Card Name:</label><br>
         <label>Credit Card Expiration Date:</label><br>
     </div>
-    <div style="float: right">
-    <a>Edit Payment Information</a><br>
-        <img src="../Images/mastercard.png" width="200" height="200"/>
+    <div class="col-md-4">
+        <h1>Shipping Method</h1><h5 style="color:orange;">FREE SHIPPING IN ALL OUR PURCHASES!</h5><br>
+        <input type="radio" name="shipper" value="UPS"><label style="padding-left: 5px;padding-right: 10px;"> UPS</label><img src="../Images/ups_logo.jpg" width="55px" height="55px"/><br>
+        <input type="radio" name="shipper" value="FedEx"><label style="padding-left: 5px;padding-right: 10px;"> FedEx</label><img src="../Images/fedex_logo.png" width="80px" height="80px"/><br>
+        <input type="radio" name="shipper" value="USPS"><label style="padding-left: 5px;padding-right: 10px;">USPS</label><img src="../Images/usps-logo.png" width="90px" height="90px"/>
     </div>
 </div>
 <hr>

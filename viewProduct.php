@@ -10,9 +10,6 @@ $result = mysqli_query($connect, $query);
 
 if(mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_assoc($result);
-} else {
-    echo '<h1 style="text-align:center;">No shoe was selected</h1>';
-}
 ?>
 
 <!--Left side grid-->
@@ -21,10 +18,10 @@ if(mysqli_num_rows($result) > 0){
     <!--Main cotent grid-->
 <div class="col-md-8">
   <div class="row">
-      <h2 class="text-center">Details<h2>
+      <h1 class="text-center">Details</h1>
 
         <div class="col-md-6">
-            <h1 style="padding-left: 15px;"><?=$row['Brand']?> - <?=$row['Model']?></h1>
+            <h1 style="padding-left: 15px; color: orange;"><?=$row['Brand']?> - <?=$row['Model']?></h1>
             <img style="padding-left: 15px;"src="<?=$row['img-source']?>" width="375" height="375"/>
         </div><!--col-md-6 end-->
 
@@ -64,5 +61,8 @@ if(mysqli_num_rows($result) > 0){
 <div class="col-md-2"></div>
 
 <?php
+} else {
+    echo '<h1 style="text-align:center;">No shoe was selected</h1>';
+}
     include 'includes/footer.php';
 ?>
