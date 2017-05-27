@@ -46,8 +46,9 @@
         $BillStateEdit = $cosBill[0];
       }
 
-      $shippingAdd = $_POST['shipStateEdit'] . '|' . $_POST['shipZipcodeEdit'] . '|' . $_POST['shipCityEdit'] . '|' . $_POST['shipStreetAddrEdit'] . '|' . $_POST['shipPostalAddressEdit'];
-      $billingAdd = $_POST['billStateEdit'] . '|' . $_POST['billZipcodeEdit'] . '|' . $_POST['billCityEdit'] . '|' . $_POST['billStreetEdit'] . '|' . $_POST['billPostalAddressEdit'];
+      $shippingAdd = $ShipStateEdit . '|' . $_POST['shipZipcodeEdit'] . '|' . $_POST['shipCityEdit'] . '|' . $_POST['shipStreetAddrEdit'] . '|' . $_POST['shipPostalAddressEdit'];
+      $billingAdd = $BillStateEdit . '|' . $_POST['billZipcodeEdit'] . '|' . $_POST['billCityEdit'] . '|' . $_POST['billStreetEdit'] . '|' . $_POST['billPostalAddressEdit'];
+
 
 
       $sql = "UPDATE customer SET FirstName= '$_POST[firstNameEdit]',LastName='$_POST[lastNameEdit]',Password='$_POST[passwordEdit]',Shipping_Address= '$shippingAdd' ,Billing_Address='$billingAdd'  WHERE Email='$emailForEdit'";
@@ -92,6 +93,7 @@
             <div class="field-wrap">
               <?php echo $cosShip[0];?>
                <select  name=shipStateEdit>
+                 <option  selected hidden value = " "></option> <!-- selected hidden -->
                  <option value="Puerto Rico">Puerto Rico</option>
                  <option value="Chicago">Chicago</option>
                  <option value="Florida">Florida</option>
