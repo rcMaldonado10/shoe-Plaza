@@ -34,6 +34,17 @@
       //$aaaaa =mysqli_real_escape_string($con,'asassasssas');
       $emailForEdit = mysqli_real_escape_string( $con,$_SESSION['cosEmail']);
       echo $_POST['firstNameEdit'];
+      $ShipStateEdit = $_POST['shipStateEdit'];
+      $BillStateEdit = $_POST['billStateEdit'];
+      if($ShipStateEdit ==" ")
+      {
+        $ShipStateEdit = $cosShip[0];
+      }
+
+      if($BillStateEdit==" ")
+      {
+        $BillStateEdit = $cosBill[0];
+      }
 
       $shippingAdd = $_POST['shipStateEdit'] . '|' . $_POST['shipZipcodeEdit'] . '|' . $_POST['shipCityEdit'] . '|' . $_POST['shipStreetAddrEdit'] . '|' . $_POST['shipPostalAddressEdit'];
       $billingAdd = $_POST['billStateEdit'] . '|' . $_POST['billZipcodeEdit'] . '|' . $_POST['billCityEdit'] . '|' . $_POST['billStreetEdit'] . '|' . $_POST['billPostalAddressEdit'];
@@ -79,8 +90,8 @@
              <h2 style="color:#FFFFFF">Costumer Shipping Address</h2>
           <div class="top-row">
             <div class="field-wrap">
-               <select VALUE=<?php echo $cosShip[0]; ?> name=shipStateEdit>
-                 <option value="">State</option>
+              <?php echo $cosShip[0];?>
+               <select  name=shipStateEdit>
                  <option value="Puerto Rico">Puerto Rico</option>
                  <option value="Chicago">Chicago</option>
                  <option value="Florida">Florida</option>
@@ -115,8 +126,8 @@
 
            <div class="top-row">
              <div class="field-wrap">
-                <select VALUE=<?php echo $cosBill[0]; ?> name=billStateEdit>
-                  <option value="">State</option>
+                <select name=billStateEdit>
+                  <option selected hidden value= " ">State</option>
                   <option value="Puerto Rico">Puerto Rico</option>
                   <option value="Chicago">Chicago</option>
                   <option value="Florida">Florida</option>
@@ -125,6 +136,7 @@
                   <option value="Texas">Texas</option>
                 </select>
             </div>
+
 
               <div class="field-wrap">
               <!-- <input type="text" VALUE=<?php //echo $cosBill[1]; ?> name="billZipcodeEdit"maxlength="6"/> -->
