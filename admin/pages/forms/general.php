@@ -17,7 +17,7 @@ if(isset($_POST['submit_data']))
                   $fileImage = addslashes(file_get_contents($_FILES["fileToUpload"]["tmp_name"]));
 
                   $tempImage = explode(".", $image);
-                  $newfilename = "images/" . $_POST['imageName'] . '.' . end($tempImage);
+                  $newfilename = "../../../images/". $_POST['imageName'] . '.' . end($tempImage);
 
                   $query = "SELECT * FROM shoe WHERE `img-source` = '$newfilename'";
 
@@ -39,8 +39,8 @@ if(isset($_POST['submit_data']))
                             //$sql ="INSERT INTO shoe(Brand,Model,Category,Gender,Size,Quantity_Stock,Price,img-source,imageBlob,Details)VALUES($brand,$model,$category,$gender,$size,$stock,,$newfilename,$fileImage,$text)";
                             $sql ="INSERT INTO shoe(`Brand`,`Model`,`Category`,`Gender`,`Size`,`Quantity_Stock`,`Price`,`img-source`,`Details`)VALUES('$brand','$model','$category','$gender',$size,$price,$stock,'$newfilename','$text')";
 
-                            $result = mysqli_query($db, $sql) or die("Bad query: $sql");
-                            move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $newfilename);
+                            //$result = mysqli_query($db, $sql) or die("Bad query: $sql");
+                            move_uploaded_file($_FILES['fileToUpload']['tmp_name'],$newfilename);
 
                           }
                           else
