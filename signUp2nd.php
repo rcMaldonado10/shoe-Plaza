@@ -20,7 +20,6 @@
         //echo $emailCos;
       $passwordCos = $_SESSION['cosPassword'];
         //echo $passwordCos;
-
       $nameCre = $_SESSION['creName'];
         //echo $nameCre;
       $numberCre = $_SESSION['creNumber'];
@@ -31,19 +30,83 @@
         //echo $expiryCre;
 
       $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
-      $shippingAdd = $_POST['shipState'] . ' | ' . $_POST['shipZipcode'] . ' | ' . $_POST['shipCity'] . ' | ' . $_POST['shipStreetAddr'] . ' | ' . $_POST['shipPostalAddress'];
-        echo $shippingAdd;
-      $billingAdd = $_POST['billState'] . ' | ' . $_POST['billZipcode'] . ' | ' . $_POST['billCity'] . ' | ' . $_POST['billStreet'] . ' | ' . $_POST['billPostalAddress'];
-        echo $billingAdd;
+      $shippingAdd = $_POST['shipState'] . '^|^' . $_POST['shipZipcode'] . '^|^' . $_POST['shipCity'] . '^|^' . $_POST['shipStreetAddr'] . '^|^' . $_POST['shipPostalAddress'];
+        //echo $shippingAdd;
+      $billingAdd = $_POST['billState'] . '^|^' . $_POST['billZipcode'] . '^|^' . $_POST['billCity'] . '^|^' . $_POST['billStreet'] . '^|^' . $_POST['billPostalAddress'];
+        //echo $billingAdd;
       $sql = "INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ('$emailCos','$firstNameCos','$lastNameCos','$passwordCos','$shippingAdd','$billingAdd','1')";
-      //
+      //INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ('Pepe@you.com','Pepe','Pepe','IDK','Puerto Rico|00669|Lares|Callejones|box 8545','Puerto Rico|00669|Lares|Callejones|box 8545','1')
       // INSERT INTO `customer_credit_card` (`Credit_Card_ID`, `Number`, `Name`, `Exp_Date`, `CVC`) VALUES (NULL, '123456789', 'Pepe pepe', '2017-09-01', '1234');
       $sql2 = "INSERT INTO customer_credit_card (Number,Name,Exp_Date,CVC) VALUES ('$numberCre','$nameCre','$expiryCre','$CVCCre')";
       //
-      if ($result == 0)
+      $resultss = 0;
+      if ($resultss == 0)
       {
         $result = mysqli_query($con,$sql) or die("Bad query: $sql");
         $result2 = mysqli_query($con,$sql2) or die("Bad query: $sql2");
+        $sqlSelCos = "SELECT CustomerID, FirstName, LastName, Email, Billing_Address, Shipping_Address, Password FROM customer";
+
+        $emailLog = $emailCos;
+        $passLog = $passwordCos;
+        $resultCos = mysqli_query($con, $sqlSelCos) or die("Bad query: $sqlSelCos");
+        if (mysqli_num_rows($resultCos) > 0)
+          {
+            while($row = mysqli_fetch_assoc($resultCos))
+            {
+              $cheqEmail= $row["Email"];
+              $cheqPass=  $row["Password"];
+              //echo  "email: " . $cheqEmail. " " . $cheqPass. "<br>";
+              if ($emailLog==$cheqEmail AND $passLog == $cheqPass)
+                {
+                  echo " esto se ve bien :D";
+                  session_destroy();
+                  session_start();
+
+                  $_SESSION['cosCustomerID'] = $row['CustomerID'];
+                  $_SESSION['message'] = "You are now logged in";
+                  $message="You are now logged in";
+                  $_SESSION['cosFirstName'] = $row['FirstName'];
+                  $_SESSION['cosLastName'] = $row['LastName'];
+                  $_SESSION['cosEmail'] = $row['Email'];
+                  $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
+                  $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
+                  $_SESSION['cosPassword'] = $row['Password'];
+                }
+            }
+          }
+
+          $sqlSelCred = "SELECT Credit_Card_ID, Number, Name, Exp_Date, CVC FROM customer_credit_card";
+          $NumLog = $numberCre;
+          $NameLog = $nameCre;
+          $resultCre = mysqli_query($con, $sqlSelCred) or die("Bad query: $sqlSelCred");
+          if (mysqli_num_rows($resultCre) > 0)
+            {
+              while($row = mysqli_fetch_assoc($resultCre))
+              {
+                $cheqNum= $row["Number"];
+                $cheqName=  $row["Name"];
+                echo  "number: " . $cheqNum. " Name: " . $cheqName. "<br>";
+                if ($cheqName == $NameLog)//$cheqNum==$NumLog AND
+                  {
+                    echo " esto se ve bien Credit Card :D";
+                    $_SESSION['creCustomerID'] = $row['Credit_Card_ID'];
+                    $_SESSION['creNumber'] = $row['Number'];
+                    $_SESSION['creName'] = $row['Name'];
+                    $_SESSION['creExp'] = $row['Exp_Date'];
+                    $_SESSION['creCVC'] = $row['CVC'];
+                  }
+              }
+            }
+//($_SESSION['cosCustomerID'],$_SESSION['creCustomerID'])";
+$customerID = $_SESSION['cosCustomerID'];
+$creditID = $_SESSION['creCustomerID'];
+$sqlHas_a = "INSERT INTO has_a (CustomerID,Credit_Card_ID) VALUES ($customerID,$creditID)";
+$resultHas_a =  mysqli_query($con, $sqlHas_a) or die("Bad query: $sqlHas_a");
+
+
+
+
+
         header("location:home.php");
       }
 
@@ -51,7 +114,7 @@
 
 
 
-  ?>
+?>
 
 </head>
 <body>
