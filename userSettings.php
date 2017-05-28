@@ -10,8 +10,8 @@
 
   <?php
   session_start();
-  $cosBill = explode("|",$_SESSION['cosBillingAdd']);
-  $cosShip = explode("|",$_SESSION['cosShipAdd']);
+  $cosBill = explode("^|^",$_SESSION['cosBillingAdd']);
+  $cosShip = explode("^|^",$_SESSION['cosShipAdd']);
 
   echo $cosShip[0];
   echo "<br>".$cosShip[1];
@@ -46,8 +46,8 @@
         $BillStateEdit = $cosBill[0];
       }
 
-      $shippingAdd = $ShipStateEdit . '|' . $_POST['shipZipcodeEdit'] . '|' . $_POST['shipCityEdit'] . '|' . $_POST['shipStreetAddrEdit'] . '|' . $_POST['shipPostalAddressEdit'];
-      $billingAdd = $BillStateEdit . '|' . $_POST['billZipcodeEdit'] . '|' . $_POST['billCityEdit'] . '|' . $_POST['billStreetEdit'] . '|' . $_POST['billPostalAddressEdit'];
+      $shippingAdd = $ShipStateEdit . '^|^' . $_POST['shipZipcodeEdit'] . '^|^' . $_POST['shipCityEdit'] . '^|^' . $_POST['shipStreetAddrEdit'] . '^|^' . $_POST['shipPostalAddressEdit'];
+      $billingAdd = $BillStateEdit . '^|^' . $_POST['billZipcodeEdit'] . '^|^' . $_POST['billCityEdit'] . '^|^' . $_POST['billStreetEdit'] . '^|^' . $_POST['billPostalAddressEdit'];
 
 
 
