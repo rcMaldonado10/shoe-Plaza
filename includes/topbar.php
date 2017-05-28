@@ -72,11 +72,10 @@ function filterShoe($query){
             </ul>
           </li>
           <li><a href="about.php">About</a></li>
-          <?php if(isset($_SESSION["cosFirstName"]) == ""){ ?>
-              <li><a href="singUpPage.php">Sign Up/Sign In</a></li>
-           <?php } ?>
+          <li><a href="singUpPage.php">Sign Up/Sign In</a></li>
           <li><a href="shopping_bag/viewCart.php" class="glyphicon glyphicon-shopping-cart" title="View Cart"></a></li>
-          <?php if(isset($_SESSION["cosFirstName"]) != ""){ ?>
+
+          <?php if($_SESSION["cosFirstName"] != ""){ ?>
             <li class="dropdown">
               <a class="glyphicon glyphicon-user" data-toggle="dropdown"></a>
               <ul class="dropdown-menu">
@@ -84,7 +83,13 @@ function filterShoe($query){
                 <li><a href="logout.php">Logout</a></li>
               </ul>
             </li>
-           <?php } ?>
+           <?php 
+              $costumerID = $_SESSION["CustomerID"];
+              echo $costumerID;
+           } ?>
+
+
+
 
           <form class="navbar-form navbar-right" action="Results.php" method="post">
         <div class="input-group">
