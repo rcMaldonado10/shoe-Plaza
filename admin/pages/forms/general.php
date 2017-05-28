@@ -38,7 +38,7 @@ if(isset($_POST['submit_data']))
                             $price = $_POST['price'];
                             // $sql = "INSERT INTO shoe(Brand,Model,Category,Gender,Size,Quantity_Stock,Price,img-source,ImageBlob,Detals) VALUES('$newfilename','$text','$fileImage')";
                             //$sql ="INSERT INTO shoe(Brand,Model,Category,Gender,Size,Quantity_Stock,Price,img-source,imageBlob,Details)VALUES($brand,$model,$category,$gender,$size,$stock,,$newfilename,$fileImage,$text)";
-                            $sql ="INSERT INTO shoe(`Brand`,`Model`,`Category`,`Gender`,`Size`,`Quantity_Stock`,`Price`,`img-source`,`Details`)VALUES('$brand','$model','$category','$gender',$size,$price,$stock,'$target','$text')";
+                            $sql ="INSERT INTO shoe(`Brand`,`Model`,`Category`,`Gender`,`Size`,`Quantity_Stock`,`Price`,`img-source`,`Details`)VALUES('$brand','$model','$category','$gender',$size,$stock,$price,'$target','$text')";
 
                             $result = mysqli_query($db, $sql) or die("Bad query: $sql");
                             move_uploaded_file($_FILES['fileToUpload']['tmp_name'],$newfilename);
