@@ -197,15 +197,15 @@ include 'recycle/topbar.php';
                 </div> -->
                 <div class="form-group">
                   <label for="InputDetails">Details</label>
-                  <textarea  name="details" class="form-control"  placeholder="This Shoe is great!"></textarea>//id="InputImage_source"
+                  <textarea  name="details" class="form-control" id="InputImage_source" placeholder="This Shoe is great!"></textarea>
                 </div>
                 <div class="form-group">
                   <label for="InputImageName">Image Name</label>
-                  <textarea name="imageName" class="form-control" placeholder="Name of the file"></textarea>
+                  <textarea name="imageName" id="InputImage_source2" class="form-control" placeholder="Name of the file"></textarea>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
-                  <input type="file" name="fileToUpload" >//id="fileToUpload"
+                  <input type="file" id="fileToUpload" name="fileToUpload" >
 
 
                 </div>
