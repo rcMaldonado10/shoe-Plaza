@@ -60,7 +60,6 @@ session_set_cookie_params(0);
 
  if(isset($_GET["var"])){
    $id = $_GET["var"];
-   echo $id;
  }
  ?>
 <!DOCTYPE html>
@@ -75,8 +74,6 @@ session_set_cookie_params(0);
     .container{padding: 50px;}
     input[type="number"]{width: 20%;} 
     </style>
-
-</head>
 </head>
 <body>
 <div class="container">

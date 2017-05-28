@@ -30,7 +30,7 @@
   <form>
     <div class="form-container">
       <div class="personal-information">
-        <h1>Payment Information</h1>
+        <h1>Add Credit Card</h1>
       </div> <!-- end of personal-information -->
 
         <div class="field-wrap">
@@ -64,7 +64,7 @@
                 <input type="text" required="required" name="cvc"/>
               </div>
             </div>
-          <input type="submit" class="button button-block" VALUE="Add" Name="SingUP" >
+          <input type="submit" class="button button-block" value="Add" name="SingUP" >
   </form>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

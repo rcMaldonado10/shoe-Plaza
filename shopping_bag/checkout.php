@@ -53,9 +53,14 @@
            }
       }
  }
+
+  $ccNumber="";
   if(isset($_GET["id"])){
    $id = $_GET["id"];
   // echo $id;
+ }
+ if(isset($_GET["number"])){
+   $ccNumber = $_GET["number"];
  }
  ?>
 <!DOCTYPE html>
@@ -77,7 +82,7 @@
     <div class="col-md-6">
         <h1>Payment Information</h1><a href="../editPayment.php">Edit Payment Information</a><br><br>
 
-        <label>Credit Card Number (last four digits):<?= ' 9087 6789 4433 7854'?></label><br>
+        <label>Credit Card Number (last four digits):<?= ' '.$ccNumber?></label><br>
         <label>Credit Card Name:</label><br>
         <label>Credit Card Expiration Date:</label><br>
     </div>
