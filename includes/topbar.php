@@ -72,10 +72,12 @@ function filterShoe($query){
             </ul>
           </li>
           <li><a href="about.php">About</a></li>
+
           <?php if(isset($_SESSION["cosFirstName"]) == ""){ ?>
               <li><a href="singUpPage.php">Sign Up/Sign In</a></li>
           <?php } ?>
-          <li><a href="shopping_bag/viewCart.php" class="glyphicon glyphicon-shopping-cart" title="View Cart"></a></li>
+         <li><a href="shopping_bag/viewCart.php?var=<?=$_SESSION["cosCustomerID"]?>" class="glyphicon glyphicon-shopping-cart" title="View Cart"></a></li>
+
           <?php if(isset($_SESSION["cosFirstName"]) != ""){ ?>
             <li class="dropdown">
               <a class="glyphicon glyphicon-user" data-toggle="dropdown"></a>

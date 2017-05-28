@@ -111,10 +111,8 @@ $resultHas_a =  mysqli_query($con, $sqlHas_a) or die("Bad query: $sqlHas_a");
       }
 
   }
-
-
-
 ?>
+
 
 </head>
 <body>

@@ -31,7 +31,6 @@ include 'includes/checkbox.php';
    }
 ?>
  </main>
-
  <?php
 include 'includes/footer.php';
  ?>

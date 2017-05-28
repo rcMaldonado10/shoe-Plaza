@@ -53,6 +53,10 @@
            }
       }
  }
+  if(isset($_GET["id"])){
+   $id = $_GET["id"];
+  // echo $id;
+ }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +71,6 @@
     input[type="number"]{width: 20%;}
     </style>
 
-</head>
 </head>
 <body>
 <div class="container">

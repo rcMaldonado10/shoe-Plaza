@@ -57,6 +57,11 @@ session_set_cookie_params(0);
            }
       }
  }
+
+ if(isset($_GET["var"])){
+   $id = $_GET["var"];
+   echo $id;
+ }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +73,7 @@ session_set_cookie_params(0);
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
     .container{padding: 50px;}
-    input[type="number"]{width: 20%;}
+    input[type="number"]{width: 20%;} 
     </style>
 
 </head>
@@ -124,7 +129,7 @@ session_set_cookie_params(0);
            <tr><td><a href="../home.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
            <?php if($values["item_quantity"] > 0){ ?>
 
-            <td><a href="checkout.php" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
+            <td><a href="checkout.php?id=<?= $id ?>" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
             <?php } ?>
       </table>
  </div>
