@@ -138,7 +138,14 @@ include 'recycle/topbar.php';
                 <h3 class="box-title">Customer Billing Address</h3>
                 <div class="form-group">
                   <label for="InputSize">State</label>
-                  <input type="text" name="stateBill" class="form-control" id="InputSize" placeholder="">
+                  <select name="stateBill" class="form-control" id="InputSize" required autocomplete="off">
+                    <option value="Puerto Rico">Puerto Rico</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Massachusets">Massachusets</option>
+                    <option value="New York">New York</option>
+                    <option value="Texas">Texas</option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="Inputquantity">Zipcode</label>
