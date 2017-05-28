@@ -1,44 +1,111 @@
 
 <?php
 // ADD PRODUCTS PAGE
-$db= mysqli_connect("localhost", "root", "", "shoeplaza");
+$db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connect");
 
-  if(isset($_POST['submit_data'])){
-    //image properties
-//$image= $_FILES["fileToUpload"]["name"]; // name
-//$sourcePath = $_FILES['fileToUpload']['tmp_name']; // Storing source path of the file in a variable
+if(isset($_POST['submit_data']))
+{
+    if(isset($_FILES["fileToUpload"]) && $_FILES['fileToUpload']['size']>0)
+      {
+          if($_POST['imageName']!="")
+            {
+                if($_POST['details']!="")
+                {
+                  $target = "images/".basename($_FILES['fileToUpload']['name']);
+                  $image = $_FILES['fileToUpload']['name'];
+                  $text = $_POST['details'];
+                  $fileImage = addslashes(file_get_contents($_FILES["fileToUpload"]["tmp_name"]));
 
-$uploads_dir = '/../../../images';
+                  $tempImage = explode(".", $image);
+                  $newfilename = "images/" . $_POST['imageName'] . '.' . end($tempImage);
 
+                  $query = "SELECT * FROM shoe WHERE `img-source` = '$newfilename'";
 
-        $tmp_name = $_FILES["fileToUpload"]["tmp_name"];
-        // basename() puede evitar ataques de denegación de sistema de ficheros;
-        // podría ser apropiada más validación/saneamiento del nombre del fichero
-        $name = basename($_FILES["fileToUpload"]["name"]);
-      if(move_uploaded_file("$uploads_dir/$name" , $tmp_name )){
+                  $resultSelect = mysqli_query($db, $query) or die("Bad query: $query");
 
-        echo "The file ". basename($image). " has been uploaded.";
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-      }
+                  if(mysqli_num_rows ( $resultSelect ) < 1 )//hacer que
+                  {
 
-  /*  if (move_uploaded_file($target_file, $sourcePath)) { // move file to folder
-        echo "The file ". basename($image). " has been uploaded.";
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-    }*/
+                            $msg = "<br> Image Uploaded successfully";
+                            echo $target;
+                            $brand = $_POST['brand'];
+                            $model = $_POST['model'];
+                            $category = $_POST['category'];
+                            $gender = $_POST['gender'];
+                            $size = $_POST['size'];
+                            $stock = $_POST['stock'];
+                            $price = $_POST['price'];
+                            // $sql = "INSERT INTO shoe(Brand,Model,Category,Gender,Size,Quantity_Stock,Price,img-source,ImageBlob,Detals) VALUES('$newfilename','$text','$fileImage')";
+                            //$sql ="INSERT INTO shoe(Brand,Model,Category,Gender,Size,Quantity_Stock,Price,img-source,imageBlob,Details)VALUES($brand,$model,$category,$gender,$size,$stock,,$newfilename,$fileImage,$text)";
+                            $sql ="INSERT INTO shoe(`Brand`,`Model`,`Category`,`Gender`,`Size`,`Quantity_Stock`,`Price`,`img-source`,`Details`)VALUES('$brand','$model','$category','$gender',$size,$price,$stock,'$newfilename','$text')";
 
-/////////////
-// insert products
-    $sql ="INSERT INTO shoe VALUES ('','$_POST[brand]','$_POST[model]','$_POST[category]','$_POST[gender]','$_POST[size]','$_POST[stock]', '$_POST[price]','Images/$name','$_POST[details]')";
-    mysqli_query($db,$sql);
-  }
-// delete a product by Product ID
-    if(isset($_POST['delete_data'])){
+                            $result = mysqli_query($db, $sql) or die("Bad query: $sql");
+                            move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $newfilename);
 
-      $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
-      mysqli_query($db,$sql);
-    }
+                          }
+                          else
+                          {
+
+                                echo "<br> The name '".$_POST['imageName']."' of the shoe is in use";
+                          }
+
+                        }
+                        else
+                        {
+                            echo "Insert a Description";
+                        }
+                      }
+                      else
+                      {
+                          echo "Insert a Name";
+                      }
+                    }
+                    else
+                    {
+                      echo "Insert a Image";
+                    }
+                  }
+//
+//   //image properties
+// //$image= $_FILES["fileToUpload"]["name"]; // name
+// //$sourcePath = $_FILES['fileToUpload']['tmp_name']; // Storing source path of the file in a variable
+//
+// $uploads_dir = '/../../../images';
+//
+//
+//         $tmp_name = $_FILES["fileToUpload"]["tmp_name"];
+//         // basename() puede evitar ataques de denegación de sistema de ficheros;
+//         // podría ser apropiada más validación/saneamiento del nombre del fichero
+//         $name = basename($_FILES["fileToUpload"]["name"]);
+//       if(move_uploaded_file("$uploads_dir/$name" , $tmp_name ))
+//         {
+//           echo "The file ". basename($image). " has been uploaded.";
+//         }
+//       else
+//         {
+//           echo "Sorry, there was an error uploading your file.";
+//         }
+//
+//   /*  if (move_uploaded_file($target_file, $sourcePath)) { // move file to folder
+//         echo "The file ". basename($image). " has been uploaded.";
+//     } else {
+//         echo "Sorry, there was an error uploading your file.";
+//     }*/
+//
+// /////////////
+// // insert products
+//     $sql ="INSERT INTO shoe VALUES ('','$_POST[brand]','$_POST[model]','$_POST[category]','$_POST[gender]','$_POST[size]','$_POST[stock]', '$_POST[price]','Images/$name','$_POST[details]')";
+//     mysqli_query($db,$sql);
+//         }
+//       }
+//     }
+// }
+// // delete a product by Product ID
+//     if(isset($_POST['delete_data'])){
+//
+//       $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
+//       mysqli_query($db,$sql);
+//     }
 
 ?>
 
@@ -129,11 +196,15 @@ include 'recycle/topbar.php';
                 </div> -->
                 <div class="form-group">
                   <label for="InputDetails">Details</label>
-                  <input type="text" name="details" class="form-control" id="InputImage_source" placeholder="This Shoe is great!">
+                  <textarea  name="details" class="form-control"  placeholder="This Shoe is great!"></textarea>//id="InputImage_source"
+                </div>
+                <div class="form-group">
+                  <label for="InputImageName">Image Name</label>
+                  <textarea name="imageName" class="form-control" placeholder="Name of the file"></textarea>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
-                  <input type="file" name="fileToUpload" id="fileToUpload">
+                  <input type="file" name="fileToUpload" >//id="fileToUpload"
 
 
                 </div>
