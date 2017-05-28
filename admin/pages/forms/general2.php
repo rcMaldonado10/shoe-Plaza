@@ -4,11 +4,17 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
   if(isset($_POST['submit_customer'])){
 
-    $sql ="INSERT INTO customer VALUES ('','$_POST[email]','$_POST[first]','$_POST[last]','$_POST[password]','$_POST[shipping]','$_POST[billing]', '$_POST[status]')";
-    mysqli_query($db,$sql);
 
-    $sql ="INSERT INTO customer_credit_card VALUES ('','$_POST[cardNumber]','$_POST[cardName]','$_POST[expCardDate]','$_POST[cardCVC]')";
-    mysqli_query($db,$sql);
+    $shippingAdd = $_POST['state'] . ' | ' . $_POST['zipcode'] . ' | ' . $_POST['shipCity'] . ' | ' . $_POST['streetAddress'] . ' | ' . $_POST['shipPostalAddress'];
+      //echo $shippingAdd;
+    $billingAdd = $_POST['stateBill'] . ' | ' . $_POST['zipcodebill'] . ' | ' . $_POST['citybill'] . ' | ' . $_POST['streetAddressBill'] . ' | ' . $_POST['postalAddress'];
+    //  echo $billingAdd;
+    $sql = "INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ('$_POST[email]','$_POST[first]','$_POST[last]','$_POST[password]','$shippingAdd','$billingAdd','1')";
+
+    $sql2 = "INSERT INTO customer_credit_card (Number,Name,Exp_Date,CVC) VALUES ('$_POST[cardNumber]','$_POST[cardName]','$_POST[expCardDate]','$_POST[cardCVC]')";
+
+    $result = mysqli_query($db,$sql) or die("Bad query: $sql");
+    $result2 = mysqli_query($db,$sql2) or die("Bad query: $sql2");
 
   }
 
@@ -66,10 +72,7 @@ include 'recycle/topbar.php';
             <!-- form start -->
             <form action="general2.php" method="post">
               <div class="box-body">
-                <div class="form-group">
-                  <label for="Inputbrand">Email</label>
-                  <input type="text" name="email" class="form-control" id="InputBrand" placeholder="user@example.com">
-                </div>
+
                 <div class="form-group">
                   <label for="InputModel">First Name</label>
                   <input type="text" name="first" class="form-control" id="InputModel" placeholder="">
@@ -79,40 +82,81 @@ include 'recycle/topbar.php';
                   <input type="text" name="last" class="form-control" id="InputCategory" placeholder="">
                 </div>
                 <div class="form-group">
+                  <label for="Inputbrand">Email</label>
+                  <input type="text" name="email" class="form-control" id="InputBrand" placeholder="user@example.com">
+                </div>
+                <div class="form-group">
                   <label for="InputGender">Password</label>
                   <input type="text" name="password" class="form-control" id="InputModel" placeholder="">
                 </div>
+                <h3 class="box-title">Credit Card Info</h3>
                 <div class="form-group">
-                  <label for="InputSize">Shipping</label>
-                  <input type="text" name="shipping" class="form-control" id="InputSize" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label for="Inputquantity">Billing Address</label>
-                  <input type="text" name="billing" class="form-control" id="InputquantityStock" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label for="Inputprice">Status</label>
-                  <input type="text" name="status" class="form-control" id="Inputprice" placeholder="0 for off or 1 for on">
-                </div>
-                <div class="box-header with-border">
-                  <h3 class="box-title">His Credid Card Info</h3>
+                  <label for="Inputprice">Name of The Card</label>
+                  <input type="text" name="cardName" class="form-control" id="Inputprice" placeholder="Full Name">
                 </div>
                 <div class="form-group">
                   <label for="Inputprice">Number</label>
                   <input type="text" name="cardNumber" class="form-control" id="Inputprice" placeholder="555-555-555-555">
                 </div>
                 <div class="form-group">
-                  <label for="Inputprice">Name of The Card</label>
-                  <input type="text" name="cardName" class="form-control" id="Inputprice" placeholder="Full Name">
-                </div>
-                <div class="form-group">
                   <label for="Inputprice">Exp Date</label>
-                  <input type="text" name="expCardDate" class="form-control" id="Inputprice" placeholder="2018-12-30">
+                  <input type="month" name="expCardDate" class="form-control" id="Inputprice" placeholder="2018-12-30">
                 </div>
+
                 <div class="form-group">
                   <label for="Inputprice">CVC</label>
                   <input type="text" name="cardCVC" class="form-control" id="Inputprice" placeholder="000">
                 </div>
+              <h3 class="box-title">Customer Shipping Address</h3>
+                <div class="form-group">
+                  <label for="InputSize">State</label>
+                  <select name="state" class="form-control" id="InputSize" required autocomplete="off">
+                    <option value="Puerto Rico">Puerto Rico</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Massachusets">Massachusets</option>
+                    <option value="New York">New York</option>
+                    <option value="Texas">Texas</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="Inputquantity">Zipcode</label>
+                  <input type="text" name="zipcode" class="form-control" id="InputquantityStock" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="InputSize">City</label>
+                  <input type="text" name="shipCity" class="form-control" id="InputSize" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="Inputquantity">Street Address</label>
+                  <input type="text" name="streetAddress" class="form-control" id="InputquantityStock" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="Inputquantity">Postal Address</label>
+                  <input type="text" name="shipPostalAddress" class="form-control" id="InputquantityStock" placeholder="">
+                </div>
+                <h3 class="box-title">Customer Billing Address</h3>
+                <div class="form-group">
+                  <label for="InputSize">State</label>
+                  <input type="text" name="stateBill" class="form-control" id="InputSize" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="Inputquantity">Zipcode</label>
+                  <input type="text" name="zipcodebill" class="form-control" id="InputquantityStock" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="Inputquantity">City</label>
+                  <input type="text" name="citybill" class="form-control" id="InputquantityStock" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="Inputquantity">Street Address</label>
+                  <input type="text" name="streetAddressBill" class="form-control" id="InputquantityStock" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="Inputquantity">Postal Address</label>
+                  <input type="text" name="postalAddress" class="form-control" id="InputquantityStock" placeholder="">
+                </div>
+
 
                 <?php /*if($productID== $row['ProductID']){
                                   echo "This Product Already Exist";

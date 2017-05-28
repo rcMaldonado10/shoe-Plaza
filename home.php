@@ -15,6 +15,7 @@ include 'includes/checkbox.php';
 
 <?php
   echo $_SESSION['cosCustomerID'];
+  echo $_SESSION['creCustomerID'];
     $query = "SELECT * FROM shoe";
    // mysqli_query($con, $query) or die('Error querying database.');
 
