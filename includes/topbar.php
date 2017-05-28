@@ -88,9 +88,6 @@ function filterShoe($query){
             </li>
            <?php } ?>
 
-
-
-
           <form class="navbar-form navbar-right" action="Results.php" method="post">
         <div class="input-group">
           <input type="text" class="form-control" name="ValueToSearch" placeholder="Search">
