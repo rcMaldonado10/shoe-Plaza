@@ -145,7 +145,7 @@
                 <label>
                   MM / YY<span class="req">*</span>
                 </label>
-                 <input type="month" required="required" name="expiry"/>
+                 <input type="text" required="required" name="expiry"/>
               </div>
 
               <div class="field-wrap">
