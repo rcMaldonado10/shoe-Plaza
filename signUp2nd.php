@@ -120,7 +120,7 @@ $resultHas_a =  mysqli_query($con, $sqlHas_a) or die("Bad query: $sqlHas_a");
 <body>
   <div class="form">
           <h1>One more Step!</h1>
-          <h2 style="color:#FFFFFF">Costumer Shipping Address</h2>
+          <h2 style="color:#FFFFFF">Customer Shipping Address</h2>
           <form action="signUp2nd.php" method="post">
 
           <div class="top-row">
