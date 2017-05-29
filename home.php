@@ -9,7 +9,8 @@ include 'includes/topbar.php';
 
  <?php
 include 'includes/checkbox.php';
-
+// echo $_SESSION['cosCustomerID'];
+// echo $_SESSION['creCustomerID'];
  ?>
  <main class="main">
 

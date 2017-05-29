@@ -13,20 +13,20 @@
   $cosBill = explode("^|^",$_SESSION['cosBillingAdd']);
   $cosShip = explode("^|^",$_SESSION['cosShipAdd']);
 
-  echo $cosShip[0];
-  echo "<br>".$cosShip[1];
-  echo "<br>".$cosShip[2];
-  echo "<br>".$cosShip[3];
-  echo "<br>".$cosShip[4];
-  echo "<br>".end($cosShip);
-  echo "<br>";
-  echo "<br>".$cosBill[0];
-  echo "<br>".$cosBill[1];
-  echo "<br>".$cosBill[2];
-  echo "<br>".$cosBill[3];
-  echo "<br>".$prueba=$cosBill[4];
-  echo $prueba ;
-  echo "<br>".end($cosBill);
+  // echo $cosShip[0];
+  // echo "<br>".$cosShip[1];
+  // echo "<br>".$cosShip[2];
+  // echo "<br>".$cosShip[3];
+  // echo "<br>".$cosShip[4];
+  // echo "<br>".end($cosShip);
+  // echo "<br>";
+  // echo "<br>".$cosBill[0];
+  // echo "<br>".$cosBill[1];
+  // echo "<br>".$cosBill[2];
+  // echo "<br>".$cosBill[3];
+  // echo "<br>".$prueba=$cosBill[4];
+  // echo $prueba ;
+  // echo "<br>".end($cosBill);
 
   if(isset($_POST['Save']))
   {

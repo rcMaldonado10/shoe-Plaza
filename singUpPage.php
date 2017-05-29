@@ -10,7 +10,7 @@
       <?PHP
         if(isset($_POST['SingUP']))
           {
-            @session_destroy();
+            //@session_destroy();
             session_start();
             $_SESSION['cosFirstName'] = $_POST['firstNameSignUp'];
             //echo $_SESSION['cosFirstName'];
@@ -32,7 +32,7 @@
           }
         if(isset($_POST['LogIn']))
           {
-            @session_destroy();
+            //@session_destroy();
             session_start();
             $emailLog = ($_POST['logEmail']);
             $passLog = ($_POST['logPass']);
@@ -52,6 +52,7 @@
                         {
                           echo " esto se ve bien :D";
                           $_SESSION['cosCustomerID'] = $row['CustomerID'];
+                          echo $_SESSION['cosCustomerID'];
                           $_SESSION['message'] = "You are now logged in";
                           $message="You are now logged in";
                           $_SESSION['cosFirstName'] = $row['FirstName'];
@@ -60,7 +61,6 @@
                           $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
                           $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
                           $_SESSION['cosPassword'] = $row['Password'];
-                          header("location:home.php");
                         }
                      else
                         {
@@ -70,8 +70,28 @@
                         }
                     }
                   }
+                  $sqlSelHas = "SELECT CustomerID,Credit_Card_ID FROM has_a";
+                  $LogCos = $_SESSION['cosCustomerID'];
+                  //$sqlSelCred = "SELECT Credit_Card_ID, Number, Name, Exp_Date, CVC FROM customer_credit_card";
+                  $resultHas = mysqli_query($con, $sqlSelHas) or die("Bad query: $sqlSelHas");
+                  if (mysqli_num_rows($resultHas) > 0)
+                    {
+                      while($row = mysqli_fetch_assoc($resultHas))
+                      {
+                        $cheqCos=  $row["CustomerID"];
+                        echo  " Name: " . $cheqCos. "<br>";
+                        if ($LogCos == $cheqCos)//$cheqNum==$NumLog AND
+                          {
+                            echo " esto se ve bien has_a :D";
+                            $_SESSION['creCustomerID'] = $row['Credit_Card_ID'];
+                            echo $_SESSION['creCustomerID'];
+                            header("location:home.php");
+                          }
+                      }
+                    }
             }
           }
+
         ?>
 </head>
 <body>
