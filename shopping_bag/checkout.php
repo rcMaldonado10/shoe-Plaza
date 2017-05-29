@@ -66,7 +66,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shopping Cart</title>
+    <title></title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -95,7 +95,7 @@
 </div>
 <hr>
 <div class="container">
-    <h1>Shopping Cart</h1>
+    <h1>View Cart</h1>
     <table class="table">
     <thead>
         <tr>

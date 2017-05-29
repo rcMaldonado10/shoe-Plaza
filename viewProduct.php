@@ -18,7 +18,7 @@ if(mysqli_num_rows($result) > 0){
     <!--Main cotent grid-->
 <div class="col-md-8">
   <div class="row">
-      <h1 class="text-center">Details</h1>
+      <h1 class="text-center">Details Product</h1>
 
         <div class="col-md-6">
             <h1 style="padding-left: 15px; color: orange;"><?=$row['Brand']?> - <?=$row['Model']?></h1>
@@ -28,7 +28,7 @@ if(mysqli_num_rows($result) > 0){
         <div class="col-md-6">
 
             <form method="post" action="shopping_bag/viewCart.php?action=add&id=<?php echo $row["ProductID"]; ?>">
-            <h3 style="float:;">Details of Product: <?=$row['Details']?></h3><br>
+            <h3 style="float:;">Details: <?=$row['Details']?></h3><br>
             <h3>Category: <?=$row['Category']?></h3>
             <h3>Price: $<?=$row['Price']?></h3>
             <h3>In Stock: <?=$row['Quantity_Stock']?> Available </h3>

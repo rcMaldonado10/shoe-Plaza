@@ -65,19 +65,19 @@ session_set_cookie_params(0);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Shopping Cart</title>
+    <title>View Cart</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
     .container{padding: 50px;}
-    input[type="number"]{width: 20%;} 
+    input[type="number"]{width: 20%;}
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>Shopping Cart</h1>
+    <h1>View Cart</h1>
     <table class="table">
     <thead>
         <tr>
