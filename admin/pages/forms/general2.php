@@ -35,7 +35,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
   if(isset($_POST['delete_admin'])){
 
-        $sql ="DELETE FROM admin WHERE username='$_POST[admin_id]'";
+        $sql ="DELETE FROM admin WHERE username='$_POST[adminName]'";
         mysqli_query($db,$sql);
   }
 ?>
@@ -48,7 +48,7 @@ include 'recycle/topbar.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage User and Admins Connectet To Data Base
+        Manage User and Admins Connected To Data Base
         <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
@@ -323,7 +323,7 @@ include 'recycle/topbar.php';
               <div class="box-body">
                 <div class="form-group">
                   <label for="InputproductID">Type the Admin Username</label>
-                  <input type="text" name="admin_id" class="form-control" id="Inputproduct_id" placeholder="">
+                  <input type="text" name="adminName" class="form-control" id="Inputproduct_id" placeholder="">
                 </div>
 
                 <div class="box-footer">

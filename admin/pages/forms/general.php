@@ -118,7 +118,7 @@ include 'recycle/topbar.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Products Connectet To Data Base
+        Manage Products Connected To Data Base
         <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
