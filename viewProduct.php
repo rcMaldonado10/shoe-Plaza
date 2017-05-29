@@ -26,12 +26,14 @@ if(mysqli_num_rows($result) > 0){
         </div><!--col-md-6 end-->
 
         <div class="col-md-6">
-          <div style="float: ; padding: 0 200px 0 0px;">
+
             <form method="post" action="shopping_bag/viewCart.php?action=add&id=<?php echo $row["ProductID"]; ?>">
-            <h3 style="float:;">Details: <?=$row['Details']?></h3><br>
-            <h3>Categorie: <?=$row['Category']?></h3>
+            <h3 style="float:;">Details of Product: <?=$row['Details']?></h3><br>
+            <h3>Category: <?=$row['Category']?></h3>
             <h3>Price: $<?=$row['Price']?></h3>
+            <h3>In Stock: <?=$row['Quantity_Stock']?> Available </h3>
             <h3 for="Quantity_Stock">Quantity: </h3>
+          <div style="float: ; padding: 0 200px 0 0px;">
             <select name="quantity" class="form-control">
               <option value="1">1</option>
               <option value="2">2</option>

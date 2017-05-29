@@ -101,12 +101,12 @@ if(isset($_POST['submit_data']))
 //       }
 //     }
 // }
-// // delete a product by Product ID
-//     if(isset($_POST['delete_data'])){
-//
-//       $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
-//       mysqli_query($db,$sql);
-//     }
+//  delete a product by Product ID
+   if(isset($_POST['delete_data'])){
+
+       $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
+       mysqli_query($db,$sql);
+     }
 
 ?>
 
