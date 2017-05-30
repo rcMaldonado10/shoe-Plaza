@@ -103,6 +103,7 @@
             <th>Size</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>Subtotal</th>
         </tr>
     </thead>
     <tbody>

@@ -15,6 +15,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
     $result = mysqli_query($db,$sql) or die("Bad query: $sql");
     $result2 = mysqli_query($db,$sql2) or die("Bad query: $sql2");
+    echo '<script>alert("Customer Added")</script>';
 
   }
 
@@ -31,12 +32,14 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
       // delete his credit card info if the id is the same
       $sql ="DELETE FROM customer_credit_card WHERE Credit_Card_ID ='$_POST[customer_id]'" ;
       mysqli_query($db,$sql);
+      echo '<script>alert("Customer Removed")</script>';
   }
 
   if(isset($_POST['delete_admin'])){
 
         $sql ="DELETE FROM admin WHERE username='$_POST[adminName]'";
         mysqli_query($db,$sql);
+        echo '<script>alert("Admin Removed")</script>';
   }
 ?>
 

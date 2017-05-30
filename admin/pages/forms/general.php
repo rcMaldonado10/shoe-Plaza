@@ -42,7 +42,7 @@ if(isset($_POST['submit_data']))
 
                             $result = mysqli_query($db, $sql) or die("Bad query: $sql");
                             move_uploaded_file($_FILES['fileToUpload']['tmp_name'],$newfilename);
-
+                            echo '<script>alert("Item Added")</script>';
                           }
                           else
                           {
@@ -106,6 +106,8 @@ if(isset($_POST['submit_data']))
 
        $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
        mysqli_query($db,$sql);
+
+       echo '<script>alert("Item Removed")</script>';
      }
 
 ?>
@@ -155,7 +157,7 @@ include 'recycle/topbar.php';
                   <select name="category" class="form-control">
                     <option value="Sport">Sport</option>
                     <option value="Casual">Casual</option>
-                    <option value="Fation">Fation</option>
+                    <option value="Fation">Fashion</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -177,7 +179,18 @@ include 'recycle/topbar.php';
                 </div>
                 <div class="form-group">
                   <label for="Inputquantity">Quantity Stock</label>
-                  <input type="text" name="stock" class="form-control" id="InputquantityStock" placeholder="6-10">
+                  <select name="stock" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="Inputprice">Price ($)</label>

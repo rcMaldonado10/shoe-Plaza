@@ -113,7 +113,7 @@
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      
+
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
@@ -152,8 +152,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="forms/general.php"><i class="fa fa-circle-o"></i>Update Product</a></li>
-            <li><a href="forms/general2.php"><i class="fa fa-circle-o"></i>Update User and Admin</a></li>
+            <li><a href="forms/general.php"><i class="fa fa-circle-o"></i>Add Product</a></li>
+            <li><a href="forms/general2.php"><i class="fa fa-circle-o"></i>Add User and/or Admin</a></li>
           </ul>
         </li>
         <li class="treeview">

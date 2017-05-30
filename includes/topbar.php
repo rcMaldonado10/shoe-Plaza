@@ -84,7 +84,7 @@ function filterShoe($query){
               <ul class="dropdown-menu">
                 <li><a href="userSettings.php">Account Settings</a></li>
                 <li><a href="addNewCard.php">Add Card</a></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="logout.php">Sign out</a></li>
               </ul>
             </li>
            <?php } ?>

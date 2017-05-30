@@ -60,6 +60,8 @@ session_set_cookie_params(0);
 
  if(isset($_GET["var"])){
    $id = $_GET["var"];
+   
+
  }
  ?>
 <!DOCTYPE html>
@@ -124,10 +126,17 @@ session_set_cookie_params(0);
            ?>
 
            <tr><td><a href="../home.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
-           <?php if($values["item_quantity"] > 0){ ?>
 
-            <td><a href="checkout.php?id=<?= $id ?>" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
-            <?php } ?>
+          <?php if(isset($_SESSION["cosCustomerID"]) != ""){ ?>
+
+
+              <?php if($values["item_quantity"] > 0){ ?>
+
+                <td><a href="checkout.php?id=<?= $id ?>" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
+
+            <?php } }else { ?>
+              <td><a href="../singUpPage.php" class="btn btn-success btn-block">Sign in <i class="glyphicon glyphicon-menu-right"></i></a></td>
+              <?php  } ?>
       </table>
  </div>
 </body>
