@@ -12,23 +12,39 @@
           {
             //@session_destroy();
             session_start();
-            $_SESSION['cosFirstName'] = $_POST['firstNameSignUp'];
-            //echo $_SESSION['cosFirstName'];
-            $_SESSION['cosLastName'] = $_POST['lastNameSignUp'];
-            //echo $_SESSION['cosLastName'];
-            $_SESSION['cosEmail'] = $_POST['email'];
-            //echo $_SESSION['cosEmail'];
-            $_SESSION['cosPassword'] = $_POST['password'];
-            //echo $_SESSION['cosPassword'];
-            $_SESSION['creName'] = $_POST['first-name'];
-            //echo $_SESSION['creName'];
-            $_SESSION['creNumber'] = $_POST['number'];
-            //echo $_SESSION['creNumber'];
-            $_SESSION['creCVC'] = $_POST['cvc'];
-            //echo $_SESSION['creCVC'];
-            $_SESSION['creExpiry'] = $_POST['expiry'];
-            //echo $_SESSION['creExpiry'];
-            header("location:signUp2nd.php");
+            $emailToChek = $_POST['email'];
+            $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
+            $sql = "SELECT Email FROM customer";
+            $result = mysqli_query($con, $sql) or die("Bad query: $sql");
+            if (mysqli_num_rows($result) > 0)
+              {
+                while($row = mysqli_fetch_assoc($result))
+                {
+                  $emailDB = $row["Email"];
+                  if($emailToChek != $emailDB)
+                  {
+                    $_SESSION['cosFirstName'] = $_POST['firstNameSignUp'];
+                    //echo $_SESSION['cosFirstName'];
+                    $_SESSION['cosLastName'] = $_POST['lastNameSignUp'];
+                    //echo $_SESSION['cosLastName'];
+                    $_SESSION['cosEmail'] = $_POST['email'];
+                    //echo $_SESSION['cosEmail'];
+                    $_SESSION['cosPassword'] = $_POST['password'];
+                    //echo $_SESSION['cosPassword'];
+                    $_SESSION['creName'] = $_POST['first-name'];
+                    //echo $_SESSION['creName'];
+                    $_SESSION['creNumber'] = $_POST['number'];
+                    //echo $_SESSION['creNumber'];
+                    $_SESSION['creCVC'] = $_POST['cvc'];
+                    //echo $_SESSION['creCVC'];
+                    $_SESSION['creExpiry'] = $_POST['expiry'];
+                    //echo $_SESSION['creExpiry'];
+                  }
+                  else {
+                    echo "email taken";
+                  }
+                }
+            }
           }
         if(isset($_POST['LogIn']))
           {
@@ -209,7 +225,7 @@
 
           <p class="forgot"><a href="#">Forgot Password?</a></p>
 
-          <button class="button button-block" name="LogIn" />Log In</button>
+          <button class="button button-block" name="LogIn" />Sign In</button>
 
           </form>
 
