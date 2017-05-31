@@ -269,6 +269,7 @@ include 'recycle/topbar.php';
                   ?>
             <table class="table table-bordered table-striped">
                   <thead>
+                    <form method="post" action="editors.php">
                   <tr>
                   <th>ProductID</th>
                   <th>Brand</th>
@@ -299,7 +300,8 @@ include 'recycle/topbar.php';
                     <td><?php echo $row["Price"]; ?></td>
                     <td><?php echo $row["img-source"]; ?></td>
                     <td><?php echo $row["Details"]; ?></td>
-                    <td> </td>
+                    <td> <button class="btn btn-info"name="edit" value=" <?php $row['ProductID']; ?>"> Edit</button></td>
+                  </form>
                     </tr>
               <?php } ?>
                   </table>

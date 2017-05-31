@@ -6,29 +6,6 @@
  {
       if(isset($_SESSION["shopping_cart"]))
       {
-           $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
-
-           if(!in_array($_GET["id"], $item_array_id))
-           {
-             //save all "name" variables from the viewProduct of html to an array
-                $count = count($_SESSION["shopping_cart"]);
-                $item_array = array(
-                  'item_id'               =>     $_GET["id"],
-                  'item_name'               =>     $_POST["hidden_name"],
-                  'item_price'          =>     $_POST["hidden_price"],
-                  'item_quantity'          =>     $_POST["quantity"]
-                );
-                $_SESSION["shopping_cart"][$count] = $item_array;
-           }
-           else
-           {
-             // alert you if the product arleady Exist
-                echo '<script>alert("Item Already Added")</script>';
-                echo '<script>window.location="viewCart.php"</script>';
-           }
-      }
-      else
-      {
            $item_array = array(
                 'item_id'               =>     $_GET["id"],
                 'item_name'               =>     $_POST["hidden_name"],
@@ -38,21 +15,7 @@
            $_SESSION["shopping_cart"][0] = $item_array;
       }
  }
- if(isset($_GET["action"]))
- {
-      if($_GET["action"] == "delete")
-      {
-           foreach($_SESSION["shopping_cart"] as $keys => $values)
-           {
-                if($values["item_id"] == $_GET["id"])
-                {
-                     unset($_SESSION["shopping_cart"][$keys]);
-                     echo '<script>alert("Item Removed")</script>';
-                     echo '<script>window.location="viewCart.php"</script>';
-                }
-           }
-      }
- }
+
 
   $ccNumber="";
   if(isset($_GET["id"])){
@@ -68,9 +31,10 @@
 <head>
     <title></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
     <style>
     .container{padding: 50px;}
     input[type="number"]{width: 20%;}

@@ -1,6 +1,11 @@
 <?php
 include 'recycle/topbar.php';
 
+if(isset($_POST['submit']))
+{
+
+}
+
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -22,68 +27,57 @@ include 'recycle/topbar.php';
     <section class="content">
       <div class="row">
         <div class="col-md-12">
-          <div class="box box-info">
-            <div class="box-header">
-              <h3 class="box-title">CK Editor
-                <small>Advanced and full of features</small>
-              </h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
-                  <i class="fa fa-times"></i></button>
-              </div>
-              <!-- /. tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body pad">
-              <form>
-                    <textarea id="editor1" name="editor1" rows="10" cols="80">
-                                            This is my textarea to be replaced with CKEditor.
-                    </textarea>
-              </form>
-            </div>
-          </div>
-          <!-- /.box -->
-
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Bootstrap WYSIphp5
-                <small>Simple and fast</small>
-              </h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
-                  <i class="fa fa-times"></i></button>
-              </div>
-              <!-- /. tools -->
+              <h3 class="box-title">Data Table Of Products</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body pad">
-              <form>
-                <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-              </form>
+            <div class="box-body">
+              <table class="table table-bordered table-striped">
+
+                    <?php
+                     $db = mysqli_connect("localhost","root","","shoeplaza") or die("Unable to connect");
+                     if(isset($_POST['edit'])){
+                      $edit = $_POST['edit'];
+                      $query="SELECT * FROM shoe WHERE ProductID= '$edit'";
+
+                      $result = mysqli_query($db, $query);
+                      if(mysqli_num_rows($result) > 0){
+                      $row = mysqli_fetch_assoc($result);
+
+                      ?>
+                      <form action="general.php" method="post">
+
+                      ProductID:<label><?= $row["ProductID"]; ?></label><br>
+                      Brand:<input type="text" name="newbrand" value="<?= $row['Brand']; ?>"></input><br>
+                      Model:<input type="text" name="newModel" value="<?= $row["Model"]; ?>"></input><br>
+                      Category:<input type="text" name="newCategory" value="<?= $row["Category"]; ?>"></input><br>
+                      Gender:<input type="text" name="newGender" value="<?= $row["Gender"]; ?>"></input><br>
+                      Size:<input type="text" name="newSize" value="<?= $row["Size"]; ?>"></input><br>
+                      Quantity Stock:<input type="text" name="newQts" value="<?= $row["Quantity_Stock"]; ?>"></input><br>
+                      Price: $<input type="text" name="newPrice" value="<?= $row["Price"]; ?>"></input><br>
+                      Details:<input type="text" name="newCategory" value="<?= $row["Details"]; ?>"></input><br>
+                      <button class="btn btn-info" name="submit"> Update</button><br>
+                    </form>
+
             </div>
+            <!-- /.box-body -->
           </div>
+          <!-- /.box -->
         </div>
         <!-- /.col-->
       </div>
+      <?php
+      } else {
+          echo '<h1 style="text-align:center;">No shoe was selected</h1>';
+      } } ?>
       <!-- ./row -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.12
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
 
+<?php include 'recycle/footer.php'; ?>
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->

@@ -104,9 +104,33 @@ $sqlHas_a = "INSERT INTO has_a (CustomerID,Credit_Card_ID) VALUES ($customerID,$
 $resultHas_a =  mysqli_query($con, $sqlHas_a) or die("Bad query: $sqlHas_a");
 
 
+//mail customer
+$from = 'donotreply@ShoePlaza.com';
+$to = $emailCos;
+$subject = 'Test this email';
 
+$headers = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+$headers .= "From: Shoe Plaza <$from>\r\n";
 
+$msg = '
+<html>
+<head>
+<link href="http://linktocss/.../etc" rel="stylesheet" type="text/css" />
 
+</head>
+<body>
+Welcome to Shoe Plaza
+<h1>The Place Your Feet Always Wanted!</h1>
+<h2>With variety for men and women, the best brands and pricing</br>
+         that no one can compare. </h2>
+<div class="imgaboutsize"><img src="Images/Men-section-Wallpaper.jpg" /></div>
+visist us here: www.shoeplaza.com
+</body>
+</html>
+';
+
+mail($to, $subject, $msg, $headers)or die("mail error");
         header("location:home.php");
       }
 

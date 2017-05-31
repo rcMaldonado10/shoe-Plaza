@@ -69,7 +69,7 @@
 </head>
 <body>
   <div class="form">
-          <h1>Account Setings</h1>
+          <h1>Account Settings</h1>
           <form action="userSettings.php" method="post">
             <div class="top-row">
               <div class="field-wrap">
@@ -88,7 +88,7 @@
               <textarea name="passwordEdit" ><?php echo $_SESSION['cosPassword']; ?></textarea>
              </div>
 
-             <h2 style="color:#FFFFFF">Costumer Shipping Address</h2>
+             <h2 style="color:#FFFFFF">Customer Shipping Address</h2>
           <div class="top-row">
             <div class="field-wrap">
               <?php echo $cosShip[0];?>
@@ -124,7 +124,7 @@
             <textarea   name="shipPostalAddressEdit"><?php echo end($cosShip); ?></textarea>
            </div>
 
-           <h2 style="color:#FFFFFF">Costumer Billing Address</h2>
+           <h2 style="color:#FFFFFF">Customer Billing Address</h2>
 
            <div class="top-row">
              <div class="field-wrap">
