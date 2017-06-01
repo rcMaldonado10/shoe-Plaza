@@ -5,22 +5,68 @@
   <title>Add Card</title>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
 
-      <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
       <?PHP
-        if(isset($_POST['SingUP']))
-          {
-            @session_destroy();
-            session_start();
-            $_SESSION['creName'] = $_POST['first-name'];
-            //echo $_SESSION['creName'];
-            $_SESSION['creNumber'] = $_POST['number'];
-            //echo $_SESSION['creNumber'];
-            $_SESSION['creCVC'] = $_POST['cvc'];
-            //echo $_SESSION['creCVC'];
-            $_SESSION['creExpiry'] = $_POST['expiry'];
-            //echo $_SESSION['creExpiry'];
+      session_start();
+      echo $_SESSION['cosCustomerID'];
+      echo $_SESSION['creCustomerID'];
+      if(isset($_POST['ADD']))
+      {
+            echo "aibsd";
             header("location:home.php");
+            $nameCre = $_POST['first-name'];
+            //echo $_SESSION['creName'];
+            $numCre =  $_POST['number'];
+            //echo $_SESSION['creNumber'];
+            $cvcCre = $_POST['cvc'];
+            //echo $_SESSION['creCVC'];
+            $expCre = $_POST['expiry'];
+            //echo $_SESSION['creExpiry'];
+            $sqlSelCred = "INSERT INTO customer_credit_card (Number,Name,Exp_Date,CVC) VALUES ('$numCre','$nameCre','$expCre','$cvcCre')";
+            $resultCre = mysqli_query($con, $sqlSelCred) or die("Bad query: $sqlSelCred");
+
+            $LogCos = $_SESSION['cosCustomerID'];
+
+            $sqlSelHas = "SELECT CustomerID,Credit_Card_ID FROM has_a";
+            $resultHas = mysqli_query($con, $sqlSelHas) or die("Bad query: $sqlSelHas");
+            if (mysqli_num_rows($resultHas) > 0)
+              {
+                while($row = mysqli_fetch_assoc($resultHas))
+                {
+                  $cheqCos=  $row["CustomerID"];
+                  echo  " Name: " . $cheqCos. "<br>";
+                  if ($LogCos == $cheqCos)//$cheqNum==$NumLog AND
+                    {
+                      echo " esto se ve bien has_a :D";
+
+
+                      //$sqlSelCred = "INSERT INTO has_a (CustomerID,Credit_Card_ID) VALUES ('$LogCos',)";
+                      $sqlSelHas = "SELECT CustomerID,Credit_Card_ID FROM has_a";
+                      $resultHas = mysqli_query($con, $sqlSelHas) or die("Bad query: $sqlSelHas");
+                      if (mysqli_num_rows($resultHas) > 0)
+                        {
+                          while($row = mysqli_fetch_assoc($resultHas))
+                          {
+                            $cheqCos=  $row["CustomerID"];
+                            echo  " Name: " . $cheqCos. "<br>";
+                            if ($LogCos == $cheqCos)//$cheqNum==$NumLog AND
+                              {
+                                echo " esto se ve bien has_a :D";
+                                $_SESSION['creCustomerID'] = $row['Credit_Card_ID'];
+                                $LogCre = $_SESSION['creCustomerID'];
+                                $sqlSelCred = "INSERT INTO has_a (CustomerID,Credit_Card_ID) VALUES ('$LogCos',$LogCre)";
+                                //header("location:home.php");
+                              }
+                          }
+                        }
+
+                      echo $_SESSION['creCustomerID'];
+
+                      // header("location:home.php");
+                    }
+                }
+              }
           }
         ?>
 </head>
@@ -52,9 +98,9 @@
            <div class="top-row">
              <div class="field-wrap">
                 <label>
-                  MM / YY<span class="req">*</span>
+                  <span class="req">*</span>
                 </label>
-                 <input type="text" required="required" name="expiry"/>
+                 <input type="month" required="required" name="expiry"/>
               </div>
 
               <div class="field-wrap">
@@ -64,7 +110,8 @@
                 <input type="text" required="required" name="cvc"/>
               </div>
             </div>
-          <input type="submit" class="button button-block" value="Add" name="SingUP" >
+          <input type="submit" class="button button-block" VALUE="Add Credit Card" name="ADD" >
+
   </form>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

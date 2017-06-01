@@ -20,7 +20,7 @@ if(isset($_POST['submit_data']))
                   $target = "images/".$_POST['imageName'] . '.' . end($tempImage);
                   $newfilename = "../../../images/". $_POST['imageName'] . '.' . end($tempImage);
 
-                  $query = "SELECT * FROM shoe WHERE `img-source` = '$newfilename'";
+                  $query = "SELECT * FROM shoe WHERE `img-source` = '$target'";
 
                   $resultSelect = mysqli_query($db, $query) or die("Bad query: $query");
 
