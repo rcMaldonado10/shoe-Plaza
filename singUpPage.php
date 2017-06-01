@@ -39,9 +39,10 @@
                     //echo $_SESSION['creCVC'];
                     $_SESSION['creExpiry'] = $_POST['expiry'];
                     //echo $_SESSION['creExpiry'];
+                    header("location:signUp2nd.php");
                   }
                   else {
-                    echo "email taken";
+                    header("location:home.php");
                   }
                 }
             }
