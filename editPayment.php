@@ -65,15 +65,11 @@ include 'Core/init.php';
     <?php
     ?>
       <h3>Please Verify Information, If Correct Press DONE</h3><br>
-      <label>Credit Card Number:</label><br>
-      <input class="form-control" type="text" placeholder="Credit Card Number" value="<?=$ccInfo["Number"]?>"/><br>
       <label>Credit Card Name:</label>
       <input class="form-control" type="text" placeholder="Credit Card Name" value="<?=$ccInfo["Name"]?>"/><br>
       <label>Expiration Date:</label>
       <input class="form-control" type="text" placeholder="Credit Card Expiration Date" value="<?=$ccInfo["Exp_Date"]?>"/><br>
-      <label>Credit Card CVC:</label>
-      <input class="form-control" type="text" placeholder="Credit Card CVC" value="<?=$ccInfo["CVC"]?>"/><br>
-      <a  href="shopping_bag/checkout.php?number=<?=$ccInfo["Number"]?>"class="btn btn-success btn-lg btn-block">DONE</a>
+      <a  href="shopping_bag/checkout.php?number=<?=$ccInfo["Number"]?>&name=<?=$ccInfo["Name"]?>&expDate=<?=$ccInfo["Exp_Date"]?>" class="btn btn-success btn-lg btn-block">DONE</a>
     </div>
 
 </div>

@@ -63,12 +63,19 @@ function filterShoe($query){
         <ul class="nav navbar-nav">
           <li ><a href="home.php">Home</a></li>
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Men<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#"><b>Woman</b></a></li>
-              <li><a href="women.php">Sport</a></li>
-              <li><a href="#"><b>Men</b></a></li>
               <li><a href="men.php">Sport</a></li>
+              <li><a href="men.php">Fashion</a></li>
+              <li><a href="men.php">Casual</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Women<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="women.php">Sport</a></li>
+              <li><a href="women.php">Fashion</a></li>
+              <li><a href="women.php">Casual</a></li>
             </ul>
           </li>
           <li><a href="about.php">About</a></li>

@@ -1,8 +1,8 @@
 <?php
 include 'Core/init.php';
 include 'includes/topbar.php';
+$_SESSION["page"] = "home";
 ?>
-
 
 <div class="break" ></div>
  <h1 style="text-align: center;">Home</h1>
@@ -13,7 +13,6 @@ include 'includes/checkbox.php';
 // echo $_SESSION['creCustomerID'];
  ?>
  <main class="main">
-
 <?php
     $query = "SELECT * FROM shoe";
    // mysqli_query($con, $query) or die('Error querying database.');

@@ -18,12 +18,17 @@
 
 
   $ccNumber="";
+  $ccName="";
+  $ccDate="";
   if(isset($_GET["id"])){
    $id = $_GET["id"];
   // echo $id;
  }
- if(isset($_GET["number"])){
+ if(isset($_GET["number"]) && isset($_GET["name"]) && isset($_GET["expDate"])){
    $ccNumber = $_GET["number"];
+   $ccName = $_GET["name"];
+   $ccDate = $_GET["expDate"];
+
  }
  ?>
 <!DOCTYPE html>
@@ -47,8 +52,8 @@
         <h1>Payment Information</h1><a href="../editPayment.php">Edit Payment Information</a><br><br>
 
         <label>Credit Card Number (last four digits):<?= ' '.$ccNumber?></label><br>
-        <label>Credit Card Name:</label><br>
-        <label>Credit Card Expiration Date:</label><br>
+        <label>Credit Card Name:<?= ' '.$ccName?></label><br>
+        <label>Credit Card Expiration Date:<?= ' '.$ccDate?></label><br>
     </div>
     <div class="col-md-4">
         <h1>Shipping Method</h1><h5 style="color:orange;">FREE SHIPPING IN ALL OUR PURCHASES!</h5><br>

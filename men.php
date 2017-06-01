@@ -1,6 +1,7 @@
 <?php
 require_once 'Core/init.php';
 include 'includes/topbar.php';
+$_SESSION["page"] = "men";
 ?>
   <div class="break" ></div>
  <h1 style="text-align: center;">Men</h1>

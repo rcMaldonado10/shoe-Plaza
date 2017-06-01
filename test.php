@@ -5,12 +5,37 @@
 
     if(isset($_GET['Filter']) && !empty($_GET['Filter']))
     {
-        if ($_GET['Filter'] == 'FilterAsc') $sql = "SELECT * FROM shoe ORDER BY Price ASC";
-        if ($_GET['Filter'] == 'FilterDesc') $sql = "SELECT * FROM shoe ORDER BY Price DESC";
+        if($_SESSION["page"] == "home"){
+
+            if ($_GET['Filter'] == 'FilterAsc') $sql = "SELECT * FROM shoe ORDER BY Price ASC";
+            if ($_GET['Filter'] == 'FilterDesc') $sql = "SELECT * FROM shoe ORDER BY Price DESC";
+        
+        } else if($_SESSION["page"] == "men"){
+
+            if ($_GET['Filter'] == 'FilterAsc') $sql = "SELECT * FROM shoe WHERE Gender='M' ORDER BY Price ASC";
+            if ($_GET['Filter'] == 'FilterDesc') $sql = "SELECT * FROM shoe WHERE Gender='M' ORDER BY Price DESC";
+        
+        } else if($_SESSION["page"] == "woman") {
+
+            if ($_GET['Filter'] == 'FilterAsc') $sql = "SELECT * FROM shoe WHERE Gender='F' ORDER BY Price ASC";
+            if ($_GET['Filter'] == 'FilterDesc') $sql = "SELECT * FROM shoe WHERE Gender='F' ORDER BY Price DESC";
+        }
+
+        $result = mysqli_query($connect,$sql);
+    } else {
+        if($_SESSION["page"] == "home"){
+            header('location:home.php');
+        } else if($_SESSION["page"] == "men"){
+            header('location:men.php');
+        } else if ($_SESSION["page"] == "woman"){
+            header('location:women.php');
+        }
+        
     }
 
-    $result = mysqli_query($connect,$sql);
+    
 ?>
+ <h1 style="text-align: center;">Filtered Results</h1>
  <main class="main">
 <?php
     if(mysqli_num_rows($result) > 0){
