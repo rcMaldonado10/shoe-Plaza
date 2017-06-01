@@ -33,12 +33,10 @@ if(mysqli_num_rows($result) > 0){
             <h3>Price: $<?=$row['Price']?></h3>
             <h3>In Stock: <?=$row['Quantity_Stock']?> Available </h3>
             <h3 for="Quantity_Stock">Quantity: </h3>
+
           <div style="float: ; padding: 0 200px 0 0px;">
-            <select name="quantity" class="form-control">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select><br>
+            <input type="number" name="quantity" min="1" max="999"  value="1"  class="form-control text-center">
+            <br>
             <h3 for="size">Size: </h3>
             <select name="size" id="size" class="form-control">
               <option value="7">7</option>
@@ -50,9 +48,18 @@ if(mysqli_num_rows($result) > 0){
             <input type="hidden" name="hidden_name" value="<?php echo $row["Brand"]; ?>" />
             <input type="hidden" name="hidden_price" value="<?php echo $row["Price"]; ?>" />
             <input type="hidden" name="hidden_gender" value="<?php echo $row["Gender"]; ?>" />
-              <input type="submit" name="add_to_cart" class="btn btn-warning" value="Add to Cart" />
 
+            <?php if($row['Quantity_Stock'] == 0){ ?>
+
+              <label class="btn btn-danger">Sold</label>
+
+            <?php }else { ?>
+            <input type="submit" name="add_to_cart" class="btn btn-warning" value="Add to Cart" />
               </form>
+            <?php  } ?>
+
+
+
           </div>
         </div><!--col-md-6 end-->
 
