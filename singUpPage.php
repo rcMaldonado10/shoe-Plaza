@@ -8,6 +8,15 @@
 
       <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
       <?PHP
+      session_start();
+      if ($_SESSION["message"] == 1)
+      {
+        echo "";
+      }
+      else
+      {
+        echo $_SESSION["message"];
+      }
         if(isset($_POST['SingUP']))
           {
             //@session_destroy();
@@ -23,9 +32,8 @@
                   $emailDB = $row["Email"];
                   if($emailToChek != $emailDB)
                   {
-                    $_SESSION['cosFirstName'] = $_POST['firstNameSignUp'];
+                    $_SESSION['cosFirstName'] = $_POST['firstNameSignUp'] . " " . $_POST['lastNameSignUp'];
                     //echo $_SESSION['cosFirstName'];
-                    $_SESSION['cosLastName'] = $_POST['lastNameSignUp'];
                     //echo $_SESSION['cosLastName'];
                     $_SESSION['cosEmail'] = $_POST['email'];
                     //echo $_SESSION['cosEmail'];
@@ -56,7 +64,7 @@
             if( "" !== $emailLog || "" !==$passLog)
             {
                     $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
-                $sql = "SELECT CustomerID, FirstName, LastName, Email, Billing_Address, Shipping_Address, Password FROM customer";
+                $sql = "SELECT CustomerID, FirstName, Email, Billing_Address, Shipping_Address, Password FROM customer";
                 $result = mysqli_query($con, $sql) or die("Bad query: $sql");
                 if (mysqli_num_rows($result) > 0)
                   {
@@ -67,13 +75,13 @@
                       echo  "email: " . $cheqEmail. " " . $cheqPass. "<br>";
                       if ($emailLog==$cheqEmail AND $passLog == $cheqPass)
                         {
-                          echo " esto se ve bien :D";
+                          //echo " esto se ve bien :D";
                           $_SESSION['cosCustomerID'] = $row['CustomerID'];
-                          echo $_SESSION['cosCustomerID'];
+                          $LogCos = $row['CustomerID'];
+                          //echo $_SESSION['cosCustomerID'];
                           $_SESSION['message'] = "You are now logged in";
-                          $message="You are now logged in";
+                          $_SESSION["message"] = "You are now logged in";
                           $_SESSION['cosFirstName'] = $row['FirstName'];
-                          $_SESSION['cosLastName'] = $row['LastName'];
                           $_SESSION['cosEmail'] = $row['Email'];
                           $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
                           $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
@@ -81,8 +89,9 @@
                         }
                      else
                         {
-                      $message= "email/password combination incorrect";
-                      echo $message;
+                      $_SESSION["message"] = "email/password combination incorrect";
+                      //echo $message;
+                      header("location:singUpPage.php");
                 //header("location:login.php");
                         }
                     }

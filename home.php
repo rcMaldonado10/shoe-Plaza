@@ -2,6 +2,7 @@
 include 'Core/init.php';
 include 'includes/topbar.php';
 $_SESSION["page"] = "home";
+$_SESSION["message"] = 1;
 ?>
 
 <div class="break" ></div>
