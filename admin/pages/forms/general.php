@@ -18,7 +18,7 @@ if(isset($_POST['submit_data']))
 
                   $tempImage = explode(".", $image);
                   $target = "images/".$_POST['imageName'] . '.' . end($tempImage);
-                  $newfilename = "../../../images/". $_POST['imageName'] . '.' . end($tempImage);
+                  $newfilename = "../../../images". $_POST['imageName'] . '.' . end($tempImage);
 
                   $query = "SELECT * FROM shoe WHERE `img-source` = '$target'";
 
@@ -101,14 +101,6 @@ if(isset($_POST['submit_data']))
 //       }
 //     }
 // }
-//  delete a product by Product ID
-   if(isset($_POST['delete_data'])){
-
-       $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
-       mysqli_query($db,$sql);
-
-       echo '<script>alert("Item Removed")</script>';
-     }
 
 ?>
 
@@ -175,22 +167,11 @@ include 'recycle/topbar.php';
                     <option value="9">9</option>
                     <option value="10">10</option>
                     <option value="11">11</option>
-                  </select><br>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="Inputquantity">Quantity Stock</label>
-                  <select name="stock" class="form-control">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
+                  <input type="number" name="stock" min="1" max="255"  value="1"  class="form-control text-rigth">
                 </div>
                 <div class="form-group">
                   <label for="Inputprice">Price ($)</label>
@@ -204,10 +185,6 @@ include 'recycle/topbar.php';
                     <option value="99.99">$99.99</option>
                   </select><br>
                 </div>
-              <!--  <div class="form-group">
-                  <label for="InputImage_source">Image-source</label>
-                  <input type="text" name="imgsource" class="form-control" id="InputImage_source" placeholder="Images/woman1.jpg (example)">
-                </div> -->
                 <div class="form-group">
                   <label for="InputDetails">Details</label>
                   <textarea  name="details" class="form-control" id="InputImage_source" placeholder="This Shoe is great!"></textarea>
@@ -300,11 +277,13 @@ include 'recycle/topbar.php';
                     <td><?php echo $row["Price"]; ?></td>
                     <td><?php echo $row["img-source"]; ?></td>
                     <td><?php echo $row["Details"]; ?></td>
-                    <td> <button class="btn btn-info"name="edit" value=" <?php $row['ProductID']; ?>"> Edit</button></td>
-                  </form>
+                    <td> <button class="btn btn-info"name="edit" value=" <?= $row['ProductID'] ?>"> Edit</button></td>
+
                     </tr>
+
               <?php } ?>
                   </table>
+                    </form>
                   </tbody>
             </div>
             <!-- /.box-body -->

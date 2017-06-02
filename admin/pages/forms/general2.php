@@ -247,11 +247,9 @@ include 'recycle/topbar.php';
                   <th>CustomerID</th>
                   <th>Email</th>
                   <th>First Name</th>
-                  <th>Last Name</th>
                   <th>Password</th>
                   <th>Shipping Address</th>
                   <th>Billing Address</th>
-                  <th>Status</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -264,11 +262,10 @@ include 'recycle/topbar.php';
                     <td><?php echo $row["CustomerID"]; ?></td>
                     <td><?php echo $row["Email"]; ?></td>
                     <td><?php echo $row["FirstName"]; ?></td>
-                    <td><?php echo $row["LastName"]; ?></td>
                     <td><?php echo $row["Password"]; ?></td>
                     <td><?php echo $row["Shipping_Address"]; ?></td>
                     <td><?php echo $row["Billing_Address"]; ?></td>
-                    <td><?php echo $row["Status"]; ?></td>
+
                     </tr>
                 <?php  } ?>
                   </table>

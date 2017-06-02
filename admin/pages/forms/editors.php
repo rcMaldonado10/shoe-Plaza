@@ -1,10 +1,25 @@
 <?php
-include 'recycle/topbar.php';
-
+$db = mysqli_connect("localhost","root","","shoeplaza") or die("Unable to connect");
 if(isset($_POST['submit']))
 {
-
+$id = $_POST['id'];
+$newBrand = $_POST['newbrand'];
+$newModel = $_POST['newmodel'];
+$newCategory = $_POST['newcategory'];
+$newGender = $_POST['newgender'];
+$newSize = $_POST['newsize'];
+$newModel = $_POST['newmodel'];
+$newStock = $_POST['newstock'];
+$newPrice = $_POST['newprice'];
+$newSource = $_POST['newsource'];
+$newDetails = $_POST['newdetails'];
+  $sql = "UPDATE shoe SET Brand='$newBrand', Model='$newModel',Category='$newCategory',Gender='$newGender' ,Size='$newSize', Quantity_Stock = '$newStock', Price='$newPrice',Details = '$newDetails' WHERE ProductID='$id'";
+  $result = mysqli_query($db,$sql) or die("Bad query: $sql");
+  echo '<script>alert("Product has been updated!")</script>';
+  header("location:general.php");
 }
+include 'recycle/topbar.php';
+
 
 ?>
 
@@ -29,14 +44,14 @@ if(isset($_POST['submit']))
         <div class="col-md-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table Of Products</h3>
+              <h3 class="box-title">Update Product</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table class="table table-bordered table-striped">
 
                     <?php
-                     $db = mysqli_connect("localhost","root","","shoeplaza") or die("Unable to connect");
+
                      if(isset($_POST['edit'])){
                       $edit = $_POST['edit'];
                       $query="SELECT * FROM shoe WHERE ProductID= '$edit'";
@@ -46,17 +61,45 @@ if(isset($_POST['submit']))
                       $row = mysqli_fetch_assoc($result);
 
                       ?>
-                      <form action="general.php" method="post">
+                      <form action="editors.php" method="post">
+                        ProductID: <input type="hidden" name="id" value="<?= $row["ProductID"]; ?>"></input>
+                        <div class="form-group">
+                          <label for="Inputbrand">Brand</label>
+                          <input type="text" name="newbrand" class="form-control"  value="<?= $row['Brand']; ?>">
+                        </div>
+                        <div class="form-group">
+                          <label for="InputModel">Model</label>
+                          <input type="text" name="newmodel" class="form-control" value="<?= $row["Model"]; ?>">
+                        </div>
+                        <div class="form-group">
+                          <label for="InputCategory">Category</label>
+                          <input name="newcategory" class="form-control" value="<?= $row["Category"]; ?>">
+                        </div>
+                        <div class="form-group">
+                          <label for="InputGender">Gender</label>
+                          <input name="newgender" class="form-control" value="<?= $row["Gender"]; ?>">
+                        </div>
+                        <div class="form-group">
+                          <label for="InputSize">Size</label>
+                          <input name="newsize" class="form-control" value="<?= $row["Size"]; ?>"></input>
+                        </div>
+                        <div class="form-group">
+                          <label for="Inputquantity">Quantity Stock</label>
+                          <input type="number" class="form-control text-rigth" name="newstock" min="1" max="255" value="<?= $row["Quantity_Stock"]; ?>"></input>
+                        </div>
+                        <div class="form-group">
+                          <label for="Inputprice">Price ($)</label>
+                          <input name="newprice" class="form-control" value="<?= $row["Price"]; ?>"></input>
+                        </div>
+                        <div class="form-group">
+                          <label for="Inputprice">Image Source</label>
+                          <input name="newsource" class="form-control" value="<?= $row["img-source"]; ?>"></input>
+                        </div>
+                        <div class="form-group">
+                          <label for="InputDetails">Details</label>
+                          <input name="newdetails" class="form-control" value="<?= $row["Details"]; ?>"></input>
+                        </div>
 
-                      ProductID:<label><?= $row["ProductID"]; ?></label><br>
-                      Brand:<input type="text" name="newbrand" value="<?= $row['Brand']; ?>"></input><br>
-                      Model:<input type="text" name="newModel" value="<?= $row["Model"]; ?>"></input><br>
-                      Category:<input type="text" name="newCategory" value="<?= $row["Category"]; ?>"></input><br>
-                      Gender:<input type="text" name="newGender" value="<?= $row["Gender"]; ?>"></input><br>
-                      Size:<input type="text" name="newSize" value="<?= $row["Size"]; ?>"></input><br>
-                      Quantity Stock:<input type="text" name="newQts" value="<?= $row["Quantity_Stock"]; ?>"></input><br>
-                      Price: $<input type="text" name="newPrice" value="<?= $row["Price"]; ?>"></input><br>
-                      Details:<input type="text" name="newCategory" value="<?= $row["Details"]; ?>"></input><br>
                       <button class="btn btn-info" name="submit"> Update</button><br>
                     </form>
 

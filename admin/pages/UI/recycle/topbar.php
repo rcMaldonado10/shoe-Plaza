@@ -188,6 +188,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="../forms/general.php"><i class="fa fa-circle-o"></i> Add Product</a></li>
+            <li><a href="../forms/general3.php"><i class="fa fa-circle-o"></i> Update Product</a></li>
           <li><a href="../forms/general2.php"><i class="fa fa-circle-o"></i> Add User and/or Admin</a></li>
           </ul>
         </li>
