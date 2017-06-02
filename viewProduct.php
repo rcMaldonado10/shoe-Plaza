@@ -35,7 +35,7 @@ if(mysqli_num_rows($result) > 0){
             <h3 for="Quantity_Stock">Quantity: </h3>
 
           <div style="float: ; padding: 0 200px 0 0px;">
-            <input type="number" name="quantity" min="1" max="999"  value="1"  class="form-control text-center">
+            <input type="number" name="quantity" min="1" max="255"  value="1"  class="form-control text-center">
             <br>
             <h3 for="size">Size: </h3>
             <select name="size" id="size" class="form-control">

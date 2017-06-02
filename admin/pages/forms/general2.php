@@ -37,9 +37,13 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
   if(isset($_POST['delete_admin'])){
 
-        $sql ="DELETE FROM admin WHERE username='$_POST[adminName]'";
+        if($_POST['adminEmail'] == ""){
+          echo '<script>alert("Enter an admin email to Removed")</script>';
+        }else{
+        $sql ="DELETE FROM admin WHERE email='$_POST[adminEmail]'";
         mysqli_query($db,$sql);
         echo '<script>alert("Admin Removed")</script>';
+        }
   }
 ?>
 
@@ -321,12 +325,12 @@ include 'recycle/topbar.php';
 
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title">Delete Admin by Username</h3>
+                <h3 class="box-title">Delete Admin by Email</h3>
               </div>
               <div class="box-body">
                 <div class="form-group">
                   <label for="InputproductID">Type the Admin Username</label>
-                  <input type="text" name="adminName" class="form-control" id="Inputproduct_id" placeholder="">
+                  <input type="email" name="adminEmail" class="form-control" id="Inputproduct_id" placeholder="admin@example.com">
                 </div>
 
                 <div class="box-footer">
