@@ -14,7 +14,7 @@
       session_start();
       $firstNameCos = $_SESSION['cosFirstName'];
         //echo $firstNameCos;
-      $lastNameCos = $_SESSION['cosLastName'];
+      //  $lastNameCos = $_SESSION['cosLastName'];
         //echo $lastNameCos;
       $emailCos = $_SESSION['cosEmail'];
         //echo $emailCos;
@@ -34,7 +34,7 @@
         //echo $shippingAdd;
       $billingAdd = $_POST['billState'] . '^|^' . $_POST['billZipcode'] . '^|^' . $_POST['billCity'] . '^|^' . $_POST['billStreet'] . '^|^' . $_POST['billPostalAddress'];
         //echo $billingAdd;
-      $sql = "INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ('$emailCos','$firstNameCos','$lastNameCos','$passwordCos','$shippingAdd','$billingAdd','1')";
+      $sql = "INSERT INTO customer (Email,FirstName,Password,Shipping_Address,Billing_Address,Status) VALUES ('$emailCos','$firstNameCos','$passwordCos','$shippingAdd','$billingAdd','1')";
       //INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ('Pepe@you.com','Pepe','Pepe','IDK','Puerto Rico|00669|Lares|Callejones|box 8545','Puerto Rico|00669|Lares|Callejones|box 8545','1')
       // INSERT INTO `customer_credit_card` (`Credit_Card_ID`, `Number`, `Name`, `Exp_Date`, `CVC`) VALUES (NULL, '123456789', 'Pepe pepe', '2017-09-01', '1234');
       $sql2 = "INSERT INTO customer_credit_card (Number,Name,Exp_Date,CVC) VALUES ('$numberCre','$nameCre','$expiryCre','$CVCCre')";
@@ -44,7 +44,7 @@
       {
         $result = mysqli_query($con,$sql) or die("Bad query: $sql");
         $result2 = mysqli_query($con,$sql2) or die("Bad query: $sql2");
-        $sqlSelCos = "SELECT CustomerID, FirstName, LastName, Email, Billing_Address, Shipping_Address, Password FROM customer";
+        $sqlSelCos = "SELECT CustomerID, FirstName, Email, Billing_Address, Shipping_Address, Password FROM customer";
 
         $emailLog = $emailCos;
         $passLog = $passwordCos;
@@ -66,7 +66,6 @@
                   $_SESSION['message'] = "You are now logged in";
                   $message="You are now logged in";
                   $_SESSION['cosFirstName'] = $row['FirstName'];
-                  $_SESSION['cosLastName'] = $row['LastName'];
                   $_SESSION['cosEmail'] = $row['Email'];
                   $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
                   $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
@@ -85,8 +84,8 @@
               {
                 $cheqNum= $row["Number"];
                 $cheqName=  $row["Name"];
-                echo  "number: " . $cheqNum. " Name: " . $cheqName. "<br>";
-                if ($cheqName == $NameLog)//$cheqNum==$NumLog AND
+                echo  "<br> number: " . $cheqNum. " Name: " . $cheqName;
+                if ($NumLog == $cheqNum)//$cheqNum==$NumLog AND
                   {
                     echo " esto se ve bien Credit Card :D";
                     $_SESSION['creCustomerID'] = $row['Credit_Card_ID'];
@@ -104,37 +103,38 @@ $sqlHas_a = "INSERT INTO has_a (CustomerID,Credit_Card_ID) VALUES ($customerID,$
 $resultHas_a =  mysqli_query($con, $sqlHas_a) or die("Bad query: $sqlHas_a");
 
 
-//mail customer
-$from = 'donotreply@ShoePlaza.com';
-$to = $emailCos;
-$subject = 'Test this email';
-
-$headers = "MIME-Version: 1.0\r\n";
-$headers .= "Content-type: text/html; charset=UTF-8\r\n";
-$headers .= "From: Shoe Plaza <$from>\r\n";
-
-$msg = '
-<html>
-<head>
-<link href="http://linktocss/.../etc" rel="stylesheet" type="text/css" />
-
-</head>
-<body>
-Welcome to Shoe Plaza
-<h1>The Place Your Feet Always Wanted!</h1>
-<h2>With variety for men and women, the best brands and pricing</br>
-         that no one can compare. </h2>
-<div class="imgaboutsize"><img src="Images/Men-section-Wallpaper.jpg" /></div>
-visist us here: www.shoeplaza.com
-</body>
-</html>
-';
-
-mail($to, $subject, $msg, $headers)or die("mail error");
+// //mail customer
+// $from = 'donotreply@ShoePlaza.com';
+// $to = $emailCos;
+// $subject = 'Test this email';
+//
+// $headers = "MIME-Version: 1.0\r\n";
+// $headers .= "Content-type: text/html; charset=UTF-8\r\n";
+// $headers .= "From: Shoe Plaza <$from>\r\n";
+//
+// $msg = '
+// <html>
+// <head>
+// <link href="http://linktocss/.../etc" rel="stylesheet" type="text/css" />
+//
+// </head>
+// <body>
+// Welcome to Shoe Plaza
+// <h1>The Place Your Feet Always Wanted!</h1>
+// <h2>With variety for men and women, the best brands and pricing</br>
+//          that no one can compare. </h2>
+// <div class="imgaboutsize"><img src="Images/Men-section-Wallpaper.jpg" /></div>
+// visist us here: www.shoeplaza.com
+// </body>
+// </html>
+// ';
+//
+// mail($to, $subject, $msg, $headers)or die("mail error");
         header("location:home.php");
       }
 
   }
+
 ?>
 
 

@@ -16,11 +16,12 @@
       else
       {
         echo $_SESSION["message"];
+        $_SESSION["message"] = 1;
       }
         if(isset($_POST['SingUP']))
           {
             //@session_destroy();
-            session_start();
+            // session_start();
             $emailToChek = $_POST['email'];
             $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
             $sql = "SELECT Email FROM customer";
@@ -32,6 +33,9 @@
                   $emailDB = $row["Email"];
                   if($emailToChek != $emailDB)
                   {
+                    // echo $emailToChek . "<br>";
+                    // echo $emailDB . "<br>";;
+                    // echo "entro aqui <br>";
                     $_SESSION['cosFirstName'] = $_POST['firstNameSignUp'] . " " . $_POST['lastNameSignUp'];
                     //echo $_SESSION['cosFirstName'];
                     //echo $_SESSION['cosLastName'];
@@ -50,7 +54,9 @@
                     header("location:signUp2nd.php");
                   }
                   else {
-                    header("location:home.php");
+                    //echo "este email existe <br>";
+                    $_SESSION["message"] = "This email is already used";
+                    header("location:singUpPage.php");
                   }
                 }
             }
@@ -80,19 +86,19 @@
                           $LogCos = $row['CustomerID'];
                           //echo $_SESSION['cosCustomerID'];
                           $_SESSION['message'] = "You are now logged in";
-                          $_SESSION["message"] = "You are now logged in";
                           $_SESSION['cosFirstName'] = $row['FirstName'];
                           $_SESSION['cosEmail'] = $row['Email'];
                           $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
                           $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
                           $_SESSION['cosPassword'] = $row['Password'];
+                          header("location:home.php");
                         }
                      else
                         {
                       $_SESSION["message"] = "email/password combination incorrect";
                       //echo $message;
                       header("location:singUpPage.php");
-                //header("location:login.php");
+                      //header("location:login.php");
                         }
                     }
                   }
