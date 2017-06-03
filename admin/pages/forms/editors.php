@@ -18,6 +18,15 @@ $newDetails = $_POST['newdetails'];
   echo '<script>alert("Product has been updated!")</script>';
   header("location:general.php");
 }
+
+if(isset($_POST['delete_data'])){
+
+    $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
+    mysqli_query($db,$sql);
+
+    echo '<script>alert("Item Removed")</script>';
+    header("location:general3.php");
+  }
 include 'recycle/topbar.php';
 
 

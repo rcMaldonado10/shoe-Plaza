@@ -18,7 +18,7 @@ if(isset($_POST['submit_data']))
 
                   $tempImage = explode(".", $image);
                   $target = "images/".$_POST['imageName'] . '.' . end($tempImage);
-                  $newfilename = "../../../images". $_POST['imageName'] . '.' . end($tempImage);
+                  $newfilename = "../../../images/". $_POST['imageName'] . '.' . end($tempImage);
 
                   $query = "SELECT * FROM shoe WHERE `img-source` = '$target'";
 
@@ -67,6 +67,14 @@ if(isset($_POST['submit_data']))
                     }
                   }
 //
+if(isset($_POST['delete'])){
+
+    $sql ="DELETE FROM shoe WHERE ProductID='$_POST[delete]'";
+    mysqli_query($db,$sql);
+
+    echo '<script>alert("Item Deleted")</script>';
+    header("location:general.php");
+  }
 //   //image properties
 // //$image= $_FILES["fileToUpload"]["name"]; // name
 // //$sourcePath = $_FILES['fileToUpload']['tmp_name']; // Storing source path of the file in a variable
@@ -213,24 +221,6 @@ include 'recycle/topbar.php';
 
           </div>
           <!-- /.box -->
-
-          <!-- Form Element sizes -->
-          <div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Delete Product by ID</h3>
-            </div>
-            <div class="box-body">
-              <div class="form-group">
-                <label for="InputproductID">Type the Product ID</label>
-                <input type="text" name="id" class="form-control" id="Inputproduct_id" placeholder="1-10">
-              </div>
-
-              <div class="box-footer">
-                <button type="submit" name ="delete_data" class="btn btn-primary">Delete Product</button>
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
         </form>
           <!-- /.box -->
           <!--.box -->
@@ -246,7 +236,7 @@ include 'recycle/topbar.php';
                   ?>
             <table class="table table-bordered table-striped">
                   <thead>
-                    <form method="post" action="editors.php">
+                    <form method="post" action="general.php">
                   <tr>
                   <th>ProductID</th>
                   <th>Brand</th>
@@ -277,7 +267,7 @@ include 'recycle/topbar.php';
                     <td><?php echo $row["Price"]; ?></td>
                     <td><?php echo $row["img-source"]; ?></td>
                     <td><?php echo $row["Details"]; ?></td>
-                    <td> <button class="btn btn-info"name="edit" value=" <?= $row['ProductID'] ?>"> Edit</button></td>
+                    <td> <button class="btn btn-danger"name="delete" value=" <?= $row['ProductID'] ?>"> Delete</button></td>
 
                     </tr>
 

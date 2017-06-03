@@ -38,8 +38,9 @@ include 'recycle/topbar.php';
                 ?>
 
                   <div class="col-md-3">
-                  <form action="#" method="post"><label for="brand">
-                  <?php echo $row["Brand"] ; ?></label><img src=../<?php echo $row["img-source"]; ?> width="230" height="230" alt="Nike"/>
+                  <form action="#" method="post">
+                  <label for="brand"><?php echo $row["Brand"] ; ?></label><br>
+                  <img src=../<?php echo $row["img-source"]; ?> width="230" height="230" alt="Nike"/>
                   <br><?php $row["Model"]; ?></br>
                   <br>Price: $ <?php echo $row["Price"]; ?></br>
                   <br/>
@@ -59,7 +60,7 @@ include 'recycle/topbar.php';
   include 'recycle/footer.php';
   ?>
 
-  
+
 
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>

@@ -6,13 +6,7 @@ include 'recycle/topbar.php';
 $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connect");
 
 //  delete a product by Product ID
-   if(isset($_POST['delete_data'])){
 
-       $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
-       mysqli_query($db,$sql);
-
-       echo '<script>alert("Item Removed")</script>';
-     }
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -32,26 +26,6 @@ $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connec
 
     <!-- Main content -->
     <section class="content">
-
-          <!-- Form Element sizes -->
-          <div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Delete Product by ID</h3>
-            </div>
-            <div class="box-body">
-              <div class="form-group">
-                <label for="InputproductID">Type the Product ID</label>
-                <input type="text" name="id" class="form-control" id="Inputproduct_id" placeholder="1-10">
-              </div>
-
-              <div class="box-footer">
-                <button type="submit" name ="delete_data" class="btn btn-primary">Delete Product</button>
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-        </form>
-          <!-- /.box -->
           <!--.box -->
           <div class="box">
             <div class="box-header">
@@ -65,7 +39,7 @@ $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connec
                   ?>
             <table class="table table-bordered table-striped">
                   <thead>
-                    <form method="post" action="editors.php">
+                  <form method="post" action="editors.php">
                   <tr>
                   <th>ProductID</th>
                   <th>Brand</th>
