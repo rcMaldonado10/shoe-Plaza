@@ -76,11 +76,6 @@
                 <!-- <input type="text" value="<?php  //echo $_SESSION['cosFirstName']; ?>" name="firstNameEdit" /> -->
                 <textarea name="firstNameEdit" ><?php echo $_SESSION['cosFirstName']; ?></textarea>
                </div>
-
-               <div class="field-wrap">
-               <!-- <input type="text" value=<?php //echo $_SESSION['cosLastName']; ?> name="lastNameEdit"/> -->
-               <textarea name="lastNameEdit" ><?php echo $_SESSION['cosLastName']; ?></textarea>
-               </div>
              </div>
 
              <div class="field-wrap">

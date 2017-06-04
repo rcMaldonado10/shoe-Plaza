@@ -136,7 +136,9 @@ $resultHas_a =  mysqli_query($con, $sqlHas_a) or die("Bad query: $sqlHas_a");
   }
 
 ?>
-
+                  id         1   1   2   3  4
+                  size       7   8
+                  quantity   10  10
 
 </head>
 <body>
@@ -194,7 +196,7 @@ $resultHas_a =  mysqli_query($con, $sqlHas_a) or die("Bad query: $sqlHas_a");
            <div class="top-row">
              <div class="field-wrap">
                 <select name=billState class="req" required autocomplete="off">
-                  <option value="">State</option>
+                  <option selected hidden value="">State</option>
                   <option value="Puerto Rico">Puerto Rico</option>
                   <option value="Chicago">Chicago</option>
                   <option value="Florida">Florida</option>
