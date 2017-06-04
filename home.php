@@ -10,8 +10,8 @@ $_SESSION["message"] = 1;
 
  <?php
 include 'includes/checkbox.php';
-// echo $_SESSION['cosCustomerID'];
-// echo $_SESSION['creCustomerID'];
+ //echo $_SESSION['cosCustomerID']; //ID del cliente
+ //echo $_SESSION['creCustomerID'];//ID de la tarjeta de credito
  ?>
  <main class="main">
 <?php

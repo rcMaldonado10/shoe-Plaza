@@ -1,35 +1,29 @@
 <?php
 include 'Core/init.php';
- $sql = "SELECT * FROM customer_credit_card";
- $result = mysqli_query($con,$sql);
-   function getCreditCardInfo($id) {
+ session_start();
+ $custmerID = $_SESSION['cosCustomerID']; //ID del cliente
+ $creditID = $_SESSION['creCustomerID'];//ID de la tarjeta de credito de ese cliente
+ $_SESSION["name"] = "";
      $user = 'root';
      $pass = '';
      $db = 'shoeplaza';
-
 
     $con = mysqli_connect('localhost', $user, $pass, $db);
     if ($con->connect_error) {
         die("Unable to connect database: " . $con->connect_error);
     }
-    $query = "SELECT * FROM customer_credit_card WHERE Credit_Card_ID=$id";
-     $result = mysqli_query($con,$query);
-     if(mysqli_num_rows($result) > 0){
-        $row = mysqli_fetch_assoc($result);
-        return $row;
-      }
-  }
+    $query = "SELECT * FROM customer_credit_card WHERE Credit_Card_ID=$creditID";
+    $result = mysqli_query($con,$query);
 
-  if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $ccInfo = getCreditCardInfo($id);
-  }
+    if(isset($_POST["done"])){
+      echo 'Boom';
+    }
 ?>
 <!DOCTYPE html>
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Sign Up/Sign In Form</title>
+  <title>Select Payment Method</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
@@ -51,8 +45,8 @@ include 'Core/init.php';
         </div>
         <div class="col-md-4">
           <br>
-          <a href='editPayment.php?id=<?=$row["Credit_Card_ID"]?>' class="btn btn-primary">Select</a>
-          <a class="btn btn-danger">Delete</a>
+          <form method="post"><input type="submit" name="select" value="Select" class="btn btn-primary">
+          <input type="submit" class="btn btn-danger" name="delete" value="Delete"></form>
         </div>
       </tr>
         <?php }
@@ -63,15 +57,20 @@ include 'Core/init.php';
 </div>
     <div class="col-md-6">
     <?php
-    ?>
-      <h3>Please Verify Information, If Correct Press DONE</h3><br>
-      <label>Credit Card Name:</label>
-      <input class="form-control" type="text" placeholder="Credit Card Name" value="<?=$ccInfo["Name"]?>"/><br>
-      <label>Expiration Date:</label>
-      <input class="form-control" type="text" placeholder="Credit Card Expiration Date" value="<?=$ccInfo["Exp_Date"]?>"/><br>
-      <a  href="shopping_bag/checkout.php?number=<?=$ccInfo["Number"]?>&name=<?=$ccInfo["Name"]?>&expDate=<?=$ccInfo["Exp_Date"]?>" class="btn btn-success btn-lg btn-block">DONE</a>
-    </div>
+     if(isset($_POST["select"])){
+     $_SESSION["name"] = $row["Name"];
 
+     echo '<h3>Please Verify Information, If Correct Press DONE</h3><br>';
+     echo '<form method="post" action="shopping_bag/checkout.php">
+      <label>Credit Card Name:</label>
+      <input class="form-control" type="text" placeholder="Credit Card Name" name="ccName" value="'.$_SESSION["name"].'"/><br>
+      <label>Expiration Date:</label>
+      <input class="form-control" type="text" placeholder="Credit Card Expiration Date" name="ccDate" value=""><br>
+      <input  type="submit" class="btn btn-success btn-lg btn-block" name="done" value="DONE">
+      </form>';
+     }
+    ?>  
+    </div>
 </div>
 </body>
 </html>

@@ -16,20 +16,14 @@
       }
  }
 
+      $custmerID = $_SESSION['cosCustomerID']; //ID del cliente
+      $creditID = $_SESSION['creCustomerID'];//ID de la tarjeta de credito
 
-  $ccNumber="";
-  $ccName="";
-  $ccDate="";
-  if(isset($_GET["id"])){
-   $id = $_GET["id"];
-  // echo $id;
- }
- if(isset($_GET["number"]) && isset($_GET["name"]) && isset($_GET["expDate"])){
-   $ccNumber = $_GET["number"];
-   $ccName = $_GET["name"];
-   $ccDate = $_GET["expDate"];
-
- }
+      $query = "SELECT * FROM customer_credit_card WHERE Credit_Card_ID=$creditID";
+      $result = mysqli_query($connect,$query);
+      if(mysqli_num_rows($result) > 0){
+       $row = mysqli_fetch_assoc($result);
+   }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,10 +44,9 @@
 <div class="container">
     <div class="col-md-6">
         <h1>Payment Information</h1><a href="../editPayment.php">Edit Payment Information</a><br><br>
-
-        <label>Credit Card Number (last four digits):<?= ' '.$ccNumber?></label><br>
-        <label>Credit Card Name:<?= ' '.$ccName?></label><br>
-        <label>Credit Card Expiration Date:<?= ' '.$ccDate?></label><br>
+        <label>Credit Card Number (last four digits): <?= $row["Number"]?></label><br>
+        <label>Credit Card Name:<?=$row["Name"]?></label><br>
+        <label>Credit Card Expiration Date:<?=$row["Exp_Date"]?></label><br>
     </div>
     <div class="col-md-4">
         <h1>Shipping Method</h1><h5 style="color:orange;">FREE SHIPPING IN ALL OUR PURCHASES!</h5><br>
