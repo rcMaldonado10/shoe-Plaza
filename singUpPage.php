@@ -70,7 +70,7 @@
             if( "" !== $emailLog || "" !==$passLog)
             {
                     $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
-                $sql = "SELECT CustomerID, FirstName, Email, Billing_Address, Shipping_Address, Password FROM customer";
+                $sql = "SELECT CustomerID, Full_Name, Email, Billing_Address, Shipping_Address, Password FROM customer";
                 $result = mysqli_query($con, $sql) or die("Bad query: $sql");
                 if (mysqli_num_rows($result) > 0)
                   {

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2017 at 06:38 PM
+-- Generation Time: Jun 04, 2017 at 05:14 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `AdminID` int(10) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `username` varchar(35) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `email` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `username` varchar(35) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
 --
 -- Dumping data for table `admin`
@@ -50,7 +50,7 @@ INSERT INTO `admin` (`AdminID`, `email`, `password`, `username`) VALUES
 CREATE TABLE `customer` (
   `CustomerID` int(11) NOT NULL,
   `Email` varchar(30) COLLATE utf16_unicode_520_ci NOT NULL,
-  `FirstName` varchar(60) COLLATE utf16_unicode_520_ci NOT NULL,
+  `Full_Name` varchar(60) COLLATE utf16_unicode_520_ci NOT NULL,
   `Password` varchar(25) COLLATE utf16_unicode_520_ci NOT NULL,
   `Shipping_Address` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
   `Billing_Address` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`CustomerID`, `Email`, `FirstName`, `Password`, `Shipping_Address`, `Billing_Address`, `Status`) VALUES
+INSERT INTO `customer` (`CustomerID`, `Email`, `Full_Name`, `Password`, `Shipping_Address`, `Billing_Address`, `Status`) VALUES
 (1, 'yatio@hotmail.com', 'Yadiel Nieves Cardona', 'pepe', 'Puerto Rico^|^00669^|^Lares^|^Lares^|^LARES', 'Puerto Rico^|^00659^|^Hatillos^|^Hatillos^|^Hatillos', 1),
 (2, 'Pepe@gmail.com', 'Pepe La Variable', 'pepepepe', 'Massachusets^|^00669^|^City1^|^Street1^|^Postal1', 'Puerto Rico^|^00659^|^City2^|^Street2^|^Postal2', 1);
 
@@ -96,7 +96,7 @@ INSERT INTO `customer_credit_card` (`Credit_Card_ID`, `Number`, `Name`, `Exp_Dat
 CREATE TABLE `has` (
   `CustomerID` int(10) NOT NULL,
   `OrderID` int(10) NOT NULL,
-  `DateOrderMade` varchar(10) COLLATE utf16_unicode_520_ci NOT NULL,
+  `DateOrderMade` date NOT NULL,
   `Credit_Payment` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
@@ -108,8 +108,16 @@ CREATE TABLE `has` (
 
 CREATE TABLE `has_a` (
   `Credit_Card_ID` int(10) NOT NULL,
-  `CustomerID` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `CustomerID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_520_ci;
+
+--
+-- Dumping data for table `has_a`
+--
+
+INSERT INTO `has_a` (`Credit_Card_ID`, `CustomerID`) VALUES
+(1, 1),
+(2, 2);
 
 -- --------------------------------------------------------
 
@@ -137,30 +145,17 @@ CREATE TABLE `order_` (
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
---
--- Dumping data for table `order_`
---
-
-INSERT INTO `order_` (`OrderID`, `CustomerID`, `ProductID`, `status`) VALUES
-(1, 1, 16, 1),
-(2, 1, 1, 1),
-(3, 1, 1, 1),
-(4, 1, 1, 1),
-(5, 1, 1, 1),
-(6, 1, 1, 1);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `shipped_by`
+-- Table structure for table `shipper`
 --
 
-CREATE TABLE `shipped_by` (
+CREATE TABLE `shipper` (
   `OrderID` int(10) NOT NULL,
   `CompanyID` int(10) NOT NULL,
   `CompanyName` varchar(50) COLLATE utf16_unicode_520_ci NOT NULL,
   `Completed_Date` date NOT NULL,
-  `Shipping_Status` tinyint(1) NOT NULL,
   `Tracking_Number` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
@@ -177,7 +172,7 @@ CREATE TABLE `shoe` (
   `Category` varchar(25) COLLATE utf16_unicode_520_ci NOT NULL,
   `Gender` char(1) COLLATE utf16_unicode_520_ci NOT NULL,
   `Size` int(10) NOT NULL,
-  `Quantity_Stock` int(10) NOT NULL,
+  `Quantity_Stock` int(75) NOT NULL,
   `Price` float(5,2) NOT NULL,
   `img-source` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
   `Details` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL
@@ -188,8 +183,13 @@ CREATE TABLE `shoe` (
 --
 
 INSERT INTO `shoe` (`ProductID`, `Brand`, `Model`, `Category`, `Gender`, `Size`, `Quantity_Stock`, `Price`, `img-source`, `Details`) VALUES
-(1, 'Rebook', 'classic', 'Deportivo', 'M', 7, 10, 95.00, 'Images/men1.jpg', 'This is Great'),
-(2, 'Rebook', 'Sport Edition', 'Deportivo', 'M', 7, 10, 95.00, 'Images/men2.jpg', 'This i Great');
+(1, 'Rebook', 'Classic', 'Casual', 'M', 7, 10, 95.00, 'Images/men1.jpg', 'This is Great'),
+(2, 'Rebook', 'Sport Edition', 'Deportivo', 'M', 7, 10, 95.00, 'Images/men2.jpg', 'This i Great'),
+(3, 'Nike', 'Sport Edition', 'Deportivo', 'F', 7, 10, 39.99, 'images/woman4.jpg', 'This shoe is great!'),
+(4, 'Reebook', 'Reebook Fit', 'Sport', 'F', 6, 10, 39.99, 'images/woman1.jpg', 'This is Great'),
+(5, 'Reebook', 'Reebook Fit', 'Sport', 'F', 7, 10, 39.99, 'images/woman2.jpg', 'This is Great'),
+(6, 'Nike', 'Classic', 'Casual', 'M', 7, 10, 59.99, 'images/NikeMen1.jpg', 'This shoe is great !'),
+(7, 'Fentacia', 'Roadster', 'Casual', 'M', 7, 10, 59.99, 'images/men7.jpg', 'This shoe is great lol!');
 
 --
 -- Indexes for dumped tables
@@ -230,7 +230,7 @@ ALTER TABLE `has`
 --
 ALTER TABLE `has_a`
   ADD PRIMARY KEY (`Credit_Card_ID`,`CustomerID`),
-  ADD KEY `CustomerID` (`CustomerID`);
+  ADD KEY `has_a_ibfk_3` (`CustomerID`);
 
 --
 -- Indexes for table `is_in`
@@ -248,9 +248,9 @@ ALTER TABLE `order_`
   ADD KEY `ProductID` (`ProductID`);
 
 --
--- Indexes for table `shipped_by`
+-- Indexes for table `shipper`
 --
-ALTER TABLE `shipped_by`
+ALTER TABLE `shipper`
   ADD PRIMARY KEY (`OrderID`,`CompanyID`),
   ADD KEY `CompanyID` (`CompanyID`);
 
@@ -273,12 +273,12 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `customer_credit_card`
 --
 ALTER TABLE `customer_credit_card`
-  MODIFY `Credit_Card_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `Credit_Card_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `order_`
 --
@@ -288,7 +288,7 @@ ALTER TABLE `order_`
 -- AUTO_INCREMENT for table `shoe`
 --
 ALTER TABLE `shoe`
-  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Constraints for dumped tables
 --
@@ -304,8 +304,8 @@ ALTER TABLE `has`
 -- Constraints for table `has_a`
 --
 ALTER TABLE `has_a`
-  ADD CONSTRAINT `has_a_ibfk_1` FOREIGN KEY (`Credit_Card_ID`) REFERENCES `customer` (`CustomerID`) ON DELETE CASCADE,
-  ADD CONSTRAINT `has_a_ibfk_2` FOREIGN KEY (`CustomerID`) REFERENCES `customer_credit_card` (`Credit_Card_ID`) ON DELETE CASCADE;
+  ADD CONSTRAINT `has_a_ibfk_2` FOREIGN KEY (`Credit_Card_ID`) REFERENCES `customer_credit_card` (`Credit_Card_ID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `has_a_ibfk_3` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `is_in`
@@ -315,10 +315,10 @@ ALTER TABLE `is_in`
   ADD CONSTRAINT `is_in_ibfk_2` FOREIGN KEY (`ProductID`) REFERENCES `shoe` (`ProductID`) ON DELETE CASCADE;
 
 --
--- Constraints for table `shipped_by`
+-- Constraints for table `shipper`
 --
-ALTER TABLE `shipped_by`
-  ADD CONSTRAINT `shipped_by_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `order_` (`OrderID`) ON DELETE CASCADE;
+ALTER TABLE `shipper`
+  ADD CONSTRAINT `shipper_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `order_` (`OrderID`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -44,7 +44,7 @@
       {
         $result = mysqli_query($con,$sql) or die("Bad query: $sql");
         $result2 = mysqli_query($con,$sql2) or die("Bad query: $sql2");
-        $sqlSelCos = "SELECT CustomerID, FirstName, Email, Billing_Address, Shipping_Address, Password FROM customer";
+        $sqlSelCos = "SELECT CustomerID, Full_Name, Email, Billing_Address, Shipping_Address, Password FROM customer";
 
         $emailLog = $emailCos;
         $passLog = $passwordCos;
@@ -63,13 +63,13 @@
                   session_start();
 
                   $_SESSION['cosCustomerID'] = $row['CustomerID'];
-                  $_SESSION['message'] = "You are now logged in";
+                  // $_SESSION['message'] = "You are now logged in";
                   $message="You are now logged in";
-                  $_SESSION['cosFirstName'] = $row['FirstName'];
-                  $_SESSION['cosEmail'] = $row['Email'];
-                  $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
-                  $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
-                  $_SESSION['cosPassword'] = $row['Password'];
+                  // $_SESSION['cosFirstName'] = $row['FirstName'];
+                  // $_SESSION['cosEmail'] = $row['Email'];
+                  // $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
+                  // $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
+                  // $_SESSION['cosPassword'] = $row['Password'];
                 }
             }
           }

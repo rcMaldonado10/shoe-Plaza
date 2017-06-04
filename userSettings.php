@@ -10,6 +10,30 @@
 
   <?php
   session_start();
+  $cosID = $_SESSION['cosCustomerID'];
+  $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
+  $sqlSelCos = "SELECT CustomerID, Full_Name, Email, Billing_Address, Shipping_Address, Password FROM customer";
+  $resultCos = mysqli_query($con, $sqlSelCos) or die("Bad query: $sqlSelCos");
+  if (mysqli_num_rows($resultCos) > 0)
+    {
+      while($row = mysqli_fetch_assoc($resultCos))
+      {
+        $cheqID= $row["CustomerID"];
+        //echo  "email: " . $cheqEmail. " " . $cheqPass. "<br>";
+        if ($cosID==$cheqID)
+          {
+            // echo " esto se ve bien :D";
+            // session_destroy();
+            // session_start();
+            $_SESSION['cosCustomerID'] = $row['CustomerID'];
+            $_SESSION['cosFirstName'] = $row['Full_Name'];
+            $_SESSION['cosEmail'] = $row['Email'];
+            $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
+            $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
+            $_SESSION['cosPassword'] = $row['Password'];
+          }
+      }
+    }
   $cosBill = explode("^|^",$_SESSION['cosBillingAdd']);
   $cosShip = explode("^|^",$_SESSION['cosShipAdd']);
 
@@ -49,11 +73,8 @@
       $shippingAdd = $ShipStateEdit . '^|^' . $_POST['shipZipcodeEdit'] . '^|^' . $_POST['shipCityEdit'] . '^|^' . $_POST['shipStreetAddrEdit'] . '^|^' . $_POST['shipPostalAddressEdit'];
       $billingAdd = $BillStateEdit . '^|^' . $_POST['billZipcodeEdit'] . '^|^' . $_POST['billCityEdit'] . '^|^' . $_POST['billStreetEdit'] . '^|^' . $_POST['billPostalAddressEdit'];
 
-
-
-      $sql = "UPDATE customer SET FirstName= '$_POST[firstNameEdit]',LastName='$_POST[lastNameEdit]',Password='$_POST[passwordEdit]',Shipping_Address= '$shippingAdd' ,Billing_Address='$billingAdd'  WHERE Email='$emailForEdit'";
+      $sql = "UPDATE customer SET Full_Name = '$_POST[firstNameEdit]',Password='$_POST[passwordEdit]',Shipping_Address= '$shippingAdd' ,Billing_Address='$billingAdd'  WHERE Email='$emailForEdit'";
       $_SESSION['cosFirstName'] = $_POST['firstNameEdit'];
-      $_SESSION['cosLastName'] = $_POST['lastNameEdit'];
       $_SESSION['cosPassword'] = $_POST['passwordEdit'];
       $_SESSION['cosBillingAdd'] = $billingAdd;
       $_SESSION['cosShipAdd'] = $shippingAdd;
