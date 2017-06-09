@@ -120,7 +120,7 @@ include 'recycle/topbar.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Products Connected To Data Base
+        Add or Delete Products
         <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
@@ -246,7 +246,7 @@ include 'recycle/topbar.php';
                   <th>Size</th>
                   <th>Quantity Stock</th>
                   <th>Price</th>
-                  <th>img-source</th>
+                  <th>Image</th>
                   <th>Details</th>
                   <th>Action</th>
                   </tr>
@@ -265,7 +265,7 @@ include 'recycle/topbar.php';
                     <td><?php echo $row["Size"]; ?></td>
                     <td><?php echo $row["Quantity_Stock"];?></td>
                     <td><?php echo $row["Price"]; ?></td>
-                    <td><?php echo $row["img-source"]; ?></td>
+                    <td><img src="../../../<?php echo $row["img-source"]; ?>" width="50" height="50"/></td>
                     <td><?php echo $row["Details"]; ?></td>
                     <td> <button class="btn btn-danger"name="delete" value=" <?= $row['ProductID'] ?>"> Delete</button></td>
 

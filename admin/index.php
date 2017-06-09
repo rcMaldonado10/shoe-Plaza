@@ -39,12 +39,13 @@ include 'recycle/topbar.php';
 
                   <div class="col-md-3">
                   <form action="#" method="post">
-                  <label for="brand"><?php echo $row["Brand"] ; ?></label><br>
-                  <img src=../<?php echo $row["img-source"]; ?> width="230" height="230" alt="Nike"/>
-                  <br><?php $row["Model"]; ?></br>
-                  <br>Price: $ <?php echo $row["Price"]; ?></br>
+                  <label for="brand"><?= $row["Brand"] ; ?></label><br>
+                  <img src=../<?= $row["img-source"]; ?> width="230" height="230" alt="Nike"/>
+                  <br><?= $row["Model"]; ?></br>
+                  <br>Category: <?=$row['Category']?></br>
+                  <br>Price: $ <?= $row["Price"]; ?></br>
                   <br/>
-                  <button  class="btn btn-info"name="Details" value=<?php echo $row['ProductID']; ?>>Details</button>
+                  <button class="btn btn-info"name="Details" value=<?= $row['ProductID']; ?>>Details</button>
                   </form></div>
 
 

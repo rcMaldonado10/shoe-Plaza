@@ -5,6 +5,11 @@ session_set_cookie_params(0);
  $connect = mysqli_connect("localhost", "root", "", "shoeplaza");
  if(isset($_POST["add_to_cart"]))
  {
+
+
+    if($_POST["quantity"]<= $_POST["hidden_stock_check"])
+    {
+
       if(isset($_SESSION["shopping_cart"]))
       {
            $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
@@ -41,6 +46,10 @@ session_set_cookie_params(0);
            );
            $_SESSION["shopping_cart"][0] = $item_array;
       }
+    }else{
+  echo '<script>alert("The Quantity you selected is higher than the stock availabe")</script>';
+  
+    }
  }
  if(isset($_GET["action"]))
  {
@@ -57,6 +66,7 @@ session_set_cookie_params(0);
            }
       }
  }
+
 
  if(isset($_GET["var"])){
    $id = $_GET["var"];

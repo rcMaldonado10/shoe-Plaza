@@ -48,6 +48,7 @@ if(mysqli_num_rows($result) > 0){
             <input type="hidden" name="hidden_name" value="<?php echo $row["Brand"]; ?>" />
             <input type="hidden" name="hidden_price" value="<?php echo $row["Price"]; ?>" />
             <input type="hidden" name="hidden_gender" value="<?php echo $row["Gender"]; ?>" />
+            <input type="hidden" name="hidden_stock_check" value="<?php echo $row["Quantity_Stock"]; ?>" />
 
             <?php if($row['Quantity_Stock'] == 0){ ?>
 
@@ -55,7 +56,9 @@ if(mysqli_num_rows($result) > 0){
 
             <?php }else { ?>
             <input type="submit" name="add_to_cart" class="btn btn-warning" value="Add to Cart" />
+
               </form>
+
             <?php  } ?>
 
 

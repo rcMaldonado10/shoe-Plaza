@@ -55,8 +55,8 @@ include 'recycle/topbar.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage User and Admins Connected To Data Base
-        <small>Preview</small>
+        Manage Customer account or Credit Card info and Admins Connected To Data Base
+        <small>Add or Delete customers of Admin</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -222,7 +222,7 @@ include 'recycle/topbar.php';
               </div>
 
               <div class="box-footer">
-                <button type="submit" name ="delete_customer" class="btn btn-primary">Delete Customer</button>
+                <button type="submit" name ="delete_customer" class="btn btn-danger">Delete Customer</button>
               </div>
             </div>
             <!-- /.box-body -->
@@ -275,6 +275,7 @@ include 'recycle/topbar.php';
           </div>
 
           <!--.box -->
+
           <!--.box -->
           <div class="box">
             <div class="box-header">
@@ -331,7 +332,7 @@ include 'recycle/topbar.php';
                 </div>
 
                 <div class="box-footer">
-                  <button type="submit" name ="delete_admin" class="btn btn-primary">Delete Customer</button>
+                  <button type="submit" name ="delete_admin" class="btn btn-danger">Delete Customer</button>
                 </div>
               </div>
               <!-- /.box-body -->

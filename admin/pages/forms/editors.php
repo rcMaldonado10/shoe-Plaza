@@ -23,7 +23,6 @@ if(isset($_POST['delete_data'])){
 
     $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
     mysqli_query($db,$sql);
-
     echo '<script>alert("Item Removed")</script>';
     header("location:general3.php");
   }
@@ -38,7 +37,7 @@ include 'recycle/topbar.php';
     <section class="content-header">
       <h1>
         Text Editors
-        <small>Advanced form element</small>
+        <small>Edit the field you desire</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

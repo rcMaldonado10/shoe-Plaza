@@ -66,7 +66,7 @@
                   // $_SESSION['message'] = "You are now logged in";
                   $message="You are now logged in";
                   // $_SESSION['cosFirstName'] = $row['FirstName'];
-                  // $_SESSION['cosEmail'] = $row['Email'];
+                   $_SESSION['cosEmail'] = $row['Email'];
                   // $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
                   // $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
                   // $_SESSION['cosPassword'] = $row['Password'];
