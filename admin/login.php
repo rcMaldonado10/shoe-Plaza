@@ -77,7 +77,7 @@ echo $message;
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE | Log in</title>
+  <title>Shoe Plaza Admin | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -101,7 +101,7 @@ echo $message;
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <b>Admin</b>LTE
+    <b>Shoe Plaza </b>Admin
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -118,16 +118,10 @@ echo $message;
       </div>
 
       <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-          </div>
-        </div>
+
 
         <!-- /.col -->
-        <div class="col-xs-4">
+        <div class="col-xs-12">
           <button type="submit" name="sign_in" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>
 
@@ -136,8 +130,8 @@ echo $message;
     </form>
 
     <a href="#">I forgot my password</a><br>
-    <a href="register.php" class="text-center">Register a new membership</a>
-
+    <a href="register.php" class="text-center">Register a new membership</a><br>
+    <a href="../home.php" class="text-center">Go to Shoe Plaza website</a>
   </div>
   <!-- /.login-box-body -->
 </div>
