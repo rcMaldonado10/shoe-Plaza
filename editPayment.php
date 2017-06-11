@@ -1,9 +1,9 @@
 <?php
 include 'Core/init.php';
- session_start();
- $custmerID = $_SESSION['cosCustomerID']; //ID del cliente
- $creditID = $_SESSION['creCustomerID'];//ID de la tarjeta de credito de ese cliente
- $_SESSION["name"] = "";
+     session_start();
+     $custmerID = $_SESSION['cosCustomerID']; //ID del cliente
+     $creditID = $_SESSION['creCustomerID'];//ID de la tarjeta de credito de ese cliente
+     $_SESSION["name"] = "";
      $user = 'root';
      $pass = '';
      $db = 'shoeplaza';
