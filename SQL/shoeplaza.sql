@@ -3,6 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
+-- Generation Time: Jun 11, 2017 at 02:40 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -75,6 +76,7 @@ CREATE TABLE `customer_credit_card` (
   `Number` varchar(20) COLLATE utf16_unicode_520_ci NOT NULL,
   `Name` varchar(75) COLLATE utf16_unicode_520_ci NOT NULL,
   `Exp_Date` varchar(10) COLLATE utf16_unicode_520_ci NOT NULL,
+  `CVC` char(5) COLLATE utf16_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
 --
