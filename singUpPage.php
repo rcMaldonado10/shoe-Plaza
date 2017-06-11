@@ -86,11 +86,11 @@
                           $LogCos = $row['CustomerID'];
                           //echo $_SESSION['cosCustomerID'];
                           $_SESSION['message'] = "You are now logged in";
-                          $_SESSION['cosFirstName'] = $row['FirstName'];
-                          $_SESSION['cosEmail'] = $row['Email'];
-                          $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
-                          $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
-                          $_SESSION['cosPassword'] = $row['Password'];
+                          // $_SESSION['cosFirstName'] = $row['FirstName'];
+                          // $_SESSION['cosEmail'] = $row['Email'];
+                          // $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
+                          // $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
+                          // $_SESSION['cosPassword'] = $row['Password'];
                           header("location:home.php");
                         }
                      else
