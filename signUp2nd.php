@@ -34,7 +34,7 @@
         //echo $shippingAdd;
       $billingAdd = $_POST['billState'] . '^|^' . $_POST['billZipcode'] . '^|^' . $_POST['billCity'] . '^|^' . $_POST['billStreet'] . '^|^' . $_POST['billPostalAddress'];
         //echo $billingAdd;
-      $sql = "INSERT INTO customer (Email,FirstName,Password,Shipping_Address,Billing_Address,Status) VALUES ('$emailCos','$firstNameCos','$passwordCos','$shippingAdd','$billingAdd','1')";
+      $sql = "INSERT INTO customer (Email,Full_Name,Password,Shipping_Address,Billing_Address,Status) VALUES ('$emailCos','$firstNameCos','$passwordCos','$shippingAdd','$billingAdd','1')";
       //INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ('Pepe@you.com','Pepe','Pepe','IDK','Puerto Rico|00669|Lares|Callejones|box 8545','Puerto Rico|00669|Lares|Callejones|box 8545','1')
       // INSERT INTO `customer_credit_card` (`Credit_Card_ID`, `Number`, `Name`, `Exp_Date`, `CVC`) VALUES (NULL, '123456789', 'Pepe pepe', '2017-09-01', '1234');
       $sql2 = "INSERT INTO customer_credit_card (Number,Name,Exp_Date,CVC) VALUES ('$numberCre','$nameCre','$expiryCre','$CVCCre')";
@@ -136,10 +136,6 @@ $resultHas_a =  mysqli_query($con, $sqlHas_a) or die("Bad query: $sqlHas_a");
   }
 
 ?>
-                  id         1   1   2   3  4
-                  size       7   8
-                  quantity   10  10
-
 </head>
 <body>
   <div class="form">

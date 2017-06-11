@@ -195,7 +195,7 @@
            <div class="top-row">
              <div class="field-wrap">
                 <label>
-                  <span class="req">*</span>
+                  MM/YYYY<span class="req">*</span>
                 </label>
                  <input type="text" required="required" name="expiry"/>
               </div>
