@@ -239,7 +239,7 @@
             <input type="password"required autocomplete="off" name=logPass />
           </div>
 
-          <p class="forgot"><a href="#">Forgot Password?</a></p>
+          <p class="forgot"><a href="forgotPass.php">Forgot Password?</a></p>
 
           <button class="button button-block" name="LogIn" />Sign In</button>
 
