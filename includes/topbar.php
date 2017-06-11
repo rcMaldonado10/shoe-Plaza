@@ -89,7 +89,7 @@ function filterShoe($query){
             <li class="dropdown">
               <a class="glyphicon glyphicon-user" data-toggle="dropdown"></a>
               <ul class="dropdown-menu">
-                <li><a href="userSettings.php">Account Settings</a></li>
+                <li><a href="userSettings.php">Update Account Settings</a></li>
                 <li><a href="addNewCard.php">Add Card</a></li>
                 <li><a href="logout.php">Sign out</a></li>
               </ul>

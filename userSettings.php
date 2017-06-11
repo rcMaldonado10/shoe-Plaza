@@ -3,7 +3,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Adrress</title>
+  <title>Update Account Settings</title>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
@@ -90,7 +90,7 @@
 </head>
 <body>
   <div class="form">
-          <h1>Account Settings</h1>
+          <h1>Update Account Settings</h1>
           <form action="userSettings.php" method="post">
             <div class="top-row">
               <div class="field-wrap">
