@@ -47,8 +47,8 @@ session_set_cookie_params(0);
            $_SESSION["shopping_cart"][0] = $item_array;
       }
     }else{
-  echo '<script>alert("The Quantity you selected is higher than the stock availabe")</script>';
-  
+  echo '<script>alert("The Quantity you selected is higher than the stock available")</script>';
+
     }
  }
  if(isset($_GET["action"]))

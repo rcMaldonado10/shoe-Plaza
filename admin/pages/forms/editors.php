@@ -93,7 +93,7 @@ include 'recycle/topbar.php';
                         </div>
                         <div class="form-group">
                           <label for="Inputquantity">Quantity Stock</label>
-                          <input type="number" class="form-control text-rigth" name="newstock" min="1" max="255" value="<?= $row["Quantity_Stock"]; ?>"></input>
+                          <input type="number" class="form-control text-rigth" name="newstock" min="0" max="255" value="<?= $row["Quantity_Stock"]; ?>"></input>
                         </div>
                         <div class="form-group">
                           <label for="Inputprice">Price ($)</label>
