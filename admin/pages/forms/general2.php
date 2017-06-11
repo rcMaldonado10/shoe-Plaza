@@ -9,7 +9,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
       //echo $shippingAdd;
     $billingAdd = $_POST['stateBill'] . ' | ' . $_POST['zipcodebill'] . ' | ' . $_POST['citybill'] . ' | ' . $_POST['streetAddressBill'] . ' | ' . $_POST['postalAddress'];
     //  echo $billingAdd;
-    $sql = "INSERT INTO customer (Email,FirstName,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ('$_POST[email]','$_POST[first]','$_POST[last]','$_POST[password]','$shippingAdd','$billingAdd','1')";
+    $sql = "INSERT INTO customer (Email,Full_Name,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ('$_POST[email]','$_POST[first]','$_POST[last]','$_POST[password]','$shippingAdd','$billingAdd','1')";
 
     $sql2 = "INSERT INTO customer_credit_card (Number,Name,Exp_Date,CVC) VALUES ('$_POST[cardNumber]','$_POST[cardName]','$_POST[expCardDate]','$_POST[cardCVC]')";
 
@@ -261,7 +261,7 @@ include 'recycle/topbar.php';
                     <tr>
                     <td><?php echo $row["CustomerID"]; ?></td>
                     <td><?php echo $row["Email"]; ?></td>
-                    <td><?php echo $row["FirstName"]; ?></td>
+                    <td><?php echo $row["Full_Name"]; ?></td>
                     <td><?php echo $row["Password"]; ?></td>
                     <td><?php echo $row["Shipping_Address"]; ?></td>
                     <td><?php echo $row["Billing_Address"]; ?></td>
