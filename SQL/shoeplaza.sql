@@ -3,7 +3,6 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2017 at 02:24 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -28,8 +27,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `AdminID` int(10) NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `password` varchar(50) CHARACTER SET utf8 NOT NULL,
   `username` varchar(35) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
@@ -52,8 +51,8 @@ CREATE TABLE `customer` (
   `Email` varchar(30) COLLATE utf16_unicode_520_ci NOT NULL,
   `Full_Name` varchar(60) COLLATE utf16_unicode_520_ci NOT NULL,
   `Password` varchar(25) COLLATE utf16_unicode_520_ci NOT NULL,
-  `Shipping_Address` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
-  `Billing_Address` varchar(255) COLLATE utf16_unicode_520_ci NOT NULL,
+  `Shipping_Address` varchar(150) COLLATE utf16_unicode_520_ci NOT NULL,
+  `Billing_Address` varchar(150) COLLATE utf16_unicode_520_ci NOT NULL,
   `Status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
@@ -76,7 +75,6 @@ CREATE TABLE `customer_credit_card` (
   `Number` varchar(20) COLLATE utf16_unicode_520_ci NOT NULL,
   `Name` varchar(75) COLLATE utf16_unicode_520_ci NOT NULL,
   `Exp_Date` varchar(10) COLLATE utf16_unicode_520_ci NOT NULL,
-  `CVC` char(250) COLLATE utf16_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
 --
