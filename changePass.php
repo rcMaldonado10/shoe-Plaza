@@ -20,28 +20,13 @@
       }
         if(isset($_POST['Save']))
           {
-            $emailToChek = $_POST['email'];
+            $newpass = $_POST['password'];
+            $emailToChek = $_SESSION['cosEmail'];
             $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
-            $sql = "SELECT Email FROM customer";
+            $sql = "UPDATE `customer` SET `Password`= '$newpass' WHERE Email = '$emailToChek'";
             $result = mysqli_query($con, $sql) or die("Bad query: $sql");
-            if (mysqli_num_rows($result) > 0)
-              {
-                while($row = mysqli_fetch_assoc($result))
-                {
-                  $emailDB = $row["Email"];
-                  if($emailToChek == $emailDB)
-                  {
-                    $_SESSION['cosEmail'] = $_POST['email'];
-                    header("location:signUp2nd.php");
-                  }
-                  else {
-                    $_SESSION["message"] = "This email is already used";
-                    header("location:singUpPage.php");
-                  }
-                }
-            }
+            header("location:singUpPage.php");
           }
-
         ?>
 </head>
 <body>
@@ -51,12 +36,12 @@
       <div class="tab-content">
         <div id="signup">
           <h1>Forgot Password :(</h1>
-          <form action="singUpPage.php" method="post">
+          <form method="post">
             <div class="field-wrap">
               <label>
                 New Password<span class="req">*</span>
               </label>
-            <input type="email"required autocomplete="off" name="email"/>
+            <input type="password"required autocomplete="off" name="password"/>
            </div>
 
 
