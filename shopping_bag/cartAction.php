@@ -10,10 +10,15 @@
         $query ="SELECT * FROM Customer";
         $result = mysqli_query($connect,$query);
         $row = mysqli_fetch_assoc($result);
+       session_start();
+        echo "cos: ".$_SESSION['cosCustomerID']."<br>";
+        echo "cre: ".$_SESSION['creCustomerID']."<br>";
+        //insert order items into database
+        $IDCos = $_SESSION['cosCustomerID'];
+        $IDCre = $_SESSION['creCustomerID'];
+        $sql ="INSERT INTO order_ (CustomerID,ProductID,status) VALUES ('$IDCos','$_POST[hidden_id]','0')";
         mysqli_query($connect,$sql);
-
-// insert has  into database
-        $sql2 ="INSERT INTO has (CustomerID,OrderID, DateOrderMade) VALUES ('$row[CustomerID]',' ',' ','1')";
+        $queryOrder ="SELECT * FROM order_ ";
         $resultOrder = mysqli_query($connect,$queryOrder);
         $rowOrder = mysqli_fetch_assoc($resultOrder);
         // insert has  into database
@@ -25,66 +30,8 @@
         $result=mysqli_query($connect,$sql3);
 
 
-
-           <div class="container">
-               <h1>Order</h1>
-               <table class="table">
-               <thead>
-                   <tr>
-                       <th>Product</th>
-                       <th>Size</th>
-                       <th>Quantity</th>
-                       <th>Price</th>
-                       <th>Subtotal</th>
-                   </tr>
-               </thead>
-               <tbody>
-                 <?php
-                      if(!empty($_SESSION["shopping_cart"]))
-                      {
-                           $total = 0;
-                           foreach($_SESSION["shopping_cart"] as $keys => '.$values.')
-                           {
-                      ?>
-                      <tr>
-
-                        <input type="hidden" name="hidden_id" value=" $values["item_id"];"></input>
-                           <td><?php='.$values["item_name"].' -  '.$values["item_gender"].' ?></td>
-                           <td><?php= '.$values["item_size"].' ?></td>
-                           <td><?php= '.$values["item_quantity"].' ?></td>
-                           <td> $ <?php='.$values["item_price"].' ?></td>
-                           <td>$ <?php='.number_format($values["item_quantity"] * $values["item_price"], 2).' ?></td>
-
-                      </tr>
-
-                                '.$total = $total + ($values["item_quantity"] * $values["item_price"]).'
-                           }
-
-                      <tr>
-                           <td colspan="3" align="right">Total $ <?php= '.number_format($total, 2).' ?></td>
-                           <td></td>
-                      </tr>
-
-                      <?php
-                    }
-                      ?>
-
-                 </table>
-
-
-            visist us here: www.shoeplaza.com
-            </body>
-            </html>
-            ';
-
-            //mail($to, $subject, $msg, $headers)or die("mail error");
-
-          //  unset($_SESSION["shopping_cart"][0]);
-          //  session_start();
-            //session_destroy(); // termina todas las sessiones eliminando los items y customer
-                              // sale de su cuenta, si cause problemas eliminarlo.
-            // once donde go to orderSuccess.php
-            header("Location: orderSuccess.php?id=$orderID");
+        //  $orderID = $row["orderID"];
+            // insert order items into database
 
 //buscalo en el desktop esta alli
             //header("Location: orderSuccess.php?id=$orderID");
