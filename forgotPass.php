@@ -29,22 +29,18 @@
                 while($row = mysqli_fetch_assoc($result))
                 {
                   $emailDB = $row["Email"];
-                  echo $emailToChek;
-                  echo $row["Email"];
                   if($emailToChek == $emailDB)
                   {
-                    echo "entro al if cono";
                     $_SESSION['cosEmail'] = $_POST['email'];
-                    $_SESSION ["message"] = "Si Existeeeeee";
                     header("location:changePass.php");
                   }
                   else {
-                    echo "entro al else puneta";
                     $_SESSION["message"] = "No such email in directory";
                     // header("location:forgotPass.php");
                   }
                 }
             }
+            echo '<script>alert("The email does not exist")</script>';
           }
         ?>
 </head>
