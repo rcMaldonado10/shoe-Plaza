@@ -35,7 +35,7 @@ if(mysqli_num_rows($result) > 0){
             <h3 for="Quantity_Stock">Quantity: </h3>
 
           <div style="float: ; padding: 0 200px 0 0px;">
-            <input type="number" name="quantity" min="1" max="255"  value="1"  class="form-control text-center">
+            <input type="number" name="quantity" min="1" max=<?php echo $row["Quantity_Stock"]; ?>  value="1"  class="form-control text-center">
             <br>
             <h3 for="size">Size: </h3>
             <select name="size" id="size" class="form-control">
@@ -45,11 +45,11 @@ if(mysqli_num_rows($result) > 0){
               <option value="10">10</option>
               <option value="11">11</option>
             </select><br>
-            <input type="hidden" name="hidden_name" value="<?php echo $row["Brand"]; ?>" />
-            <input type="hidden" name="hidden_price" value="<?php echo $row["Price"]; ?>" />
-            <input type="hidden" name="hidden_gender" value="<?php echo $row["Gender"]; ?>" />
-            <input type="hidden" name="hidden_stock_check" value="<?php echo $row["Quantity_Stock"]; ?>" />
 
+            <input type="hidden" name="hidden_id" value="<?php echo $row["ProductID"]; ?>" />
+            <input type="hidden" name="hidden_price" value="<?php echo $row["Price"]; ?>" />
+            <input type="hidden" name="hidden_stock_check" value="quantity" />
+            <!-- <input type="hidden" name="hidden_Sise" value="size" /> -->
             <?php if($row['Quantity_Stock'] == 0){ ?>
 
               <label class="btn btn-danger">Sold</label>

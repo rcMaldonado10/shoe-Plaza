@@ -78,8 +78,8 @@
            ?>
            <tr>
              <form method="post" action="cartAction.php">
-             <input type="hidden" name="hidden_id" value="<?php echo $values["item_id"]; ?>"></input>
-                <td><?php echo $values["item_name"];?> - <?php echo $values["item_gender"]; ?></td>
+             <input type="hidden" name="hidden_id" value="<?php echo $values["item_id"];?>"></input>
+                <td><?php echo $values["item_id"]; ?></td>
                 <td><?php echo $values["item_size"]; ?></td>
                 <td><?php echo $values["item_quantity"]; ?></td>
                 <td>$ <?php echo $values["item_price"]; ?></td>
