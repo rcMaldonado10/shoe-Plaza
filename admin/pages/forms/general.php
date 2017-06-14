@@ -9,7 +9,7 @@ if(isset($_POST['submit_data']))
       {
           if($_POST['imageName']!="")
             {
-                if($_POST['details']!="")
+                if($_POST['details']!="" || $_POST['brand']!="" || $_POST['model']!="")
                 {
 
                   $image = $_FILES['fileToUpload']['name'];
@@ -53,7 +53,7 @@ if(isset($_POST['submit_data']))
                         }
                         else
                         {
-                            echo "Insert a Description";
+                            echo "Insert all the following fields";
                         }
                       }
                       else
@@ -71,9 +71,8 @@ if(isset($_POST['delete'])){
 
     $sql ="DELETE FROM shoe WHERE ProductID='$_POST[delete]'";
     mysqli_query($db,$sql);
-
     echo '<script>alert("Item Deleted")</script>';
-    header("location:general.php");
+
   }
 //   //image properties
 // //$image= $_FILES["fileToUpload"]["name"]; // name
@@ -125,8 +124,8 @@ include 'recycle/topbar.php';
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">General Elements</li>
+        <li><a href="#">Update</a></li>
+        <li class="active">Add / Delete Products</li>
       </ol>
     </section>
 

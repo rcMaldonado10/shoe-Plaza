@@ -23,7 +23,7 @@
 
 
 <header class="header">
-<div id="logo"> <img src="../images/headerlogo.png" width="401" height="110"/></div><!--end logodiv-->
+<div id="logo"> <a href="../home.php"><img src="../images/headerlogo.png" width="401" height="110"/></a></div><!--end logodiv-->
 </header>
 
 
@@ -45,12 +45,19 @@
         <ul class="nav navbar-nav">
           <li ><a href="#">Home</a></li>
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Men<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#"><b>Woman</b></a></li>
               <li><a href="#">Sport</a></li>
-              <li><a href="#"><b>Men</b></a></li>
+              <li><a href="#">Fashion</a></li>
+              <li><a href="#">Casual</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Women<span class="caret"></span></a>
+            <ul class="dropdown-menu">
               <li><a href="#">Sport</a></li>
+              <li><a href="#">Fashion</a></li>
+              <li><a href="#">Casual</a></li>
             </ul>
           </li>
           <li><a href="#">About</a></li>
@@ -66,17 +73,6 @@
               </ul>
             </li>
 
-
-
-        <div class="input-group">
-          <input type="text" class="form-control" name="ValueToSearch" placeholder="Search">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit" name="Search" value="Search">
-              <i class="glyphicon glyphicon-search"></i>
-            </button>
-          </div>
-        </div>
-      
         </ul>
       </div>
     </div>

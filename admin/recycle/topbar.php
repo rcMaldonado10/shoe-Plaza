@@ -63,7 +63,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="dist/img/avatar5.png" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">Admin</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -71,8 +71,8 @@
                 <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  Admin - Web Developer
+                  <small>Member since Nov. 2016</small>
                 </p>
               </li>
 
@@ -80,7 +80,7 @@
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
-                WELCOME :Alexander
+
                 <?php if(isset($_SESSION['message'])){
 
                 } ?>
@@ -108,7 +108,7 @@
           <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Admin</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -118,7 +118,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
@@ -126,7 +126,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="index.php"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+            <li><a href="index.php"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
           </ul>
         </li>
 
@@ -165,7 +165,7 @@
             </span>
           </a>
         </li>
-
+      </ul>
     </section>
     <!-- /.sidebar -->
   </aside>

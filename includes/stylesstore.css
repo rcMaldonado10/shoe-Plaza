@@ -4,32 +4,12 @@
   background-color: #F1F1F1;
 }
 
-<<<<<<< Updated upstream
+
 .fixedwith{
   background-color:none;
   width: 100%;
   margin: 2;
 }
-=======
-            font-family: sans-serif;
-            margin:0;
-            background-color: #F1F1F1;
-        }
-
-        .fixedwith{
-           background-color:none;
-            width: 50%;
-            margin: 2;
-
-        }
-
-
-        .break{
-
-            clear:both;
-        }
->>>>>>> Stashed changes
-
 
 .break{
     clear:both;
@@ -50,11 +30,7 @@
 }
 
 
-  .cartlogo{
-  height:35px;
-  width: 40px;
-  }
-
+  
 
   .boxCheck{
     width:130px;

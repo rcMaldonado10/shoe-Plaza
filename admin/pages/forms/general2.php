@@ -21,8 +21,9 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
   if(isset($_POST['submit_admin'])){
 
-    $sql ="INSERT INTO admin VALUES ('$_POST[email_admin]','$_POST[password_admin]','$_POST[user_admin]')";
+    $sql ="INSERT INTO admin VALUES (' ','$_POST[email_admin]','$_POST[password_admin]','$_POST[user_admin]')";
     mysqli_query($db,$sql);
+      echo '<script>alert("Admin has been Added")</script>';
   }
 
   if(isset($_POST['delete_customer'])){
@@ -37,13 +38,10 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
   if(isset($_POST['delete_admin'])){
 
-        if($_POST['adminEmail'] == ""){
-          echo '<script>alert("Enter an admin email to Removed")</script>';
-        }else{
-        $sql ="DELETE FROM admin WHERE email='$_POST[adminEmail]'";
+        $sql ="DELETE FROM admin WHERE AdminID='$_POST[delete_admin]'";
         mysqli_query($db,$sql);
         echo '<script>alert("Admin Removed")</script>';
-        }
+
   }
 ?>
 
@@ -55,13 +53,13 @@ include 'recycle/topbar.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Customer account or Credit Card info and Admins Connected To Data Base
-        <small>Add or Delete customers of Admin</small>
+        Manage Customer and Credit Card info, and Admins
+        <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Update</a></li>
-        <li class="active">General Elements</li>
+        <li class="active">Add User or Admin</li>
       </ol>
     </section>
 
@@ -210,7 +208,7 @@ include 'recycle/topbar.php';
             </div>
             <!-- /.box-body -->
           </div>
-          <!-- Form Delete Costumer sizes -->
+          <!-- Form Delete Customer sizes -->
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Delete Customer by ID</h3>
@@ -231,26 +229,31 @@ include 'recycle/topbar.php';
         </form>
           <!-- /.box -->
           <!--.box -->
+
+          <!--.box -->
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table Of Customer</h3>
+              <h3 class="box-title">Data Table Of Customer </h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                  <?php
-                  $sql ="SELECT * FROM customer";
-                  $result=mysqli_query($db,$sql);
-                  ?>
+              <?php
+              $sql ="SELECT * FROM customer";
+              $result=mysqli_query($db,$sql);
+              ?>
             <table class="table table-bordered table-striped">
                   <thead>
-                  <tr>
-                  <th>CustomerID</th>
-                  <th>Email</th>
-                  <th>First Name</th>
-                  <th>Password</th>
-                  <th>Shipping Address</th>
-                  <th>Billing Address</th>
-                  </tr>
+                    <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Full Name</th>
+                    <th>Password</th>
+                    <th>Shipping Address</th>
+                    <th>Billing Address</th>
+                    </tr>
                   </thead>
                   <tbody>
 
@@ -273,8 +276,9 @@ include 'recycle/topbar.php';
             </div>
             <!-- /.box-body -->
           </div>
+          </div>
+        </div>
 
-          <!--.box -->
 
           <!--.box -->
           <div class="box">
@@ -318,27 +322,7 @@ include 'recycle/topbar.php';
             </div>
             <!-- /.box-body -->
           </div>
-          <!-- Form Delete Admin by username -->
-          <form action="general2.php" method="post">
 
-            <div class="box box-success">
-              <div class="box-header with-border">
-                <h3 class="box-title">Delete Admin by Email</h3>
-              </div>
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="InputproductID">Type the Admin Username</label>
-                  <input type="email" name="adminEmail" class="form-control" id="Inputproduct_id" placeholder="admin@example.com">
-                </div>
-
-                <div class="box-footer">
-                  <button type="submit" name ="delete_admin" class="btn btn-danger">Delete Customer</button>
-                </div>
-              </div>
-              <!-- /.box-body -->
-            </div>
-
-          </form>
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Table Of Admin</h3>
@@ -351,6 +335,7 @@ include 'recycle/topbar.php';
                   ?>
             <table class="table table-bordered table-striped">
                   <thead>
+                    <form method="post" action="general2.php">
                   <tr>
                   <th>Email</th>
                   <th>Password</th>
@@ -366,11 +351,12 @@ include 'recycle/topbar.php';
                     <td><?php echo $row["email"];  ?></td>
                     <td><?php echo $row["password"]; ?></td>
                     <td><?php echo $row["username"]; ?></td>
-
+                    <td> <button class="btn btn-danger" name="delete_admin" value=" <?=$row["AdminID"]?>"> Delete</button></td>
 
                     </tr>
                 <?php  } ?>
                   </table>
+                  </form>
                   </tbody>
 
 

@@ -24,157 +24,33 @@ include 'recycle/topbar.php';
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Report Revenue by day</h3>
+              <h3 class="box-title">Data Table With Full Features</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Day</th>
-                  <th>Event</th>
-                  <th>Status</th>
-                  <th>customer email</th>
-                  <th>Amount Earn</th>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale
-                    </td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale
-                    </td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/16/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/16/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/16/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/17/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/17/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/17/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/18/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/18/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/18/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/19/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/19/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
+
+              
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
+                </tr>
                 </tfoot>
               </table>
             </div>
