@@ -193,7 +193,7 @@
                <select  name=status>
                   <!-- selected hidden -->
                  <option value="1">Never</option>
-                 <option value="0">Allways</option>
+                 <option value="0">Always</option>
 
                </select>
            </div>
