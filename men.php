@@ -2,6 +2,17 @@
 require_once 'Core/init.php';
 include 'includes/topbar.php';
 $_SESSION["page"] = "men";
+$query = "SELECT * FROM shoe WHERE Gender='M'";
+if(isset($_GET['cat'])){
+    $category = $_GET['cat'];
+    if($category == "sport"){
+      $query = "SELECT * FROM shoe WHERE Gender='M' AND Category='Sport'";
+    } else if($category == "casual"){  
+      $query = "SELECT * FROM shoe WHERE Gender='M' AND Category='Casual'";
+    } else if($category == "fashion"){
+        $query = "SELECT * FROM shoe WHERE Gender='M' AND Category='Fashion'";
+    }
+}
 ?>
   <div class="break" ></div>
  <h1 style="text-align: center;">Men</h1>
@@ -12,9 +23,7 @@ $_SESSION["page"] = "men";
  <main class="main">
 
 <?php
-  $query = "SELECT * FROM shoe WHERE Gender='M'";
     mysqli_query($con, $query) or die('Error querying database.');
-
     $result = mysqli_query($con, $query);
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_assoc($result)) {

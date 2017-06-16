@@ -66,8 +66,6 @@ session_set_cookie_params(0);
 
  if(isset($_GET["var"])){
    $id = $_GET["var"];
-
-
  }
  ?>
 <!DOCTYPE html>
