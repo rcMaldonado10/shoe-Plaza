@@ -15,7 +15,7 @@ include 'includes/checkbox.php';
  ?>
  <main class="main">
 <?php
-    $query = "SELECT * FROM shoe LIMIT 0,9";
+    $query = "SELECT * FROM shoe LIMIT 9,18";
    // mysqli_query($con, $query) or die('Error querying database.');
 
     $result = mysqli_query($con, $query);

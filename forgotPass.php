@@ -35,7 +35,6 @@
                     header("location:changePass.php");
                   }
                   else {
-                    $_SESSION["message"] = "No such email in directory";
                     // header("location:forgotPass.php");
                   }
                 }
