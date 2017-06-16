@@ -78,16 +78,9 @@
                     {
                       $cheqEmail= $row["Email"];
                       $cheqPass=  $row["Password"];
-                      $cheqStatus= $row["Status"];
                       echo  "email: " . $cheqEmail. " " . $cheqPass. "<br>";
-                      if ($emailLog==$cheqEmail AND $passLog == $cheqPass and $cheqStatus !=0)
+                      if ($emailLog==$cheqEmail AND $passLog == $cheqPass)
                         {
-
-                          //this variable needs to be 1 if he wants to Sign IN
-
-
-
-
                           //echo " esto se ve bien :D";
                           $_SESSION['cosCustomerID'] = $row['CustomerID'];
                           $LogCos = $row['CustomerID'];
@@ -98,12 +91,10 @@
                           // $_SESSION['cosBillingAdd'] = $row['Billing_Address'];
                           // $_SESSION['cosShipAdd'] = $row['Shipping_Address'];
                           // $_SESSION['cosPassword'] = $row['Password'];
-                        //  header("location:home.php");
-                        
-
-                      }else
+                          header("location:home.php");
+                        }
+                     else
                         {
-                          echo '<script>alert("email/password combination incorrect")</script>';
                       $_SESSION["message"] = "email/password combination incorrect";
                       //echo $message;
                       header("location:singUpPage.php");
@@ -123,12 +114,10 @@
                         echo  " Name: " . $cheqCos. "<br>";
                         if ($LogCos == $cheqCos)//$cheqNum==$NumLog AND
                           {
-
                             echo " esto se ve bien has_a :D";
                             $_SESSION['creCustomerID'] = $row['Credit_Card_ID'];
                             echo $_SESSION['creCustomerID'];
                             header("location:home.php");
-
                           }
                       }
                     }
@@ -250,7 +239,7 @@
             <input type="password"required autocomplete="off" name=logPass />
           </div>
 
-          <p class="forgot"><a href="forgotPass.php">Forgot Password?</a></p>
+          <p class="forgot"><a href="#">Forgot Password?</a></p>
 
           <button class="button button-block" name="LogIn" />Sign In</button>
 

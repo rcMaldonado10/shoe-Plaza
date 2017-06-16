@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2017 at 04:12 AM
+-- Generation Time: Jun 16, 2017 at 04:50 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -295,17 +295,17 @@ ALTER TABLE `customer_credit_card`
 -- AUTO_INCREMENT for table `has`
 --
 ALTER TABLE `has`
-  MODIFY `hasID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `hasID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `is_in`
 --
 ALTER TABLE `is_in`
-  MODIFY `is_in_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `is_in_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `order_`
 --
 ALTER TABLE `order_`
-  MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `shoe`
 --

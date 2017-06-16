@@ -44,9 +44,10 @@
               $sql4 = "SELECT Quantity_Stock from shoe where ProductID = $values[item_id]";
               $result4 = mysqli_query($connect,$sql4) or die("Bad query: $sql4");
               $row4 = mysqli_fetch_assoc($result4);
-              $New_Quantity =  $row4['Quantity_Stock'] - $values['item_quantity'];
+              $New_Quantity =   $row4['Quantity_Stock'] - $values['item_quantity'];
 
-              $sql5 = "UPDATE shoe SET Quantity_Stock = '$New_Quantity' WHERE $values[item_id]";
+              $sql5 = "UPDATE `shoe` SET `Quantity_Stock`= '$New_Quantity' WHERE `ProductID`= $values[item_id]";
+              $result5 = mysqli_query($connect,$sql5) or die("Bad query: $sql5");
         }
 
 
@@ -68,7 +69,7 @@
             echo "ID Item: ". $values['item_id']."<br>";
             echo "Item price: ".$values['item_price']."<br>";
             echo "Item quan: ".$values['item_quantity']."<br>";
-
+            unset($_SESSION["shopping_cart"]);
 //buscalo en el desktop esta alli
             header("Location: orderSuccess.php?id=$orderID");
 // else{
