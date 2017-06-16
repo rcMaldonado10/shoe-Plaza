@@ -156,7 +156,7 @@ include 'recycle/topbar.php';
                   <select name="category" class="form-control">
                     <option value="Sport">Sport</option>
                     <option value="Casual">Casual</option>
-                    <option value="Fation">Fashion</option>
+                    <option value="Fashion">Fashion</option>
                   </select>
                 </div>
                 <div class="form-group">
