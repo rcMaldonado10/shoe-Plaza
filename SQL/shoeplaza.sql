@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2017 at 02:40 AM
+-- Generation Time: Jun 16, 2017 at 04:12 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -62,8 +62,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`CustomerID`, `Email`, `Full_Name`, `Password`, `Shipping_Address`, `Billing_Address`, `Status`) VALUES
-(1, 'yatio@hotmail.com', 'Yadiel Nieves Cardona', 'pepe', 'Puerto Rico^|^00669^|^Lares^|^Lares^|^LARES', 'Puerto Rico^|^00659^|^Hatillos^|^Hatillos^|^Hatillos', 1),
-(2, 'Pepe@gmail.com', 'Pepe La Variable', 'pepepepe', 'Massachusets^|^00669^|^City1^|^Street1^|^Postal1', 'Puerto Rico^|^00659^|^City2^|^Street2^|^Postal2', 1);
+(1, 'yatio@hotmail.com', 'Yadiel Nieves Cardona', '1', 'Puerto Rico^|^00669^|^Lares^|^Lares^|^LARES', 'Puerto Rico^|^00659^|^Hatillos^|^Hatillos^|^Hatillos', 1),
+(2, 'Pepe@gmail.com', 'Pepe la Variable', '1', 'Massachusets^|^00669^|^City1^|^Street1^|^Postal1', 'Puerto Rico^|^00659^|^City2^|^Street2^|^Postal2', 1);
 
 -- --------------------------------------------------------
 
@@ -94,11 +94,10 @@ INSERT INTO `customer_credit_card` (`Credit_Card_ID`, `Number`, `Name`, `Exp_Dat
 --
 
 CREATE TABLE `has` (
-  `CustomerID` int(10) NOT NULL,
-  `OrderID` int(10) NOT NULL,
-  `DateOrderMade` date NOT NULL,
-  `Credit_Payment` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
+  `hasID` int(10) NOT NULL,
+  `CustomerID` int(11) NOT NULL,
+  `OrderID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -107,16 +106,18 @@ CREATE TABLE `has` (
 --
 
 CREATE TABLE `has_a` (
-  `Credit_Card_ID` int(10) NOT NULL,
-  `CustomerID` int(11) NOT NULL
+  `CustomerID` int(11) NOT NULL,
+  `Credit_Card_ID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_520_ci;
 
 --
 -- Dumping data for table `has_a`
 --
 
-INSERT INTO `has_a` (`Credit_Card_ID`, `CustomerID`) VALUES
+INSERT INTO `has_a` (`CustomerID`, `Credit_Card_ID`) VALUES
 (1, 1),
+(2, 1),
+(1, 2),
 (2, 2);
 
 -- --------------------------------------------------------
@@ -126,9 +127,9 @@ INSERT INTO `has_a` (`Credit_Card_ID`, `CustomerID`) VALUES
 --
 
 CREATE TABLE `is_in` (
+  `is_in_ID` int(11) NOT NULL,
   `OrderID` int(10) NOT NULL,
   `ProductID` int(10) NOT NULL,
-  `Price` float(5,2) NOT NULL,
   `Quantity` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
@@ -140,9 +141,10 @@ CREATE TABLE `is_in` (
 
 CREATE TABLE `order_` (
   `OrderID` int(10) NOT NULL,
-  `CustomerID` int(10) NOT NULL,
-  `ProductID` int(10) NOT NULL,
-  `status` tinyint(1) NOT NULL
+  `CompanyID` int(10) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `DateOrderMade` date NOT NULL,
+  `Credit_Payment` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
 
 -- --------------------------------------------------------
@@ -183,13 +185,22 @@ CREATE TABLE `shoe` (
 --
 
 INSERT INTO `shoe` (`ProductID`, `Brand`, `Model`, `Category`, `Gender`, `Size`, `Quantity_Stock`, `Price`, `img-source`, `Details`) VALUES
-(1, 'Rebook', 'Classic', 'Casual', 'M', 7, 10, 95.00, 'Images/men1.jpg', 'This is Great'),
-(2, 'Rebook', 'Sport Edition', 'Deportivo', 'M', 7, 10, 95.00, 'Images/men2.jpg', 'This i Great'),
-(3, 'Nike', 'Sport Edition', 'Deportivo', 'F', 7, 10, 39.99, 'images/woman4.jpg', 'This shoe is great!'),
-(4, 'Reebook', 'Reebook Fit', 'Sport', 'F', 6, 10, 39.99, 'images/woman1.jpg', 'This is Great'),
+(1, 'Skechers', 'Classic', 'Casual', 'M', 7, 10, 95.00, 'Images/men1.jpg', 'This is Great'),
+(2, 'Rebook', 'Sport Edition', 'Sport', 'M', 7, 10, 95.00, 'Images/men2.jpg', 'This i Great'),
+(3, 'Nike', 'Sport Edition', 'Sport', 'F', 7, 10, 39.99, 'images/woman4.jpg', 'This shoe is great!'),
+(4, 'Reebook', 'Reebook Fit', 'Sport', 'F', 7, 10, 39.99, 'images/woman1.jpg', 'This is Great'),
 (5, 'Reebook', 'Reebook Fit', 'Sport', 'F', 7, 10, 39.99, 'images/woman2.jpg', 'This is Great'),
 (6, 'Nike', 'Classic', 'Casual', 'M', 7, 10, 59.99, 'images/NikeMen1.jpg', 'This shoe is great !'),
-(7, 'Fentacia', 'Roadster', 'Casual', 'M', 7, 10, 59.99, 'images/men7.jpg', 'This shoe is great lol!');
+(7, 'Fentacia', 'Roadster', 'Casual', 'M', 7, 10, 59.99, 'images/men7.jpg', 'This shoe is great lol!'),
+(8, 'La Nouvelle Ãˆre', 'Feticci', 'Fashion', 'M', 7, 10, 49.99, 'images/la nouvelle Ã¨re-Feticci.jpg', 'High fashion for the moments of cache, made from the finest leather from Italy and hand made by designers from the Lamborghini team.'),
+(9, 'Bostonian', 'Konian', 'Fashion', 'M', 7, 10, 89.99, 'images/Bostonian-Konian.jpg', 'Bostonian made from Boston, Massachusetts. Made from premium American leather because we are gonna make footwear great again!'),
+(10, 'Sperry', 'Merry', 'Fashion', 'M', 7, 10, 99.99, 'images/Merry.jpg', 'Sperry is a brand recognized for their high quality products, nice felling leather, and their hand made manufacturing'),
+(11, 'Maroon', 'Animal', 'Fashion', 'F', 7, 10, 99.99, 'images/Animal.jpg', 'Animals were not harmed from the making of these shoes, leather is real tho!'),
+(12, 'Palma Alta', 'Estadidad', 'Fashion', 'F', 7, 10, 89.99, 'images/estadidad.jpg', 'This shoes will make Puerto Rico the state number 51 and will make the transition from smooth, even Ricky and JGO love them.'),
+(13, 'Black', 'Soul', 'Fashion', 'F', 7, 10, 99.99, 'images/soul.jpg', 'From the greatest depression women has ever had came to mind a way to show fashion, from 13 reasons shoes.'),
+(14, 'Mariela', 'Salmonela', 'Casual', 'F', 7, 10, 89.99, 'images/mariela.jpg', 'Mariela Salmonela are made from Puerto Rico, quality made and machined with precision.'),
+(15, 'Angelinas', 'Cotton', 'Casual', 'F', 7, 10, 49.99, 'images/cotton.jpg', 'Cotton is the best way to describe this, because your feet will be comfortable like never before'),
+(16, 'Square', 'Enix', 'Casual', 'F', 7, 10, 39.99, 'images/square.jpg', 'Confortable from the day you start wearing. Also they have squares ;)');
 
 --
 -- Indexes for dumped tables
@@ -222,7 +233,8 @@ ALTER TABLE `customer_credit_card`
 -- Indexes for table `has`
 --
 ALTER TABLE `has`
-  ADD PRIMARY KEY (`CustomerID`,`OrderID`),
+  ADD PRIMARY KEY (`hasID`,`CustomerID`,`OrderID`),
+  ADD KEY `has_a_ibfk_1` (`CustomerID`),
   ADD KEY `OrderID` (`OrderID`);
 
 --
@@ -236,16 +248,16 @@ ALTER TABLE `has_a`
 -- Indexes for table `is_in`
 --
 ALTER TABLE `is_in`
-  ADD PRIMARY KEY (`OrderID`,`ProductID`),
-  ADD KEY `ProductID` (`ProductID`);
+  ADD PRIMARY KEY (`is_in_ID`,`OrderID`,`ProductID`),
+  ADD KEY `ProductID` (`ProductID`),
+  ADD KEY `OrderID` (`OrderID`);
 
 --
 -- Indexes for table `order_`
 --
 ALTER TABLE `order_`
-  ADD PRIMARY KEY (`OrderID`,`CustomerID`,`ProductID`),
-  ADD KEY `CustomerID` (`CustomerID`),
-  ADD KEY `ProductID` (`ProductID`);
+  ADD PRIMARY KEY (`OrderID`,`CompanyID`),
+  ADD UNIQUE KEY `OrderID` (`OrderID`);
 
 --
 -- Indexes for table `shipper`
@@ -280,15 +292,25 @@ ALTER TABLE `customer`
 ALTER TABLE `customer_credit_card`
   MODIFY `Credit_Card_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `has`
+--
+ALTER TABLE `has`
+  MODIFY `hasID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `is_in`
+--
+ALTER TABLE `is_in`
+  MODIFY `is_in_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `order_`
 --
 ALTER TABLE `order_`
-  MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `shoe`
 --
 ALTER TABLE `shoe`
-  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ProductID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Constraints for dumped tables
 --
@@ -312,13 +334,7 @@ ALTER TABLE `has_a`
 --
 ALTER TABLE `is_in`
   ADD CONSTRAINT `is_in_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `order_` (`OrderID`) ON DELETE CASCADE,
-  ADD CONSTRAINT `is_in_ibfk_2` FOREIGN KEY (`ProductID`) REFERENCES `shoe` (`ProductID`) ON DELETE CASCADE;
-
---
--- Constraints for table `shipper`
---
-ALTER TABLE `shipper`
-  ADD CONSTRAINT `shipper_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `order_` (`OrderID`) ON DELETE CASCADE;
+  ADD CONSTRAINT `is_in_ibfk_2` FOREIGN KEY (`ProductID`) REFERENCES `shoe` (`ProductID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
