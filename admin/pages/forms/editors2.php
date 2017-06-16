@@ -1,32 +1,21 @@
 <?php
-//EDIT PRODUCTS
+//EDIT Customer
 $db = mysqli_connect("localhost","root","","shoeplaza") or die("Unable to connect");
-if(isset($_POST['submit']))
+if(isset($_POST['submitCustomer'])) // Here it will save all the data and update
 {
-$id = $_POST['id'];
-$newBrand = $_POST['newbrand'];
-$newModel = $_POST['newmodel'];
-$newCategory = $_POST['newcategory'];
-$newGender = $_POST['newgender'];
-$newSize = $_POST['newsize'];
-$newModel = $_POST['newmodel'];
-$newStock = $_POST['newstock'];
-$newPrice = $_POST['newprice'];
-$newSource = $_POST['newsource'];
-$newDetails = $_POST['newdetails'];
-  $sql = "UPDATE shoe SET Brand='$newBrand', Model='$newModel',Category='$newCategory',Gender='$newGender' ,Size='$newSize', Quantity_Stock = '$newStock', Price='$newPrice',Details = '$newDetails' WHERE ProductID='$id'";
+$idCustomer = $_POST['idcustomer'];
+$newEmail = $_POST['newEmail'];
+$newName = $_POST['newname'];
+$newPassword = $_POST['newCode'];
+$newStatus = $_POST['newStatus'];
+
+  $sql = "UPDATE customer SET Email='$newEmail', Full_Name ='$newName', Password = '$newPassword', Status='$newStatus'  WHERE CustomerID='$idCustomer' ";
   $result = mysqli_query($db,$sql) or die("Bad query: $sql");
-  echo '<script>alert("Product has been updated!")</script>';
-  header("location:general.php");
+  echo '<script>alert("Customer has been updated!")</script>';
+  header("location:general4.php");
 }
 
-if(isset($_POST['delete_data'])){
 
-    $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
-    mysqli_query($db,$sql);
-    echo '<script>alert("Item Removed")</script>';
-    header("location:general3.php");
-  }
 include 'recycle/topbar.php';
 
 
@@ -42,8 +31,8 @@ include 'recycle/topbar.php';
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">Editors</li>
+        <li><a href="#">Update</a></li>
+        <li class="active">Edit Customer</li>
       </ol>
     </section>
 
@@ -61,55 +50,36 @@ include 'recycle/topbar.php';
 
                     <?php
 
-                     if(isset($_POST['edit'])){
-                      $edit = $_POST['edit'];
-                      $query="SELECT * FROM shoe WHERE ProductID= '$edit'";
+                     if(isset($_POST['editCustomer'])){
+                      $edit = $_POST['editCustomer'];
+                      $query="SELECT * FROM customer WHERE CustomerID= '$edit'";
 
                       $result = mysqli_query($db, $query);
                       if(mysqli_num_rows($result) > 0){
                       $row = mysqli_fetch_assoc($result);
 
                       ?>
-                      <form action="editors.php" method="post">
-                        ProductID: <?= $row["ProductID"]; ?> <input type="hidden"  name="id" value="<?= $row["ProductID"]; ?>"></input>
+                      <form action="editors2.php" method="post">
+                        Customer ID: <?= $row["CustomerID"]; ?> <input type="hidden" name="idcustomer" value="<?= $row["CustomerID"]; ?>"></input>
                         <div class="form-group">
-                          <label for="Inputbrand">Brand</label>
-                          <input type="text" name="newbrand" class="form-control"  value="<?= $row['Brand']; ?>">
+                          <label for="InputEmail">Email</label>
+                          <input type="text" name="newEmail" class="form-control"  value="<?= $row["Email"]; ?>">
                         </div>
                         <div class="form-group">
-                          <label for="InputModel">Model</label>
-                          <input type="text" name="newmodel" class="form-control" value="<?= $row["Model"]; ?>">
+                          <label for="InputName">Full Name</label>
+                          <input type="text" name="newname" class="form-control" value="<?= $row["Full_Name"]; ?>">
                         </div>
                         <div class="form-group">
-                          <label for="InputCategory">Category</label>
-                          <input name="newcategory" class="form-control" value="<?= $row["Category"]; ?>">
+                          <label for="InputPassword">Password</label>
+                          <input name="newCode" class="form-control" value="<?= $row["Password"]; ?>">
                         </div>
                         <div class="form-group">
-                          <label for="InputGender">Gender</label>
-                          <input name="newgender" class="form-control" value="<?= $row["Gender"]; ?>">
-                        </div>
-                        <div class="form-group">
-                          <label for="InputSize">Size</label>
-                          <input name="newsize" class="form-control" value="<?= $row["Size"]; ?>"></input>
-                        </div>
-                        <div class="form-group">
-                          <label for="Inputquantity">Quantity Stock</label>
-                          <input type="number" class="form-control text-rigth" name="newstock" min="0" max="255" value="<?= $row["Quantity_Stock"]; ?>"></input>
-                        </div>
-                        <div class="form-group">
-                          <label for="Inputprice">Price ($)</label>
-                          <input name="newprice" class="form-control" value="<?= $row["Price"]; ?>"></input>
-                        </div>
-                        <div class="form-group">
-                          <label for="Inputprice">Image Source</label>
-                          <input name="newsource" class="form-control" value="<?= $row["img-source"]; ?>"></input>
-                        </div>
-                        <div class="form-group">
-                          <label for="InputDetails">Details</label>
-                          <input name="newdetails" class="form-control" value="<?= $row["Details"]; ?>"></input>
+                          <label for="InputStatus">Status (value 1 is that the status is active, 0 is where the status is inactive)</label>
+                          <input name="newStatus" class="form-control" value="<?= $row["Status"]; ?>">
                         </div>
 
-                      <button class="btn btn-info" name="submit"> Update</button><br>
+
+                      <button class="btn btn-info" name="submitCustomer"> Update</button><br>
                     </form>
 
             </div>

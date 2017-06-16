@@ -14,13 +14,13 @@ $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connec
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Update Products
+        Update Customer
         <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Update</a></li>
-        <li class="active">Update Products</li>
+        <li class="active">Update Customer</li>
       </ol>
     </section>
 
@@ -29,29 +29,26 @@ $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connec
           <!--.box -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table Of Products</h3>
+              <h3 class="box-title">Data Table Of Customer</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                   <?php
-                  $sql ="SELECT * FROM shoe";
+                  $sql ="SELECT * FROM Customer";
                   $result=mysqli_query($db,$sql);
                   ?>
             <table class="table table-bordered table-striped">
                   <thead>
-                  <form method="post" action="editors.php">
+                  <form method="post" action="editors2.php">
                   <tr>
-                  <th>ProductID</th>
-                  <th>Brand</th>
-                  <th>Model</th>
-                  <th>Category</th>
-                  <th>Gender</th>
-                  <th>Size</th>
-                  <th>Quantity Stock</th>
-                  <th>Price</th>
-                  <th>img-source</th>
-                  <th>Details</th>
                   <th>Action</th>
+                  <th>Status</th>
+                  <th>Email</th>
+                  <th>Full Name</th>
+                  <th>Password</th>
+                  <th>Shipping</th>
+                  <th>Billing</th>
+
                   </tr>
                   </thead>
                   <tbody>
@@ -60,17 +57,13 @@ $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connec
                   while ($row =mysqli_fetch_array($result)) {
                     ?>
                     <tr>
-                    <td><?php echo $row["ProductID"]; ?></td>
-                    <td><?php echo $row["Brand"]; ?></td>
-                    <td><?php echo $row["Model"]; ?></td>
-                    <td><?php echo $row["Category"]; ?></td>
-                    <td><?php echo $row["Gender"]; ?></td>
-                    <td><?php echo $row["Size"]; ?></td>
-                    <td><?php echo $row["Quantity_Stock"];?></td>
-                    <td><?php echo $row["Price"]; ?></td>
-                    <td><?php echo $row["img-source"]; ?></td>
-                    <td><?php echo $row["Details"]; ?></td>
-                    <td> <button class="btn btn-info"name="edit" value=" <?= $row['ProductID'] ?>"> Edit</button></td>
+                    <td> <button class="btn btn-info"name="editCustomer" value=" <?= $row['CustomerID'] ?>"> Edit</button></td>
+                    <td><?php echo $row["Status"]; ?></td>
+                    <td><?php echo $row["Email"]; ?></td>
+                    <td><?php echo $row["Full_Name"]; ?></td>
+                    <td><?php echo $row["Password"]; ?></td>
+                    <td><?php echo $row["Shipping_Address"]; ?></td>
+                    <td><?php echo $row["Billing_Address"]; ?></td>
 
                     </tr>
 

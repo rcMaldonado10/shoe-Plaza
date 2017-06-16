@@ -3,77 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <title>Add Card</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link href="includes/signUpStyle.css" rel="stylesheet" type="text/css">
-
-      <?PHP
-      session_start();
-      echo $_SESSION['cosCustomerID'];
-      echo $_SESSION['creCustomerID'];
-      if(isset($_POST['ADD']))
-      {
-            echo "aibsd";
-            header("location:home.php");
-            $nameCre = $_POST['first-name'];
+<?php
+$con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
+session_start();
+echo $_SESSION['cosCustomerID'];
+echo " ";
+echo $_SESSION['creCustomerID'];
+if(isset($_POST['ADD']))
+{
+  if($_POST['first-name']!="" || $_POST['number'] !="" || $_POST['cvc'] !="" || $_POST['expiry'] !="" ){
+      echo "aibsd";
+            //header("location:home.php");
+    $nameCre = $_POST['first-name'];
             //echo $_SESSION['creName'];
-            $numCre =  $_POST['number'];
+    $numCre =  $_POST['number'];
             //echo $_SESSION['creNumber'];
-            $cvcCre = $_POST['cvc'];
+    $cvcCre = $_POST['cvc'];
             //echo $_SESSION['creCVC'];
-            $expCre = $_POST['expiry'];
+    $expCre = $_POST['expiry'];
+
             //echo $_SESSION['creExpiry'];
-            $sqlSelCred = "INSERT INTO customer_credit_card (Number,Name,Exp_Date,CVC) VALUES ('$numCre','$nameCre','$expCre','$cvcCre')";
-            $resultCre = mysqli_query($con, $sqlSelCred) or die("Bad query: $sqlSelCred");
 
-            $LogCos = $_SESSION['cosCustomerID'];
+    $sqlSelCred = "INSERT INTO customer_credit_card (Number,Name,Exp_Date,CVC) VALUES ('$numCre','$nameCre','$expCre','$cvcCre')";
+    $resultCre = mysqli_query($con, $sqlSelCred) or die("Bad query: $sqlSelCred");
 
-            $sqlSelHas = "SELECT CustomerID,Credit_Card_ID FROM has_a";
-            $resultHas = mysqli_query($con, $sqlSelHas) or die("Bad query: $sqlSelHas");
-            if (mysqli_num_rows($resultHas) > 0)
-              {
-                while($row = mysqli_fetch_assoc($resultHas))
-                {
-                  $cheqCos=  $row["CustomerID"];
-                  echo  " Name: " . $cheqCos. "<br>";
-                  if ($LogCos == $cheqCos)//$cheqNum==$NumLog AND
-                    {
-                      echo " esto se ve bien has_a :D";
+    $LogCos = $_SESSION['cosCustomerID'];
 
+    $sqlSelHas = "SELECT * FROM customer_credit_card";
+    $resultHas = mysqli_query($con, $sqlSelHas) or die("Bad query: $sqlSelHas");
 
-                      //$sqlSelCred = "INSERT INTO has_a (CustomerID,Credit_Card_ID) VALUES ('$LogCos',)";
-                      $sqlSelHas = "SELECT CustomerID,Credit_Card_ID FROM has_a";
-                      $resultHas = mysqli_query($con, $sqlSelHas) or die("Bad query: $sqlSelHas");
-                      if (mysqli_num_rows($resultHas) > 0)
-                        {
-                          while($row = mysqli_fetch_assoc($resultHas))
-                          {
-                            $cheqCos=  $row["CustomerID"];
-                            echo  " Name: " . $cheqCos. "<br>";
-                            if ($LogCos == $cheqCos)//$cheqNum==$NumLog AND
-                              {
-                                echo " esto se ve bien has_a :D";
-                                $_SESSION['creCustomerID'] = $row['Credit_Card_ID'];
-                                $LogCre = $_SESSION['creCustomerID'];
-                                $sqlSelCred = "INSERT INTO has_a (CustomerID,Credit_Card_ID) VALUES ('$LogCos',$LogCre)";
-                                //header("location:home.php");
-                              }
-                          }
-                        }
+    while($row = mysqli_fetch_assoc($resultHas))
+    {
+       if ($nameCre == $row["Name"] AND $numCre == $row["Number"] AND $cvcCre == $row["CVC"] AND $expCre AND $row["Exp_Date"] ){
+         $_SESSION['creCustomerID'] = $row['Credit_Card_ID'];
+         $LogCre = $_SESSION['creCustomerID'];
 
-                      echo $_SESSION['creCustomerID'];
+          $sqlHas_a = "INSERT INTO has_a (CustomerID,Credit_Card_ID) VALUES ($LogCos,$LogCre)";
+          $resultHas_a = mysqli_query($con, $sqlHas_a) or die("Bad query: $sqlHas_a");
+          echo '<script>alert("Card has been Added")</script>';
+          header("location:home.php");
+      }
 
-                      // header("location:home.php");
-                    }
-                }
-              }
-          }
-        ?>
+    }
+  }else {
+    echo '<script>alert("Enter correctly all the fields")</script>';
+  }
+
+}
+?>
 </head>
 <body>
   <div class="form">
 
-  <form>
+  <form method="post" action="addNewCard.php">
     <div class="form-container">
       <div class="personal-information">
         <h1>Add Credit Card</h1>

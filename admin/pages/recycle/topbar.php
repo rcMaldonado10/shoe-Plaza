@@ -118,21 +118,7 @@
 
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Charts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="charts/chartjs.php"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-            <li><a href="charts/morris.php"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="charts/flot.php"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="charts/inline.php"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-          </ul>
-        </li>
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Update</span>
@@ -143,6 +129,7 @@
           <ul class="treeview-menu">
             <li class="active"><a href="forms/general.php"><i class="fa fa-circle-o"></i>Add/Delete Product</a></li>
             <li class="active"><a href="forms/general3.php"><i class="fa fa-circle-o"></i>Update Products</a></li>
+            <li class="active"><a href="form/general4.php"><i class="fa fa-circle-o"></i>Update Customers</a></li>
             <li class="active"><a href="forms/general2.php"><i class="fa fa-circle-o"></i>Add User and/or Admin</a></li>
           </ul>
         </li>

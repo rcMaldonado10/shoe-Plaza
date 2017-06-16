@@ -60,6 +60,7 @@
       echo $_POST['firstNameEdit'];
       $ShipStateEdit = $_POST['shipStateEdit'];
       $BillStateEdit = $_POST['billStateEdit'];
+      $customerStatus = $_POST['status']; // save the status value 1 or 0
       if($ShipStateEdit ==" ")
       {
         $ShipStateEdit = $cosShip[0];
@@ -73,16 +74,25 @@
       $shippingAdd = $ShipStateEdit . '^|^' . $_POST['shipZipcodeEdit'] . '^|^' . $_POST['shipCityEdit'] . '^|^' . $_POST['shipStreetAddrEdit'] . '^|^' . $_POST['shipPostalAddressEdit'];
       $billingAdd = $BillStateEdit . '^|^' . $_POST['billZipcodeEdit'] . '^|^' . $_POST['billCityEdit'] . '^|^' . $_POST['billStreetEdit'] . '^|^' . $_POST['billPostalAddressEdit'];
 
-      $sql = "UPDATE customer SET Full_Name = '$_POST[firstNameEdit]',Password='$_POST[passwordEdit]',Shipping_Address= '$shippingAdd' ,Billing_Address='$billingAdd'  WHERE Email='$emailForEdit'";
+      $sql = "UPDATE customer SET Full_Name = '$_POST[firstNameEdit]',Password='$_POST[passwordEdit]',Shipping_Address= '$shippingAdd' ,Billing_Address='$billingAdd',Status = '$customerStatus'  WHERE Email='$emailForEdit'";
       $_SESSION['cosFirstName'] = $_POST['firstNameEdit'];
       $_SESSION['cosPassword'] = $_POST['passwordEdit'];
       $_SESSION['cosBillingAdd'] = $billingAdd;
       $_SESSION['cosShipAdd'] = $shippingAdd;
-
       $result = mysqli_query($con,$sql) or die("Bad query: $sql");
+
       if ($result >= 0)
       {
+        if($customerStatus == 0){
+          session_start();
+          session_destroy();
+          unset($_SESSION['firstNameCos']);
+          $_SESSION['message']= "you are logged out";
+
+          header("location:home.php");
+        }else{
         header("location:home.php");
+      }
       }
   }
   ?>
@@ -176,10 +186,22 @@
              <!-- <input type="text" VALUE=<?php //echo "$prueba" ." ". $prueba; ?> name="billPostalAddressEdit"/> -->
              <textarea name="billPostalAddressEdit"><?php echo end($cosBill); ?></textarea>
             </div>
+
+            <div class="field-wrap">
+              <h2 style="color:#FFFFFF">Do you want to have this account close?</h2>
+              <h3 style="color:red">Warning: if you close this account, you will be sign out and have no access until you contact our Services</h3>
+               <select  name=status>
+                  <!-- selected hidden -->
+                 <option value="1">Never</option>
+                 <option value="0">Allways</option>
+
+               </select>
+           </div>
         <input type="submit" class="button button-block" VALUE="Save Changes" Name="Save" >
 
   </form>
 </div>
+
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="includes/ChuleriaCC.js"></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

@@ -32,7 +32,7 @@ include 'Core/init.php';
   <div class="col-md-6" >
 <table class="table table-striped">
   <tbody>
-    <?php 
+    <?php
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_assoc($result)){
     ?>
@@ -69,7 +69,7 @@ include 'Core/init.php';
       <input  type="submit" class="btn btn-success btn-lg btn-block" name="done" value="DONE">
       </form>';
      }
-    ?>  
+    ?>
     </div>
 </div>
 </body>
