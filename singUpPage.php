@@ -70,7 +70,7 @@
             if( "" !== $emailLog || "" !==$passLog)
             {
                     $con= new mysqli("localhost", "root", "", "shoeplaza") OR die("Fail to query database ");
-                $sql = "SELECT CustomerID, Full_Name, Email, Billing_Address, Shipping_Address, Password FROM customer";
+                $sql = "SELECT * FROM customer";
                 $result = mysqli_query($con, $sql) or die("Bad query: $sql");
                 if (mysqli_num_rows($result) > 0)
                   {
@@ -79,7 +79,8 @@
                       $cheqEmail= $row["Email"];
                       $cheqPass=  $row["Password"];
                       echo  "email: " . $cheqEmail. " " . $cheqPass. "<br>";
-                      if ($emailLog==$cheqEmail AND $passLog == $cheqPass)
+                      if ($emailLog==$cheqEmail AND $passLog == $cheqPass and $cheqStatus == 1)
+
                         {
                           //echo " esto se ve bien :D";
                           $_SESSION['cosCustomerID'] = $row['CustomerID'];
