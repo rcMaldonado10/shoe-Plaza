@@ -4,38 +4,114 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
   if(isset($_POST['submit_customer'])){
 
-
+    if($_POST['first'] != " " || $_POST['last'] != " " || $_POST['email'] != " " || $_POST['password'] != " " )
+    {
+    $fullName = $_POST['first'] . " " . $_POST['last'];
     $shippingAdd = $_POST['state'] . ' | ' . $_POST['zipcode'] . ' | ' . $_POST['shipCity'] . ' | ' . $_POST['streetAddress'] . ' | ' . $_POST['shipPostalAddress'];
       //echo $shippingAdd;
     $billingAdd = $_POST['stateBill'] . ' | ' . $_POST['zipcodebill'] . ' | ' . $_POST['citybill'] . ' | ' . $_POST['streetAddressBill'] . ' | ' . $_POST['postalAddress'];
     //  echo $billingAdd;
-    $sql = "INSERT INTO customer (Email,Full_Name,LastName,Password,Shipping_Address,Billing_Address,Status) VALUES ('$_POST[email]','$_POST[first]','$_POST[last]','$_POST[password]','$shippingAdd','$billingAdd','1')";
-
-    $sql2 = "INSERT INTO customer_credit_card (Number,Name,Exp_Date,CVC) VALUES ('$_POST[cardNumber]','$_POST[cardName]','$_POST[expCardDate]','$_POST[cardCVC]')";
+    // inset the customer with all of his info
+    $sql = "INSERT INTO customer VALUES (' ','$_POST[email]','$fullName','$_POST[password]','$shippingAdd','$billingAdd','1')";
+    //insert all customer credicart info
+    $sql2 = "INSERT INTO customer_credit_card VALUES (' ','$_POST[cardNumber]','$_POST[cardName]','$_POST[expCardDate]','$_POST[cardCVC]')";
 
     $result = mysqli_query($db,$sql) or die("Bad query: $sql");
     $result2 = mysqli_query($db,$sql2) or die("Bad query: $sql2");
-    echo '<script>alert("Customer Added")</script>';
 
+
+
+// first look for the table customer so we can asign the id to the variable
+    $sql3 = "SELECT * FROM customer";
+
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $result3 = mysqli_query($db, $sql3) or die("Bad query: $sql3");
+    if (mysqli_num_rows($result3) > 0)
+      {
+        while($row = mysqli_fetch_assoc($result3))
+        {
+          $cheqEmail= $row["Email"];
+          $cheqPass=  $row["Password"];
+          //echo  "email: " . $cheqEmail. " " . $cheqPass. "<br>";
+          if ($email==$cheqEmail AND $password == $cheqPass)
+            {
+
+              $customerID = $row["CustomerID"];
+            }
+
+          }
+        }
+        // Next look to the customer_credit_card table and id
+          $sql4 = "SELECT * FROM customer_credit_card";
+          $NumLog = $_POST["cardNumber"] ;
+          $NameLog = $_POST["cardName"];
+          $resultCre = mysqli_query($db, $sql4) or die("Bad query: $sql4");
+          if (mysqli_num_rows($resultCre) > 0)
+            {
+              while($row = mysqli_fetch_assoc($resultCre))
+              {
+                $cheqNum= $row["Number"];
+                $cheqName=  $row["Name"];
+                //echo  "<br> number: " . $cheqNum. " Name: " . $cheqName;  // take slaches to see the entire result printed
+                if ($NumLog == $cheqNum)//$cheqNum==$NumLog AND
+                  {
+                    $creditID = $row['Credit_Card_ID'];
+
+                  }
+              }
+            }
+
+
+// then insert the id of customer and credit card id to Table has_a
+
+    $sqlHas_a = "INSERT INTO has_a (CustomerID,Credit_Card_ID) VALUES ($customerID,$creditID)";
+    $resultHas_a =  mysqli_query($db, $sqlHas_a) or die("Bad query: $sqlHas_a");
+
+    echo '<script>alert("Customer Added")</script>';
+        }
+        else {
+          echo '<script>alert("Fill all the fields")</script>';
+        }
   }
 
+// this is is for inserting Admins
   if(isset($_POST['submit_admin'])){
 
     $sql ="INSERT INTO admin VALUES (' ','$_POST[email_admin]','$_POST[password_admin]','$_POST[user_admin]')";
     mysqli_query($db,$sql);
       echo '<script>alert("Admin has been Added")</script>';
   }
-
+// this if is for deleting customer and its creidtcard id
   if(isset($_POST['delete_customer'])){
     // delete the customer from data base
-      $sql ="DELETE FROM customer WHERE CustomerID='$_POST[customer_id]'" ;
+      $sql ="DELETE FROM customer WHERE CustomerID='$_POST[delete_customer]'" ;
       mysqli_query($db,$sql);
       // delete his credit card info if the id is the same
-      $sql ="DELETE FROM customer_credit_card WHERE Credit_Card_ID ='$_POST[customer_id]'" ;
-      mysqli_query($db,$sql);
+
       echo '<script>alert("Customer Removed")</script>';
   }
 
+
+  // this if is for deleting Credit card
+    if(isset($_POST['delete_card'])){
+
+      $sql ="DELETE FROM customer_credit_card WHERE Credit_Card_ID ='$_POST[delete_card]'" ;
+      mysqli_query($db,$sql);
+          echo '<script>alert("Credit Card Removed")</script>';
+
+    }
+
+    // this if is for deleting has_a data base
+    if(isset($_POST['delete_has'])){
+
+            $sql ="DELETE FROM has_a WHERE CustomerID='$_POST[delete_has]'";
+            mysqli_query($db,$sql);
+            echo '<script>alert("Admin Removed")</script>';
+
+    }
+
+// this if is for deleting admins
   if(isset($_POST['delete_admin'])){
 
         $sql ="DELETE FROM admin WHERE AdminID='$_POST[delete_admin]'";
@@ -183,8 +259,10 @@ include 'recycle/topbar.php';
               </div>
 
           </div>
+          </form>
           <!-- /.box -->
           <!-- Form Admin sizes -->
+          <form action="general2.php" method="post">
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Add new Admin</h3>
@@ -206,29 +284,11 @@ include 'recycle/topbar.php';
                 <button type="submit" name ="submit_admin" class="btn btn-primary">Add Admin</button>
               </div>
             </div>
+            </form>
             <!-- /.box-body -->
           </div>
-          <!-- Form Delete Customer sizes -->
-          <div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Delete Customer by ID</h3>
-            </div>
-            <div class="box-body">
-              <div class="form-group">
-                <label for="InputproductID">Type the Customer ID</label>
-                <input type="text" name="customer_id" class="form-control" id="Inputproduct_id" placeholder="1-10">
-              </div>
+          <!-- Form Delete Customer  -->
 
-              <div class="box-footer">
-                <button type="submit" name ="delete_customer" class="btn btn-danger">Delete Customer</button>
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-
-        </form>
-          <!-- /.box -->
-          <!--.box -->
 
           <!--.box -->
           <div class="row">
@@ -247,12 +307,14 @@ include 'recycle/topbar.php';
             <table class="table table-bordered table-striped">
                   <thead>
                     <tr>
+                    <form method="post" action="general2.php">
                     <th>ID</th>
                     <th>Email</th>
                     <th>Full Name</th>
                     <th>Password</th>
                     <th>Shipping Address</th>
                     <th>Billing Address</th>
+                    <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -268,18 +330,18 @@ include 'recycle/topbar.php';
                     <td><?php echo $row["Password"]; ?></td>
                     <td><?php echo $row["Shipping_Address"]; ?></td>
                     <td><?php echo $row["Billing_Address"]; ?></td>
+                    <td> <button class="btn btn-danger" name="delete_customer" value=" <?=$row["CustomerID"]?>"> Delete</button></td>
 
                     </tr>
                 <?php  } ?>
                   </table>
+                  <form>
                   </tbody>
             </div>
             <!-- /.box-body -->
           </div>
           </div>
         </div>
-
-
           <!--.box -->
           <div class="box">
             <div class="box-header">
@@ -294,12 +356,13 @@ include 'recycle/topbar.php';
             <table class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                  <form method="post" action="general2.php">
                   <th>Credit Card ID</th>
                   <th>Number</th>
                   <th>Name</th>
                   <th>Exp date</th>
                   <th>CVC</th>
-
+                  <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -314,11 +377,55 @@ include 'recycle/topbar.php';
                     <td><?php echo $row["Name"]; ?></td>
                     <td><?php echo $row["Exp_Date"]; ?></td>
                     <td><?php echo $row["CVC"]; ?></td>
+                    <td> <button class="btn btn-danger" name="delete_card" value=" <?=$row["Credit_Card_ID"]?>"> Delete</button></td>
 
                     </tr>
                 <?php  } ?>
                   </table>
+                  </form>
                   </tbody>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Table has_a</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                  <?php
+                  $sql ="SELECT * FROM has_a";
+                  $result=mysqli_query($db,$sql);
+                  ?>
+            <table class="table table-bordered table-striped">
+                  <thead>
+                  <form method="post" action="general2.php">
+                  <tr>
+                  <th>CustomerID</th>
+                  <th>Credit Card ID</th>
+                  <th>Action</th>
+
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <?php
+                  while ($row =mysqli_fetch_array($result)) {
+                    ?>
+                    <tr>
+                    <td><?php echo $row["CustomerID"];  ?></td>
+                    <td><?php echo $row["Credit_Card_ID"]; ?></td>
+                    <td> <button class="btn btn-danger" name="delete_has" value=" <?=$row["CustomerID"]?>"> Delete</button></td>
+
+                    </tr>
+                <?php  } ?>
+                  </table>
+                </form>
+                  </tbody>
+
+
+
             </div>
             <!-- /.box-body -->
           </div>
@@ -340,6 +447,7 @@ include 'recycle/topbar.php';
                   <th>Email</th>
                   <th>Password</th>
                   <th>Username</th>
+                  <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
