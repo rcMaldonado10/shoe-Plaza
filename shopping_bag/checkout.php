@@ -41,6 +41,7 @@
 
 </head>
 <body>
+<form method="post" action="cartAction.php">
 <div class="container">
     <div class="col-md-6">
         <h1>Payment Information</h1><a href="../editPayment.php">Edit Payment Information</a><br><br>
@@ -77,7 +78,7 @@
                 {
            ?>
            <tr>
-             <form method="post" action="cartAction.php">
+
              <input type="hidden" name="hidden_id" value="<?php echo $values["item_id"];?>"></input>
                 <td><?php echo $values["item_id"]; ?></td>
                 <td><?php echo $values["item_size"]; ?></td>
@@ -100,7 +101,7 @@
            ?>
 
       </table>
-      <button type="submit" name ="placeOrder" class="btn btn-success orderBtn">Place Order <i class="glyphicon glyphicon-menu-right"></i></a>
+      <button type="submit" name ="placeOrder" class="btn btn-success orderBtn">Place Order <i class="glyphicon glyphicon-menu-right"></i></button>
         </form>
  </div>
 </body>

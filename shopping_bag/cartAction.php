@@ -6,6 +6,7 @@
         // Once That insert the id in order\
 
         // aqui seria un for hasta q termine el array
+
         $connect = mysqli_connect("localhost", "root", "", "shoeplaza");
         $query ="SELECT * FROM Customer";
         $result = mysqli_query($connect,$query);
@@ -19,9 +20,9 @@
         $IDCre = $_SESSION['creCustomerID'];
         $date = date("Y-m-d H:i:s");
         echo $date;
-        $sql ="INSERT INTO order_ (CompanyID,status, DateOrderMade, Credit_Payment) VALUES ('1','0','$date','$IDCre')";
+        $sql ="INSERT INTO order_ (status, DateOrderMade, Credit_Payment) VALUES ('0','$date','$IDCre')";
         mysqli_query($connect,$sql)or die("Bad query: $sql");
-        $queryOrder ="SELECT * FROM `order_` WHERE `CompanyID` = 1 and `DateOrderMade` = '$date' and `Credit_Payment` = '$IDCre'";
+        $queryOrder ="SELECT * FROM `order_` WHERE `DateOrderMade` = '$date' and `Credit_Payment` = '$IDCre'";
         $resultOrder = mysqli_query($connect,$queryOrder) or die("Bad query: $queryOrder");
         $rowOrder = mysqli_fetch_assoc($resultOrder);
         $total = 0;
@@ -50,6 +51,15 @@
 
               $sql5 = "UPDATE `shoe` SET `Quantity_Stock`= '$New_Quantity' WHERE `ProductID`= $values[item_id]";
               $result5 = mysqli_query($connect,$sql5) or die("Bad query: $sql5");
+
+              $CompanyID = $_POST['shipper'];
+              $dateYear = date("Y-m-d");
+              date_add($dateYear,date_interval_create_from_date_string("15 days"));
+              echo $dateYear;
+              $sql6 = "INSERT INTO `Shipping`(`OrderID`, `CompanyID`, `Completed_Date`, `Traking_Number`) VALUES ('$rowOrder[OrderID]',$CompanyID,$dateYear,20)";
+              $result6 = mysqli_query($connect,$sql6) or die("Bad query: $sql6");
+              $row6 = mysqli_fetch_assoc($result6);
+
               echo "<br> variables en el ciclo <br>";
               echo "Order: ". $rowOrder['OrderID']."<br>";
               echo "ID Item: ". $values['item_id']."<br>";

@@ -24,7 +24,7 @@
               $db= mysqli_connect("localhost", "root", "", "shoeplaza");
               session_start();
               $CosID = $_SESSION['cosCustomerID'];
-              echo $CosID;
+              //echo $CosID;
 
               $sql ="SELECT order_.CompanyID,order_.status,order_.DateOrderMade,order_.Credit_Payment,has.CustomerID, is_in.ProductID,is_in.Quantity,is_in.OrderID from has,order_,is_in where order_.OrderID = has.OrderID and has.OrderID = is_in.OrderID and has.CustomerID = '$CosID' Order by OrderID";
               $result=mysqli_query($db,$sql) or die("Bad query: $sql");
@@ -41,7 +41,7 @@
                     <tr>
                       <th>OrderID</th>
                       <th>CompanyID</th>
-                      <th>ProductID</th>
+                      <th>Brand and Model</th>
                       <th>Quantity</th>
                       <th>Status</th>
                     </tr>
@@ -50,16 +50,16 @@
 
                       <?php
                       while ($row =mysqli_fetch_array($result)) {
+                        $sqlShoe = "SELECT * from shoe where ProductID = $row[ProductID]";
+                        $resultShoe=mysqli_query($db,$sqlShoe) or die("Bad query: $sqlShoe");
+                        $rowShoe =mysqli_fetch_array($resultShoe);
+                        // echo $row['ProductID'] ;
                       ?>
                       <tr>
                       <td><?php echo $row["OrderID"]; ?></td>
                       <td><?php echo $row["CompanyID"]; ?></td>
-                      <?php //$sqlShoe = "SELECT 'img-source' from shoe where ProductID = $row[ProductID]";
-                            //$resultShoe=mysqli_query($db,$sqlShoe) or die("Bad query: $sqlShoe");
-                            //$rowShoe =mysqli_fetch_array($resultShoe);
-                            // echo $row['ProductID'] ;?>
                             <!-- <img src="$rowShoe['img-source']" width="150" height="150" alt="Shoe"/> -->
-                      <td><?php echo$row['ProductID']; ?> </td>
+                      <td><?php echo $rowShoe['Brand'] . " " . $rowShoe['Model']; ?> </td>
                       <td><?php echo $row["Quantity"]; ?></td>
                       <td><?php echo $row["status"]; ?></td>
                       </tr>
@@ -79,7 +79,7 @@
               <!-- /.box -->
 
             </div>
-            <!-- /.col -->  
+            <!-- /.col -->
 
           </div>
 

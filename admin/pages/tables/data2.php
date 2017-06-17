@@ -25,14 +25,15 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          
+
           <!-- /.box -->
 
           <!--WEEK -->
           <?php
           $db= mysqli_connect("localhost", "root", "", "shoeplaza");
-          $sql ="SELECT * FROM order_";
-          $result=mysqli_query($db,$sql);
+          $sql ="SELECT order_.CompanyID,order_.status,order_.DateOrderMade,order_.Credit_Payment,has.CustomerID, is_in.ProductID,is_in.Quantity,is_in.OrderID from has,order_,is_in where order_.OrderID = has.OrderID and has.OrderID = is_in.OrderID  Order by OrderID";
+          $result=mysqli_query($db,$sql) or die("Bad query: $sql");
+
           ?>
           <div class="box">
             <div class="box-header">
@@ -43,9 +44,11 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>OrderID</th>
-                  <th>CustomerID</th>
-                  <th>ProductID</th>
+                  <th>OrderID</th><!--// -->
+                  <th>CustomerID</th><!--//un select que saque el nombre q la perdona  -->
+                   <th>CompanyID</th><!--//un select la tabla de shipper q salga el nombre y ya -->
+                   <th>ProductID</th><!--//un select que salga el nombre del zapato o/y la imagen -->
+                   <th>Quantity</th>
                   <th>Status</th>
                 </tr>
                 </thead>
@@ -57,7 +60,14 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
                   <tr>
                   <td><?php echo $row["OrderID"]; ?></td>
                   <td><?php echo $row["CustomerID"]; ?></td>
-                  <td><?php echo $row["ProductID"]; ?></td>
+                  <td><?php echo $row["CompanyID"]; ?></td>
+                  <?php //$sqlShoe = "SELECT 'img-source' from shoe where ProductID = $row[ProductID]";
+                        //$resultShoe=mysqli_query($db,$sqlShoe) or die("Bad query: $sqlShoe");
+                        //$rowShoe =mysqli_fetch_array($resultShoe);
+                        // echo $row['ProductID'] ;?>
+                        <!-- <img src="$rowShoe['img-source']" width="150" height="150" alt="Shoe"/> -->
+                  <td><?php echo$row['ProductID']; ?> </td>
+                  <td><?php echo $row["Quantity"]; ?></td>
                   <td><?php echo $row["status"]; ?></td>
                   </tr>
                   <?php  } ?>
@@ -65,12 +75,14 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
 
                 </tbody>
                 <tfoot>
-                <tr>
-                  <th>OrderID</th>
-                  <th>CustomerID</th>
-                  <th>ProductID</th>
-                  <th>Status</th>
-                </tr>
+                  <tr>
+                    <th>OrderID</th><!--// -->
+                    <th>CustomerID</th><!--//un select que saque el nombre q la perdona  -->
+                     <th>CompanyID</th><!--//un select la tabla de shipper q salga el nombre y ya -->
+                     <th>ProductID</th><!--//un select que salga el nombre del zapato o/y la imagen -->
+                     <th>Quantity</th>
+                    <th>Status</th>
+                  </tr>
                 </tfoot>
               </table>
             </div>
