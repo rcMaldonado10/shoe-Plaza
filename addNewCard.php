@@ -92,9 +92,9 @@ if(isset($_POST['ADD']))
            <div class="top-row">
              <div class="field-wrap">
                 <label>
-                  <span class="req">*</span>
+                  MM/YYYY<span class="req">*</span>
                 </label>
-                 <input type="month" required="required" name="expiry"/>
+                 <input type="text" required="required" name="expiry"/>
               </div>
 
               <div class="field-wrap">
