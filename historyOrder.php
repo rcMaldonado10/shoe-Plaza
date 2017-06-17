@@ -22,8 +22,13 @@
               <!--WEEK -->
               <?php
               $db= mysqli_connect("localhost", "root", "", "shoeplaza");
-              $sql ="SELECT order_.OrderID, CustomerID, ProductID, STATUS , Quantity FROM order_, is_in, has where 'order_.OrderID' = 'has.OrderID' and 'order_.OrderID' = 'is_in.OrderID' and 'is_in.OrderID' = 'has.OrderID'";
+              session_start();
+              $CosID = $_SESSION['cosCustomerID'];
+              echo $CosID;
+
+              $sql ="SELECT order_.CompanyID,order_.status,order_.DateOrderMade,order_.Credit_Payment,has.CustomerID, is_in.ProductID,is_in.Quantity,is_in.OrderID from has,order_,is_in where order_.OrderID = has.OrderID and has.OrderID = is_in.OrderID and has.CustomerID = '$CosID' Order by OrderID";
               $result=mysqli_query($db,$sql) or die("Bad query: $sql");
+
               ?>
               <div class="box">
               <center>  <div class="box-header">
@@ -35,8 +40,9 @@
                     <thead>
                     <tr>
                       <th>OrderID</th>
-                      <th>CustomerID</th>
+                      <th>CompanyID</th>
                       <th>ProductID</th>
+                      <th>Quantity</th>
                       <th>Status</th>
                     </tr>
                     </thead>
@@ -46,11 +52,16 @@
                       while ($row =mysqli_fetch_array($result)) {
                       ?>
                       <tr>
-                      <td><?php echo $row["order_.OrderID"]; ?></td>
-                      <td><?php echo $row["CustomerID"]; ?></td>
-                      <td><?php echo $row["ProductID"]; ?></td>
-                      <td><?php echo $row["STATUS"]; ?></td>
+                      <td><?php echo $row["OrderID"]; ?></td>
+                      <td><?php echo $row["CompanyID"]; ?></td>
+                      <?php //$sqlShoe = "SELECT 'img-source' from shoe where ProductID = $row[ProductID]";
+                            //$resultShoe=mysqli_query($db,$sqlShoe) or die("Bad query: $sqlShoe");
+                            //$rowShoe =mysqli_fetch_array($resultShoe);
+                            // echo $row['ProductID'] ;?>
+                            <!-- <img src="$rowShoe['img-source']" width="150" height="150" alt="Shoe"/> -->
+                      <td><?php echo$row['ProductID']; ?> </td>
                       <td><?php echo $row["Quantity"]; ?></td>
+                      <td><?php echo $row["status"]; ?></td>
                       </tr>
                       <?php  } ?>
 
