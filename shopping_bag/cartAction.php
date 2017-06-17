@@ -17,9 +17,11 @@
         //insert order items into database
         $IDCos = $_SESSION['cosCustomerID'];
         $IDCre = $_SESSION['creCustomerID'];
-        $sql ="INSERT INTO order_ (CompanyID,status, DateOrderMade, Credit_Payment) VALUES ('1','0','1000-01-02','$IDCre')";
+        $date = date("Y-m-d H:i:s");
+        echo $date;
+        $sql ="INSERT INTO order_ (CompanyID,status, DateOrderMade, Credit_Payment) VALUES ('1','0','$date','$IDCre')";
         mysqli_query($connect,$sql)or die("Bad query: $sql");
-        $queryOrder ="SELECT * FROM order_ ";
+        $queryOrder ="SELECT * FROM `order_` WHERE `CompanyID` = 1 and `DateOrderMade` = '$date' and `Credit_Payment` = '$IDCre'";
         $resultOrder = mysqli_query($connect,$queryOrder) or die("Bad query: $queryOrder");
         $rowOrder = mysqli_fetch_assoc($resultOrder);
         $total = 0;
@@ -48,6 +50,11 @@
 
               $sql5 = "UPDATE `shoe` SET `Quantity_Stock`= '$New_Quantity' WHERE `ProductID`= $values[item_id]";
               $result5 = mysqli_query($connect,$sql5) or die("Bad query: $sql5");
+              echo "<br> variables en el ciclo <br>";
+              echo "Order: ". $rowOrder['OrderID']."<br>";
+              echo "ID Item: ". $values['item_id']."<br>";
+              echo "Item price: ".$values['item_price']."<br>";
+              echo "Item quan: ".$values['item_quantity']."<br>";
         }
 
 
@@ -64,11 +71,12 @@
           $orderID = $rowOrder['OrderID'];
             // insert order items into database
 
-
+            echo "<br> variables <br>";
             echo "Order: ". $rowOrder['OrderID']."<br>";
             echo "ID Item: ". $values['item_id']."<br>";
             echo "Item price: ".$values['item_price']."<br>";
             echo "Item quan: ".$values['item_quantity']."<br>";
+            $_SESSION['orderIDD'] = $orderID;
             unset($_SESSION["shopping_cart"]);
 //buscalo en el desktop esta alli
             header("Location: orderSuccess.php?id=$orderID");

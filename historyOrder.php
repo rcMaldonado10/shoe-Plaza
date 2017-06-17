@@ -22,8 +22,8 @@
               <!--WEEK -->
               <?php
               $db= mysqli_connect("localhost", "root", "", "shoeplaza");
-              $sql ="SELECT * FROM order_";
-              $result=mysqli_query($db,$sql);
+              $sql ="SELECT order_.OrderID, CustomerID, ProductID, STATUS , Quantity FROM order_, is_in, has where 'order_.OrderID' = 'has.OrderID' and 'order_.OrderID' = 'is_in.OrderID' and 'is_in.OrderID' = 'has.OrderID'";
+              $result=mysqli_query($db,$sql) or die("Bad query: $sql");
               ?>
               <div class="box">
               <center>  <div class="box-header">
@@ -46,10 +46,11 @@
                       while ($row =mysqli_fetch_array($result)) {
                       ?>
                       <tr>
-                      <td><?php echo $row["OrderID"]; ?></td>
+                      <td><?php echo $row["order_.OrderID"]; ?></td>
                       <td><?php echo $row["CustomerID"]; ?></td>
                       <td><?php echo $row["ProductID"]; ?></td>
-                      <td><?php echo $row["status"]; ?></td>
+                      <td><?php echo $row["STATUS"]; ?></td>
+                      <td><?php echo $row["Quantity"]; ?></td>
                       </tr>
                       <?php  } ?>
 

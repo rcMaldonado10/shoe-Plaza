@@ -22,7 +22,7 @@ if(!isset($_REQUEST['id'])){
 <body>
 <div class="container">
     <h1>Order Status</h1>
-    <p>Your order has submitted successfully. Order ID is #<?php //echo $orderID; ?></p>
+    <p>Your order has submitted successfully. Order ID is #<?php echo $_SESSION['orderIDD'] ?></p>
     <tr><td><a href="../home.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
 </div>
 </body>

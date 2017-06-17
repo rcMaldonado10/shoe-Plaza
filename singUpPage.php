@@ -80,8 +80,7 @@
                       $cheqPass=  $row["Password"];
                       $cheqStatus = $row["Status"];
                       echo  "email: " . $cheqEmail. " " . $cheqPass. "status: ". $cheqStatus. "<br>";
-                      if ($emailLog==$cheqEmail AND $passLog == $cheqPass and $cheqStatus == 1)
-
+                      if ($emailLog==$cheqEmail AND $passLog == $cheqPass AND $cheqStatus == 1)
                         {
                           //echo " esto se ve bien :D";
                           $_SESSION['cosCustomerID'] = $row['CustomerID'];
@@ -89,25 +88,6 @@
                           //echo $_SESSION['cosCustomerID'];
                           $_SESSION['message'] = "You are now logged in";
 
-                          $sqlSelHas = "SELECT CustomerID,Credit_Card_ID FROM has_a";
-                          $LogCos = $_SESSION['cosCustomerID'];
-                          //$sqlSelCred = "SELECT Credit_Card_ID, Number, Name, Exp_Date, CVC FROM customer_credit_card";
-                          $resultHas = mysqli_query($con, $sqlSelHas) or die("Bad query: $sqlSelHas");
-                          if (mysqli_num_rows($resultHas) > 0)
-                            {
-                              while($row = mysqli_fetch_assoc($resultHas))
-                              {
-                                $cheqCos=  $row["CustomerID"];
-                                echo  " Name: " . $cheqCos. "<br>";
-                                if ($LogCos == $cheqCos)//$cheqNum==$NumLog AND
-                                  {
-                                    echo " esto se ve bien has_a :D";
-                                    $_SESSION['creCustomerID'] = $row['Credit_Card_ID'];
-                                    echo $_SESSION['creCustomerID'];
-                                    header("location:home.php");
-                                  }
-                              }
-                            }
                         }
                      else
                         {
@@ -118,7 +98,25 @@
                         }
                     }
                   }
-
+                  $sqlSelHas = "SELECT CustomerID,Credit_Card_ID FROM has_a";
+                                   $LogCos = $_SESSION['cosCustomerID'];
+                                   //$sqlSelCred = "SELECT Credit_Card_ID, Number, Name, Exp_Date, CVC FROM customer_credit_card";
+                                   $resultHas = mysqli_query($con, $sqlSelHas) or die("Bad query: $sqlSelHas");
+                                   if (mysqli_num_rows($resultHas) > 0)
+                                     {
+                                       while($row = mysqli_fetch_assoc($resultHas))
+                                       {
+                                         $cheqCos=  $row["CustomerID"];
+                                         echo  " Name: " . $cheqCos. "<br>";
+                                         if ($LogCos == $cheqCos)//$cheqNum==$NumLog AND
+                                           {
+                                             echo " esto se ve bien has_a :D";
+                                             $_SESSION['creCustomerID'] = $row['Credit_Card_ID'];
+                                             echo $_SESSION['creCustomerID'];
+                                             header("location:home.php");
+                                           }
+                                       }
+                                     }
             }
           }
 
