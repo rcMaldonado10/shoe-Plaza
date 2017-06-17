@@ -76,5 +76,5 @@ if(mysqli_num_rows($result) > 0){
 } else {
     echo '<h1 style="text-align:center;">No shoe was selected</h1>';
 }
-    include 'includes/footer.php';
+  
 ?>
