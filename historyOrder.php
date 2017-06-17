@@ -58,7 +58,7 @@
                             //$resultShoe=mysqli_query($db,$sqlShoe) or die("Bad query: $sqlShoe");
                             //$rowShoe =mysqli_fetch_array($resultShoe);
                             // echo $row['ProductID'] ;?>
-                            <!-- <img src="$rowShoe['img-source']" width="150" height="150" alt="Shoe"/> -->
+                     <img src="<?php echo$rowShoe['img-source']?>" width="150" height="150" alt="Shoe"/> 
                       <td><?php echo$row['ProductID']; ?> </td>
                       <td><?php echo $row["Quantity"]; ?></td>
                       <td><?php echo $row["status"]; ?></td>
@@ -79,7 +79,7 @@
               <!-- /.box -->
 
             </div>
-            <!-- /.col -->  
+            <!-- /.col -->
 
           </div>
 
