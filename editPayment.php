@@ -1,9 +1,10 @@
 <?php
 include 'Core/init.php';
      session_start();
-     $custmerID = $_SESSION['cosCustomerID']; //ID del cliente
+     $customerID = $_SESSION['cosCustomerID']; //ID del cliente
      $creditID = $_SESSION['creCustomerID'];//ID de la tarjeta de credito de ese cliente
-     $_SESSION["name"] = "";
+     $name;
+     $expDate;
      $user = 'root';
      $pass = '';
      $db = 'shoeplaza';
@@ -12,11 +13,20 @@ include 'Core/init.php';
     if ($con->connect_error) {
         die("Unable to connect database: " . $con->connect_error);
     }
-    $query = "SELECT * FROM customer_credit_card WHERE Credit_Card_ID=$creditID";
+    $query = "SELECT CustomerID,Number,Name,Exp_Date,CVC FROM `has_a`,`customer_credit_card` WHERE has_a.CustomerID=$customerID AND has_a.Credit_Card_ID=customer_credit_card.Credit_Card_ID";
     $result = mysqli_query($con,$query);
-
+    
+    // $sql = "SELECT * FROM customer_credit_card WHERE Credit_Card _ID=$creditID";
+    // $res = mysqli_query($con,$sql);
+    //  if(mysqli_num_rows($res) > 0){
+    //     while($fila = mysqli_fetch_assoc($res)){
+    //       $name = $fila["Number"];
+    //       $expDate = $fila["Exp_Date"];
+    //     }
+    //  }
     if(isset($_POST["done"])){
       echo 'Boom';
+      echo $_SESSION["name"];
     }
 ?>
 <!DOCTYPE html>
@@ -45,7 +55,7 @@ include 'Core/init.php';
         </div>
         <div class="col-md-4">
           <br>
-          <form method="post"><input type="submit" name="select" value="Select" class="btn btn-primary">
+          <form method="post" action="editPayment.php"><input type="submit" name="select" value="Select" class="btn btn-primary">
           <input type="submit" class="btn btn-danger" name="delete" value="Delete"></form>
         </div>
       </tr>
@@ -58,14 +68,12 @@ include 'Core/init.php';
     <div class="col-md-6">
     <?php
      if(isset($_POST["select"])){
-     $_SESSION["name"] = $row["Name"];
-
      echo '<h3>Please Verify Information, If Correct Press DONE</h3><br>';
      echo '<form method="post" action="shopping_bag/checkout.php">
       <label>Credit Card Name:</label>
-      <input class="form-control" type="text" placeholder="Credit Card Name" name="ccName" value="'.$_SESSION["name"].'"/><br>
+      <input class="form-control" type="text" placeholder="Credit Card Name" name="ccName" value="'.$name.'"/><br>
       <label>Expiration Date:</label>
-      <input class="form-control" type="text" placeholder="Credit Card Expiration Date" name="ccDate" value=""><br>
+      <input class="form-control" type="text" placeholder="Credit Card Expiration Date" name="'.$expDate.'" value=""><br>
       <input  type="submit" class="btn btn-success btn-lg btn-block" name="done" value="DONE">
       </form>';
      }
