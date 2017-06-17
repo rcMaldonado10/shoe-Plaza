@@ -16,10 +16,6 @@
 
           <div class="row">
             <div class="col-xs-12">
-
-              <!-- /.box -->
-
-              <!--WEEK -->
               <?php
               $db= mysqli_connect("localhost", "root", "", "shoeplaza");
               $sql ="SELECT order_.OrderID, CustomerID, ProductID, STATUS , Quantity FROM order_, is_in, has where 'order_.OrderID' = 'has.OrderID' and 'order_.OrderID' = 'is_in.OrderID' and 'is_in.OrderID' = 'has.OrderID'";
@@ -35,9 +31,10 @@
                     <thead>
                     <tr>
                       <th>OrderID</th>
-                      <th>CustomerID</th>
-                      <th>ProductID</th>
+                      <th>CompanyID</th>
                       <th>Status</th>
+                      <th>DateOrderMade</th>
+                      <th>Credit Payment</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -62,14 +59,8 @@
                 <!-- /.box-body -->
               </div>
 
-              <!-- /.box -->
-              <!--Month -->
-
-              <!-- /.box -->
-
             </div>
             <!-- /.col -->
-
           </div>
 
 </div>

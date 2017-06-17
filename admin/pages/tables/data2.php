@@ -25,10 +25,6 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          
-          <!-- /.box -->
-
-          <!--WEEK -->
           <?php
           $db= mysqli_connect("localhost", "root", "", "shoeplaza");
           $sql ="SELECT * FROM order_";
@@ -36,7 +32,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
           ?>
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Report of Orders of Customer and Product</h3>
+
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -44,9 +40,10 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
                 <thead>
                 <tr>
                   <th>OrderID</th>
-                  <th>CustomerID</th>
-                  <th>ProductID</th>
+                  <th>CompanyID</th>
                   <th>Status</th>
+                  <th>DateOrderMade</th>
+                  <th>Credit Payment</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -56,37 +53,22 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
                   ?>
                   <tr>
                   <td><?php echo $row["OrderID"]; ?></td>
-                  <td><?php echo $row["CustomerID"]; ?></td>
-                  <td><?php echo $row["ProductID"]; ?></td>
+                  <td><?php echo $row["CompanyID"]; ?></td>
                   <td><?php echo $row["status"]; ?></td>
+                  <td><?php echo $row["DateOrderMade"]; ?></td>
+                  <td><?php echo $row["Credit_Payment"]; ?></td>
                   </tr>
                   <?php  } ?>
-
-
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>OrderID</th>
-                  <th>CustomerID</th>
-                  <th>ProductID</th>
-                  <th>Status</th>
-                </tr>
-                </tfoot>
+
               </table>
             </div>
             <!-- /.box-body -->
           </div>
 
-          <!-- /.box -->
-          <!--Month -->
-
-          <!-- /.box -->
-
         </div>
         <!-- /.col -->
-
       </div>
-      <!-- /.row -->
 
     </section>
     <!-- /.content -->

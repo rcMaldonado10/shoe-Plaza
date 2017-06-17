@@ -19,6 +19,8 @@ session_set_cookie_params(0);
                 $count = count($_SESSION["shopping_cart"]);
                 $item_array = array(
                   'item_id'               =>     $_GET["id"],
+                  'item_brand'          =>     $_POST["hidden_brand"],
+                  'item_model'          =>     $_POST["hidden_model"],
                   'item_price'          =>     $_POST["hidden_price"],
                   'item_quantity'          =>     $_POST["quantity"],
                   'item_size'          =>     $_POST["size"]
@@ -36,6 +38,7 @@ session_set_cookie_params(0);
       {
            $item_array = array(
                 'item_id'               =>     $_GET["id"],
+                'item_brand'          =>     $_POST["hidden_brand"],
                 'item_price'          =>     $_POST["hidden_price"],
                 'item_quantity'          =>     $_POST["quantity"],
                 'item_size'          =>     $_POST["size"]
@@ -106,7 +109,7 @@ session_set_cookie_params(0);
            ?>
            <tr>
               <input type="hidden" name="hidden_id" value="<?php echo $values["item_id"]; ?>"></input>
-              <td><?php echo $values["item_id"]; ?></td>
+              <td><?php echo $values["item_id"]; ?> <?php echo $values["item_brand"]; ?> - <?php echo $values["item_model"]; ?> </td>
               <td><?php echo $values["item_size"]; ?></td>
               <td><?php echo $values["item_quantity"]; ?></td>
               <td>$ <?php echo $values["item_price"]; ?></td>

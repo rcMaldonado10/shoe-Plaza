@@ -8,6 +8,7 @@
       {
            $item_array = array(
                 'item_id'               =>     $_GET["id"],
+                'item_brand'          =>     $_POST["hidden_brand"],
                 'item_name'               =>     $_POST["hidden_name"],
                 'item_price'          =>     $_POST["hidden_price"],
                 'item_quantity'          =>     $_POST["quantity"]
@@ -79,7 +80,7 @@
            <tr>
              <form method="post" action="cartAction.php">
              <input type="hidden" name="hidden_id" value="<?php echo $values["item_id"];?>"></input>
-                <td><?php echo $values["item_id"]; ?></td>
+                <td><?php echo $values["item_id"]; ?> <?php echo $values["item_brand"]; ?> - <?php echo $values["item_model"]; ?> </td>
                 <td><?php echo $values["item_size"]; ?></td>
                 <td><?php echo $values["item_quantity"]; ?></td>
                 <td>$ <?php echo $values["item_price"]; ?></td>

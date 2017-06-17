@@ -47,6 +47,8 @@ if(mysqli_num_rows($result) > 0){
             </select><br>
 
             <input type="hidden" name="hidden_id" value="<?php echo $row["ProductID"]; ?>" />
+            <input type="hidden" name="hidden_brand" value="<?php echo $row["Brand"]; ?>" />
+            <input type="hidden" name="hidden_model" value="<?php echo $row["Model"]; ?>" />
             <input type="hidden" name="hidden_price" value="<?php echo $row["Price"]; ?>" />
             <input type="hidden" name="hidden_stock_check" value="quantity" />
             <!-- <input type="hidden" name="hidden_Sise" value="size" /> -->
