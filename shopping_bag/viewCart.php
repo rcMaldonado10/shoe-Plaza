@@ -3,17 +3,15 @@
 session_set_cookie_params(0);
  session_start();
  $connect = mysqli_connect("localhost", "root", "", "shoeplaza");
- echo "no hace nada";
  if(isset($_POST['buttonSize']))
  {
 
-   echo "entro al buttonSize";
     if($_POST["quantity"]<= $_POST["hidden_stock_check"])
     {
-      echo "entro al quantity";
+
       if(isset($_SESSION["shopping_cart"]))
       {
-        echo "entro al shopping_cart";
+
            $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
 
            if(!in_array($_GET["id"], $item_array_id))

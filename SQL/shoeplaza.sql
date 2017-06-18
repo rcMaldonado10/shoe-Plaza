@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2017 at 05:40 AM
+-- Generation Time: Jun 18, 2017 at 07:32 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -99,6 +99,14 @@ CREATE TABLE `has` (
   `OrderID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_520_ci;
 
+--
+-- Dumping data for table `has`
+--
+
+INSERT INTO `has` (`hasID`, `CustomerID`, `OrderID`) VALUES
+(60, 2, 55),
+(61, 2, 55);
+
 -- --------------------------------------------------------
 
 --
@@ -130,8 +138,17 @@ CREATE TABLE `is_in` (
   `is_in_ID` int(11) NOT NULL,
   `OrderID` int(10) NOT NULL,
   `ProductID` int(10) NOT NULL,
-  `Quantity` int(2) NOT NULL
+  `Quantity` int(2) NOT NULL,
+  `Size` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
+
+--
+-- Dumping data for table `is_in`
+--
+
+INSERT INTO `is_in` (`is_in_ID`, `OrderID`, `ProductID`, `Quantity`, `Size`) VALUES
+(60, 55, 1, 1, 10),
+(61, 55, 4, 2, 7);
 
 -- --------------------------------------------------------
 
@@ -145,6 +162,13 @@ CREATE TABLE `order_` (
   `DateOrderMade` datetime NOT NULL,
   `Credit_Payment` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_520_ci;
+
+--
+-- Dumping data for table `order_`
+--
+
+INSERT INTO `order_` (`OrderID`, `status`, `DateOrderMade`, `Credit_Payment`) VALUES
+(55, 0, '2017-06-18 18:54:58', 2);
 
 -- --------------------------------------------------------
 
@@ -179,6 +203,13 @@ CREATE TABLE `shipping` (
   `Traking_Number` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_520_ci;
 
+--
+-- Dumping data for table `shipping`
+--
+
+INSERT INTO `shipping` (`OrderID`, `CompanyID`, `Completed_Date`, `Traking_Number`) VALUES
+(55, 1, '2017-07-06', 20);
+
 -- --------------------------------------------------------
 
 --
@@ -206,10 +237,10 @@ CREATE TABLE `shoe` (
 --
 
 INSERT INTO `shoe` (`ProductID`, `Brand`, `Model`, `Category`, `Gender`, `6`, `7`, `8`, `9`, `10`, `Price`, `img-source`, `Details`) VALUES
-(1, 'Skechers', 'Classic', 'Casual', 'M', 10, 10, 10, 10, 10, 95.00, 'Images/men1.jpg', 'This is Great'),
+(1, 'Skechers', 'Classic', 'Casual', 'M', 10, 10, 10, 10, 9, 95.00, 'Images/men1.jpg', 'This is Great'),
 (2, 'Rebook', 'Sport Edition', 'Sport', 'M', 10, 10, 10, 10, 10, 95.00, 'Images/men2.jpg', 'This i Great'),
 (3, 'Nike', 'Sport Edition', 'Sport', 'F', 10, 10, 10, 10, 10, 39.99, 'images/woman4.jpg', 'This shoe is great!'),
-(4, 'Reebook', 'Reebook Fit', 'Sport', 'F', 10, 10, 10, 10, 10, 39.99, 'images/woman1.jpg', 'This is Great'),
+(4, 'Reebook', 'Reebook Fit', 'Sport', 'F', 10, 5, 10, 10, 10, 39.99, 'images/woman1.jpg', 'This is Great'),
 (5, 'Reebook', 'Reebook Fit', 'Sport', 'F', 10, 10, 10, 10, 10, 39.99, 'images/woman2.jpg', 'This is Great'),
 (6, 'Nike', 'Classic', 'Casual', 'M', 10, 10, 10, 10, 10, 59.99, 'images/NikeMen1.jpg', 'This shoe is great !'),
 (7, 'Fentacia', 'Roadster', 'Casual', 'M', 10, 10, 10, 10, 10, 59.99, 'images/men7.jpg', 'This shoe is great lol!'),
@@ -322,17 +353,17 @@ ALTER TABLE `customer_credit_card`
 -- AUTO_INCREMENT for table `has`
 --
 ALTER TABLE `has`
-  MODIFY `hasID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `hasID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `is_in`
 --
 ALTER TABLE `is_in`
-  MODIFY `is_in_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `is_in_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `order_`
 --
 ALTER TABLE `order_`
-  MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `OrderID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT for table `shoe`
 --

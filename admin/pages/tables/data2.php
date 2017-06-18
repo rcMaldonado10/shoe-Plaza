@@ -26,74 +26,75 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
       <div class="row">
         <div class="col-xs-12">
 
-          <!-- /.box -->
 
-          <!--WEEK -->
-          <?php
-          $db= mysqli_connect("localhost", "root", "", "shoeplaza");
-          $sql ="SELECT order_.CompanyID,order_.status,order_.DateOrderMade,order_.Credit_Payment,has.CustomerID, is_in.ProductID,is_in.Quantity,is_in.OrderID from has,order_,is_in where order_.OrderID = has.OrderID and has.OrderID = is_in.OrderID  Order by OrderID";
-          $result=mysqli_query($db,$sql) or die("Bad query: $sql");
+            <!-- /.box -->
+            <form method="post" action="data22.php?>">
+            <!--WEEK -->
+            <?php
+            $db= mysqli_connect("localhost", "root", "", "shoeplaza");
+            //$CosID = $_SESSION['cosCustomerID'];
+            //echo $CosID;
+            //     SELECT CompanyID,order_.Credit_Payment,has.CustomerID,order_.OrderID from has,order_,is_in,shipper where has.CustomerID = '2'GROUP BY order_.OrderID
+            $sql ="SELECT CompanyID,order_.Credit_Payment,order_.OrderID from has,order_,is_in,shipper GROUP by order_.OrderID";
+            $result=mysqli_query($db,$sql) or die("Bad query: $sql");
 
-          ?>
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Report of Orders of Customer and Product</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>OrderID</th><!--// -->
-                  <th>CustomerID</th><!--//un select que saque el nombre q la perdona  -->
-                   <th>CompanyID</th><!--//un select la tabla de shipper q salga el nombre y ya -->
-                   <th>ProductID</th><!--//un select que salga el nombre del zapato o/y la imagen -->
-                   <th>Quantity</th>
-                  <th>Status</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                  <?php
-                  while ($row =mysqli_fetch_array($result)) {
-                  ?>
+            ?>
+            <div class="box">
+            <center>  <div class="box-header">
+                <h3 class="box-title">Your history order Where</h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
                   <tr>
-                  <td><?php echo $row["OrderID"]; ?></td>
-                  <td><?php echo $row["CustomerID"]; ?></td>
-                  <td><?php echo $row["CompanyID"]; ?></td>
-                  <?php //$sqlShoe = "SELECT 'img-source' from shoe where ProductID = $row[ProductID]";
-                        //$resultShoe=mysqli_query($db,$sqlShoe) or die("Bad query: $sqlShoe");
-                        //$rowShoe =mysqli_fetch_array($resultShoe);
-                        // echo $row['ProductID'] ;?>
-                        <!-- <img src="$rowShoe['img-source']" width="150" height="150" alt="Shoe"/> -->
-                  <td><?php echo$row['ProductID']; ?> </td>
-                  <td><?php echo $row["Quantity"]; ?></td>
-                  <td><?php echo $row["status"]; ?></td>
+                    <th> OrderID </th>
+                    <th> Company </th>
+                    <!-- <th>Quantity</th> -->
+                    <th> Credit Payment </th>
                   </tr>
-                  <?php  } ?>
+                  </thead>
+                  <tbody>
+
+                    <?php
+
+                    while ($row =mysqli_fetch_array($result))
+                    {
+                      $sqlShipper = "SELECT CompanyName from shipper where CompanyID = $row[CompanyID]";
+                      $resultShipper=mysqli_query($db,$sqlShipper) or die("Bad query: $sqlShipper");
+                      $rowShipper =mysqli_fetch_array($resultShipper);
+                      $sqlCredit = "SELECT Number from customer_credit_card where Credit_Card_ID = $row[Credit_Payment]";
+                      $resultCredit=mysqli_query($db,$sqlCredit) or die("Bad query: $sqlCredit");
+                      $rowCredit =mysqli_fetch_array($resultCredit);
+                      // echo $row['ProductID'] ;
+                    ?>
+                    <tr>
+                    <td><?php echo $row["OrderID"]; ?></td>
+                    <td><?php echo $rowShipper["CompanyName"]; ?></td>
+                    <?php //$sqlShoe = "SELECT 'img-source' from shoe where ProductID = $row[ProductID]";
+                          //$resultShoe=mysqli_query($db,$sqlShoe) or die("Bad query: $sqlShoe");
+                          //$rowShoe =mysqli_fetch_array($resultShoe);
+                          // echo $row['ProductID'] ;?>
+                          <?php $credit = explode(" ",$rowCredit["Number"])  ?>
+                    <td><?php echo "**** **** **** ".$credit[3]; ?></td>
+
+                    <td><button type="submit" name = "IdOrder"  value= <?php echo $row["OrderID"] ?> >ViewOrder</button></td>
+                    </tr>
+                    <?php  } ?>
 
 
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th>OrderID</th><!--// -->
-                    <th>CustomerID</th><!--//un select que saque el nombre q la perdona  -->
-                     <th>CompanyID</th><!--//un select la tabla de shipper q salga el nombre y ya -->
-                     <th>ProductID</th><!--//un select que salga el nombre del zapato o/y la imagen -->
-                     <th>Quantity</th>
-                    <th>Status</th>
-                  </tr>
-                </tfoot>
-              </table>
+                  </tbody>
+
+                </table></center>
+              </div>
+              <!-- /.box-body -->
             </div>
-            <!-- /.box-body -->
-          </div>
 
-          <!-- /.box -->
-          <!--Month -->
+            <!-- /.box -->
+            <!--Month -->
 
-          <!-- /.box -->
-
+            <!-- /.box -->
+          </form>
         </div>
         <!-- /.col -->
 

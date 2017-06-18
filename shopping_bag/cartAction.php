@@ -41,7 +41,7 @@
               $sql2 ="INSERT INTO has (CustomerID,OrderID) VALUES ('$IDCos','$rowOrder[OrderID]')";//change date
               $result2=mysqli_query($connect,$sql2) or die("Bad query: $sql2");
 
-              $sql3 ="INSERT INTO is_in (OrderID,ProductID, Quantity) VALUES ('$rowOrder[OrderID]','$values[item_id]','$values[item_quantity]')";
+              $sql3 ="INSERT INTO is_in (OrderID,ProductID, Quantity,Size) VALUES ('$rowOrder[OrderID]','$values[item_id]','$values[item_quantity]','$values[item_size]')";
               $result3=mysqli_query($connect,$sql3) or die("Bad query: $sql3");
 
               $sql4 = "SELECT $values[item_size] from shoe where ProductID = $values[item_id] ";
