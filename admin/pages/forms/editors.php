@@ -1,5 +1,6 @@
 <?php
 //EDIT PRODUCTS
+
 $db = mysqli_connect("localhost","root","","shoeplaza") or die("Unable to connect");
 if(isset($_POST['submit']))
 {
@@ -8,28 +9,26 @@ $newBrand = $_POST['newbrand'];
 $newModel = $_POST['newmodel'];
 $newCategory = $_POST['newcategory'];
 $newGender = $_POST['newgender'];
-$newSize = $_POST['newsize'];
+$newSize6 = $_POST['newsize6'];
+$newSize7 = $_POST['newsize7'];
+$newSize8 = $_POST['newsize8'];
+$newSize9 = $_POST['newsize9'];
+$newSize10 = $_POST['newsize10'];
 $newModel = $_POST['newmodel'];
-$newStock = $_POST['newstock'];
 $newPrice = $_POST['newprice'];
 $newSource = $_POST['newsource'];
 $newDetails = $_POST['newdetails'];
-  $sql = "UPDATE shoe SET Brand='$newBrand', Model='$newModel',Category='$newCategory',Gender='$newGender' ,Size='$newSize', Quantity_Stock = '$newStock', Price='$newPrice',Details = '$newDetails' WHERE ProductID='$id'";
+
+  $sql = "UPDATE shoe SET Brand='$newBrand', Model='$newModel',Category='$newCategory',Gender='$newGender' ,`6` ='$newSize6', `7` = '$newSize7',`8` = '$newSize8',`9` = '$newSize9',`10` = '$newSize10', Price='$newPrice',Details = '$newDetails' WHERE ProductID='$id'";
   $result = mysqli_query($db,$sql) or die("Bad query: $sql");
   echo '<script>alert("Product has been updated!")</script>';
-  header("location:general.php");
+
+  header("location:general3.php");
 }
 
-if(isset($_POST['delete_data'])){
-
-    $sql ="DELETE FROM shoe WHERE ProductID='$_POST[id]'";
-    mysqli_query($db,$sql);
-    echo '<script>alert("Item Removed")</script>';
-    header("location:general3.php");
-  }
+?>
+<?php
 include 'recycle/topbar.php';
-
-
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -89,13 +88,18 @@ include 'recycle/topbar.php';
                           <input name="newgender" class="form-control" value="<?= $row["Gender"]; ?>">
                         </div>
                         <div class="form-group">
-                          <label for="InputSize">Size</label>
-                          <input name="newsize" class="form-control" value="<?= $row["Size"]; ?>"></input>
+                          <label for="InputSize">Size 6:</label>
+                          <input name="newsize6" class="form-control" value="<?= $row["6"]; ?>"></input>
+                          <label for="InputSize">Size 7:</label>
+                          <input name="newsize7" class="form-control" value="<?= $row["7"]; ?>"></input>
+                          <label for="InputSize">Size 8:</label>
+                          <input name="newsize8" class="form-control" value="<?= $row["8"]; ?>"></input>
+                          <label for="InputSize">Size 9:</label>
+                          <input name="newsize9" class="form-control" value="<?= $row["9"]; ?>"></input>
+                          <label for="InputSize">Size 10:</label>
+                          <input name="newsize10" class="form-control" value="<?= $row["10"]; ?>"></input>
                         </div>
-                        <div class="form-group">
-                          <label for="Inputquantity">Quantity Stock</label>
-                          <input type="number" class="form-control text-rigth" name="newstock" min="0" max="255" value="<?= $row["Quantity_Stock"]; ?>"></input>
-                        </div>
+
                         <div class="form-group">
                           <label for="Inputprice">Price ($)</label>
                           <input name="newprice" class="form-control" value="<?= $row["Price"]; ?>"></input>

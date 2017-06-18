@@ -39,7 +39,7 @@ if(mysqli_num_rows($result) > 0){
             <h3>Category: <?=$row['Category']?></h3>
             <h3>Price: $<?=$row['Price']?></h3>
             <h3>In Stock <br> Size 6: <?=$row['6']?> <br> Size 7: <?=$row['7']?> <br> Size 8: <?=$row['8']?> <br> Size 9: <?=$row['9']?> <br> Size 10: <?=$row['10']?>  </h3>
-            <h3 for="Quantity_Stock">Quantity: </h3>
+            <h3>Quantity: </h3>
 
           <div style="float: ; padding: 0 200px 0 0px;">
             <input type="number" name="quantity" min="1" max= "10"  value="1"  class="form-control text-center">
@@ -59,23 +59,23 @@ if(mysqli_num_rows($result) > 0){
             $Size10 = "<input type='submit' name='buttonSize' class='btn btn-warning' value='10' />";
               if($row['6'] == 0)
               {
-                $Size6 = "<label class='btn btn-danger'>Sold</label>";
+                $Size6 = "<label class='btn btn-danger'>Size 6 is Sold</label>";
               }
               if($row['7'] == 0)
               {
-                $Size7 = "<label class='btn btn-danger'>Sold</label>";
+                $Size7 = "<label class='btn btn-danger'>Size 7 is Sold</label>";
               }
               if($row['8'] == 0)
               {
-                $Size8 = "<label class='btn btn-danger'>Sold</label>";
+                $Size8 = "<label class='btn btn-danger'>Size 8 is Sold</label>";
               }
               if($row['9'] == 0)
               {
-                $Size9 = "<label class='btn btn-danger'>Sold</label>";
+                $Size9 = "<label class='btn btn-danger'>Size 9 is Sold</label>";
               }
               if($row['10'] == 0)
               {
-                $Size10 = "<label class='btn btn-danger'>Sold</label>";
+                $Size10 = "<label class='btn btn-danger'>Size 10 is Sold</label>";
               }
               ?>
               <h3 for="size">Size: </h3>
@@ -106,3 +106,14 @@ if(mysqli_num_rows($result) > 0){
 }
 
 ?>
+<div class="copyright">
+  <ul class="pagination">
+<li><a href="home.php">1</a></li>
+<li><a href="el_primero.php">2</a></li>
+<li><a href="el_segundo.php">3</a></li>
+<li><a href="#">4</a></li>
+<li><a href="#">5</a></li>
+</ul>
+<p>*Your email address will be subject to the terms and conditions of our Privacy Policy.
+<p>© 2017 Shoe-Plaza.com, Inc. or its affiliates. Shoe-Plaza.com is operated by XAMPP.</p>
+<p><a href="admin/login.php" style="text-decoration:none; color:black;">Admin member</a></p></div>

@@ -41,13 +41,16 @@ $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connec
                   <thead>
                   <form method="post" action="editors.php">
                   <tr>
-                  <th>ProductID</th>
+                  <th>ID</th>
                   <th>Brand</th>
                   <th>Model</th>
                   <th>Category</th>
                   <th>Gender</th>
-                  <th>Size</th>
-                  <th>Quantity Stock</th>
+                  <th>Size 6</th>
+                  <th>Size 7</th>
+                  <th>Size 8</th>
+                  <th>Size 9</th>
+                  <th>Size 10</th>
                   <th>Price</th>
                   <th>img-source</th>
                   <th>Details</th>
@@ -65,8 +68,11 @@ $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connec
                     <td><?php echo $row["Model"]; ?></td>
                     <td><?php echo $row["Category"]; ?></td>
                     <td><?php echo $row["Gender"]; ?></td>
-                    <td><?php echo $row["Size"]; ?></td>
-                    <td><?php echo $row["Quantity_Stock"];?></td>
+                    <td><?php echo $row["6"]; ?></td>
+                    <td><?php echo $row["7"]; ?></td>
+                    <td><?php echo $row["8"]; ?></td>
+                    <td><?php echo $row["9"]; ?></td>
+                    <td><?php echo $row["10"]; ?></td>
                     <td><?php echo $row["Price"]; ?></td>
                     <td><?php echo $row["img-source"]; ?></td>
                     <td><?php echo $row["Details"]; ?></td>

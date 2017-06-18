@@ -13,7 +13,7 @@ if(isset($_POST['submit_data']))
                 {
 
                   $image = $_FILES['fileToUpload']['name'];
-                  $text = $_POST['details'];
+
                   $fileImage = addslashes(file_get_contents($_FILES["fileToUpload"]["tmp_name"]));
 
                   $tempImage = explode(".", $image);
@@ -33,12 +33,16 @@ if(isset($_POST['submit_data']))
                             $model = $_POST['model'];
                             $category = $_POST['category'];
                             $gender = $_POST['gender'];
-                            $size = $_POST['size'];
-                            $stock = $_POST['stock'];
+                            $size6 = $_POST['size6'];
+                            $size7 = $_POST['size7'];
+                            $size8 = $_POST['size8'];
+                            $size9 = $_POST['size9'];
+                            $size10 = $_POST['size10'];
                             $price = $_POST['price'];
+                            $text = $_POST['details'];
                             // $sql = "INSERT INTO shoe(Brand,Model,Category,Gender,Size,Quantity_Stock,Price,img-source,ImageBlob,Detals) VALUES('$newfilename','$text','$fileImage')";
                             //$sql ="INSERT INTO shoe(Brand,Model,Category,Gender,Size,Quantity_Stock,Price,img-source,imageBlob,Details)VALUES($brand,$model,$category,$gender,$size,$stock,,$newfilename,$fileImage,$text)";
-                            $sql ="INSERT INTO shoe(`Brand`,`Model`,`Category`,`Gender`,`Size`,`Quantity_Stock`,`Price`,`img-source`,`Details`)VALUES('$brand','$model','$category','$gender',$size,$stock,$price,'$target','$text')";
+                            $sql ="INSERT INTO shoe VALUES('','$brand','$model','$category','$gender','$size6','$size7','$size8','$size9','$size10','$price','$target','$text')";
 
                             $result = mysqli_query($db, $sql) or die("Bad query: $sql");
                             move_uploaded_file($_FILES['fileToUpload']['tmp_name'],$newfilename);
@@ -74,40 +78,7 @@ if(isset($_POST['delete'])){
     echo '<script>alert("Item Deleted")</script>';
 
   }
-//   //image properties
-// //$image= $_FILES["fileToUpload"]["name"]; // name
-// //$sourcePath = $_FILES['fileToUpload']['tmp_name']; // Storing source path of the file in a variable
-//
-// $uploads_dir = '/../../../images';
-//
-//
-//         $tmp_name = $_FILES["fileToUpload"]["tmp_name"];
-//         // basename() puede evitar ataques de denegación de sistema de ficheros;
-//         // podría ser apropiada más validación/saneamiento del nombre del fichero
-//         $name = basename($_FILES["fileToUpload"]["name"]);
-//       if(move_uploaded_file("$uploads_dir/$name" , $tmp_name ))
-//         {
-//           echo "The file ". basename($image). " has been uploaded.";
-//         }
-//       else
-//         {
-//           echo "Sorry, there was an error uploading your file.";
-//         }
-//
-//   /*  if (move_uploaded_file($target_file, $sourcePath)) { // move file to folder
-//         echo "The file ". basename($image). " has been uploaded.";
-//     } else {
-//         echo "Sorry, there was an error uploading your file.";
-//     }*/
-//
-// /////////////
-// // insert products
-//     $sql ="INSERT INTO shoe VALUES ('','$_POST[brand]','$_POST[model]','$_POST[category]','$_POST[gender]','$_POST[size]','$_POST[stock]', '$_POST[price]','Images/$name','$_POST[details]')";
-//     mysqli_query($db,$sql);
-//         }
-//       }
-//     }
-// }
+
 
 ?>
 
@@ -166,19 +137,22 @@ include 'recycle/topbar.php';
                     <option value="F">Female</option>
                   </select>
                 </div>
+
                 <div class="form-group">
-                  <label for="InputSize">Size</label>
-                  <select name="size" class="form-control">
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="Inputquantity">Quantity Stock</label>
-                  <input type="number" name="stock" min="1" max="255"  value="1"  class="form-control text-rigth">
+                  <label for="Inputquantity">Quantity Stock of shoe Size</label><br>
+
+                  <label for="Inputquantity">Size 6:</label>
+                   <input type="number" name="size6" min="1" max="10"  value="1"  >
+                  <label for="Inputquantity">Size 7:</label>
+                  <input type="number" name="size7" min="1" max="10"  value="1"  >
+                  <label for="Inputquantity">Size 8:</label>
+                  <input type="number" name="size8" min="1" max="10"  value="1"  >
+                  <label for="Inputquantity">Size 9:</label>
+                  <input type="number" name="size9" min="1" max="10"  value="1"  >
+                  <label for="Inputquantity">Size 10:</label>
+                  <input type="number" name="size10" min="1" max="10"  value="1"  >
+
+
                 </div>
                 <div class="form-group">
                   <label for="Inputprice">Price ($)</label>
@@ -242,8 +216,11 @@ include 'recycle/topbar.php';
                   <th>Model</th>
                   <th>Category</th>
                   <th>Gender</th>
-                  <th>Size</th>
-                  <th>Quantity Stock</th>
+                  <th>Size 6</th>
+                  <th>Size 7</th>
+                  <th>Size 8</th>
+                  <th>Size 9</th>
+                  <th>Size 10</th>
                   <th>Price</th>
                   <th>Image</th>
                   <th>Details</th>
@@ -261,8 +238,11 @@ include 'recycle/topbar.php';
                     <td><?php echo $row["Model"]; ?></td>
                     <td><?php echo $row["Category"]; ?></td>
                     <td><?php echo $row["Gender"]; ?></td>
-                    <td><?php echo $row["Size"]; ?></td>
-                    <td><?php echo $row["Quantity_Stock"];?></td>
+                    <td><?php echo $row["6"]; ?></td>
+                    <td><?php echo $row["7"]; ?></td>
+                    <td><?php echo $row["8"]; ?></td>
+                    <td><?php echo $row["9"]; ?></td>
+                    <td><?php echo $row["10"]; ?></td>
                     <td><?php echo $row["Price"]; ?></td>
                     <td><img src="../../../<?php echo $row["img-source"]; ?>" width="50" height="50"/></td>
                     <td><?php echo $row["Details"]; ?></td>
