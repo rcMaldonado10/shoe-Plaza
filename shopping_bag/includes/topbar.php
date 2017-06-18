@@ -59,47 +59,55 @@ function filterShoe($query){
 
       </div>
 
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li ><a href="../home.php">Home</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#"><b>Woman</b></a></li>
-              <li><a href="../women.php">Sport</a></li>
-              <li><a href="#"><b>Men</b></a></li>
-              <li><a href="../men.php">Sport</a></li>
-            </ul>
-          </li>
-          <li><a href="../about.php">About</a></li>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li ><a href="../home.php">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Men<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="../men.php?cat=sport">Sport</a></li>
+                    <li><a href="../men.php?cat=fashion">Fashion</a></li>
+                    <li><a href="../men.php?cat=casual">Casual</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Women<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="../women.php?cat=sport">Sport</a></li>
+                    <li><a href="../women.php?cat=fashion">Fashion</a></li>
+                    <li><a href="../women.php?cat=casual">Casual</a></li>
+                  </ul>
+                </li>
+                <li><a href="../about.php">About</a></li>
 
-          <?php if(isset($_SESSION["cosCustomerID"]) == ""){ ?>
-              <li><a href="../singUpPage.php">Sign Up/Sign In</a></li>
-          <?php } ?>
-         <li><a href="../shopping_bag/viewCart.php?var=<?=$_SESSION["cosCustomerID"]?>" class="glyphicon glyphicon-shopping-cart" title="View Cart"></a></li>
+                <?php if(isset($_SESSION["cosCustomerID"]) == ""){ ?>
+                    <li><a href="../singUpPage.php">Sign Up/Sign In</a></li>
+                <?php } ?>
+               <li><a href="shopping_bag/viewCart.php?var=<?=$_SESSION["cosCustomerID"]?>" class="glyphicon glyphicon-shopping-cart" title="View Cart"></a></li>
 
-          <?php if(isset($_SESSION["cosCustomerID"]) != ""){ ?>
-            <li class="dropdown">
-              <a class="glyphicon glyphicon-user" data-toggle="dropdown"></a>
-              <ul class="dropdown-menu">
-                <li><a href="../userSettings.php">Account Settings</a></li>
-                <li><a href="../addNewCard.php">Add Card</a></li>
-                <li><a href="../logout.php">Logout</a></li>
+                <?php if(isset($_SESSION["cosCustomerID"]) != ""){ ?>
+                  <li class="dropdown">
+                    <a class="glyphicon glyphicon-user" data-toggle="dropdown"></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="../userSettings.php">Update Account Settings</a></li>
+                      <li><a href="../historyOrder.php">History of Order </a> </li>
+                      <li><a href="../addNewCard.php">Add Card</a></li>
+                      <li><a href="../logout.php">Sign out</a></li>
+                    </ul>
+                  </li>
+                 <?php } ?>
+
+                <form class="navbar-form navbar-right" action="Results.php" method="post">
+              <div class="input-group">
+                <input type="text" class="form-control" name="ValueToSearch" placeholder="Search">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit" name="Search" value="Search">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
               </ul>
-            </li>
-           <?php } ?>
-
-          <form class="navbar-form navbar-right" action="Results.php" method="post">
-        <div class="input-group">
-          <input type="text" class="form-control" name="ValueToSearch" placeholder="Search">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit" name="Search" value="Search">
-              <i class="glyphicon glyphicon-search"></i>
-            </button>
+            </div>
           </div>
-        </div>
-      </form>
-        </ul>
-      </div>
-    </div>
-  </nav>
+        </nav>
