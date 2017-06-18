@@ -3,15 +3,17 @@
 session_set_cookie_params(0);
  session_start();
  $connect = mysqli_connect("localhost", "root", "", "shoeplaza");
- if(isset($_POST["add_to_cart"]))
+ echo "no hace nada";
+ if(isset($_POST['buttonSize']))
  {
 
-
+   echo "entro al buttonSize";
     if($_POST["quantity"]<= $_POST["hidden_stock_check"])
     {
-
+      echo "entro al quantity";
       if(isset($_SESSION["shopping_cart"]))
       {
+        echo "entro al shopping_cart";
            $item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
 
            if(!in_array($_GET["id"], $item_array_id))
@@ -21,7 +23,7 @@ session_set_cookie_params(0);
                   'item_id'               =>     $_GET["id"],
                   'item_price'          =>     $_POST["hidden_price"],
                   'item_quantity'          =>     $_POST["quantity"],
-                  'item_size'          =>     $_POST["size"]
+                  'item_size'          =>     $_POST['buttonSize']
 
                 );
                 $_SESSION["shopping_cart"][$count] = $item_array;
@@ -35,10 +37,10 @@ session_set_cookie_params(0);
       else
       {
            $item_array = array(
-                'item_id'               =>     $_GET["id"],
-                'item_price'          =>     $_POST["hidden_price"],
-                'item_quantity'          =>     $_POST["quantity"],
-                'item_size'          =>     $_POST["size"]
+             'item_id'               =>     $_GET["id"],
+             'item_price'          =>     $_POST["hidden_price"],
+             'item_quantity'          =>     $_POST["quantity"],
+             'item_size'          =>     $_POST['buttonSize']
            );
            $_SESSION["shopping_cart"][0] = $item_array;
       }

@@ -51,9 +51,9 @@
     </div>
     <div class="col-md-4">
         <h1>Shipping Method</h1><h5 style="color:orange;">FREE SHIPPING IN ALL OUR PURCHASES!</h5><br>
-        <input type="radio" name="shipper" value="UPS"><label style="padding-left: 5px;padding-right: 10px;"> UPS</label><img src="../Images/ups_logo.jpg" width="55px" height="55px"/><br>
-        <input type="radio" name="shipper" value="FedEx"><label style="padding-left: 5px;padding-right: 10px;"> FedEx</label><img src="../Images/fedex_logo.png" width="80px" height="80px"/><br>
-        <input type="radio" name="shipper" value="USPS"><label style="padding-left: 5px;padding-right: 10px;">USPS</label><img src="../Images/usps-logo.png" width="90px" height="90px"/>
+        <input type="radio" name="shipper" value="1"><label style="padding-left: 5px;padding-right: 10px;"> UPS</label><img src="../Images/ups_logo.jpg" width="55px" height="55px"/><br>
+        <input type="radio" name="shipper" value="2"><label style="padding-left: 5px;padding-right: 10px;"> FedEx</label><img src="../Images/fedex_logo.png" width="80px" height="80px"/><br>
+        <input type="radio" name="shipper" value="3"><label style="padding-left: 5px;padding-right: 10px;">USPS</label><img src="../Images/usps-logo.png" width="90px" height="90px"/>
     </div>
 </div>
 <hr>

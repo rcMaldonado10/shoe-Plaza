@@ -5,7 +5,14 @@ $connect = mysqli_connect("localhost","root","","shoeplaza");
 
 $details = $_POST['Details'];
 $query="SELECT * FROM shoe WHERE ProductID=$details";
+if(isset($_POST['buttonSize']))
+{
+  $size = $_POST['buttonSize'];
+  $_SESSION['size'] = $size;
 
+  //header("location:shopping_bag/viewCart.php");
+}
+//action="shopping_bag/viewCart.php?action=add&id=<?php echo $row["ProductID"]; "
 $result = mysqli_query($connect, $query);
 
 if(mysqli_num_rows($result) > 0){
@@ -31,35 +38,56 @@ if(mysqli_num_rows($result) > 0){
             <h3 style="float:;">Details: <?=$row['Details']?></h3><br>
             <h3>Category: <?=$row['Category']?></h3>
             <h3>Price: $<?=$row['Price']?></h3>
-            <h3>In Stock: <?=$row['Quantity_Stock']?> Available </h3>
+            <h3>In Stock <br> Size 6: <?=$row['6']?> <br> Size 7: <?=$row['7']?> <br> Size 8: <?=$row['8']?> <br> Size 9: <?=$row['9']?> <br> Size 10: <?=$row['10']?>  </h3>
             <h3 for="Quantity_Stock">Quantity: </h3>
 
           <div style="float: ; padding: 0 200px 0 0px;">
-            <input type="number" name="quantity" min="1" max=<?php echo $row["Quantity_Stock"]; ?>  value="1"  class="form-control text-center">
+            <input type="number" name="quantity" min="1" max= "10"  value="1"  class="form-control text-center">
             <br>
-            <h3 for="size">Size: </h3>
-            <select name="size" id="size" class="form-control">
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-            </select><br>
 
             <input type="hidden" name="hidden_id" value="<?php echo $row["ProductID"]; ?>" />
+            <?php $_SESSION["ProductID"] = $row["ProductID"]; ?>
             <input type="hidden" name="hidden_price" value="<?php echo $row["Price"]; ?>" />
             <input type="hidden" name="hidden_stock_check" value="quantity" />
             <!-- <input type="hidden" name="hidden_Sise" value="size" /> -->
-            <?php if($row['Quantity_Stock'] == 0){ ?>
 
-              <label class="btn btn-danger">Sold</label>
-
-            <?php }else { ?>
-            <input type="submit" name="add_to_cart" class="btn btn-warning" value="Add to Cart" />
-
+            <?php
+            $Size6 = "<input type='submit' name='buttonSize' class='btn btn-warning' value='6' />";
+            $Size7 = "<input type='submit' name='buttonSize' class='btn btn-warning' value='7' />";
+            $Size8 = "<input type='submit' name='buttonSize' class='btn btn-warning' value='8' />";
+            $Size9 = "<input type='submit' name='buttonSize' class='btn btn-warning' value='9' />";
+            $Size10 = "<input type='submit' name='buttonSize' class='btn btn-warning' value='10' />";
+              if($row['6'] == 0)
+              {
+                $Size6 = "<label class='btn btn-danger'>Sold</label>";
+              }
+              if($row['7'] == 0)
+              {
+                $Size7 = "<label class='btn btn-danger'>Sold</label>";
+              }
+              if($row['8'] == 0)
+              {
+                $Size8 = "<label class='btn btn-danger'>Sold</label>";
+              }
+              if($row['9'] == 0)
+              {
+                $Size9 = "<label class='btn btn-danger'>Sold</label>";
+              }
+              if($row['10'] == 0)
+              {
+                $Size10 = "<label class='btn btn-danger'>Sold</label>";
+              }
+              ?>
+              <h3 for="size">Size: </h3>
+              <?php
+              echo $Size6;
+              echo $Size7 ;
+              echo  $Size8 ;
+              echo  $Size9 ;
+              echo  $Size10;
+               ?>
               </form>
 
-            <?php  } ?>
 
 
 
@@ -76,5 +104,5 @@ if(mysqli_num_rows($result) > 0){
 } else {
     echo '<h1 style="text-align:center;">No shoe was selected</h1>';
 }
-  
+
 ?>
