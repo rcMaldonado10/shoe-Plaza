@@ -153,6 +153,18 @@ $resultHas_a =  mysqli_query($con, $sqlHas_a) or die("Bad query: $sqlHas_a");
                 <option value="Massachusets">Massachusets</option>
                 <option value="New York">New York</option>
                 <option value="Texas">Texas</option>
+                <option value="California">California</option>
+                <option value="Tennesse">Tennesse</option>
+                <option value="Ohio">Ohio</option>
+                <option value="Alabama">Alabama</option>
+                <option value="Utah">Utah</option>
+                <option value="Nevada">Nevada</option>
+                <option value="Idaho">Idaho</option>
+                <option value="Alaska">Alaska</option>
+                <option value="Washington">Washington</option>
+                <option value="Iowa">Iowa</option>
+                <option value="Connecticut">Connecticut</option>
+                <option value="Arizona">Arizona</option>
               </select>
              </div>
 
@@ -199,6 +211,18 @@ $resultHas_a =  mysqli_query($con, $sqlHas_a) or die("Bad query: $sqlHas_a");
                   <option value="Massachusets">Massachusets</option>
                   <option value="New York">New York</option>
                   <option value="Texas">Texas</option>
+                  <option value="California">California</option>
+                  <option value="Tennesse">Tennesse</option>
+                  <option value="Ohio">Ohio</option>
+                  <option value="Alabama">Alabama</option>
+                  <option value="Utah">Utah</option>
+                  <option value="Nevada">Nevada</option>
+                  <option value="Idaho">Idaho</option>
+                  <option value="Alaska">Alaska</option>
+                  <option value="Washington">Washington</option>
+                  <option value="Iowa">Iowa</option>
+                  <option value="Connecticut">Connecticut</option>
+                  <option value="Arizona">Arizona</option>
                 </select>
             </div>
 
