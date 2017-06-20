@@ -1,6 +1,6 @@
 <?php
 include 'recycle/topbar.php';
-
+$db= mysqli_connect("localhost", "root", "", "shoeplaza");
 ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -22,6 +22,15 @@ include 'recycle/topbar.php';
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
+          <?php
+
+          //$CosID = $_SESSION['cosCustomerID'];
+          //echo $CosID;
+          //     SELECT CompanyID,order_.Credit_Payment,has.CustomerID,order_.OrderID from has,order_,is_in,shipper where has.CustomerID = '2'GROUP BY order_.OrderID
+          $sql ="select * from order_, is_in where order_.OrderID= is_in.OrderID GROUP by DateOrderMade";
+          $result=mysqli_query($db,$sql) or die("Bad query: $sql");
+
+          ?>
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Report Sales by day</h3>
@@ -31,150 +40,44 @@ include 'recycle/topbar.php';
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Day</th>
-                  <th>Event</th>
-                  <th>Status</th>
-                  <th>customer email</th>
+                  <th>Day <small>(Year-Month-Day)</small></th>
+                  <!-- <th>Event</th>
+                  <th>Status</th> -->
+                  <!-- <th>customer email</th> -->
                   <th>Amount Earn</th>
                 </tr>
                 </thead>
                 <tbody>
+                  <?php
 
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale
+                  while ($row =mysqli_fetch_array($result))
+                  {
+                    $Total_Price = 0;
+                    $sql2="select price, is_in.ProductID,Size,is_in.Quantity from order_, is_in,shoe where order_.OrderID = is_in.OrderID and is_in.OrderID = $row[OrderID] and is_in.ProductID = shoe.ProductID";
+                    $result2=mysqli_query($db,$sql2) or die("Bad query: $sql2");
+                    while ($row2 =mysqli_fetch_array($result2))
+                    {
+                      $Total_Price = $Total_Price + $row2['price'];
+                    }
+                    // $sqlShipper = "SELECT CompanyName from shipper where CompanyID = $row[CompanyID]";
+                    // $resultShipper=mysqli_query($db,$sqlShipper) or die("Bad query: $sqlShipper");
+                    // $rowShipper =mysqli_fetch_array($resultShipper);
+                    // $sqlCredit = "SELECT Number from customer_credit_card where Credit_Card_ID = $row[Credit_Payment]";
+                    // $resultCredit=mysqli_query($db,$sqlCredit) or die("Bad query: $sqlCredit");
+                    // $rowCredit =mysqli_fetch_array($resultCredit);
+                    // echo $row['ProductID'] ;
+                  ?>
+
+                  <tr><?php $day = explode(" ",$row['DateOrderMade'])  ?>
+                    <td><?php echo $day[0] ?></td>
+                    <!-- <td>sale
                     </td>
                     <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
+                    <td>ex@gmail.com</td> -->
+                    <td><?php echo $Total_Price; ?></td>
+
                   </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale
-                    </td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/15/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/16/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/16/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/16/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/17/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/17/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/17/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/18/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/18/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/18/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/19/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
-                  <tr>
-                    <td>09/19/2017</td>
-                    <td>sale</td>
-                    <td>paid</td>
-                    <td>ex@gmail.com</td>
-                    <td>$65.99</td>
-                  </tr>
+                    <?php  } ?>
                 </tfoot>
               </table>
             </div>
@@ -183,6 +86,7 @@ include 'recycle/topbar.php';
           <!-- /.box -->
 
           <!--WEEK -->
+
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Report Sales by week</h3>
@@ -191,6 +95,10 @@ include 'recycle/topbar.php';
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
+                  <form method="post" action="data1.php">
+                    <input type="date" name="today" value="<?php echo date("Y-m-d");?>">
+                    <input type="submit" name="a">
+                </form>
                 <tr>
                   <th>Week</th>
                   <th>Event</th>

@@ -67,7 +67,7 @@
                             //$rowShoe =mysqli_fetch_array($resultShoe);
                             // echo $row['ProductID'] ;?>
                             <?php $credit = explode(" ",$rowCredit["Number"])  ?>
-                      <td><?php echo $credit[3]; ?></td>
+                      <td><?php echo "**** **** **** " . $credit[3]; ?></td>
 
                       <td><button type="submit" name = "IdOrder"  value= <?php echo $row["OrderID"] ?> >ViewOrder</button></td>
                       </tr>

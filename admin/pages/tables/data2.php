@@ -12,7 +12,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
     <section class="content-header">
       <h1>
         Report Order
-        <small>by Order ID, Customer ID and Product ID</small>
+        <!-- <small>by Order ID, Customer ID and Product ID</small> -->
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -31,11 +31,11 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
             <form method="post" action="data22.php?>">
             <!--WEEK -->
             <?php
-            $db= mysqli_connect("localhost", "root", "", "shoeplaza");
+            
             //$CosID = $_SESSION['cosCustomerID'];
             //echo $CosID;
             //     SELECT CompanyID,order_.Credit_Payment,has.CustomerID,order_.OrderID from has,order_,is_in,shipper where has.CustomerID = '2'GROUP BY order_.OrderID
-            $sql ="SELECT CompanyID,order_.Credit_Payment,order_.OrderID from has,order_,is_in,shipper GROUP by order_.OrderID";
+            $sql ="SELECT CompanyID,order_.Credit_Payment,order_.OrderID,CustomerID from has,order_,is_in,shipper GROUP by order_.OrderID";
             $result=mysqli_query($db,$sql) or die("Bad query: $sql");
 
             ?>
@@ -50,7 +50,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
                   <tr>
                     <th> OrderID </th>
                     <th> Company </th>
-                    <!-- <th>Quantity</th> -->
+                    <th> Customer </th>
                     <th> Credit Payment </th>
                   </tr>
                   </thead>
@@ -71,10 +71,11 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
                     <tr>
                     <td><?php echo $row["OrderID"]; ?></td>
                     <td><?php echo $rowShipper["CompanyName"]; ?></td>
-                    <?php //$sqlShoe = "SELECT 'img-source' from shoe where ProductID = $row[ProductID]";
-                          //$resultShoe=mysqli_query($db,$sqlShoe) or die("Bad query: $sqlShoe");
-                          //$rowShoe =mysqli_fetch_array($resultShoe);
-                          // echo $row['ProductID'] ;?>
+                    <?php $sqlCus = "SELECT Full_Name from customer where CustomerID =  $row[CustomerID]";
+                          $resultCus=mysqli_query($db,$sqlCus) or die("Bad query: $sqlCus");
+                          $rowCus =mysqli_fetch_array($resultCus);
+                          echo $row['CustomerID'] ;?>
+                          <td><?php echo $rowCus["Full_Name"]; ?></td>
                           <?php $credit = explode(" ",$rowCredit["Number"])  ?>
                     <td><?php echo "**** **** **** ".$credit[3]; ?></td>
 
