@@ -38,7 +38,6 @@ if(mysqli_num_rows($result) > 0){
             <h3 style="float:;">Details: <?=$row['Details']?></h3><br>
             <h3>Category: <?=$row['Category']?></h3>
             <h3>Price: $<?=$row['Price']?></h3>
-            <h3>In Stock <br> Size 6: <?=$row['6']?> <br> Size 7: <?=$row['7']?> <br> Size 8: <?=$row['8']?> <br> Size 9: <?=$row['9']?> <br> Size 10: <?=$row['10']?>  </h3>
             <h3>Quantity: </h3>
 
           <div style="float: ; padding: 0 200px 0 0px;">
