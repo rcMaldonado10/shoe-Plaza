@@ -33,7 +33,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
                         $db= mysqli_connect("localhost", "root", "", "shoeplaza");
                         //echo $CosID;
                         $OrderID = $_POST['IdOrder'];
-                        echo $OrderID;
+                        //echo $OrderID;
                              //SELECT CompanyID,order_.status,order_.DateOrderMade,order_.Credit_Payment, is_in.ProductID,is_in.Quantity,is_in.OrderID  from has,order_,is_in,shipper  where order_.OrderID = 53       and order_.OrderID = has.OrderID and has.OrderID = 53       and has.OrderID = is_in.OrderID and has.CustomerID = 2   GROUP BY is_in.ProductID
                         $sql ="SELECT CompanyID,order_.status,order_.DateOrderMade,order_.Credit_Payment, is_in.ProductID,is_in.Quantity,is_in.OrderID,Size  from has,order_,is_in,shipper  where order_.OrderID = $OrderID and order_.OrderID = has.OrderID and has.OrderID = $OrderID and has.OrderID = is_in.OrderID  GROUP BY is_in.ProductID";
                         $result=mysqli_query($db,$sql) or die("Bad query: $sql");
@@ -41,7 +41,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
                         ?>
                         <div class="box">
                         <center>  <div class="box-header">
-                            <h3 class="box-title">Your history order Where</h3>
+                            <h3 class="box-title">Order Made</h3>
                           </div>
                           <!-- /.box-header -->
                           <div class="box-body">
@@ -80,7 +80,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
                                       //$resultShoe=mysqli_query($db,$sqlShoe) or die("Bad query: $sqlShoe");
                                       //$rowShoe =mysqli_fetch_array($resultShoe);
                                       // echo $row['ProductID'] ;?>
-                                      
+
                                 <td><img src="../../../<?php echo $rowShoe['img-source']; ?>" width="100" height="100" alt="Shoe"/></td>
 
                                 <td><?php echo $rowShoe['Brand']." ".$rowShoe['Model'] ;?> </td>

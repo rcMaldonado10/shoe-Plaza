@@ -1,6 +1,6 @@
 
 <?php
-// UPDATE PRODUCT
+// UPDATE Customer
 include 'recycle/topbar.php';
 
 $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connect");
@@ -14,13 +14,13 @@ $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connec
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Update Customer
+        Update Customers
         <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Update</a></li>
-        <li class="active">Update Customer</li>
+        <li class="active">Update Customers</li>
       </ol>
     </section>
 
@@ -29,7 +29,7 @@ $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connec
           <!--.box -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table Of Customer</h3>
+              <h3 class="box-title">Data Table Of Customers</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

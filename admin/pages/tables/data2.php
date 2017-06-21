@@ -31,7 +31,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
             <form method="post" action="data22.php?>">
             <!--WEEK -->
             <?php
-            
+
             //$CosID = $_SESSION['cosCustomerID'];
             //echo $CosID;
             //     SELECT CompanyID,order_.Credit_Payment,has.CustomerID,order_.OrderID from has,order_,is_in,shipper where has.CustomerID = '2'GROUP BY order_.OrderID
@@ -41,7 +41,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
             ?>
             <div class="box">
             <center>  <div class="box-header">
-                <h3 class="box-title">Your history order Where</h3>
+                <h3 class="box-title">Order Made</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
