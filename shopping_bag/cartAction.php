@@ -65,7 +65,7 @@
 
               //echo"<br> New_Quantity: " . $New_Quantity . "<br>";
 
-              $sql5 = "UPDATE `shoe` SET `$values[item_size]`= '$New_Quantity' WHERE `ProductID`= $values[item_id] ";
+              $sql5 = "UPDATE `shoe` SET `$size`= '$New_Quantity' WHERE `ProductID`= $values[item_id] ";
               $result5 = mysqli_query($connect,$sql5) or die("Bad query: $sql5");
 
 
