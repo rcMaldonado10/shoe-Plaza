@@ -27,6 +27,7 @@ $db= mysqli_connect("localhost", "root", "", "shoeplaza");
           {
             $date = date('Y-m-d', strtotime($_POST['today']));
             echo "Today is $date";
+            echo "7 days from today: ";
           }
           //$CosID = $_SESSION['cosCustomerID'];
           //echo $CosID;

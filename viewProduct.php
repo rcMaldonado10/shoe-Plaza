@@ -12,6 +12,7 @@ if(isset($_POST['buttonSize']))
 
   //header("location:shopping_bag/viewCart.php");
 }
+
 //action="shopping_bag/viewCart.php?action=add&id=<?php echo $row["ProductID"]; "
 $result = mysqli_query($connect, $query);
 
@@ -99,13 +100,14 @@ if(mysqli_num_rows($result) > 0){
 
 <!--Right side grid-->
 <div class="col-md-2"></div>
-
+<input type="button" onclick="alert('<?php echo $query; ?>')" value="Querys">
 <?php
 } else {
     echo '<h1 style="text-align:center;">No shoe was selected</h1>';
 }
 
 ?>
+
 <div class="copyright">
   <ul class="pagination">
 <li><a href="home.php">1</a></li>

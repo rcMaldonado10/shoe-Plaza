@@ -35,6 +35,6 @@ include 'includes/checkbox.php';
  <?php
 include 'includes/footer.php';
  ?>
-
+<input type="button" onclick="alert('<?php echo $query; ?>')" value="Querys">
 </body>
 </html>
