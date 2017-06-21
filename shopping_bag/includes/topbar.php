@@ -83,7 +83,7 @@ function filterShoe($query){
                 <?php if(isset($_SESSION["cosCustomerID"]) == ""){ ?>
                     <li><a href="../singUpPage.php">Sign Up/Sign In</a></li>
                 <?php } ?>
-               <li><a href="shopping_bag/viewCart.php?var=<?=$_SESSION["cosCustomerID"]?>" class="glyphicon glyphicon-shopping-cart" title="View Cart"></a></li>
+               <li><a href="../shopping_bag/viewCart.php?var=<?=$_SESSION["cosCustomerID"]?>" class="glyphicon glyphicon-shopping-cart" title="View Cart"></a></li>
 
                 <?php if(isset($_SESSION["cosCustomerID"]) != ""){ ?>
                   <li class="dropdown">
