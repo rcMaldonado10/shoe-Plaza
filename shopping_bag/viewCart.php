@@ -8,6 +8,9 @@ session_set_cookie_params(0);
 
     if($_POST["quantity"]<= $_POST["hidden_stock_check"])
     {
+      if($_POST['buttonSize'] == 0){
+        echo '<script>alert("Could not add product")</script>';
+      }else{
 
       if(isset($_SESSION["shopping_cart"]))
       {
@@ -42,6 +45,7 @@ session_set_cookie_params(0);
            );
            $_SESSION["shopping_cart"][0] = $item_array;
       }
+    }
     }else{
   echo '<script>alert("The Quantity you selected is higher than the stock available")</script>';
 

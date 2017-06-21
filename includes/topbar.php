@@ -91,7 +91,7 @@ function filterShoe($query){
               <ul class="dropdown-menu">
                 <li><a href="userSettings.php">Update Account Settings</a></li>
                 <li><a href="historyOrder.php">History of Order </a> </li>
-                <li><a href="addNewCard.php">Add Card</a></li>
+                <li><a href="addNewCard.php">Add New Credit Card</a></li>
                 <li><a href="logout.php">Sign out</a></li>
               </ul>
             </li>

@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Add Card</title>
+  <title>Add New Credit Card</title>
   <meta charset="utf-8" />
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,7 +70,7 @@ if(isset($_POST['ADD']))
   <form method="post" action="addNewCard.php">
     <div class="form-container">
       <div class="personal-information">
-        <h1>Add Credit Card</h1>
+        <h1>Add New Credit Card</h1>
       </div> <!-- end of personal-information -->
 
         <div class="field-wrap">

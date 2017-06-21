@@ -32,7 +32,7 @@ if(isset($_POST['register_btn'])){
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Shoe Plaza Admin | Registration Page</title>
+  <title>Shoe Plaza Admin | Sign Up Page</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -56,11 +56,12 @@ if(isset($_POST['register_btn'])){
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <b>Shoe Plaza </b>Admin
+    <b>Shoe Plaza </b>Admin<br>
+    Sign Up
   </div>
 
   <div class="register-box-body">
-    <p class="login-box-msg">Register a new membership</p>
+    <p class="login-box-msg">Sign up a new membership</p>
 
     <form action="register.php" method="post">
       <div class="form-group has-feedback">
@@ -89,7 +90,7 @@ if(isset($_POST['register_btn'])){
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" name ="register_btn" class="btn btn-primary btn-block btn-flat" value="Register">Register</button>
+          <button type="submit" name ="register_btn" class="btn btn-primary btn-block btn-flat" value="Register">Sign Up</button>
         </div>
         <!-- /.col -->
       </div>
