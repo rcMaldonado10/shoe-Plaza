@@ -26,7 +26,7 @@
               $CosID = $_SESSION['cosCustomerID'];
               //echo $CosID;
               $OrderID = $_POST['IdOrder'];
-              echo $OrderID;
+            //  echo $OrderID;
                    //SELECT CompanyID,order_.status,order_.DateOrderMade,order_.Credit_Payment, is_in.ProductID,is_in.Quantity,is_in.OrderID  from has,order_,is_in,shipper  where order_.OrderID = 53       and order_.OrderID = has.OrderID and has.OrderID = 53       and has.OrderID = is_in.OrderID and has.CustomerID = 2   GROUP BY is_in.ProductID
               $sql ="SELECT CompanyID,order_.status,order_.DateOrderMade,order_.Credit_Payment, is_in.ProductID,is_in.Quantity,is_in.OrderID,Size  from has,order_,is_in,shipper  where order_.OrderID = $OrderID and order_.OrderID = has.OrderID and has.OrderID = $OrderID and has.OrderID = is_in.OrderID and has.CustomerID = '$CosID' GROUP BY is_in.ProductID";
               $result=mysqli_query($db,$sql) or die("Bad query: $sql");

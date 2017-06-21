@@ -26,7 +26,7 @@
               $CosID = $_SESSION['cosCustomerID'];
               //echo $CosID;
               //     SELECT CompanyID,order_.Credit_Payment,has.CustomerID,order_.OrderID from has,order_,is_in,shipper where has.CustomerID = '2'GROUP BY order_.OrderID
-              $sql ="SELECT CompanyID,order_.Credit_Payment,order_.OrderID from has,order_,is_in,shipper where  has.CustomerID = '$CosID' GROUP by order_.OrderID";
+              $sql ="SELECT CompanyID,order_.Credit_Payment,order_.OrderID from has,order_,is_in,shipper where  has.CustomerID = '$CosID' GROUP by order_.OrderID DESC";
               $result=mysqli_query($db,$sql) or die("Bad query: $sql");
 
               ?>

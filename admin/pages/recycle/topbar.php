@@ -130,7 +130,7 @@
             <li class="active"><a href="forms/general.php"><i class="fa fa-circle-o"></i>Add/Delete Product</a></li>
             <li class="active"><a href="forms/general3.php"><i class="fa fa-circle-o"></i>Update Products</a></li>
             <li class="active"><a href="form/general4.php"><i class="fa fa-circle-o"></i>Update Customers</a></li>
-            <li class="active"><a href="forms/general2.php"><i class="fa fa-circle-o"></i>Add User and/or Admin</a></li>
+            <li class="active"><a href="forms/general2.php"><i class="fa fa-circle-o"></i>Add Customer and Admin</a></li>
           </ul>
         </li>
         <li class="treeview">

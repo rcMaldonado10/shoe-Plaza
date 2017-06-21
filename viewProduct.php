@@ -47,6 +47,9 @@ if(mysqli_num_rows($result) > 0){
             <input type="hidden" name="hidden_id" value="<?php echo $row["ProductID"]; ?>" />
             <?php $_SESSION["ProductID"] = $row["ProductID"]; ?>
             <input type="hidden" name="hidden_price" value="<?php echo $row["Price"]; ?>" />
+            <input type="hidden" name="hidden_name" value="<?php echo $row["Brand"]; ?>" />
+            <input type="hidden" name="hidden_model" value="<?php echo $row["Model"]; ?>" />
+            <input type="hidden" name="hidden_gender" value="<?php echo $row["Gender"]; ?>" />
             <input type="hidden" name="hidden_stock_check" value="quantity" />
             <!-- <input type="hidden" name="hidden_Sise" value="size" /> -->
 
@@ -136,6 +139,8 @@ if(mysqli_num_rows($result) > 0){
 }
 
 ?>
+<input type="button" onclick="alert('<?php echo $query; ?>')" value="Querys">
+
 <div class="copyright">
 <p>*Your email address will be subject to the terms and conditions of our Privacy Policy.
 <p>© 2017 Shoe-Plaza.com, Inc. or its affiliates. Shoe-Plaza.com is operated by XAMPP.</p>
