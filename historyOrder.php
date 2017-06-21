@@ -12,7 +12,7 @@
 </head>
 <body>
   <div class="form" >
-          <h1>History Order</h1>
+          <h1>History of Order</h1>
 
           <div class="row">
             <div class="col-xs-12">
@@ -32,7 +32,7 @@
               ?>
               <div class="box">
               <center>  <div class="box-header">
-                  <h3 class="box-title">Your history order Where</h3>
+                  <h3 class="box-title">Your history order are:</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
