@@ -7,7 +7,7 @@ if(isset($_GET['cat'])){
     $category = $_GET['cat'];
     if($category == "sport"){
       $query = "SELECT * FROM shoe WHERE Gender='M' AND Category='Sport'";
-    } else if($category == "casual"){  
+    } else if($category == "casual"){
       $query = "SELECT * FROM shoe WHERE Gender='M' AND Category='Casual'";
     } else if($category == "fashion"){
         $query = "SELECT * FROM shoe WHERE Gender='M' AND Category='Fashion'";
@@ -16,6 +16,7 @@ if(isset($_GET['cat'])){
 ?>
   <div class="break" ></div>
  <h1 style="text-align: center;">Men</h1>
+ <input type="button" onclick="alert('<?php echo $query; ?>')" value="Querys">
   <?php
  include 'includes/checkbox.php';
  ?>

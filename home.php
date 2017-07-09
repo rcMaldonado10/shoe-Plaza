@@ -7,7 +7,7 @@ $_SESSION["message"] = 1;
 
 <div class="break" ></div>
  <h1 style="text-align: center;">Home</h1>
-
+<input type="button" onclick="alert('<?php echo $query; ?>')" value="Querys">
  <?php
 include 'includes/checkbox.php';
  //echo $_SESSION['cosCustomerID']; //ID del cliente
@@ -38,5 +38,5 @@ include 'includes/footer.php';
  ?>
 
 </body>
-<input type="button" onclick="alert('<?php echo $query; ?>')" value="Querys">
+
 </html>
