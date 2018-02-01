@@ -3,7 +3,7 @@
 // ADD PRODUCTS PAGE
 $db =  new mysqli("localhost", "root", "", "shoeplaza") or die("Unable to connect");
 
-if(isset($_POST['submit_data']))
+if(isset($_POST['submit_data'])) // this allows to add the product
 {
     if(isset($_FILES["fileToUpload"]) && $_FILES['fileToUpload']['size']>0)
       {
@@ -70,7 +70,7 @@ if(isset($_POST['submit_data']))
                       echo "Insert a Image";
                     }
                   }
-//
+// this if allows to delete a product using the id
 if(isset($_POST['delete'])){
 
     $sql ="DELETE FROM shoe WHERE ProductID='$_POST[delete]'";

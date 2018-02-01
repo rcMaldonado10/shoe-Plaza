@@ -12,7 +12,7 @@ include 'includes/topbar.php';
             </form></div></main>';
     }
   } else{
-    echo '<h1 style="text-align: center;">:( Sorry shoe not available at the moment.</h1>';
+    echo '<h1 style="text-align: center;">:( Sorry, shoe not available at the moment.</h1>';
   }
 ?>
  <div class="copyright">

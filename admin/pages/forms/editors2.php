@@ -42,7 +42,7 @@ include 'recycle/topbar.php';
         <div class="col-md-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Update Product</h3>
+              <h3 class="box-title">Update Customer</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
